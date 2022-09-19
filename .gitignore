@@ -3,4 +3,5 @@ tree-sitter_parsers
 
 .zhistory
 .zcompdump
-test
+test*
+test.*
