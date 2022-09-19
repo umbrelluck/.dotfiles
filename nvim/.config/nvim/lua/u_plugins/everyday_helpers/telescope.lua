@@ -34,9 +34,9 @@ telescope.setup({
         "--type",
         "file",
         "--hidden",
-        "--strip-cwd-prefix",
-        "--ignore-file",
-        ".git/"
+        "--strip-cwd-prefix"
+        -- "--ignore-file",
+        -- ".git/"
       }
     }
   },
