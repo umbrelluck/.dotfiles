@@ -1,4 +1,6 @@
-plugins
+plugin*
+tree-sitter_parsers
 
 .zhistory
 .zcompdump
+test
