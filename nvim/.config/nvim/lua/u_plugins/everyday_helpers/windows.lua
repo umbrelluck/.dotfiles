@@ -1,10 +1,10 @@
 -----------------------------------------------------------
--- Plugin for showing errors, infos, warnings
+-- PLugin for windows management and animation
 -----------------------------------------------------------
 
-local status_ok, trouble = pcall(require, 'trouble')
+local status_ok, windows = pcall(require, 'windows')
 if not status_ok then
     return
 end
 
-trouble.setup({})
+windows.setup()

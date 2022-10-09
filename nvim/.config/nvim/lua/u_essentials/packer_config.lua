@@ -15,14 +15,42 @@ if not status_ok then
     return
 end
 
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost packer_config.lua source <afile> | PackerSync
+  augroup end
+]])
+
 -- Packer as popup
--- packer.init({
---   disaply = {
---     open_fn = function()
---       return require('packer.util').float({ border = 'rounded' })
---     end,
---   },
--- })
+packer.init({
+    display = {
+        open_fn = function()
+            local result, win, buf = require('packer.util').float({
+                border = 'single',
+            }
+            -- {
+            --[[ border = {
+                    { '╭', 'FloatBorder' },
+                    { '─', 'FloatBorder' },
+                    { '╮', 'FloatBorder' },
+                    { '│', 'FloatBorder' },
+                    { '╯', 'FloatBorder' },
+                    { '─', 'FloatBorder' },
+                    { '╰', 'FloatBorder' },
+                    { '│', 'FloatBorder' },
+                },
+            } ]]
+            )
+            vim.api.nvim_win_set_option(win, 'winhighlight', 'NormalFloat:Normal')
+            return result, win, buf
+        end,
+    },
+    profile = {
+        enable = true,
+        threshold = 1, -- the amount in ms that a plugin's load time must be over for it to be included in the profile
+    },
+})
 
 return packer.startup(function(use)
 
@@ -52,6 +80,12 @@ return packer.startup(function(use)
     use { "akinsho/toggleterm.nvim", tag = '*' }
     use { 'akinsho/bufferline.nvim', tag = "v2.*" }
     use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
+    use { "anuvyklack/windows.nvim",
+        requires = {
+            "anuvyklack/middleclass",
+            "anuvyklack/animation.nvim"
+        },
+    }
     -- use 'sidebar-nvim/sidebar.nvim'
     -- use 'romgrk/barbar.nvim', -- open buffer tabs
 
@@ -79,6 +113,7 @@ return packer.startup(function(use)
 
     --     ----- debug
     use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
     use 'theHamsta/nvim-dap-virtual-text'
     -- use "Pocco81/DAPInstall.nvim"
     -- use "Pocco81/dap-buddy.nvim"
@@ -103,6 +138,6 @@ return packer.startup(function(use)
 
 
     if packer_bootstrap then
-        require('packer').sync()
+        packer.sync()
     end
 end)

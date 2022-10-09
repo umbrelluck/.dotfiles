@@ -12,15 +12,15 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- TODO: when 0.8 neovim comes, change back to this
 
--- local lsp_formatting = function(bufnr)
---     vim.lsp.buf.format({
---         filter = function(client)
---             -- apply whatever logic you want (in this example, we'll only use null-ls)
---             return client.name == "null-ls"
---         end,
---         bufnr = bufnr,
---     })
--- end
+local lsp_formatting = function(bufnr)
+    vim.lsp.buf.format({
+        filter = function(client)
+            -- apply whatever logic you want (in this example, we'll only use null-ls)
+            return client.name == "null-ls"
+        end,
+        bufnr = bufnr,
+    })
+end
 
 local sources = {
     -- null_ls.builtins.code_actions.gitrebase,

@@ -33,7 +33,7 @@ map('n', '<Leader>fn', '<cmd>enew<CR>')
 
 -- Create new window
 map('n', '<Space>v', '<cmd>vs<CR>')
-map('n', '<Space>h', '<cmd>hs<CR>')
+map('n', '<Space>h', '<cmd>split<CR>')
 
 -- Toggle search highlighting
 map('n', '<Leader>h', '<cmd>set hlsearch!<CR>')

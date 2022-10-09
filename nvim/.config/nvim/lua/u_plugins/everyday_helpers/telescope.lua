@@ -1,5 +1,5 @@
 -----------------------------------------------------------
--- Plugin for highly extendable fuzzy finding over lists
+-- Plugin for highly extendable fuzzy finding over files
 -----------------------------------------------------------
 
 local status_ok, telescope = pcall(require, 'telescope')
@@ -37,8 +37,17 @@ telescope.setup({
         "--strip-cwd-prefix"
         -- "--ignore-file",
         -- ".git/"
-      }
-    }
+      },
+      live_grep = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case"
+      },
+    },
   },
   extensions = {
   }

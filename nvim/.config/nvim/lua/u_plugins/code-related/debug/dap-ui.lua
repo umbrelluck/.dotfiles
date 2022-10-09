@@ -7,6 +7,7 @@ if not status_ok then
     return
 end
 
+-- TODO: update in 0.8 for controlls
 dapui.setup({
     icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
     mappings = {

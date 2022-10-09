@@ -33,7 +33,8 @@ require("u_plugins.everyday_helpers.telescope")
 require("u_plugins.everyday_helpers.project")
 require("u_plugins.everyday_helpers.terminal")
 require("u_plugins.everyday_helpers.trouble")
-require("u_plugins.everyday_helpers.whichkey") 
+require("u_plugins.everyday_helpers.whichkey")
+require("u_plugins.everyday_helpers.windows")
 -- require("u_plugins.everyday_helpers.sidebar")
 
 -- Nvim code-related acquisition

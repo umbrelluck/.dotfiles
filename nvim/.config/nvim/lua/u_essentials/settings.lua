@@ -3,6 +3,7 @@
 -----------------------------------------------------------
 
 local opt = vim.opt -- behaves as set
+local g = vim.g
 
 opt.timeoutlen = 500
 
@@ -21,11 +22,17 @@ opt.smartcase = true
 
 opt.splitbelow = true
 opt.splitright = true
-opt.wrap = true
+opt.wrap = false
 opt.scrolloff = 5
 
 opt.termguicolors = true
 
+opt.winwidth = 10
+opt.winminwidth = 10
+opt.equalalways = false
 -- vim.cmd('set formatoptions-=cro') --no new comment line
-vim.cmd [[ set completeopt-=menu ]]
-vim.cmd [[ set completeopt-=menuone ]]
+-- vim.cmd [[ set completeopt-=menu ]]
+-- vim.cmd [[ set completeopt-=menuone ]]
+
+g.loaded = 1
+g.loaded_netrwPlugin = 1

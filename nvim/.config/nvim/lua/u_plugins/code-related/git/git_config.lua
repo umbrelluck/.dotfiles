@@ -97,6 +97,7 @@ g_signs.setup {
         map('n', '<leader>tb', gs.toggle_current_line_blame)
         map('n', '<leader>hd', gs.diffthis)
         map('n', '<leader>hD', function() gs.diffthis('~') end)
+        -- TODO not sure if \td is taken
         map('n', '<leader>td', gs.toggle_deleted)
 
         -- Text object

@@ -19,4 +19,26 @@ ntree.setup({
         enable = true,
         ignore = false,
     },
+    log = {
+        enable = true,
+        truncate = true,
+        types = {
+            git = true,
+            profile = true,
+        },
+    },
+    view = {
+        adaptive_size = true,
+        -- centralize_selection = false,
+        -- width = 30,
+        -- side = "left",
+        -- signcolumn = "yes",
+    },
+    diagnostics = {
+        enable = true,
+        show_on_dirs = true,
+    },
+    -- float = {
+    --     enable = true,
+    -- },
 })

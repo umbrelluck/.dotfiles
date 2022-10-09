@@ -25,7 +25,7 @@ local mappings = {
     signature_help = vm.lsp.buf.signature_help,
     rename = vm.lsp.buf.rename,
     outline = "<cmd>lua print('You must have LSPsaga installed to use this.')<CR>",
-    formatting = "<cmd>lua print('You must have LSPsaga installed to use this.')<CR>",
+    formatting =function() vim.lsp.buf.format { async = true } end,
     workspace_a = vim.lsp.buf.add_workspace_folder,
     workspace_d = vim.lsp.buf.remove_workspace_folder,
     workspace_l = function() print(vm.inspect(vm.lsp.buf.list_workspace_folders())) end,
@@ -80,13 +80,13 @@ if status_ok then
 end
 
 -- TODO: when 0.8 neovim comes remove this and go for null-ls settings
-local util = require('vim.lsp.util')
+--[[ local util = require('vim.lsp.util')
 local formatting_callback = function(client, bufnr)
     vm.keymap.set('n', '<A-f>', function()
         local params = util.make_formatting_params({})
         client.request('textDocument/formatting', params, nil, bufnr)
     end, { buffer = bufnr })
-end
+end ]]
 
 -- apply keybindings only when particular lsp present
 local on_attach = function(client, bufnr)
@@ -120,7 +120,7 @@ local on_attach = function(client, bufnr)
 
 
     -- TODO: when 0.8 neovim comes remove this and go for null-ls settings
-    formatting_callback(client, bufnr)
+    -- formatting_callback(client, bufnr)
 end
 
 -- Enable language servers
