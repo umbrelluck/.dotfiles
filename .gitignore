@@ -1,5 +1,5 @@
-plugin*
-tree-sitter_parsers
+plugin*/
+tree-sitter_parsers/
 
 .zhistory
 .zcompdump
