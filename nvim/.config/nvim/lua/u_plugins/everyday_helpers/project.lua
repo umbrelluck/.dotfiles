@@ -12,7 +12,6 @@ nproject.setup({
     manual_mode = false,
 
     detection_methods = { "pattern", "lsp" },
-    -- detection_methods = { "lsp", "pattern" },
 
     patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "CMakeLists.txt", "package.json", "README*", ">*.gops" },
 

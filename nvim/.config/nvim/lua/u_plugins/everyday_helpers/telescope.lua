@@ -22,35 +22,32 @@ end
 
 telescope.setup({
   defaults = {
-    -- Default configuration for telescope goes here:
-    -- config_key = value,
     mappings = c_maps,
   },
   pickers = {
     find_files = {
       find_command = {
-        "fd",
-        ".",
-        "--type",
-        "file",
+        "rg",
+        "--ignore",
         "--hidden",
-        "--strip-cwd-prefix"
+        "--files"
+        -- "fd",
+        -- ".",
+        -- "--type",
+        -- "file",
+        -- "--hidden",
+        -- "--strip-cwd-prefix"
         -- "--ignore-file",
         -- ".git/"
       },
       live_grep = {
         "rg",
-        "--color=never",
-        "--no-heading",
-        "--with-filename",
-        "--line-number",
-        "--column",
-        "--smart-case"
+        "--ignore",
+        "--hidden",
+        "--files"
       },
     },
   },
-  extensions = {
-  }
 })
 
 telescope.load_extension("projects")
