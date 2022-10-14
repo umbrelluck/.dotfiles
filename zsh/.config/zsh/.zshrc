@@ -28,13 +28,14 @@ for script ($ZDOTDIR/scripts/*.zsh) source $script
 
 fpath=($HOME/Git/zsh-completions/src $fpath)
 
+alias sudo='doas'
 alias cupd=$ZDOTDIR/scripts/scripts_updater.sh
 alias ncdu='ncdu -e --color off'
 alias ls='ls --color'
 alias duf='duf -all -warnings'
 alias dufi='sudo duf -warnings -hide loops'
 alias echo='echo -e'
-alias rg='rg -e'
+alias rip='rg -ie'
 alias mv='mv -v'
 alias rm='rm -v'
 alias cp='cp -v'
