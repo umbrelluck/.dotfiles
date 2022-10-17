@@ -23,17 +23,14 @@ local lsp_formatting = function(bufnr)
 end
 
 local sources = {
-    -- null_ls.builtins.code_actions.gitrebase,
     null_ls.builtins.code_actions.gitsigns,
-    -- null_ls.builtins.code_actions.proselint,
     null_ls.builtins.code_actions.shellcheck,
-    null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.formatting.shellharden,
+    null_ls.builtins.formatting.beautysh,
 
-
-    -- null_ls.builtins.formatting.stylua,
-    -- null_ls.builtins.completion.luasnip,
-
-    -- null_ls.builtins.diagnostics.cppcheck,
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.completion.luasnip,
+    null_ls.builtins.diagnostics.cppcheck,
 
     null_ls.builtins.diagnostics.pylint,
     null_ls.builtins.formatting.autopep8,
@@ -87,11 +84,7 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    -- vim.lsp.buf.formatting_sync()
-                    vim.lsp.buf.formatting({ bufnr = bufnr })
-                    -- TODO 0.8
-                    -- lsp_formatting(bufnr)
+                    lsp_formatting(bufnr)
                 end,
             })
         end

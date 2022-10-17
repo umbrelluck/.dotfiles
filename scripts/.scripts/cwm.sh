@@ -7,3 +7,6 @@ else
 	sudo systemctl enable gdm
 	sudo systemctl enable NetworkManger
 fi
+
+# systemctl enable ly.service
+# systemctl disable getty@tty2.service

@@ -25,7 +25,7 @@ local mappings = {
     signature_help = vm.lsp.buf.signature_help,
     rename = vm.lsp.buf.rename,
     outline = "<cmd>lua print('You must have LSPsaga installed to use this.')<CR>",
-    formatting =function() vim.lsp.buf.format { async = true } end,
+    formatting = function() vim.lsp.buf.format { async = true } end,
     workspace_a = vim.lsp.buf.add_workspace_folder,
     workspace_d = vim.lsp.buf.remove_workspace_folder,
     workspace_l = function() print(vm.inspect(vm.lsp.buf.list_workspace_folders())) end,
@@ -72,11 +72,12 @@ if status_ok then
 end
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vm.lsp.protocol.make_client_capabilities()
+local capabilities = {} 
 local cmp_nvim_lsp
 status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
 if status_ok then
-    capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+    capabilities = cmp_nvim_lsp.default_capabilities()
+    -- capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 end
 
 -- TODO: when 0.8 neovim comes remove this and go for null-ls settings

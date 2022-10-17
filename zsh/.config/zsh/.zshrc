@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 setopt autocd
@@ -28,10 +28,13 @@ for script ($ZDOTDIR/scripts/*.zsh) source $script
 
 fpath=($HOME/Git/zsh-completions/src $fpath)
 
+bindkey  "^[[3~"  delete-char
+
 alias sudo='doas'
-alias cupd=$ZDOTDIR/scripts/scripts_updater.sh
-alias ncdu='ncdu -e --color off'
+alias las='xplr'
 alias ls='ls --color'
+alias gupd=$SCRSDIR/git_rep_updater.sh
+alias ncdu='ncdu -e --color off'
 alias duf='duf -all -warnings'
 alias dufi='sudo duf -warnings -hide loops'
 alias echo='echo -e'
@@ -44,7 +47,6 @@ alias grep='grep --color=auto'
 alias lg='lazygit'
 alias p='bpython'
 alias build='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
-alias taskm='chromium http://localhost:19999/\#menu_users\;theme\=slate\;help\=true'
 alias rpc='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rns $(pacman -Qdtq) || echo "\033[0;35m\nNo orphans to remove\n"'
 
 # macchina

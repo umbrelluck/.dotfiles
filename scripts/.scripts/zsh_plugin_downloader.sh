@@ -15,4 +15,3 @@ fi
 if [[ ! -d $ZDOTDIR/plugins/zsh-syntax-highlighting/ ]] then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 fi
-

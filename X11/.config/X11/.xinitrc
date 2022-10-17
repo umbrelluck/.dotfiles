@@ -7,4 +7,6 @@ setxkbmap us
 # exec awesome
 #exec qtile
 # exec xmonad
-exec qtile start
+# exec qtile start
+
+exec gnome-shell --wayland
