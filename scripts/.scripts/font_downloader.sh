@@ -12,7 +12,7 @@ else
     URL="$1"
 fi
 
-echo "$URL" 
+echo "$URL"
 wget -O Font.zip "$URL"
 unzip Font.zip -d ~/.fonts
 rm Font.zip

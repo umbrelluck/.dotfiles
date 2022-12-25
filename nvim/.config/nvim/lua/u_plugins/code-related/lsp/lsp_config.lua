@@ -157,3 +157,6 @@ for _, lsp in ipairs(servers) do
         capabilities = capabilities,
     })
 end
+
+local border_opts = { border = 'rounded', focusable = false, scope = 'line' }
+vim.diagnostic.config({ virtual_text = false, float = border_opts })

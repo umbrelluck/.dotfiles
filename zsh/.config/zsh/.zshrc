@@ -1,3 +1,6 @@
+# wal -R
+macchina
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -24,7 +27,6 @@ source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 for script ($ZDOTDIR/scripts/*.zsh) source $script
-# source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 fpath=($HOME/Git/zsh-completions/src $fpath)
 
@@ -32,6 +34,10 @@ bindkey  "^[[3~"  delete-char
 
 alias sudo='doas'
 alias las='xplr'
+alias pconf="p10k configure"
+alias ckupd="checkupdates"
+alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
+alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
 alias ls='ls --color'
 alias gupd=$SCRSDIR/git_rep_updater.sh
 alias ncdu='ncdu -e --color off'
@@ -46,14 +52,13 @@ alias weat='curl wttr.in'
 alias grep='grep --color=auto'
 alias lg='lazygit'
 alias p='bpython'
-alias build='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
+alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
 alias rpc='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rns $(pacman -Qdtq) || echo "\033[0;35m\nNo orphans to remove\n"'
-
-# macchina
-# wal -R
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export PATH="$PATH:$HOME/.local/bin"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"

@@ -63,6 +63,9 @@ map('n', '<C-down>', '<C-w>j', { noremap = false })
 map('n', '<C-up>', '<C-w>k', { noremap = false })
 map('n', '<C-right>', '<C-w>l', { noremap = false })
 
+map('n', '<C-d>', 'YP<CR>', { noremap = false })
+map('v', '<C-d>', 'YP<CR>', { noremap = false })
+
 -- Better indenting
 map('v', '<', '<gv')
 map('v', '>', '>gv')
