@@ -11,6 +11,10 @@ if not status_ok then
     return
 end
 
+local parser_dir = "~/.config/nvim/tree-sitter_parsers"
+
+vim.opt.runtimepath:append(parser_dir)
+
 tree_sitter.setup({
   -- A list of parser names, or "all"
   -- ensure_installed = { "c", "cpp", "lua", "python", "bash", "json" },
@@ -24,7 +28,7 @@ tree_sitter.setup({
   -- List of parsers to ignore installing (for "all")
   ignore_install = {},
 
-  parser_install_dir = "~/.config/nvim/tree-sitter_parsers",
+  parser_install_dir = parser_dir,
 
   highlight = {
     -- `false` will disable the whole extension
@@ -105,4 +109,3 @@ tree_sitter.setup({
   },
 })
 
-vim.opt.runtimepath:append("~/.config/nvim/tree-sitter_parsers")

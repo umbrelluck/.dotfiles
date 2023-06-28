@@ -121,7 +121,11 @@ return packer.startup(function(use)
     --     ----- code-related helpers
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
-    use 'nvim-treesitter/nvim-treesitter'
+    use {'nvim-treesitter/nvim-treesitter',
+         run = function()
+             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+             ts_update()
+         end,}
     use 'nvim-treesitter/nvim-treesitter-refactor'
     use 'p00f/nvim-ts-rainbow'
 

@@ -32,6 +32,7 @@ fpath=($HOME/Git/zsh-completions/src $fpath)
 
 bindkey  "^[[3~"  delete-char
 
+alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 alias sudo='doas'
 alias las='xplr'
 alias pconf="p10k configure"
@@ -54,6 +55,7 @@ alias lg='lazygit'
 alias p='bpython'
 alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
 alias rpc='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rns $(pacman -Qdtq) || echo "\033[0;35m\nNo orphans to remove\n"'
+alias rpcb='lsof +L1'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
