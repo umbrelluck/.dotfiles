@@ -1,12 +1,12 @@
-require('plugins')
-require('set')
+require(('plugins'))
+require(('set'))
 require('remaps')
 
 require('treesitter')
 
 require('mason_lsp')
 require('autocmp')
-require('autopairs')
+require('comments')
 
 require('telescope_c')
 require('harpoon_c')
