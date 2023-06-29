@@ -22,13 +22,19 @@ zstyle ':completion:*' rehash true
 
 prompt oliver
 
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZDOTDIR/plugins/powerlevel10k/powerlevel10k.zsh-theme
+source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
-for script ($ZDOTDIR/scripts/*.zsh) source $script
+for script ($ZDOTDIR/.zsh/scripts/*.zsh) source $script
 
 fpath=($HOME/Git/zsh-completions/src $fpath)
+
+
+# fzf bindings and completions
+#export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 bindkey  "^[[3~"  delete-char
 
