@@ -6,6 +6,7 @@ require('treesitter')
 
 require('mason_lsp')
 require('autocmp')
+require('autopairs')
 
 require('telescope_c')
 require('harpoon_c')

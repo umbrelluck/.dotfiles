@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
 	use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
 	use 'L3MON4D3/LuaSnip'  -- Snippets plugin
 
+    use "windwp/nvim-autopairs"
+
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
 		requires = {  'nvim-lua/plenary.nvim'  }
