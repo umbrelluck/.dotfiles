@@ -39,12 +39,15 @@ return require('packer').startup(function(use)
 
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.1',
-		requires = { { 'nvim-lua/plenary.nvim' } }
+		requires = {  'nvim-lua/plenary.nvim'  }
 	}
-	use "debugloop/telescope-undo.nvim"
 
 	use "ThePrimeagen/harpoon"
-	use "mbbill/undotree"
+	use {
+		"jiaoshijie/undotree",
+		requires = {    "nvim-lua/plenary.nvim",  },
+	}
+
 
 	-- =========== Highlighting ==========
 	use {

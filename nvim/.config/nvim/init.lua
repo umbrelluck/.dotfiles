@@ -1,4 +1,5 @@
 require('plugins')
+require('set')
 require('remaps')
 
 require('treesitter')
@@ -8,5 +9,6 @@ require('autocmp')
 
 require('telescope_c')
 require('harpoon_c')
+require('undotree_c')
 
 require('themes')

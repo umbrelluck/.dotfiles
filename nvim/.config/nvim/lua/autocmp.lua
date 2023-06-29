@@ -10,7 +10,7 @@ if not status_ok then
 	return
 end
 
-cmp.setup ({
+cmp.setup({
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)
@@ -19,8 +19,8 @@ cmp.setup ({
 	mapping = cmp.mapping.preset.insert({
 		['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
 		['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
-		-- C-b (back) C-f (forward) for snippet placeholder navigation.
 		['<C-Space>'] = cmp.mapping.complete(),
+		['<A-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm {
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
