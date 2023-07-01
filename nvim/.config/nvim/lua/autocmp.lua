@@ -10,6 +10,34 @@ if not status_ok then
     return
 end
 
+local kind_icons = {
+    Text = "",
+    Method = "",
+    Function = "󰊕",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "",
+    Interface = "",
+    Module = "",
+    Property = "",
+    Unit = "",
+    Value = "󰎠",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+}
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -18,7 +46,7 @@ cmp.setup({
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-u>'] = cmp.mapping.scroll_docs(-4), -- Up
-        ['<C-d>'] = cmp.mapping.scroll_docs(4), -- Down
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),  -- Down
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<A-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm {
@@ -50,6 +78,19 @@ cmp.setup({
         { name = 'buffer' },
         { name = 'path' },
     },
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.kind = string.format('     %s %s', kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.menu = ({
+                buffer = "[Buffer]",
+                nvim_lsp = "[LSP]",
+                luasnip = "[LuaSnip]",
+                nvim_lua = "[Lua]",
+                latex_symbols = "[LaTeX]",
+            })[entry.source.name]
+            return vim_item
+        end
+    },
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -77,8 +118,24 @@ if not status_ok then
 end
 
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-autopairs.setup({})
+
+autopairs.setup({
+    enable_check_bracket_line = false,
+    ignored_next_char = "[%w%.]",
+    fast_wrap = {
+        map = '<M-e>',
+        chars = { '{', '[', '(', '"', "'" },
+        pattern = [=[[%'%"%>%]%)%}%,]]=],
+        end_key = '$',
+        keys = 'qwertyuiopzxcvbnmasdfghjkl',
+        check_comma = true,
+        manual_position = true,
+        highlight = 'Search',
+        highlight_grey = 'Comment'
+    },
+})
+
 cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
 )

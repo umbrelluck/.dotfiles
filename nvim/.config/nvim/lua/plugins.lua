@@ -38,11 +38,17 @@ return require('packer').startup(function(use)
     use 'L3MON4D3/LuaSnip'         -- Snippets plugin
 
     use "windwp/nvim-autopairs"
+    use 'windwp/nvim-ts-autotag'
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         requires = { 'nvim-lua/plenary.nvim' }
     }
+
+    use "rcarriga/nvim-notify"
+    use { 'folke/noice.nvim',
+        requires = { 'MunifTanjim/nui.nvim' } }
+
 
     use 'numToStr/Comment.nvim'
 
@@ -52,9 +58,18 @@ return require('packer').startup(function(use)
         requires = { "nvim-lua/plenary.nvim", },
     }
 
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 
+    use 'akinsho/bufferline.nvim'
+
+
+    use 'xiyaowong/nvim-transparent'
     -- =========== Highlighting ==========
     use 'HiPhish/nvim-ts-rainbow2'
+    use "lukas-reineke/indent-blankline.nvim"
     use {
         "nvim-treesitter/nvim-treesitter",
         run = function()
