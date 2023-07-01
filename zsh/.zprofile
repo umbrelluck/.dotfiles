@@ -2,3 +2,8 @@
 
 # Added by Toolbox App
 export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
+
+# Ignore for now
+# export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
