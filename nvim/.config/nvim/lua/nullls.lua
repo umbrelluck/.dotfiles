@@ -5,9 +5,9 @@ end
 
 null_ls.setup({
     sources = {
-        require("null-ls").builtins.formatting.shfmt,
-        require("null-ls").builtins.formatting.beautysh,
-        require("null-ls").builtins.diagnostics.shellcheck,
-        require("null-ls").builtins.code_actions.shellcheck,
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.formatting.beautysh,
+        null_ls.builtins.diagnostics.shellcheck,
+        null_ls.builtins.code_actions.shellcheck,
     },
 })
