@@ -26,7 +26,6 @@ return require('packer').startup(function(use)
         "williamboman/mason.nvim",
         run = ":MasonUpdate"
     }
-
     use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
     use 'hrsh7th/nvim-cmp'      -- Autocompletion plugin
@@ -36,6 +35,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'     -- LSP source for nvim-cmp
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip'         -- Snippets plugin
+    use 'jose-elias-alvarez/null-ls.nvim'
 
     use "windwp/nvim-autopairs"
     use 'windwp/nvim-ts-autotag'

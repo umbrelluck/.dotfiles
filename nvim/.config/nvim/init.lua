@@ -11,6 +11,7 @@ require('notifications')
 
 require('mason_lsp')
 require('autocmp')
+require('nullls')
 require('comments')
 
 require('telescope_c')
