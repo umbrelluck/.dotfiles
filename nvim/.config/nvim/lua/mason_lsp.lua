@@ -6,13 +6,13 @@ if not status_ok then
 end
 
 mason.setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
+    -- ui = {
+    --     icons = {
+    --         package_installed = "✓",
+    --         package_pending = "➜",
+    --         package_uninstalled = "✗"
+    --     }
+    -- }
 })
 
 status_ok, mason_lspconf = pcall(require, 'mason-lspconfig')
