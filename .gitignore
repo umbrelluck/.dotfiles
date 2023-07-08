@@ -3,7 +3,7 @@ tree-sitter_parsers/
 *pycache*
 rofi-power-menu
 
+lazy-lock.json
+
 .zhistory
 .zcompdump
-test*
-test.*

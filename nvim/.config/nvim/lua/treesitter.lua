@@ -8,7 +8,7 @@ vim.opt.runtimepath:append(parser_dir)
 
 treesitter.setup({
     ensure_installed = { "vimdoc", "c", "lua", "bash" },
- -- from windwp/nvim-ts-autotag
+
     sync_install = false,
 
     auto_install = true,

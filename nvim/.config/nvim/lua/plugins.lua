@@ -20,13 +20,15 @@ require("lazy").setup({
     },
     "williamboman/mason-lspconfig.nvim",
     'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+
     'hrsh7th/nvim-cmp',      -- Autocompletion plugin
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-    'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
     'L3MON4D3/LuaSnip',         -- Snippets plugin
+    'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+
     'jose-elias-alvarez/null-ls.nvim',
 
     "windwp/nvim-autopairs",
@@ -76,93 +78,3 @@ require("lazy").setup({
     -- =========== Themes ==========
     "navarasu/onedark.nvim",
 })
-
-
-
--- vim.cmd([[
--- augroup packer_user_config
--- autocmd!
--- autocmd BufWritePost plugins.lua source <afile> | PackerCompile
--- augroup end
--- ]])
---
--- local ensure_packer = function()
---     local fn = vim.fn
---     local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
---     if fn.empty(fn.glob(install_path)) > 0 then
---         fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
---         vim.cmd [[packadd packer.nvim]]
---         return true
---     end
---     return false
--- end
---
--- local packer_bootstrap = ensure_packer()
---
--- return require('packer').startup(function(use)
---     use 'wbthomason/packer.nvim'
---
---     -- =========== LSP ==========
---     use {
---         "williamboman/mason.nvim",
---         run = ":MasonUpdate"
---     }
---     use "williamboman/mason-lspconfig.nvim"
---     use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
---     use 'hrsh7th/nvim-cmp'      -- Autocompletion plugin
---     use 'hrsh7th/cmp-buffer'
---     use 'hrsh7th/cmp-path'
---     use 'hrsh7th/cmp-cmdline'
---     use 'hrsh7th/cmp-nvim-lsp'     -- LSP source for nvim-cmp
---     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
---     use 'L3MON4D3/LuaSnip'         -- Snippets plugin
---     use 'jose-elias-alvarez/null-ls.nvim'
---
---     use "windwp/nvim-autopairs"
---     use 'windwp/nvim-ts-autotag'
---
---     use {
---         'nvim-telescope/telescope.nvim', tag = '0.1.1',
---         requires = { 'nvim-lua/plenary.nvim' }
---     }
---
---     use "rcarriga/nvim-notify"
---     use { 'folke/noice.nvim',
---         requires = { 'MunifTanjim/nui.nvim' } }
---
---
---     use 'numToStr/Comment.nvim'
---
---     use "ThePrimeagen/harpoon"
---     use {
---         "jiaoshijie/undotree",
---         requires = { "nvim-lua/plenary.nvim", },
---     }
---
---     use {
---         'nvim-lualine/lualine.nvim',
---         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
---     }
---
---     use 'akinsho/bufferline.nvim'
---
---
---     use 'xiyaowong/nvim-transparent'
---     -- =========== Highlighting ==========
---     use 'HiPhish/nvim-ts-rainbow2'
---     use "lukas-reineke/indent-blankline.nvim"
---     use {
---         "nvim-treesitter/nvim-treesitter",
---         run = function()
---             local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
---             ts_update()
---         end,
---     }
---
---     -- =========== Themes ==========
---     use "navarasu/onedark.nvim"
---
---     if packer_bootstrap then
---         require('packer').sync()
---     end
--- end)
