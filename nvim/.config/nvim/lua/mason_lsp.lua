@@ -6,13 +6,6 @@ if not status_ok then
 end
 
 mason.setup({
-    -- ui = {
-    --     icons = {
-    --         package_installed = "✓",
-    --         package_pending = "➜",
-    --         package_uninstalled = "✗"
-    --     }
-    -- }
 })
 
 status_ok, mason_lspconf = pcall(require, 'mason-lspconfig')
@@ -31,21 +24,6 @@ if not status_ok then
 end
 
 capabilities = capabilities.default_capabilities()
-
---[[ local null_ls
-status_ok, null_ls = pcall(require, 'null-ls')
-if not status_ok then
-    return
-end
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.shfmt,
-        null_ls.builtins.formatting.beautysh,
-        null_ls.builtins.diagnostics.shellcheck,
-        null_ls.builtins.code_actions.shellcheck,
-    },
-}) ]]
 
 mason_lspconf.setup({
     ensure_installed = { "lua_ls" },
@@ -72,8 +50,6 @@ mason_lspconf.setup_handlers({
         })
     end
 })
-
--- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 _G.map('n', '<space>e', vim.diagnostic.open_float)
 _G.map('n', '[d', vim.diagnostic.goto_prev)

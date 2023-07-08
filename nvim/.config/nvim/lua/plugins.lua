@@ -57,13 +57,19 @@ require("lazy").setup({
 
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons', lazy = true }
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+            'linrongbin16/lsp-progress.nvim',
+        },
+        config = function()
+            require('lsp-progress').setup()
+        end
     },
 
     'akinsho/bufferline.nvim',
 
-
     'xiyaowong/nvim-transparent',
+
     -- =========== Highlighting ==========
     'HiPhish/nvim-ts-rainbow2',
     "lukas-reineke/indent-blankline.nvim",

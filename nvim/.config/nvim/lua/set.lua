@@ -29,6 +29,6 @@ vim.opt.updatetime = 50
 
 vim.opt.laststatus = 3
 
-local filename = _G.get_filename(vim.fn.expand("%"))
-vim.opt_local.winbar = " " .. filename .. " %m %=%l:%v "
+-- local filename = _G.get_filename(vim.fn.expand("%"))
+-- vim.opt_local.winbar = " " .. filename .. " %m %=%l:%v "
 -- vim.opt_local.winbar = " " .. filename .. " %m %=%l:%v "
