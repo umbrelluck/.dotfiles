@@ -73,7 +73,7 @@ mason_lspconf.setup_handlers({
     end
 })
 
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+-- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
 _G.map('n', '<space>e', vim.diagnostic.open_float)
 _G.map('n', '[d', vim.diagnostic.goto_prev)
@@ -85,6 +85,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+        vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
         local opts = { buffer = ev.buf }
         _G.map('n', 'gD', vim.lsp.buf.declaration, opts)

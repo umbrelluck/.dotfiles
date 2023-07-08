@@ -11,8 +11,11 @@ _G.map("v", "J", ":m '>+1<CR>gv=gv")
 _G.map("v", "K", ":m '<-2<CR>gv=gv")
 
 -- buffers
--- _G.map("n", "<leader>bk", ":bnext<cr>")
--- _G.map("n", "<leader>bj", ":bprev<cr>")
+_G.map("n", "]b", ":bnext<cr>")
+_G.map("n", "[b", ":bprev<cr>")
+_G.map("n", "<leader>0", ":b#<cr>")
+_G.map("n", "vb", ":vert sb", {silent=false})
+_G.map("n", "cb", ":sb", {silent=false})
 
 -- windows
 _G.map("n", "<C-h>", "<C-w>h", { noremap = false })
@@ -27,8 +30,8 @@ _G.map("n","<C-t>", "<C-w>=", { noremap = false })
 _G.map("n", "<Leader>=", ":exe \"resize \" . (winheight(0) * 3/2)<CR>")
 _G.map("n", "<Leader>-", ":exe \"resize \" . (winheight(0) * 2/3)<CR>")
 
-_G.map("n", "vv", ":vsplit<cr>")
-_G.map("n", "cc", ":split<cr>")
+_G.map("n", "\\v", ":vsplit<cr>")
+_G.map("n", "\\x", ":split<cr>")
 
 --tabs
 _G.map("n", "tk", ":tabnext<cr>")

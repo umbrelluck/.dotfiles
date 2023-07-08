@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
 
 
     use 'xiyaowong/nvim-transparent'
+    use 'lambdalisue/suda.vim'
     -- =========== Highlighting ==========
     use 'HiPhish/nvim-ts-rainbow2'
     use "lukas-reineke/indent-blankline.nvim"

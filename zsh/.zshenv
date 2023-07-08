@@ -15,5 +15,4 @@ export EDITOR="nvim"
 # export VISUAL="nvim"
 
 export SCRSDIR="$HOME/.scripts"
-
 export GITDIR="$HOME/Git"
