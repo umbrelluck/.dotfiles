@@ -1,24 +1,26 @@
-require('globals')
+require("globals")
 
-require('plugins')
-require('remaps')
-require('set')
+require("plugins")
+require("remaps")
+require("set")
 
-require('treesitter')
+require("treesitter")
 
-require('notifications')
+require("notifications")
 -- require('noice_c')
 
-require('mason_lsp')
-require('autocmp')
-require('nullls')
-require('comments')
+require("git")
 
-require('telescope_c')
-require('harpoon_c')
-require('undotree_c')
-require('indent')
+require("mason_lsp")
+require("autocmp")
+require("nullls")
+require("comments")
 
-require('lline')
+require("telescope_c")
+require("harpoon_c")
+require("undotree_c")
+require("indent")
 
-require('themes')
+require("lline")
+
+require("themes")

@@ -28,7 +28,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.laststatus = 3
-
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 -- local filename = _G.get_filename(vim.fn.expand("%"))
 -- vim.opt_local.winbar = " " .. filename .. " %m %=%l:%v "
 -- vim.opt_local.winbar = " " .. filename .. " %m %=%l:%v "

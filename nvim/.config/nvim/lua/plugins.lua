@@ -11,67 +11,81 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 require("lazy").setup({
     -- =========== LSP ==========
     {
         "williamboman/mason.nvim",
-        build = ":MasonUpdate"
+        build = ":MasonUpdate",
     },
     "williamboman/mason-lspconfig.nvim",
-    'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+    "neovim/nvim-lspconfig", -- Collection of configurations for built-in LSP client
 
-    'hrsh7th/nvim-cmp',      -- Autocompletion plugin
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-    'L3MON4D3/LuaSnip',         -- Snippets plugin
-    'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+    "SmiteshP/nvim-navic",
+    {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = { "MunifTanjim/nui.nvim" },
+    },
 
-    'jose-elias-alvarez/null-ls.nvim',
+    "hrsh7th/nvim-cmp", -- Autocompletion plugin
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
+    "L3MON4D3/LuaSnip",         -- Snippets plugin
+    "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+
+    "jose-elias-alvarez/null-ls.nvim",
 
     "windwp/nvim-autopairs",
-    'windwp/nvim-ts-autotag',
+    "windwp/nvim-ts-autotag",
 
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.1',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.1",
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
 
     "rcarriga/nvim-notify",
     {
-        'folke/noice.nvim',
-        dependencies = { 'MunifTanjim/nui.nvim' }
+        "folke/noice.nvim",
+        dependencies = { "MunifTanjim/nui.nvim" },
     },
 
-
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
 
     "ThePrimeagen/harpoon",
     {
         "jiaoshijie/undotree",
-        dependencies = { "nvim-lua/plenary.nvim", },
+        dependencies = { "nvim-lua/plenary.nvim" },
     },
 
     {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         dependencies = {
-            'nvim-tree/nvim-web-devicons',
-            'linrongbin16/lsp-progress.nvim',
+            "nvim-tree/nvim-web-devicons",
+            "linrongbin16/lsp-progress.nvim",
         },
         config = function()
-            require('lsp-progress').setup()
-        end
+            require("lsp-progress").setup()
+        end,
     },
 
-    'akinsho/bufferline.nvim',
+    "akinsho/bufferline.nvim",
 
-    'xiyaowong/nvim-transparent',
+    "xiyaowong/nvim-transparent",
+
+
+    -- =========== Git ==========
+    {
+        'NeogitOrg/neogit',
+        dependencies = {
+            "sindrets/diffview.nvim",
+            'nvim-lua/plenary.nvim' }
+    },
+
 
     -- =========== Highlighting ==========
-    'HiPhish/nvim-ts-rainbow2',
+    "HiPhish/nvim-ts-rainbow2",
     "lukas-reineke/indent-blankline.nvim",
     {
         "nvim-treesitter/nvim-treesitter",
