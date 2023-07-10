@@ -14,16 +14,16 @@ _G.map("v", "K", ":m '<-2<CR>gv=gv")
 _G.map("n", "]b", ":bnext<cr>")
 _G.map("n", "[b", ":bprev<cr>")
 _G.map("n", "<leader>0", ":b#<cr>")
-_G.map("n", "vb", ":vert sb", {silent=false})
-_G.map("n", "cb", ":sb", {silent=false})
+_G.map("n", "vb", ":vert sb", { silent = false })
+_G.map("n", "cb", ":sb", { silent = false })
 
 -- windows
 _G.map("n", "<C-h>", "<C-w>h", { noremap = false })
 _G.map("n", "<C-j>", "<C-w>j", { noremap = false })
 _G.map("n", "<C-k>", "<C-w>k", { noremap = false })
 _G.map("n", "<C-l>", "<C-w>l", { noremap = false })
-_G.map("n","<C-c>", "<C-w>c", { noremap = false })
-_G.map("n","<C-t>", "<C-w>=", { noremap = false })
+_G.map("n", "<C-c>", "<C-w>c", { noremap = false })
+_G.map("n", "<C-t>", "<C-w>=", { noremap = false })
 
 -- _G.map("n","<C->>", "<C-w>=", { noremap = false })
 
