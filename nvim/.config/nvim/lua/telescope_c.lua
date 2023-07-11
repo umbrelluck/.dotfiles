@@ -5,12 +5,14 @@ end
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
-vim.keymap.set("n", "<leader>hg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>lg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 local telescope = require("telescope")
 local actions = require("telescope.actions")
+
+local trouble = require("trouble.providers.telescope")
 
 telescope.setup({
 	defaults = {
@@ -38,12 +40,16 @@ telescope.setup({
 				["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 				["<C-c>"] = actions.close,
 				["<CR>"] = actions.select_default + actions.center,
+
+				["<c-t>"] = trouble.open_with_trouble,
 			},
 			n = {
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
 				["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 				["<C-c>"] = actions.close,
+
+				["<c-t>"] = trouble.open_with_trouble,
 			},
 		},
 	},
@@ -51,3 +57,5 @@ telescope.setup({
 
 	require("telescope").load_extension("notify"),
 })
+
+map("n", "<leader>tt", ":Telescope<cr>")

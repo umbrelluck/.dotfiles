@@ -39,7 +39,9 @@ _G.map("n", "\\h", ":split<cr>")
 
 --tabs
 _G.map("n", "tk", ":tabnext<cr>")
+_G.map("n", "]t", ":tabnext<cr>")
 _G.map("n", "tj", ":tabNext<cr>")
+_G.map("n", "[t", ":tabNext<cr>")
 _G.map("n", "tn", ":tabnew<cr>")
 _G.map("n", "tf", ":tabfind<cr>")
 _G.map("n", "tq", ":tabclose<cr>")
@@ -78,4 +80,4 @@ _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>re", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
-_G.map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }) -- make current file executable
+_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true }) -- make current file executable

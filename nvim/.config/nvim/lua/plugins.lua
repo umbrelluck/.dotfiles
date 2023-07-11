@@ -74,6 +74,12 @@ require("lazy").setup({
 
 	"xiyaowong/nvim-transparent",
 
+	-- =========== Trouble ========
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+
 	-- =========== Git ==========
 	{
 		"NeogitOrg/neogit",
