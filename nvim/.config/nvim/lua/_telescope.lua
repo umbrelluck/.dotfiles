@@ -5,7 +5,7 @@ end
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
-vim.keymap.set("n", "<leader>lg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
@@ -16,15 +16,6 @@ local trouble = require("trouble.providers.telescope")
 
 telescope.setup({
 	defaults = {
-		find_command = {
-			"rg",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-			"--hidden",
-		},
 		color_devicons = true,
 		use_less = true,
 		file_sorter = require("telescope.sorters").get_fuzzy_file,
@@ -33,6 +24,7 @@ telescope.setup({
 		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
 		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
 		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+
 		mappings = {
 			i = {
 				["<C-j>"] = actions.move_selection_next,
@@ -53,6 +45,28 @@ telescope.setup({
 			},
 		},
 	},
+
+	pickers = {
+		find_files = {
+			find_command = {
+				"fd",
+				"--type",
+				"f",
+				"--hidden",
+			},
+		},
+		live_grep = {
+			additional_args = {
+				"--hidden",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+				"--smart-case",
+			},
+		},
+	},
+
 	extensions = {},
 
 	require("telescope").load_extension("notify"),
