@@ -10,6 +10,7 @@ require("notifications")
 -- require('noice_c')
 
 require("git")
+require("_gitsigns")
 
 require("mason_lsp")
 require("autocmp")
@@ -22,5 +23,5 @@ require("undotree_c")
 require("indent")
 
 require("lline")
-
+-- hdsg
 require("themes")

@@ -30,19 +30,18 @@ mason_lspconf.setup({
 
 local navic = require("nvim-navic")
 navic.setup({
-	lsp = {
-		auto_attach = true,
-	},
+	-- lsp = {
+	-- 	auto_attach = true,
+	-- },
 	highlight = true,
 	depth_limit = 5,
 })
 
 local navbuddy = require("nvim-navbuddy")
 navbuddy.setup({
-	lsp = {
-		auto_attach = true, -- If set to true, you don't need to manually use attach function
-		preference = nil, -- list of lsp server names in order of preference
-	},
+	-- lsp = {
+	-- 	auto_attach = true, -- If set to true, you don't need to manually use attach function
+	-- },
 })
 
 mason_lspconf.setup_handlers({
@@ -81,10 +80,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 		vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
-		-- local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		-- if client.server_capabilities.documentSymbolProvider then
-		--     navic.attach(client, ev.buf)
-		-- end
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client.server_capabilities.documentSymbolProvider then
+			navic.attach(client, ev.buf)
+			navbuddy.attach(client, ev.buf)
+		end
 
 		local opts = { buffer = ev.buf }
 		_G.map("n", "gD", vim.lsp.buf.declaration, opts)
@@ -107,3 +107,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end,
 })
+
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
