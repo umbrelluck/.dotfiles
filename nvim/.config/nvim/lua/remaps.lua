@@ -80,4 +80,4 @@ _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>re", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
-_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true }) -- make current file executable
+_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })              -- make current file executable
