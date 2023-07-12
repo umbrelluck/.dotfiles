@@ -3,11 +3,12 @@ if not ok then
 	return
 end
 
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.git_files, {})
-vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+map("n", "<leader>tt", ":Telescope<cr>")
+map("n", "<leader>ff", builtin.find_files, {})
+map("n", "<leader>fg", builtin.git_files, {})
+map("n", "<leader>gg", builtin.live_grep, {})
+map("n", "<leader>fb", builtin.buffers, {})
+map("n", "<leader>fh", builtin.help_tags, {})
 
 local telescope = require("telescope")
 local actions = require("telescope.actions")
@@ -48,12 +49,7 @@ telescope.setup({
 
 	pickers = {
 		find_files = {
-			find_command = {
-				"fd",
-				"--type",
-				"f",
-				"--hidden",
-			},
+			find_command = { "fd", "--type", "f", "--hidden" },
 		},
 		live_grep = {
 			additional_args = {
@@ -68,8 +64,6 @@ telescope.setup({
 	},
 
 	extensions = {},
-
-	require("telescope").load_extension("notify"),
 })
 
-map("n", "<leader>tt", ":Telescope<cr>")
+require("telescope").load_extension("notify")

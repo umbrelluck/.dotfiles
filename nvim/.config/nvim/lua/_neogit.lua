@@ -1,7 +1,8 @@
 local neogit = require("neogit")
-neogit.setup({})
+neogit.setup({
 
-local actions = require("diffview.actions")
-require("diffview").setup({
 	disable_commit_confirmation = true,
+	integrations = {
+		diffview = true,
+	},
 })

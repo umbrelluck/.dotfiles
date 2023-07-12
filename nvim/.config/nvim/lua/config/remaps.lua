@@ -2,13 +2,15 @@ vim.g.mapleader = " "
 
 _G.map("n", "\\q", ":q<cr>")
 _G.map("n", "\\w", ":w<cr>")
+_G.map("n", "\\a", ":wq<cr>")
 
 _G.map("n", "<leader>pv", vim.cmd.Ex)
 _G.map("n", "<A-a>", "ggVG", { noremap = false })
 
 _G.map("n", "<Leader>l", ":&&<cr>", { noremap = false })
 _G.map("v", "<Leader>l", ":&&<cr>", { noremap = false })
-_G.map("n", "<Leader>h", ":noh<cr>")
+_G.map("n", "<Leader>hh", ":noh<cr>")
+_G.map("n", "<Leader>hi", ":noh<cr>")
 
 -- move lines
 _G.map("v", "J", ":m '>+1<CR>gv=gv")
@@ -18,8 +20,9 @@ _G.map("v", "K", ":m '<-2<CR>gv=gv")
 _G.map("n", "]b", ":bnext<cr>")
 _G.map("n", "[b", ":bprev<cr>")
 _G.map("n", "<leader>0", ":b#<cr>")
-_G.map("n", "vb", ":vert sb", { silent = false })
-_G.map("n", "cb", ":sb", { silent = false })
+_G.map("n", "vb", ":vert sb<cr>", { silent = false })
+_G.map("n", "vc", ":sb<cr>", { silent = false })
+_G.map("n", "vn", ":enew<cr>", { silent = false })
 
 -- windows
 _G.map("n", "<C-h>", "<C-w>h", { noremap = false })
@@ -80,4 +83,4 @@ _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>re", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
-_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })              -- make current file executable
+_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true }) -- make current file executable
