@@ -52,5 +52,11 @@ local plugins = {
 local opts = {}
 
 require("lazy").setup({
-    {import="plugins"}
+    {import="plugins.lsp"},
+    {import="plugins.autocmp"},
+    {import="plugins.highlighting"},
+    {import="plugins.git"},
+    {import="plugins.file_hopers"},
+    {import="plugins.auxiliary"},
+    {import="plugins.themes_visuals"},
 })
