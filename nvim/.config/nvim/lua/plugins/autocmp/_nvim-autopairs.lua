@@ -1,5 +1,5 @@
 local opts = {
-    enable_check_bracket_line = false,
+    enable_check_bracket_line = true,
     ignored_next_char = "[%w%.]",
     fast_wrap = {
         map = "<M-e>",
