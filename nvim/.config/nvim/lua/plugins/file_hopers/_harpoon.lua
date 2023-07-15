@@ -1,4 +1,4 @@
-return {
+return {{
 	"ThePrimeagen/harpoon",
 	config = function()
 		local mark = require("harpoon.mark")
@@ -20,4 +20,4 @@ return {
 			ui.nav_file(4)
 		end)
 	end,
-}
+}}

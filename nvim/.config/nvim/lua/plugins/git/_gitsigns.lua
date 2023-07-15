@@ -1,4 +1,4 @@
-return {
+return {{
 	"lewis6991/gitsigns.nvim",
 	opts = {
 		on_attach = function(bufnr)
@@ -58,4 +58,4 @@ return {
 			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 		end,
 	},
-}
+}}

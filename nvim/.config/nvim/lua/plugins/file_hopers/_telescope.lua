@@ -1,4 +1,4 @@
-return {
+return {{
 	"nvim-telescope/telescope.nvim",
 	tag = "0.1.1",
 	dependencies = { "nvim-lua/plenary.nvim" },
@@ -68,4 +68,4 @@ return {
 
 		require("telescope").load_extension("notify")
 	end,
-}
+}}
