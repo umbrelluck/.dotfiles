@@ -1,8 +1,8 @@
-plugin*/
 tree-sitter_parsers/
 *pycache*
 rofi-power-menu
 
+zsh/.zsh/plugins/
 lazy-lock.json
 
 .zhistory

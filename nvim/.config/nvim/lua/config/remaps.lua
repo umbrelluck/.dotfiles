@@ -9,7 +9,8 @@ _G.map("n", "<A-a>", "ggVG", { noremap = false })
 
 _G.map("n", "<Leader>l", ":&&<cr>", { noremap = false })
 _G.map("v", "<Leader>l", ":&&<cr>", { noremap = false })
-_G.map("n", "<Leader>h", ":noh<cr>")
+_G.map("n", "<Leader>hh", ":noh<cr>")
+_G.map("n", "<Leader>hi", ":noh<cr>")
 
 -- move lines
 _G.map("v", "J", ":m '>+1<CR>gv=gv")
@@ -82,4 +83,4 @@ _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>re", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
-_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })              -- make current file executable
+_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true }) -- make current file executable
