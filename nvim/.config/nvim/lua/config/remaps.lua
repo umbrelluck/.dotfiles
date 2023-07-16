@@ -5,6 +5,7 @@ _G.map("n", "\\z", ":verbose map ", { silent = false })
 _G.map("n", "\\q", ":q<cr>")
 _G.map("n", "\\w", ":w<cr>")
 _G.map("n", "\\a", ":wq<cr>")
+_G.map("n", "\\s", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>pv", vim.cmd.Ex)
 _G.map("n", "<A-a>", "ggVG", { noremap = false })
@@ -15,8 +16,19 @@ _G.map("n", "<Leader>hh", ":noh<cr>")
 _G.map("n", "<Leader>hi", ":noh<cr>")
 
 -- move lines
-_G.map("v", "J", ":m '>+1<CR>gv=gv")
-_G.map("v", "K", ":m '<-2<CR>gv=gv")
+_G.map("n", "<a-j>", ":m .+1<CR>==")
+_G.map("n", "<a-k>", ":m .-2<CR>==")
+_G.map("i", "<a-j>", "<Esc>:m .+1<CR>==gi")
+_G.map("i", "<a-k>", "<Esc>:m .-2<CR>==gi")
+_G.map("v", "<a-j>", ":m '>+1<CR>gv=gv")
+_G.map("v", "<a-k>", ":m '<-2<CR>gv=gv")
+
+_G.map("n", "<a-l>", ">>", { noremap = false })
+_G.map("n", "<a-h>", "<<", { noremap = false })
+_G.map("i", "<a-l>", ">>", { noremap = false })
+_G.map("i", "<a-h>", "<<", { noremap = false })
+_G.map("v", "<a-l>", ">>", { noremap = false })
+_G.map("v", "<a-h>", "<<", { noremap = false })
 
 -- buffers
 _G.map("n", "]b", ":bnext<cr>")
@@ -32,7 +44,12 @@ _G.map("n", "<C-j>", "<C-w>j", { noremap = false })
 _G.map("n", "<C-k>", "<C-w>k", { noremap = false })
 _G.map("n", "<C-l>", "<C-w>l", { noremap = false })
 _G.map("n", "<C-c>", "<C-w>c", { noremap = false })
-_G.map("n", "<C-t>", "<C-w>=", { noremap = false })
+
+_G.map("n", "<C-A-e>", "<C-w>=", { noremap = false })
+_G.map("n", "<C-A-k>", "<C-w>+", { noremap = false })
+_G.map("n", "<C-A-j>", "<C-w>-", { noremap = false })
+_G.map("n", "<C-A-l>", "<C-w>>", { noremap = false })
+_G.map("n", "<C-A-h>", "<C-w><", { noremap = false })
 
 -- _G.map("n","<C->>", "<C-w>=", { noremap = false })
 
@@ -76,10 +93,10 @@ _G.map("n", "Q", "<nop>")
 -- _G.map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 _G.map("n", "<leader>f", vim.lsp.buf.format)
 
---[[ _G.map("n", "<C-k>", "<cmd>cnext<CR>zz")
-_G.map("n", "<C-j>", "<cmd>cprev<CR>zz")
-_G.map("n", "<leader>k", "<cmd>lnext<CR>zz")
-_G.map("n", "<leader>j", "<cmd>lprev<CR>zz") ]]
+_G.map("n", "]c", "<cmd>cnext<CR>zz")
+_G.map("n", "[c", "<cmd>cprev<CR>zz")
+_G.map("n", "]l", "<cmd>lnext<CR>zz")
+_G.map("n", "[l", "<cmd>lprev<CR>zz")
 
 _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>re", ":so<cr>", { silent = false })
