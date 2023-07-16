@@ -1,10 +1,11 @@
-return { {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    config = function()
-        require("mason").setup({})
-    end
-},
+return {
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+        config = function()
+            require("mason").setup({})
+        end
+    },
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
@@ -38,21 +39,6 @@ return { {
     },
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            "SmiteshP/nvim-navbuddy",
-            dependencies = {
-                {
-                    "SmiteshP/nvim-navic",
-                    opts = {
-                        highlight = true,
-                        depth_limit = 5,
-                        lsp = { auto_attach = true },
-                    },
-                },
-                "MunifTanjim/nui.nvim",
-            },
-            opts = { lsp = { auto_attach = true } },
-        },
         config = function()
             _G.map("n", "<space>e", vim.diagnostic.open_float)
             _G.map("n", "[d", vim.diagnostic.goto_prev)
@@ -98,4 +84,5 @@ return { {
 
             vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
         end,
-    } }
+    }
+}
