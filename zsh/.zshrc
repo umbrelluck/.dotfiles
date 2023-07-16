@@ -1,3 +1,23 @@
+export TERM="alacritty"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+
+export ZDOTDIR="$HOME"
+export HISTFILE="$ZDOTDIR/.zsh/.zhistory"
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+export MANPAGER='nvim +Man!'
+export EDITOR="nvim"
+# export VISUAL="nvim"
+
+export SCRSDIR="$HOME/.scripts"
+export GITDIR="$HOME/Git"
+
+
 # wal -R
 macchina
 
@@ -36,13 +56,13 @@ fpath=($HOME/Git/zsh-completions/src $fpath)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
 export FZF_DEFAULT_OPTS='--no-height'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
 
-export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
+export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden --no-ignore'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 
