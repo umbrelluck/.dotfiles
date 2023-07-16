@@ -57,10 +57,10 @@ return { {
         _G.map("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
         _G.map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
         _G.map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
+        _G.map("n", "<leader>xf", "<cmd>TroubleToggle document_diagnostics<cr>")
         _G.map("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>")
         _G.map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
         _G.map("n", "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>")
-
         -- jump to the next item, skipping the groups
         _G.map("n", "]r", "require('trouble').next({skip_groups = true, jump = true})")
         -- jump to the previous item, skipping the groups
