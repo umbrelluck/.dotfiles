@@ -78,7 +78,7 @@ return { {
                     _G.map("n", "gD", vim.lsp.buf.declaration, opts)
                     _G.map("n", "gd", vim.lsp.buf.definition, opts)
                     _G.map("n", "K", vim.lsp.buf.hover, opts)
-                    _G.map("n", "ws", vim.lsp.buf.workspace_symbol, opts)
+                    _G.map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
                     _G.map("n", "gi", vim.lsp.buf.implementation, opts)
                     _G.map("n", "gh", vim.lsp.buf.signature_help, opts)
                     _G.map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
