@@ -58,5 +58,6 @@ require("lazy").setup({
     { import = "plugins.git" },
     { import = "plugins.file_hopers" },
     { import = "plugins.auxiliary" },
+    { import = "plugins.visuals" },
     { import = "plugins.themes_visuals" },
 })
