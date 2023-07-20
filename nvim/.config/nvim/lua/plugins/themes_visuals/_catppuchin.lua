@@ -1,0 +1,88 @@
+return {
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        opts = {
+            -- term_colors = true,
+            flavour = "frappe",
+            transparent_background = false,
+            color_overrides = {
+                --     latte = {
+                --         text = "#0a0a0a",
+                --         subtext1 = "#171717",
+                --         subtext0 = "#262626",
+                --         overlay2 = "#404040",
+                --         overlay1 = "#525252",
+                --         overlay0 = "#737373",
+                --         surface2 = "#a3a3a3",
+                --         surface1 = "#d4d4d4",
+                --         surface0 = "#e5e5e5",
+                --         base = "#ffffff",
+                --         mantle = "#fafafa",
+                --         crust = "#f5f5f5",
+                --     },
+                --     frappe = {
+                --         text = "#fafafa",
+                --         subtext1 = "#f5f5f5",
+                --         subtext0 = "#e5e5e5",
+                --         overlay2 = "#d4d4d4",
+                --         overlay1 = "#a3a3a3",
+                --         overlay0 = "#737373",
+                --         surface2 = "#525252",
+                --         surface1 = "#404040",
+                --         surface0 = "#262626",
+                --         base = "#171717",
+                --         mantle = "#0a0a0a",
+                --         crust = "#000000",
+                --     },
+            },
+            integrations = {
+                cmp = true,
+                gitsigns = true,
+                nvimtree = true,
+                treesitter = true,
+                notify = true,
+                mini = true,
+                harpoon = true,
+                indent_blankline = {
+                    enabled = true,
+                    colored_indent_levels = true,
+                },
+                mason = true,
+                neogit = true,
+                native_lsp = {
+                    enabled = true,
+                    virtual_text = {
+                        errors = { "italic" },
+                        hints = { "italic" },
+                        warnings = { "italic" },
+                        information = { "italic" },
+                    },
+                    underlines = {
+                        errors = { "underline" },
+                        hints = { "underline" },
+                        warnings = { "underline" },
+                        information = { "underline" },
+                    },
+                    inlay_hints = {
+                        background = true,
+                    },
+                },
+                navic = {
+                    enabled = true,
+                    custom_bg = "NONE", -- "lualine" will set background to mantle
+                },
+                telescope = {
+                    enabled = true,
+                    -- style = "nvchad"
+                },
+                lsp_trouble = true,
+            },
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+            vim.cmd.colorscheme "catppuccin"
+        end
+    }
+}
