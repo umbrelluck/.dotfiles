@@ -1,10 +1,12 @@
-return { {
-    "williamboman/mason.nvim",
-    build = ":MasonUpdate",
-    config = function()
-        require("mason").setup({})
-    end
-},
+return {
+    { "folke/neodev.nvim", opts = {} },
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+        config = function()
+            require("mason").setup({})
+        end
+    },
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
@@ -28,6 +30,9 @@ return { {
                                 diagnostics = {
                                     -- Get the language server to recognize the `vim` global
                                     globals = { "vim" },
+                                },
+                                completion = {
+                                    callSnippet = "Replace"
                                 },
                             },
                         },
