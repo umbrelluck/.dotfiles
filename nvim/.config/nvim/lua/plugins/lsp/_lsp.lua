@@ -105,19 +105,18 @@ return {
                 end,
             })
 
-            -- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guifg=white guibg=#1f2335]]
-            -- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-            local _border = "rounded"
-            -- local _border = {
-            --     {"🭽", "FloatBorder" },
-            --     { "▔",  "FloatBorder" },
-            --     { "🭾", "FloatBorder" },
-            --     { "▕",  "FloatBorder" },
-            --     { "🭿", "FloatBorder" },
-            --     { "▁",  "FloatBorder" },
-            --     { "🭼", "FloatBorder" },
-            --     { "▏",  "FloatBorder" },
-            -- }
+            -- local _border = "rounded"
+            local _hgroup = "FloatBorder"
+            local _border = {
+                { "╭", _hgroup },
+                { "─", _hgroup },
+                { "╮", _hgroup },
+                { "│", _hgroup },
+                { "╯", _hgroup },
+                { "─", _hgroup },
+                { "╰", _hgroup },
+                { "│", _hgroup },
+            }
 
             require('lspconfig.ui.windows').default_options = {
                 border = _border }
