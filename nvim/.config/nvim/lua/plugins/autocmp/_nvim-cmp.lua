@@ -104,12 +104,13 @@ return { {
                     end
                 end, { "i", "s" }),
             }),
-            sources = {
-                { name = "nvim_lsp" },
-                { name = "luasnip" },
-                { name = "path" },
-                { name = "buffer" },
-            },
+            sources = cmp.config.sources({
+                { name = 'nvim_lsp' },
+                { name = 'luasnip' },
+                { name = 'path' }
+            }, {
+                { name = 'buffer' },
+            }),
             formatting = {
                 fields = { "kind", "abbr", "menu" },
                 format = function(entry, vim_item)
