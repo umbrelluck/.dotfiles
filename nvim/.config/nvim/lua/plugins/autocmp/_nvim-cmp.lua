@@ -123,7 +123,7 @@ return { {
                         nvim_lua = "[Lua]",
                         latex_symbols = "[LaTeX]",
                     })[entry.source.name]
-                    vim_item.menu = " " .. (source or "")
+                    vim_item.menu = "  " .. (source or "[?]")
                     vim_item.abbr = vim_item.abbr:match("[^(]+")
                     return vim_item
                 end,
