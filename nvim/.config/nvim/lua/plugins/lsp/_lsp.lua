@@ -86,6 +86,8 @@ return {
                     _G.map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
                     _G.map("n", "gi", vim.lsp.buf.implementation, opts)
                     _G.map("n", "gh", vim.lsp.buf.signature_help, opts)
+                    _G.map("n", "<a-k>", vim.lsp.buf.signature_help, opts)
+                    _G.map("i", "<a-k>", vim.lsp.buf.signature_help, opts)
                     _G.map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
                     _G.map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
                     _G.map("n", "<space>wl", function()
@@ -103,4 +105,18 @@ return {
 
             vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
         end,
-    } }
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        opts = {
+            bind = true, -- This is mandatory, otherwise border config won't get registered.
+            floating_window = false,
+            handler_opts = {
+                border = "rounded"
+            },
+            hint_prefix = "",
+            toggle_key = "<a-x>",
+            select_signature_key = "<a-n>",
+        },
+    }
+}
