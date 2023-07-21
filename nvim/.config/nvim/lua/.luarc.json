@@ -45,6 +45,7 @@
         "/home/umbrelluck/.local/share/nvim/lazy/lsp-progress.nvim/lua",
         "/home/umbrelluck/.local/share/nvim/lazy/lazygit.nvim/lua",
         "/home/umbrelluck/.dotfiles/nvim/.config/nvim/lua",
-        "${3rd}/luv/library"
+        "${3rd}/luv/library",
+        "${3rd}/luassert/library"
     ]
 }

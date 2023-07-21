@@ -1,7 +1,7 @@
 return { {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
-        char_blankline = "┆", -- | ¦ ┆ ┊
+        -- char_blankline = "┆", -- | ¦ ┆ ┊
         -- space_char_blankline = "",
         -- context_char_blankline="",
         -- contet_space_char_blankline="",
