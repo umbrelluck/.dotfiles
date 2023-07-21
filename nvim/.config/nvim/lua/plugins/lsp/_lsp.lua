@@ -96,7 +96,7 @@ return {
                         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     end, opts)
                     _G.map("n", "<space>D", vim.lsp.buf.type_definition, opts)
-                    _G.map("n", "<space>rn", vim.lsp.buf.rename, opts)
+                    _G.map("n", "<space>re", vim.lsp.buf.rename, opts)
                     _G.map("n", "<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
                     _G.map({ "n", "i" }, "<a-f>", function()
