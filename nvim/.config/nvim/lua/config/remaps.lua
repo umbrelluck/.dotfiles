@@ -52,8 +52,8 @@ _G.map("n", "tq", ":tabclose<cr>")
 -- move line below to the end of current line
 -- _G.map("n", "J", "mzJ`z")
 
-_G.map("n", "<C-d>", "<C-d>zz")
-_G.map("n", "<C-u>", "<C-u>zz")
+-- _G.map("n", "<C-d>", "<C-d>zz")
+-- _G.map("n", "<C-u>", "<C-u>zz")
 
 --search stays in the middle
 _G.map("n", "n", "nzzzv")

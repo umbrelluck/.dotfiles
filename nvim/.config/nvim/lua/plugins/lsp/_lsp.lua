@@ -62,6 +62,7 @@ return {
             _G.map("n", "<space>e", vim.diagnostic.open_float)
             _G.map("n", "[d", vim.diagnostic.goto_prev)
             _G.map("n", "]d", vim.diagnostic.goto_next)
+            _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false })
             _G.map("n", "<space>q", vim.diagnostic.setloclist)
 
             _G.map("n", "<C-t>", ':lua require("nvim-navbuddy").open()<cr>')
@@ -97,7 +98,7 @@ return {
                     _G.map("n", "<space>rn", vim.lsp.buf.rename, opts)
                     _G.map("n", "<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-                    _G.map("n", "<a-f>", function()
+                    _G.map({ "n", "i" }, "<a-f>", function()
                         vim.lsp.buf.format({ async = true })
                     end, opts)
                 end,
