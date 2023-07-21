@@ -103,25 +103,28 @@ return {
                 end,
             })
 
-            -- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-            -- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat]]
+            -- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guifg=white guibg=#1f2335]]
             -- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
             local _border = "rounded"
+            -- local _border = {
+            --     {"🭽", "FloatBorder" },
+            --     { "▔",  "FloatBorder" },
+            --     { "🭾", "FloatBorder" },
+            --     { "▕",  "FloatBorder" },
+            --     { "🭿", "FloatBorder" },
+            --     { "▁",  "FloatBorder" },
+            --     { "🭼", "FloatBorder" },
+            --     { "▏",  "FloatBorder" },
+            -- }
 
             require('lspconfig.ui.windows').default_options = {
-                border = _border
-            }
+                border = _border }
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = _border
-            }
-            )
+                border = _border })
             vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = _border
-            }
-            )
+                border = _border })
             vim.diagnostic.config {
-                float = { border = _border }
-            }
+                float = { border = _border } }
 
             vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
         end,

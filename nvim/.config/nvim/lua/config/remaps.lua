@@ -48,6 +48,7 @@ _G.map("n", "[t", ":tabNext<cr>")
 _G.map("n", "tn", ":tabnew<cr>")
 _G.map("n", "tf", ":tabfind<cr>")
 _G.map("n", "tq", ":tabclose<cr>")
+_G.map("n", "tc", ":tabclose<cr>")
 
 -- move line below to the end of current line
 -- _G.map("n", "J", "mzJ`z")
