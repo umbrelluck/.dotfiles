@@ -29,6 +29,7 @@ return {
                     highlight_dirname = false
                 },
                 mappings = {
+                    ['<cr>']      = actions.edit,
                     ['l']         = actions.edit,
                     ['<C-s>']     = actions.split,
                     ['<C-v>']     = actions.vsplit,

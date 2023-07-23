@@ -105,19 +105,18 @@ return {
                 end,
             })
 
-            -- local _border = "rounded"
-            local _hgroup = "Pmenu"
-            -- local _hgroup = "FloatBorder"
-            local _border = {
-                { "╭", _hgroup },
-                { "─", _hgroup },
-                { "╮", _hgroup },
-                { "│", _hgroup },
-                { "╯", _hgroup },
-                { "─", _hgroup },
-                { "╰", _hgroup },
-                { "│", _hgroup },
-            }
+            local _border = "rounded"
+            local _hgroup = "FloatBorder"
+            -- local _border = {
+            --     { "╭", _hgroup },
+            --     { "─", _hgroup },
+            --     { "╮", _hgroup },
+            --     { "│", _hgroup },
+            --     { "╯", _hgroup },
+            --     { "─", _hgroup },
+            --     { "╰", _hgroup },
+            --     { "│", _hgroup },
+            -- }
 
             require('lspconfig.ui.windows').default_options = {
                 border = _border }
@@ -139,6 +138,7 @@ return {
             handler_opts = {
                 border = "rounded"
             },
+            -- hint_enable = false,
             hint_prefix = "",
             toggle_key = "<a-x>",
             select_signature_key = "<a-n>",
