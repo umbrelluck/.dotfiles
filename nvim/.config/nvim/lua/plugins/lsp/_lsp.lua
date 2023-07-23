@@ -106,7 +106,8 @@ return {
             })
 
             -- local _border = "rounded"
-            local _hgroup = "FloatBorder"
+            local _hgroup = "Pmenu"
+            -- local _hgroup = "FloatBorder"
             local _border = {
                 { "╭", _hgroup },
                 { "─", _hgroup },

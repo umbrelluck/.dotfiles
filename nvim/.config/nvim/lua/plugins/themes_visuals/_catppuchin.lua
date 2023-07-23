@@ -110,7 +110,7 @@ return {
             },
             custom_highlights = function(colors)
                 return {
-                    NormalFloat = { bg = colors.crust },
+                    NormalFloat = { bg = colors.crust, fg = "" },
                     FloatBorder = { bg = colors.crust, fg = "" },
                     -- FloatBorder = { bg = colors.crust },
                     -- FloatBorder = { bg = colors.crust, fg = colors.crust },
