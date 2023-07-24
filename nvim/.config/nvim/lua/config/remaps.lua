@@ -22,12 +22,10 @@ _G.map("i", "<a-k>", "<Esc>:m .-2<CR>==gi")
 _G.map("v", "<a-j>", ":m '>+1<CR>gv=gv")
 _G.map("v", "<a-k>", ":m '<-2<CR>gv=gv")
 
-_G.map("n", "<a-l>", ">>", { noremap = false })
-_G.map("n", "<a-h>", "<<", { noremap = false })
+_G.map({ "n", "v" }, "<a-l>", ">>", { noremap = false })
+_G.map({ "n", "i" }, "<a-h>", "<<", { noremap = false })
 _G.map("i", "<a-l>", "<ESC>>>", { noremap = false })
 _G.map("i", "<a-h>", "<ESC><<", { noremap = false })
-_G.map("v", "<a-l>", ">>", { noremap = false })
-_G.map("v", "<a-h>", "<<", { noremap = false })
 
 -- buffers
 _G.map("n", "]b", ":bnext<cr>")
@@ -91,7 +89,7 @@ _G.map({ "n", "v" }, "<leader>d", [["_d]])
 
 _G.map("n", "Q", "<nop>")
 -- _G.map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-_G.map("n", "<leader>f", vim.lsp.buf.format)
+-- _G.map("n", "<leader>f", vim.lsp.buf.format)
 
 _G.map("n", "]c", "<cmd>cnext<CR>zz")
 _G.map("n", "[c", "<cmd>cprev<CR>zz")
