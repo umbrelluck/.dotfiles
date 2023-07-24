@@ -1,28 +1,29 @@
 return { {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
-        space_char_blankline = " ",
+        -- char_blankline = "┆", -- | ¦ ┆ ┊
+        -- space_char_blankline = "",
+        -- context_char_blankline="",
+        -- contet_space_char_blankline="",
         show_current_context = true,
-        show_current_context_start = true,
         use_treesitter = true,
-        strict_tabs = true,
-        use_treesitter_scope = true,
-        char_highlight_list = {
-            "IndentBlanklineIndent1",
-            "IndentBlanklineIndent2",
-            "IndentBlanklineIndent3",
-            "IndentBlanklineIndent4",
-            "IndentBlanklineIndent5",
-            "IndentBlanklineIndent6",
+        -- use_treesitter_scope = true,
+        context_highlight_list = {
+            "IndentContext1",
+            "IndentContext2",
+            "IndentContext3",
+            "IndentContext4",
+            "IndentContext5",
+            "IndentContext6",
         },
     },
     config = function(_, opts)
-        vim.cmd([[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]])
-        vim.cmd([[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]])
-        vim.cmd([[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]])
-        vim.cmd([[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]])
-        vim.cmd([[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]])
-        vim.cmd([[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]])
+        vim.cmd([[highlight IndentContext1 guifg=#FDC9C9 gui=nocombine]])
+        vim.cmd([[highlight IndentContext2 guifg=#FFE7C9 gui=nocombine]])
+        vim.cmd([[highlight IndentContext3 guifg=#FFFAC9 gui=nocombine]])
+        vim.cmd([[highlight IndentContext4 guifg=#C9EFCB gui=nocombine]])
+        vim.cmd([[highlight IndentContext5 guifg=#C9F4FB gui=nocombine]])
+        vim.cmd([[highlight IndentContext6 guifg=#DBC9E9 gui=nocombine]])
 
         require("indent_blankline").setup(opts)
     end,

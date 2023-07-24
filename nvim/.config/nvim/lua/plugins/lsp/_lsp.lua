@@ -1,10 +1,13 @@
 return {
+    { "folke/neodev.nvim", opts = {} },
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
-        config = function()
-            require("mason").setup({})
-        end
+        opts = {
+            ui = {
+                border = "rounded"
+            }
+        },
     },
     {
         "williamboman/mason-lspconfig.nvim",
@@ -30,6 +33,9 @@ return {
                                     -- Get the language server to recognize the `vim` global
                                     globals = { "vim" },
                                 },
+                                completion = {
+                                    callSnippet = "Replace"
+                                },
                             },
                         },
                     })
@@ -43,6 +49,7 @@ return {
             _G.map("n", "<space>e", vim.diagnostic.open_float)
             _G.map("n", "[d", vim.diagnostic.goto_prev)
             _G.map("n", "]d", vim.diagnostic.goto_next)
+            _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false })
             _G.map("n", "<space>q", vim.diagnostic.setloclist)
 
             _G.map("n", "<C-t>", ':lua require("nvim-navbuddy").open()<cr>')
@@ -64,25 +71,62 @@ return {
                     _G.map("n", "gD", vim.lsp.buf.declaration, opts)
                     _G.map("n", "gd", vim.lsp.buf.definition, opts)
                     _G.map("n", "K", vim.lsp.buf.hover, opts)
-                    _G.map("n", "ws", vim.lsp.buf.workspace_symbol, opts)
+                    _G.map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
                     _G.map("n", "gi", vim.lsp.buf.implementation, opts)
                     _G.map("n", "gh", vim.lsp.buf.signature_help, opts)
+                    _G.map({ "n", "i" }, "<a-k>", vim.lsp.buf.signature_help, opts)
                     _G.map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
                     _G.map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
                     _G.map("n", "<space>wl", function()
                         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     end, opts)
                     _G.map("n", "<space>D", vim.lsp.buf.type_definition, opts)
-                    _G.map("n", "<space>rn", vim.lsp.buf.rename, opts)
+                    _G.map("n", "<space>re", vim.lsp.buf.rename, opts)
                     _G.map("n", "<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-                    _G.map("n", "<a-f>", function()
+                    _G.map({ "n", "i" }, "<a-f>", function()
                         vim.lsp.buf.format({ async = true })
                     end, opts)
                 end,
             })
 
+            local _border = "rounded"
+            local _hgroup = "FloatBorder"
+            -- local _border = {
+            --     { "╭", _hgroup },
+            --     { "─", _hgroup },
+            --     { "╮", _hgroup },
+            --     { "│", _hgroup },
+            --     { "╯", _hgroup },
+            --     { "─", _hgroup },
+            --     { "╰", _hgroup },
+            --     { "│", _hgroup },
+            -- }
+
+            require('lspconfig.ui.windows').default_options = {
+                border = _border }
+            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+                border = _border })
+            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+                border = _border })
+            vim.diagnostic.config {
+                float = { border = _border } }
+
             vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
         end,
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        opts = {
+            bind = true, -- This is mandatory, otherwise border config won't get registered.
+            floating_window = false,
+            handler_opts = {
+                border = "rounded"
+            },
+            -- hint_enable = false,
+            hint_prefix = "",
+            toggle_key = "<a-x>",
+            select_signature_key = "<a-n>",
+        },
     }
 }

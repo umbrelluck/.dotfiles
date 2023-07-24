@@ -67,6 +67,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 
 
 bindkey  "^[[3~"  delete-char
+bindkey '^[[Z' reverse-menu-complete
 
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 alias sudo='doas'

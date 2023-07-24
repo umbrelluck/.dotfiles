@@ -16,6 +16,6 @@ return { {
     },
     config = function(_, opts)
         require("onedark").setup(opts)
-        require("onedark").load()
+        -- require("onedark").load()
     end,
 } }

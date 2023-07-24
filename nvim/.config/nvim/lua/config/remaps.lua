@@ -66,12 +66,13 @@ _G.map("n", "[t", ":tabNext<cr>")
 _G.map("n", "tn", ":tabnew<cr>")
 _G.map("n", "tf", ":tabfind<cr>")
 _G.map("n", "tq", ":tabclose<cr>")
+_G.map("n", "tc", ":tabclose<cr>")
 
 -- move line below to the end of current line
-_G.map("n", "J", "mzJ`z")
+-- _G.map("n", "J", "mzJ`z")
 
-_G.map("n", "<C-d>", "<C-d>zz")
-_G.map("n", "<C-u>", "<C-u>zz")
+-- _G.map("n", "<C-d>", "<C-d>zz")
+-- _G.map("n", "<C-u>", "<C-u>zz")
 
 --search stays in the middle
 _G.map("n", "n", "nzzzv")
@@ -98,7 +99,7 @@ _G.map("n", "]l", "<cmd>lnext<CR>zz")
 _G.map("n", "[l", "<cmd>lprev<CR>zz")
 
 _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
-_G.map("n", "<leader>re", ":so<cr>", { silent = false })
+_G.map("n", "<leader>rl", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
 _G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })              -- make current file executable
