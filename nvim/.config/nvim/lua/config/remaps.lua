@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+-- . -repeats last command
 
 _G.map("n", "\\z", ":verbose map ", { silent = false })
 
@@ -10,8 +11,6 @@ _G.map("n", "\\s", ":so<cr>", { silent = false })
 _G.map("n", "<leader>pv", vim.cmd.Ex)
 _G.map("n", "<A-a>", "ggVG", { noremap = false })
 
-_G.map("n", "<Leader>l", ":&&<cr>", { noremap = false })
-_G.map("v", "<Leader>l", ":&&<cr>", { noremap = false })
 _G.map("n", "<Leader>hh", ":noh<cr>")
 _G.map("n", "<Leader>hi", ":noh<cr>")
 
@@ -25,8 +24,8 @@ _G.map("v", "<a-k>", ":m '<-2<CR>gv=gv")
 
 _G.map("n", "<a-l>", ">>", { noremap = false })
 _G.map("n", "<a-h>", "<<", { noremap = false })
-_G.map("i", "<a-l>", ">>", { noremap = false })
-_G.map("i", "<a-h>", "<<", { noremap = false })
+_G.map("i", "<a-l>", "<ESC>>>", { noremap = false })
+_G.map("i", "<a-h>", "<ESC><<", { noremap = false })
 _G.map("v", "<a-l>", ">>", { noremap = false })
 _G.map("v", "<a-h>", "<<", { noremap = false })
 
