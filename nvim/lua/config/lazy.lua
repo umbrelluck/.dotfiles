@@ -19,5 +19,5 @@ require("lazy").setup({
     { import = "plugins.hopers" },
     { import = "plugins.auxiliary" },
     { import = "plugins.visuals" },
-    { import = "plugins.themes_visuals" },
+    { import = "plugins.themes" },
 }, { ui = { border = "rounded" } })

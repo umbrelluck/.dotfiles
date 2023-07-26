@@ -122,6 +122,8 @@ return { {
                         luasnip = "[LuaSnip]",
                         nvim_lua = "[Lua]",
                         latex_symbols = "[LaTeX]",
+                        cmdline = "[CMD]",
+                        path = "[Path]"
                     })[entry.source.name]
                     vim_item.menu = "  " .. (source or "[?]")
                     vim_item.abbr = vim_item.abbr:match("[^(]+")

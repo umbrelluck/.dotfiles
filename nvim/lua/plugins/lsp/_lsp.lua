@@ -112,7 +112,7 @@ return {
             vim.diagnostic.config {
                 float = { border = _border } }
 
-            vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+            vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
         end,
     },
     {
@@ -123,7 +123,7 @@ return {
             handler_opts = {
                 border = "rounded"
             },
-            -- hint_enable = false,
+            hint_enable = false,
             hint_prefix = "",
             toggle_key = "<a-x>",
             select_signature_key = "<a-n>",

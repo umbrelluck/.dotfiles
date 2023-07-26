@@ -1,5 +1,5 @@
 return {
-    "windwp/nvim-ts-autotag",
+    --    "windwp/nvim-ts-autotag",
 }
 
 -- require'nvim-treesitter.configs'.setup {
