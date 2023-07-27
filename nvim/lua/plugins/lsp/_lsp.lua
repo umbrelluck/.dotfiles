@@ -16,8 +16,8 @@ return {
             local mason_lspconfig = require("mason-lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
             mason_lspconfig.setup({ ensure_installed = { "lua_ls" } })
-
             mason_lspconfig.setup_handlers({
+
                 function(server_name)
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
@@ -74,7 +74,7 @@ return {
                     _G.map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
                     _G.map("n", "gi", vim.lsp.buf.implementation, opts)
                     _G.map("n", "gh", vim.lsp.buf.signature_help, opts)
-                    _G.map({ "n", "i" }, "<a-k>", vim.lsp.buf.signature_help, opts)
+                    _G.map({ "n", "i" }, "<a-u>", vim.lsp.buf.signature_help, opts)
                     _G.map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
                     _G.map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
                     _G.map("n", "<space>wl", function()

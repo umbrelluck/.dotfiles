@@ -83,7 +83,7 @@ _G.map("x", "<leader>p", [["_dP]])
 _G.map({ "n", "v" }, "<leader>y", [["+y]])
 _G.map("n", "<leader>Y", [["+Y]])
 
-_G.map({ "n", "v" }, "<leader>d", [["_d]])
+_G.map({ "n", "v" }, "<leader>dd", [["_d]])
 
 -- _G.map("i", "<C-c>", "<Esc>")
 

@@ -16,6 +16,7 @@ require("lazy").setup({
     { import = "plugins.autocmp" },
     { import = "plugins.highlighting" },
     { import = "plugins.git" },
+    { import = "plugins.debug" },
     { import = "plugins.hopers" },
     { import = "plugins.auxiliary" },
     { import = "plugins.visuals" },
