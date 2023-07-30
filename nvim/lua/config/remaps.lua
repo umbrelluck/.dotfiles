@@ -37,6 +37,8 @@ _G.map("n", "<leader>0", ":b#<cr>")
 _G.map("n", "vb", ":vert sb<cr>", { silent = false })
 _G.map("n", "vc", ":sb<cr>", { silent = false })
 _G.map("n", "vn", ":enew<cr>", { silent = false })
+_G.map("n", "\\v", ":vsplit<cr>")
+_G.map("n", "\\h", ":split<cr>")
 
 -- windows
 _G.map("n", "<C-h>", "<C-w>h", { noremap = false })
@@ -56,8 +58,6 @@ _G.map("n", "<C-A-h>", "<C-w><", { noremap = false })
 _G.map("n", "<Leader>=", ':exe "resize " . (winheight(0) * 3/2)<CR>')
 _G.map("n", "<Leader>-", ':exe "resize " . (winheight(0) * 2/3)<CR>')
 
-_G.map("n", "\\v", ":vsplit<cr>")
-_G.map("n", "\\h", ":split<cr>")
 
 --tabs
 _G.map("n", "tk", ":tabnext<cr>")
