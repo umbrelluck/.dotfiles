@@ -2,7 +2,7 @@ return {
     {
         "startup-nvim/startup.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        event = "VimEnter",
+        -- event = "VimEnter",
         opts = {
             theme = "dashboard",
         },

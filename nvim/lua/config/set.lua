@@ -13,7 +13,7 @@ vim.opt.wrap = false
 vim.o.breakindent = true
 vim.o.completeopt = 'menuone,noselect'
 
-vim.o.mouse = 'a'
+-- vim.o.mouse = 'a'
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true

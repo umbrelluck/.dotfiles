@@ -6,7 +6,7 @@ return { {
         {
             "nvim-telescope/telescope-fzf-native.nvim",
             build =
-            'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+            "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
         }
     },
     config = function()
@@ -18,26 +18,25 @@ return { {
         -- _G.map("n", "<leader>fb", builtin.buffers, {})
         -- _G.map("n", "<leader>fh", builtin.help_tags, {})
 
-        _G.map('n', '<leader>?', require('telescope.builtin').oldfiles,
+        _G.map('n', '<leader>?', builtin.oldfiles,
             { desc = '[?] Find recently opened files' })
-        -- _G.map('n', '<leader>sr', require('telescope.builtin').oldfiles,
-        --     { desc = '[?] Find recently opened files' })
-        _G.map('n', '<leader><space>', require('telescope.builtin').buffers,
+        _G.map('n', '<leader>so', builtin.oldfiles,
+            { desc = '[?] Find recently opened files' })
+        _G.map('n', '<leader><space>', builtin.buffers,
             { desc = '[ ] Find existing buffers' })
         _G.map('n', '<leader>/', function()
-            -- You can pass additional configuration to telescope to change theme, layout, etc.
-            require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                winblend = 10,
+            builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+                winblend = 3,
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
 
-        _G.map('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-        _G.map('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-        _G.map('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-        _G.map('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-        _G.map('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-        _G.map('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+        _G.map('n', '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+        _G.map('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+        _G.map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+        _G.map('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+        _G.map('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+        _G.map('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
         local telescope = require("telescope")
         local actions = require("telescope.actions")
@@ -96,12 +95,11 @@ return { {
                     override_generic_sorter = true, -- override the generic sorter
                     override_file_sorter = true,    -- override the file sorter
                     case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-                    -- the default case_mode is "smart_case"
                 }
             }
         })
 
-        require("telescope").load_extension("fzf")
-        require("telescope").load_extension("notify")
+        -- telescope.load_extension("fzf")
+        telescope.load_extension("notify")
     end,
 } }
