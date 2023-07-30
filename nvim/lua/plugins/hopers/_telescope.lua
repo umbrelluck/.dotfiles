@@ -12,11 +12,6 @@ return { {
     config = function()
         local builtin = require("telescope.builtin")
         _G.map("n", "<leader>tt", ":Telescope<cr>")
-        -- _G.map("n", "<leader>ff", builtin.find_files, {})
-        -- _G.map("n", "<leader>fg", builtin.git_files, {})
-        -- _G.map("n", "<leader>gg", builtin.live_grep, {})
-        -- _G.map("n", "<leader>fb", builtin.buffers, {})
-        -- _G.map("n", "<leader>fh", builtin.help_tags, {})
 
         _G.map('n', '<leader>?', builtin.oldfiles,
             { desc = '[?] Find recently opened files' })
@@ -26,7 +21,7 @@ return { {
             { desc = '[ ] Find existing buffers' })
         _G.map('n', '<leader>/', function()
             builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                winblend = 3,
+                winblend = 5,
                 previewer = false,
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
