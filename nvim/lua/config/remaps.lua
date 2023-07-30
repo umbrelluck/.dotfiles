@@ -99,7 +99,6 @@ _G.map("n", "[c", "<cmd>cprev<CR>zz")
 _G.map("n", "]l", "<cmd>lnext<CR>zz")
 _G.map("n", "[l", "<cmd>lprev<CR>zz")
 
-_G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>rl", ":so<cr>", { silent = false })
 
 _G.map("n", "<leader>se", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
