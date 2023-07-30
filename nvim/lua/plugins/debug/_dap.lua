@@ -63,8 +63,8 @@ return {
                 dapui.close()
             end
 
-            _G.map("n", "<leader>de", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>")
-            _G.map("v", "<leader>dk", ":lua require('dapui').eval()<CR>")
+            _G.map("n", "<leader>dk", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>")
+            _G.map("v", "<leader>de", ":lua require('dapui').eval()<CR>")
         end
     }
 }

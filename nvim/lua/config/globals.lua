@@ -1,5 +1,5 @@
 function _G.map(mode, btn, action, opts)
-    local options = { noremap = true, silent = true }
+    local options = { noremap = true, silent = true, desc = "This keymap is set from custom lua file" }
     if opts then
         options = vim.tbl_extend("force", options, opts)
     end

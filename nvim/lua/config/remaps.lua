@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
--- . -repeats last command
+vim.g.maplocalleader = " "
+
+_G.map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+_G.map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 _G.map("n", "\\z", ":verbose map ", { silent = false })
 
@@ -99,5 +102,5 @@ _G.map("n", "[l", "<cmd>lprev<CR>zz")
 _G.map("n", "<leader>ww", ":w<cr>", { silent = false })
 _G.map("n", "<leader>rl", ":so<cr>", { silent = false })
 
-_G.map("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
-_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })              -- make current file executable
+_G.map("n", "<leader>se", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
+_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })               -- make current file executable

@@ -10,6 +10,14 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.o.breakindent = true
+vim.o.completeopt = 'menuone,noselect'
+
+vim.o.mouse = 'a'
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false

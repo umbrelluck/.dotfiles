@@ -46,11 +46,11 @@ return {
     {
         "neovim/nvim-lspconfig",
         config = function()
-            _G.map("n", "<space>e", vim.diagnostic.open_float)
-            _G.map("n", "[d", vim.diagnostic.goto_prev)
-            _G.map("n", "]d", vim.diagnostic.goto_next)
-            _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false })
-            _G.map("n", "<space>q", vim.diagnostic.setloclist)
+            _G.map("n", "<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+            _G.map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+            _G.map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+            _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
+            _G.map("n", "<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
             _G.map("n", "<C-t>", ':lua require("nvim-navbuddy").open()<cr>')
 
@@ -70,8 +70,11 @@ return {
                     local opts = { buffer = ev.buf }
                     _G.map("n", "gD", vim.lsp.buf.declaration, opts)
                     _G.map("n", "gd", vim.lsp.buf.definition, opts)
+                    _G.map('gr', require('telescope.builtin').lsp_references, opts)
                     _G.map("n", "K", vim.lsp.buf.hover, opts)
-                    _G.map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
+                    -- _G.map("n", "<leader>ws", vim.lsp.buf.workspace_symbol, opts)
+                    _G.map("<leader>ds", require('telescope.builtin').lsp_document_symbols, opts)
+                    _G.map("<leader>ws", require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
                     _G.map("n", "gi", vim.lsp.buf.implementation, opts)
                     _G.map("n", "gh", vim.lsp.buf.signature_help, opts)
                     _G.map({ "n", "i" }, "<a-u>", vim.lsp.buf.signature_help, opts)
@@ -81,7 +84,7 @@ return {
                         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     end, opts)
                     _G.map("n", "<space>D", vim.lsp.buf.type_definition, opts)
-                    _G.map("n", "<space>re", vim.lsp.buf.rename, opts)
+                    _G.map("n", "<space>rn", vim.lsp.buf.rename, opts)
                     _G.map("n", "<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
                     _G.map({ "n", "i" }, "<a-f>", function()
