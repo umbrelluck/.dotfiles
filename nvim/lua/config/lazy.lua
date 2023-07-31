@@ -18,6 +18,7 @@ require("lazy").setup({
     { import = "plugins.git" },
     { import = "plugins.debug" },
     { import = "plugins.hopers" },
+    { import = "plugins.motions" },
     { import = "plugins.auxiliary" },
     { import = "plugins.visuals" },
     { import = "plugins.themes" },
