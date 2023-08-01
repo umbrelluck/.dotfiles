@@ -15,9 +15,9 @@ return {
             local lspconfig = require("lspconfig")
             local mason_lspconfig = require("mason-lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
             mason_lspconfig.setup({ ensure_installed = { "lua_ls" } })
             mason_lspconfig.setup_handlers({
-
                 function(server_name)
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
@@ -51,8 +51,6 @@ return {
             _G.map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
             _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.map("n", "<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
-            _G.map("n", "<C-t>", ':lua require("nvim-navbuddy").open()<cr>')
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -120,6 +118,7 @@ return {
     },
     {
         "ray-x/lsp_signature.nvim",
+        event = { "InsertEnter" },
         opts = {
             bind = true, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,

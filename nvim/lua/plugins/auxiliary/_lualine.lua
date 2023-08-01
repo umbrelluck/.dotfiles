@@ -1,14 +1,6 @@
 return { {
     "nvim-lualine/lualine.nvim",
-    dependencies = {
-        "nvim-tree/nvim-web-devicons",
-        {
-            "linrongbin16/lsp-progress.nvim",
-            config = function()
-                require("lsp-progress").setup()
-            end,
-        },
-    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
         options = {
             icons_enabled = true,
@@ -26,7 +18,6 @@ return { {
             },
             lualine_b = { "branch", "diff", "diagnostics" },
             lualine_c = { _G.lsp_clients },
-            -- lualine_c = { _G.lsp_clients, "require('lsp-progress').progress()" },
             lualine_x = {
                 "encoding",
                 "fileformat",

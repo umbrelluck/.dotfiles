@@ -1,12 +1,14 @@
 return {
     {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-    },
-    {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.1",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+            }
+        },
         config = function()
             local builtin = require("telescope.builtin")
             _G.map("n", "<leader>tt", ":Telescope<cr>")

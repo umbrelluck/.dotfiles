@@ -3,9 +3,9 @@ return { {
     branch = "v2",
     opts = {
         keys = "etovxqpdygfblzhckisuran",
-        qiut_key = "]",
-        -- current_line_only = false,
+        current_line_only = false,
     },
+    keys = { "f", "F", "t", "T" },
     config = function(_, opts)
         local hop = require("hop")
         local directions = require("hop.hint").HintDirection
