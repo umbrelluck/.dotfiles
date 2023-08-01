@@ -5,7 +5,7 @@ homed="$HOME"
 
 mkdir -p "$confd/alacritty/a_themes"
 stow -t "$confd/alacritty" alacritty 
-git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/a_themes
+git clone https://github.com/alacritty/alacritty-theme "$confd/alacritty/a_themes"
 
 mkdir -p "$confd/nvim"
 stow -t "$confd/nvim" nvim 
