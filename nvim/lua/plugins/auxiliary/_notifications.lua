@@ -1,7 +1,7 @@
 return {
     {
         "rcarriga/nvim-notify",
-        dependencies = { "nvim-telescope/telescope.nvim" },
+        -- dependencies = { "nvim-telescope/telescope.nvim" },
         opts = {
             background_colour = "#282C34", --onedark grey background
             -- background_colour = "#00000000",

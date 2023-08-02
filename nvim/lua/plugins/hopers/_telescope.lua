@@ -9,6 +9,7 @@ return {
                 build = "make",
             }
         },
+        -- cmd = "Telesope",
         config = function()
             local builtin = require("telescope.builtin")
             _G.map("n", "<leader>tt", ":Telescope<cr>")

@@ -10,6 +10,7 @@ return { {
             section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
+            disabled_filetypes = { "startup" },
         },
         sections = {
             lualine_a = {
@@ -23,17 +24,7 @@ return { {
                 "fileformat",
                 "filetype",
             },
-            lualine_y = {
-                {
-                    -- noice.api.status.message.get_hl,
-                    -- cond = noice.api.status.message.has,
-                },
-                {
-                    -- noice.api.status.search.get,
-                    -- cond = noice.api.status.search.has,
-                    -- color = { fg = "#ff9e64" },
-                },
-            },
+            lualine_y = {},
             lualine_z = { "progress", "location" },
         },
         inactive_sections = {
