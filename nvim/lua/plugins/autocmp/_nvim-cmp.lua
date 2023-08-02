@@ -142,8 +142,8 @@ return {
                         cmp.config.compare.sort_text,
                         cmp.config.compare.length,
                         cmp.config.compare.order,
-                        cmp.config.compare.recently_used,
-                        cmp.config.compare.locality,
+                        -- cmp.config.compare.recently_used,
+                        -- cmp.config.compare.locality,
                     },
                 }
             })

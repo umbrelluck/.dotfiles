@@ -52,6 +52,23 @@ return {
             _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.map("n", "<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
+            for type, icon in pairs(_G.DiagnosticSigns) do
+                local hl = "Diagnostic" .. type
+                local hls = "DiagnosticSign" .. type
+                vim.api.nvim_set_hl(0, hl, { italic = true })
+                vim.fn.sign_define(hl, { text = icon, texthl = hls, numhl = "" })
+            end
+
+            vim.diagnostic.config({
+                virtual_text = {
+                    prefix = '●',
+                    -- update_in_insert=false,
+                    -- suffix = function(diagnostic)
+                    --     return string.format("   [%s]", diagnostic.code)
+                    -- end
+                },
+            })
+
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                 callback = function(ev)
@@ -59,11 +76,11 @@ return {
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
                     vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
-                    -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
-                    -- if client.server_capabilities.documentSymbolProvider then
-                    -- 	require("nvim-navic").attach(client, ev.buf)
-                    -- 	require("nvim-navbuddy").attach(client, ev.buf)
-                    -- end
+                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                    if client.server_capabilities.documentSymbolProvider then
+                        require("nvim-navic").attach(client, ev.buf)
+                        require("nvim-navbuddy").attach(client, ev.buf)
+                    end
 
                     local opts = { buffer = ev.buf }
                     _G.map("n", "gD", vim.lsp.buf.declaration, opts)

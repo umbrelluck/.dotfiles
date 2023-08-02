@@ -34,3 +34,5 @@ function _G.lsp_clients()
     end
     return " " .. table.concat(c, "|")
 end
+
+_G.DiagnosticSigns = { Error = "", Warn = "", Hint = "󰌶", Info = " ", Ok = "󰄴" }

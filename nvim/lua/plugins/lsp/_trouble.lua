@@ -8,8 +8,8 @@ return { {
         icons = true,                   -- use devicons for filenames
         mode = "workspace_diagnostics", -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
         severity = nil,                 -- nil (ALL) or vim.diagnostic.severity.ERROR | WARN | INFO | HINT
-        fold_open = "",                 -- icon used for open folds
-        fold_closed = "",               -- icon used for closed folds
+        fold_open = "",              -- icon used for open folds
+        fold_closed = "",            -- icon used for closed folds
         group = true,                   -- group results by file
         padding = true,                 -- add an extra new line on top of the list
         cycle_results = true,           -- cycle item list when reaching beginning or end of list
@@ -41,12 +41,18 @@ return { {
         auto_preview = true,               -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
         auto_fold = false,                 -- automatically fold a file trouble list at creation
         auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
+        include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" },
         signs = {
-            error = "",
-            warning = "",
-            hint = "󰌶",
-            information = "󰋽",
-            other = "",
+            error = _G.DiagnosticSigns.Error,
+            warning = _G.DiagnosticSigns.Warn,
+            hint = _G.DiagnosticSigns.Hint,
+            information = _G.DiagnosticSigns.Info,
+            other = _G.DiagnosticSigns.Ok,
+            -- error = "",
+            -- warning = "",
+            -- hint = "󰌶",
+            -- information = "󰋽",
+            -- other = "",
         },
         use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
     },
@@ -56,7 +62,6 @@ return { {
         _G.map("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
         _G.map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
         _G.map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
-        _G.map("n", "<leader>xf", "<cmd>TroubleToggle document_diagnostics<cr>")
         _G.map("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>")
         _G.map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
         _G.map("n", "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>")
