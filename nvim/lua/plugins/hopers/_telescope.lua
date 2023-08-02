@@ -54,6 +54,7 @@ return {
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+                            ["<C-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
                             ["<C-c>"] = actions.close,
                             ["<CR>"] = actions.select_default + actions.center,
 
@@ -63,6 +64,7 @@ return {
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
+                            ["<C-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
                             ["<C-c>"] = actions.close,
 
                             ["<c-t>"] = trouble.open_with_trouble,
