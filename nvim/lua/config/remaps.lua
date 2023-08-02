@@ -51,11 +51,11 @@ _G.map("n", "<C-l>", "<C-w>l", { noremap = false })
 _G.map("n", "<right>", "<C-w>l", { noremap = false })
 _G.map("n", "<C-c>", "<C-w>c", { noremap = false })
 
-_G.map("n", "<C-A-e>", "<C-w>=", { noremap = false })
-_G.map("n", "<C-A-k>", "<C-w>+", { noremap = false })
-_G.map("n", "<C-A-j>", "<C-w>-", { noremap = false })
-_G.map("n", "<C-A-l>", "<C-w>>", { noremap = false })
-_G.map("n", "<C-A-h>", "<C-w><", { noremap = false })
+_G.map("n", "<C-A-e>", "5<C-w>=", { noremap = false })
+_G.map("n", "<C-A-k>", "5<C-w>+", { noremap = false })
+_G.map("n", "<C-A-j>", "5<C-w>-", { noremap = false })
+_G.map("n", "<C-A-l>", "5<C-w>>", { noremap = false })
+_G.map("n", "<C-A-h>", "5<C-w><", { noremap = false })
 
 -- _G.map("n","<C->>", "<C-w>=", { noremap = false })
 
