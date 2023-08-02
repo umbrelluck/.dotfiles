@@ -6,6 +6,7 @@ return {
         priority = 1000,
         opts = {
             -- term_colors = true,
+            compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
             flavour = "frappe",
             transparent_background = false,
             color_overrides = {
@@ -145,10 +146,12 @@ return {
                 notify = true,
                 mini = true,
                 harpoon = true,
+                hop = true,
                 indent_blankline = {
                     enabled = true,
                     colored_indent_levels = true,
                 },
+                rainbow_delimiters = true,
                 mason = true,
                 neogit = true,
                 native_lsp = {
@@ -166,12 +169,17 @@ return {
                         information = { "underline" },
                     },
                     inlay_hints = {
-                        background = true,
+                        background = false,
+                        -- background = true,
                     },
                 },
                 navic = {
                     enabled = true,
-                    custom_bg = "NONE", -- "lualine" will set background to mantle
+                    -- custom_bg = "NONE", -- "lualine" will set background to mantle
+                },
+                dap = {
+                    enabled = true,
+                    enable_ui = true, -- enable nvim-dap-ui
                 },
                 telescope = {
                     enabled = true,

@@ -43,11 +43,11 @@ return { {
         auto_jump = { "lsp_definitions" }, -- for the given modes, automatically jump if there is only a single result
         include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" },
         signs = {
-            error = _G.DiagnosticSigns.Error,
-            warning = _G.DiagnosticSigns.Warn,
-            hint = _G.DiagnosticSigns.Hint,
-            information = _G.DiagnosticSigns.Info,
-            other = _G.DiagnosticSigns.Ok,
+            error = _G.LSPDsigns.Error,
+            warning = _G.LSPDsigns.Warn,
+            hint = _G.LSPDsigns.Hint,
+            information = _G.LSPDsigns.Info,
+            other = _G.LSPDsigns.Ok,
             -- error = "",
             -- warning = "",
             -- hint = "󰌶",

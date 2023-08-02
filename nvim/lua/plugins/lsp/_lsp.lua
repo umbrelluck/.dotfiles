@@ -52,16 +52,16 @@ return {
             _G.map("n", "<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.map("n", "<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
-            for type, icon in pairs(_G.DiagnosticSigns) do
-                local hl = "Diagnostic" .. type
+            for type, icon in pairs(_G.LSPDsigns) do
+                local hlv = "DiagnosticVirtualText" .. type
                 local hls = "DiagnosticSign" .. type
-                vim.api.nvim_set_hl(0, hl, { italic = true })
-                vim.fn.sign_define(hl, { text = icon, texthl = hls, numhl = "" })
+                vim.api.nvim_set_hl(0, hlv, { italic = true })
+                vim.fn.sign_define(hls, { text = icon, texthl = hls, numhl = "" })
             end
 
             vim.diagnostic.config({
                 virtual_text = {
-                    prefix = '●',
+                    prefix = _G.LSPDsigns.Dprefix,
                     -- update_in_insert=false,
                     -- suffix = function(diagnostic)
                     --     return string.format("   [%s]", diagnostic.code)
