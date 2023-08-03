@@ -1,3 +1,17 @@
+_G.mods = { e = "", n = "n", i = "i", v = "v", s = "s", c = "c" }
+
+_G.LSPDsigns = {
+    Error = "",
+    Warn = "",
+    Hint = "󰌶",
+    Info = " ",
+    Ok = "󰄴",
+    Dprefix = "●",
+    Breakpoint = "●",
+    BreakpointCondition = "",
+    Logpoint = "◆"
+}
+
 function _G.map(mode, btn, action, opts)
     local options = { noremap = true, silent = true, desc = "This keymap is set from custom lua file" }
     if opts then
@@ -34,15 +48,3 @@ function _G.lsp_clients()
     end
     return " " .. table.concat(c, "|")
 end
-
-_G.LSPDsigns = {
-    Error = "",
-    Warn = "",
-    Hint = "󰌶",
-    Info = " ",
-    Ok = "󰄴",
-    Dprefix = "●",
-    Breakpoint = "●",
-    BreakpointCondition = "",
-    Logpoint = "◆"
-}

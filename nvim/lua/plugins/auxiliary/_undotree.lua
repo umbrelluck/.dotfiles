@@ -22,6 +22,6 @@ return { {
     config = function(_, opts)
         local undotree = require("undotree")
         undotree.setup(opts)
-        _G.map("n", "<leader>u", undotree.toggle)
+        _G.map(_G.mods.n, "<leader>u", undotree.toggle)
     end,
 } }

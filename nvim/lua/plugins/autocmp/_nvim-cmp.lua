@@ -71,23 +71,19 @@ return {
                 experimental = { ghost_text = true },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-u>"] = cmp.mapping.scroll_docs(-4), -- Up
+                    ["<C-b>"] = cmp.mapping.scroll_docs(-4), -- Up
                     ["<C-d>"] = cmp.mapping.scroll_docs(4),  -- Down
+                    ["<C-f>"] = cmp.mapping.scroll_docs(4),  -- Down
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<A-e>"] = cmp.mapping.abort(),
+                    ["<c-e>"] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping.confirm({
                         behavior = cmp.ConfirmBehavior.Replace,
                         select = true,
                     }),
-                    -- ),
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                            -- local entry = cmp.get_selected_entry()
-                            -- if not entry then
-                            --     cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                            -- else
-                            --     cmp.confirm()
-                            -- end
                         elseif luasnip.expand_or_jumpable() then
                             luasnip.expand_or_jump()
                         elseif has_words_before() then
@@ -95,7 +91,7 @@ return {
                         else
                             fallback()
                         end
-                    end, { "i", "s" }),
+                    end, { _G.mods.i, _G.mods.s }),
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
@@ -104,7 +100,7 @@ return {
                         else
                             fallback()
                         end
-                    end, { "i", "s" }),
+                    end, { _G.mods.i, _G.mods.s }),
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },

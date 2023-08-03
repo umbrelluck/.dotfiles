@@ -6,8 +6,8 @@ return {
         opts = {
             theme = "dashboard",
         },
-        config = function(_, opts)
-            require("startup").setup(opts)
-        end
+        -- config = function(_, opts)
+        --     require("startup").setup(opts)
+        -- end
     }
 }
