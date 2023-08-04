@@ -20,5 +20,14 @@ return { {
         _G.map(_G.mods.n, "<leader>4", function()
             ui.nav_file(4)
         end)
+        _G.map(_G.mods.n, "<leader>5", function()
+            ui.nav_file(5)
+        end)
+        _G.map(_G.mods.n, "<leader>6", function()
+            ui.nav_file(6)
+        end)
+        _G.map(_G.mods.n, "<leader>7", function()
+            ui.nav_file(7)
+        end)
     end,
 } }

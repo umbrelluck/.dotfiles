@@ -87,8 +87,8 @@ _G.map(_G.mods.n, "tc", ":tabclose<cr>")
 -- _G.map(_G.mods.n, "<C-u>", "<C-u>zz")
 
 --search stays in the middle
-_G.map(_G.mods.n, _G.mods.n, "nzzzv")
-_G.map(_G.mods.n, _G.mods.n, "Nzzzv")
+_G.map(_G.mods.n, "n", "nzzzv")
+_G.map(_G.mods.n, "N", "Nzzzv")
 --
 -- greatest remap ever
 _G.map("x", "<leader>p", [["_dP]])
