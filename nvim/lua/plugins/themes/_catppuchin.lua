@@ -4,6 +4,7 @@ return {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
+        enabled = false,
         opts = {
             -- term_colors = true,
             compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
@@ -190,7 +191,7 @@ return {
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)
-            -- vim.cmd.colorscheme("catppuccin")
+            vim.cmd.colorscheme("catppuccin")
         end
     }
 }

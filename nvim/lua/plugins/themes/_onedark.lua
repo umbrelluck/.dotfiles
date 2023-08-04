@@ -1,5 +1,6 @@
 return { {
     "navarasu/onedark.nvim",
+    enabled = false,
     opts = {
         style = "warm",
         transparent = false,   -- Show/hide background
@@ -16,6 +17,6 @@ return { {
     },
     config = function(_, opts)
         require("onedark").setup(opts)
-        -- require("onedark").load()
+        require("onedark").load()
     end,
 } }

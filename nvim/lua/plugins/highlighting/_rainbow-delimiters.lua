@@ -10,24 +10,24 @@ return {
             -- vim.cmd([[highlight RainbowDelimiterBlue guifg=blue]])
             vim.cmd([[highlight RainbowDelimiterViolet guifg=#DBC9E9]])
 
-            local rainbow_delimiters = require 'rainbow-delimiters'
+            local rainbow_delimiters = require("rainbow-delimiters")
             vim.g.rainbow_delimiters = {
                 strategy = {
-                    [''] = rainbow_delimiters.strategy['global'],
+                    [''] = rainbow_delimiters.strategy["global"],
                     -- commonlisp = rainbow_delimiters.strategy['local'],
                 },
                 query = {
-                    [''] = 'rainbow-delimiters',
-                    lua = 'rainbow-blocks',
+                    [""] = "rainbow-delimiters",
+                    lua = "rainbow-blocks",
                 },
                 highlight = {
-                    'RainbowDelimiterRed',
-                    'RainbowDelimiterYellow',
-                    -- 'RainbowDelimiterBlue',
-                    'RainbowDelimiterOrange',
-                    'RainbowDelimiterGreen',
-                    'RainbowDelimiterViolet',
-                    'RainbowDelimiterCyan',
+                    "RainbowDelimiterRed",
+                    "RainbowDelimiterYellow",
+                    -- "RainbowDelimiterBlue",
+                    "RainbowDelimiterOrange",
+                    "RainbowDelimiterGreen",
+                    "RainbowDelimiterViolet",
+                    "RainbowDelimiterCyan",
                 },
             }
         end

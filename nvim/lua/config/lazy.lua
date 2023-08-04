@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+local specs = {
     { import = "plugins.lsp" },
     { import = "plugins.autocmp" },
     { import = "plugins.highlighting" },
@@ -22,4 +22,11 @@ require("lazy").setup({
     { import = "plugins.auxiliary" },
     { import = "plugins.visuals" },
     { import = "plugins.themes" },
-}, { ui = { border = "rounded" } })
+}
+
+local opts = {
+    { defaults = { lazy = true } },
+    { ui = { border = "rounded" } }
+}
+
+require("lazy").setup(specs, opts)
