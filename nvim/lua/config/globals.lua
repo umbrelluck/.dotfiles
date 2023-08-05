@@ -1,5 +1,3 @@
-_G.mods = { e = "", n = "n", i = "i", v = "v", s = "s", c = "c" }
-
 _G.LSPDsigns = {
     Error = "",
     Warn = "",

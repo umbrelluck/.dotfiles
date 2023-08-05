@@ -59,19 +59,19 @@ return { {
     config = function(_, opts)
         require("trouble").setup(opts)
 
-        _G.map(_G.mods.n, "<leader>xx", "<cmd>TroubleToggle<cr>")
-        _G.map(_G.mods.n, "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
-        _G.map(_G.mods.n, "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
-        _G.map(_G.mods.n, "<leader>xl", "<cmd>TroubleToggle loclist<cr>")
-        _G.map(_G.mods.n, "<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
-        _G.map(_G.mods.n, "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>")
+        _G.map("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
+        _G.map("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
+        _G.map("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
+        _G.map("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>")
+        _G.map("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
+        _G.map("n", "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>")
         -- jump to the next item, skipping the groups
-        _G.map(_G.mods.n, "]r", "require('trouble').next({skip_groups = true, jump = true})")
+        _G.map("n", "]r", "require('trouble').next({skip_groups = true, jump = true})")
         -- jump to the previous item, skipping the groups
-        _G.map(_G.mods.n, "[r", "require('trouble').previous({skip_groups = true, jump = true})")
+        _G.map("n", "[r", "require('trouble').previous({skip_groups = true, jump = true})")
         -- jump to the first item, skipping the groups
-        _G.map(_G.mods.n, "<leader>x[", "require('trouble').first({skip_groups = true, jump = true})")
+        _G.map("n", "<leader>x[", "require('trouble').first({skip_groups = true, jump = true})")
         -- jump to the last item, skipping the groups
-        _G.map(_G.mods.n, "<leader>x]", "require('trouble').last({skip_groups = true, jump = true})")
+        _G.map("n", "<leader>x]", "require('trouble').last({skip_groups = true, jump = true})")
     end,
 } }
