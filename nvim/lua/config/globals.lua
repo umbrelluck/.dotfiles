@@ -18,6 +18,22 @@ function _G.map(mode, btn, action, opts)
     vim.keymap.set(mode, btn, action, options)
 end
 
+function _G.nmap(btn, action, opts)
+    _G.map("n", btn, action, opts)
+end
+
+function _G.vmap(btn, action, opts)
+    _G.map("v", btn, action, opts)
+end
+
+function _G.imap(btn, action, opts)
+    _G.map("i", btn, action, opts)
+end
+
+function _G.emap(btn, action, opts)
+    _G.map("", btn, action, opts)
+end
+
 _G.is_empty = function(str)
     return str == nil or str == ""
 end
