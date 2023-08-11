@@ -1,4 +1,3 @@
--- return {}
 return {
     {
         "catppuccin/nvim",
