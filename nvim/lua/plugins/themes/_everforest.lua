@@ -1,6 +1,7 @@
 return {
     {
         "sainnhe/everforest",
+        enabled = false,
         config = function()
             vim.o.background = "dark"
             vim.g.everforest_background = "hard"
