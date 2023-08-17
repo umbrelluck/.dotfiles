@@ -18,7 +18,7 @@ return { {
             parser_install_dir = parser_dir,
             highlight = {
                 enable = true,
-                additional_vim_regex_highlighting = false,
+                additional_vim_regex_highlighting = { "markdown" },
             },
             incremental_selection = {
                 enable = true,
