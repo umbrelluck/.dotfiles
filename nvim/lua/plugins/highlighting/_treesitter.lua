@@ -96,10 +96,8 @@ return { {
                     border = 'rounded',
                     floating_preview_opts = {},
                     peek_definition_code = {
-                        -- ["<leader>df"] = "@function.outer",
-                        -- ["<leader>dc"] = "@class.outer",
-                        ["df"] = "@function.outer",
-                        ["dc"] = "@class.outer",
+                        ["<leader>df"] = "@function.outer",
+                        ["<leader>dc"] = "@class.outer",
                     },
                 },
             },
