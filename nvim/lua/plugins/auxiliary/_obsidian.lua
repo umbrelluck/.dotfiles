@@ -1,13 +1,13 @@
 return {
     "epwalsh/obsidian.nvim",
-    event = { "BufReadPre ~/obsidian/**/**.md" },
+    event = "BufReadPre */obsidian/*.md",
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
     opts = {
-        dir = "~/obsidian/Vaultище/",
+        dir = "~/obsidian/Vaultum/",
         daily_notes = {
-            folder = "Daily Notes",
+            folder = "daily",
         },
         completion = {
             nvim_cmp = true,
@@ -21,7 +21,8 @@ return {
     },
     config = function(_, opts)
         require("obsidian").setup(opts)
-        _G.map("gf", function()
+
+        _G.nmap("gf", function()
             if require("obsidian").util.cursor_on_markdown_link() then
                 return "<cmd>ObsidianFollowLink<CR>"
             else
