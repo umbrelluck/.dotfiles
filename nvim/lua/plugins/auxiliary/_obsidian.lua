@@ -29,5 +29,10 @@ return {
                 return "gf"
             end
         end, { noremap = false, expr = true })
+
+        -- _G.nmap("<leader>oo", ":ObsidianOpen ", { silent = false, desc = "[Obsidian]: [o]pen file in Obsidian" })
+        -- _G.nmap("<leader>on", ":ObsidianNew ", { silent = false, desc = "[O]bsidian: create new [n]ote" })
+        -- _G.nmap("<leader>ow", ":ObsidianQuickSwitch ", { silent = false, desc = "[Obsidian]: quick s[w]itch note" })
+        -- _G.nmap("<leader>of", ":ObsidianFollowLink ", { silent = false, desc = "[Obsidian]: [f]ollow link" })
     end
 }
