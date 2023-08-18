@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 _G.nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Better k motions" })
 _G.nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Better j motions" })
 
+_G.imap("<c-c>", "<Esc>", { noremap = false, desc = "alternative to Escape in insert mode" })
+
 _G.nmap("\\z", ":verbose map ", { silent = false, desc = "Verbose map" })
 
 _G.nmap("\\q", ":q<cr>", { desc = "Quit" })
@@ -44,7 +46,7 @@ _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
 _G.nmap("<C-k>", "<C-w>k", { noremap = false, desc = "Move to top window" })
 _G.nmap("<C-l>", "<C-w>l", { noremap = false, desc = "Move to right window" })
-_G.nmap("<C-c>", "<C-w>c", { noremap = false, desc = "Close current buffer" })
+_G.nmap("<C-q>", "<C-w>c", { noremap = false, desc = "Close current buffer" })
 
 _G.nmap("<C-A-e>", "<C-w>=", { noremap = false, desc = "Resize all windows to the same size" })
 _G.nmap("<C-A-k>", "5<C-w>+", { noremap = false, desc = "Increase window vertically by 5 rows" })
