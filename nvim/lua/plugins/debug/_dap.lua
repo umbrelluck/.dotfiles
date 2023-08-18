@@ -5,30 +5,30 @@ return {
         config = function()
             local dap = require("dap")
 
-            _G.map('n', '<F5>', function() dap.continue() end)
-            _G.map('n', '<F10>', function() dap.step_over() end)
-            _G.map('n', '<F11>', function() dap.step_into() end)
-            _G.map('n', '<F12>', function() dap.step_out() end)
-            _G.map('n', '<Leader>b', function() dap.toggle_breakpoint() end)
-            _G.map('n', '<Leader>B', function() dap.set_breakpoint() end)
-            _G.map('n', '<Leader>lp',
-                function() dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-            _G.map('n', '<Leader>dr', function() dap.repl.open() end)
-            _G.map('n', '<Leader>dl', function() dap.run_last() end)
-            _G.map({ 'n', 'v' }, '<Leader>dh', function()
-                require('dap.ui.widgets').hover()
-            end)
-            _G.map({ 'n', 'v' }, '<Leader>dp', function()
-                require('dap.ui.widgets').preview()
-            end)
-            _G.map('n', '<Leader>df', function()
-                local widgets = require('dap.ui.widgets')
+            _G.nmap("<F5>", function() dap.continue() end, { desc = "Dap contiue" })
+            _G.nmap("<F10>", function() dap.step_over() end, { desc = "Dap step over" })
+            _G.nmap("<F11>", function() dap.step_into() end, { desc = "Dap step into" })
+            _G.nmap("<F12>", function() dap.step_out() end, { desc = "Dap step out" })
+            _G.nmap("<Leader>b", function() dap.toggle_breakpoint() end, { desc = "Dap toggle breakpoint" })
+            _G.nmap("<Leader>lp",
+                function() dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: ")) end,
+                { desc = "Dap set convoluted breakpoint" })
+            _G.nmap("<Leader>dr", function() dap.repl.open() end, { desc = "Dap open reply" })
+            _G.nmap("<Leader>dl", function() dap.run_last() end, { desc = "Dap run last" })
+            _G.map({ "n", "v" }, "<Leader>dk", function()
+                require("dap.ui.widgets").hover()
+            end, { desc = "Dap hover" })
+            _G.map({ "n", "v" }, "<Leader>dp", function()
+                require("dap.ui.widgets").preview()
+            end, { desc = "Dap preview" })
+            _G.nmap("<Leader>df", function()
+                local widgets = require("dap.ui.widgets")
                 widgets.centered_float(widgets.frames)
-            end)
-            _G.map('n', '<Leader>ds', function()
-                local widgets = require('dap.ui.widgets')
+            end, { desc = "Dap float" })
+            _G.nmap("<Leader>ds", function()
+                local widgets = require("dap.ui.widgets")
                 widgets.centered_float(widgets.scopes)
-            end)
+            end, { desc = "Dap centered float" })
 
             -- dap.configurations.python = {
             --     {
@@ -71,8 +71,9 @@ return {
                 { text = _G.LSPDsigns.BreakpointCondition, texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
             sign("DapLogPoint", { text = _G.LSPDsigns.Logpoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
-            _G.map("n", "<leader>dk", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>")
-            _G.map("v", "<leader>de", ":lua require('dapui').eval()<CR>")
+            _G.nmap("<leader>de", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>",
+                { desc = "Dap floating elements" })
+            _G.vmap("<leader>dv", ":lua require('dapui').eval()<CR>", { desc = "Dap eval" })
         end
     }
 }

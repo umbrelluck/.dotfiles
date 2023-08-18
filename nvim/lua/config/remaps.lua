@@ -1,116 +1,90 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- _G.map("", "<left>", "<nop>")
--- _G.map("", "<up>", "<nop>")
--- _G.map("", "<right>", "<nop>")
--- _G.map("", "<down>", "<nop>")
+_G.nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Better k motions" })
+_G.nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Better j motions" })
 
-_G.map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-_G.map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+_G.nmap("\\z", ":verbose map ", { silent = false, desc = "Verbose map" })
 
-_G.map("n", "\\z", ":verbose map ", { silent = false })
+_G.nmap("\\q", ":q<cr>", { desc = "Quit" })
+_G.nmap("\\w", ":w<cr>", { desc = "Write" })
+_G.nmap("\\a", ":wq<cr>", { desc = "Save and quit" })
+_G.nmap("\\s", ":so<cr>", { silent = false, desc = "Source current file" })
+_G.nmap("<leader>rl", ":so<cr>", { silent = false, desc = "Source current file" })
 
-_G.map("n", "\\q", ":q<cr>")
-_G.map("n", "\\w", ":w<cr>")
-_G.map("n", "\\a", ":wq<cr>")
-_G.map("n", "\\s", ":so<cr>", { silent = false })
+_G.nmap("<leader>pv", vim.cmd.Ex, { desc = "Open Explorer" })
+_G.nmap("<A-a>", "ggVG", { noremap = false, desc = "Select all" })
 
-_G.map("n", "<leader>pv", vim.cmd.Ex)
-_G.map("n", "<A-a>", "ggVG", { noremap = false })
-
-_G.map("n", "<Leader>hh", ":noh<cr>")
-_G.map("n", "<Leader>hi", ":noh<cr>")
+_G.nmap("<Leader>hh", ":noh<cr>", { desc = "Remove highlight" })
+_G.nmap("<Leader>hi", ":noh<cr>", { desc = "Remove highlight" })
 
 -- move lines
-_G.map("n", "<a-j>", ":m .+1<CR>==")
-_G.map("n", "<a-k>", ":m .-2<CR>==")
-_G.map("i", "<a-j>", "<Esc>:m .+1<CR>==gi")
-_G.map("i", "<a-k>", "<Esc>:m .-2<CR>==gi")
-_G.map("v", "<a-j>", ":m '>+1<CR>gv=gv")
-_G.map("v", "<a-k>", ":m '<-2<CR>gv=gv")
+_G.nmap("<a-j>", ":m .+1<CR>==", { desc = "Move line down" })
+_G.nmap("<a-k>", ":m .-2<CR>==", { desc = "Move line up" })
+_G.imap("<a-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+_G.imap("<a-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
+_G.vmap("<a-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
+_G.vmap("<a-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
-_G.map({ "n", "v" }, "<a-l>", ">>", { noremap = false })
-_G.map({ "n", "i" }, "<a-h>", "<<", { noremap = false })
-_G.map("i", "<a-l>", "<ESC>>>", { noremap = false })
-_G.map("i", "<a-h>", "<ESC><<", { noremap = false })
+_G.map({ "n", "v" }, "<a-l>", ">>", { noremap = false, desc = "Indent line right" })
+_G.map({ "n", "i" }, "<a-h>", "<<", { noremap = false, desc = "Indent line left" })
+_G.imap("<a-l>", "<ESC>>>", { noremap = false, desc = "Indent line right" })
+_G.imap("<a-h>", "<ESC><<", { noremap = false, desc = "Indent line left" })
 
 -- buffers
-_G.map("n", "]b", ":bnext<cr>")
-_G.map("n", "[b", ":bprev<cr>")
-_G.map("n", "<leader>0", ":b#<cr>")
-_G.map("n", "<c-v>", ":vert sb<cr>", { silent = false })
-_G.map("n", "<c-b>", ":sb<cr>", { silent = false })
-_G.map("n", "<c-n>", ":enew<cr>", { silent = false })
-_G.map("n", "\\v", ":vsplit<cr>")
-_G.map("n", "\\h", ":split<cr>")
+_G.nmap("]b", ":bnext<cr>", { desc = "Next buffer" })
+_G.nmap("[b", ":bprev<cr>", { desc = "Previous buffer" })
+_G.nmap("<leader>0", ":b#<cr>", { desc = "Last buffer" })
+_G.nmap("<c-v>", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
+_G.nmap("<c-b>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
+_G.nmap("<c-n>", ":enew<cr>", { silent = false, desc = "Create new buffer" })
 
 -- windows
-_G.map("n", "<C-h>", "<C-w>h", { noremap = false })
--- _G.map("n", "<left>", "<C-w>h", { noremap = false })
-_G.map("n", "<C-j>", "<C-w>j", { noremap = false })
--- _G.map("n", "<down>", "<C-w>j", { noremap = false })
-_G.map("n", "<C-k>", "<C-w>k", { noremap = false })
--- _G.map("n", "<up>", "<C-w>k", { noremap = false })
-_G.map("n", "<C-l>", "<C-w>l", { noremap = false })
--- _G.map("n", "<right>", "<C-w>l", { noremap = false })
-_G.map("n", "<C-c>", "<C-w>c", { noremap = false })
+_G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
+_G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
+_G.nmap("<C-k>", "<C-w>k", { noremap = false, desc = "Move to top window" })
+_G.nmap("<C-l>", "<C-w>l", { noremap = false, desc = "Move to right window" })
+_G.nmap("<C-c>", "<C-w>c", { noremap = false, desc = "Close current buffer" })
 
-_G.map("n", "<C-A-e>", "5<C-w>=", { noremap = false })
-_G.map("n", "<C-A-k>", "5<C-w>+", { noremap = false })
-_G.map("n", "<C-A-j>", "5<C-w>-", { noremap = false })
-_G.map("n", "<C-A-l>", "5<C-w>>", { noremap = false })
-_G.map("n", "<C-A-h>", "5<C-w><", { noremap = false })
-
--- _G.map("n","<C->>", "<C-w>=", { noremap = false })
-
-_G.map("n", "<Leader>=", ':exe "resize " . (winheight(0) * 3/2)<CR>')
-_G.map("n", "<Leader>-", ':exe "resize " . (winheight(0) * 2/3)<CR>')
-
+_G.nmap("<C-A-e>", "<C-w>=", { noremap = false, desc = "Resize all windows to the same size" })
+_G.nmap("<C-A-k>", "5<C-w>+", { noremap = false, desc = "Increase window vertically by 5 rows" })
+_G.nmap("<C-A-j>", "5<C-w>-", { noremap = false, desc = "Decrease window vertically by 5 rows" })
+_G.nmap("<C-A-l>", "5<C-w>>", { noremap = false, desc = "Increase window horizontally by 5 columns" })
+_G.nmap("<C-A-h>", "5<C-w><", { noremap = false, desc = "Decrease window horizontally by 5 columns" })
 
 --tabs
-_G.map("n", "tk", ":tabnext<cr>")
-_G.map("n", "]t", ":tabnext<cr>")
-_G.map("n", "tj", ":tabNext<cr>")
-_G.map("n", "[t", ":tabNext<cr>")
-_G.map("n", "tn", ":tabnew<cr>")
-_G.map("n", "tf", ":tabfind<cr>")
-_G.map("n", "tq", ":tabclose<cr>")
-_G.map("n", "tc", ":tabclose<cr>")
+_G.nmap("tk", ":tabnext<cr>", { desc = "Next tab" })
+_G.nmap("]t", ":tabnext<cr>", { desc = "Next tab" })
+_G.nmap("tj", ":tabNext<cr>", { desc = "Previous tab" })
+_G.nmap("[t", ":tabNext<cr>", { desc = "Previous tab" })
+_G.nmap("tn", ":tabnew<cr>", { desc = "New tab" })
+_G.nmap("tf", ":tabfind ", { silent = false, desc = "Open new tab and edit file inside" })
+_G.nmap("tq", ":tabclose<cr>", { desc = "Close tab" })
+_G.nmap("tc", ":tabclose<cr>", { desc = "Close tab" })
 
 --better jumping
-
--- move line below to the end of current line
--- _G.map("n", "J", "mzJ`z")
-
--- _G.map("n", "<C-d>", "<C-d>zz")
--- _G.map("n", "<C-u>", "<C-u>zz")
+_G.nmap("<C-d>", "<C-d>zz", { desc = "<C-d> always stays in the middle of the screen" })
+_G.nmap("<C-u>", "<C-u>zz", { desc = "<C-u> always stays in the middle of the screen" })
 
 --search stays in the middle
-_G.map("n", "n", "nzzzv")
-_G.map("n", "N", "Nzzzv")
---
+_G.nmap("n", "nzzzv", { desc = "n stays in the middle of the screen" })
+_G.nmap("N", "Nzzzv", { desc = "N stays in the middle of the screen" })
+
 -- greatest remap ever
-_G.map("x", "<leader>p", [["_dP]])
-
+_G.map("x", "<leader>p", [["_dP]], { desc = "Remebers what you pasted instead of what you pasted over" })
 -- next greatest remap ever : asbjornHaland
-_G.map({ "n", "v" }, "<leader>y", [["+y]])
-_G.map("n", "<leader>Y", [["+Y]])
+_G.map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy selected to clipboard" })
+_G.nmap("<leader>Y", [["+Y]], { desc = "Copy line to clipboard" })
 
-_G.map({ "n", "v" }, "<leader>dd", [["_d]])
+_G.map({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Do not know what this is doing but too afraid to delete" })
 
--- _G.map("i", "<C-c>", "<Esc>")
+_G.nmap("Q", "<nop>", { desc = "Q literally does nothing" })
 
-_G.map("n", "Q", "<nop>")
--- _G.map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
--- _G.map("n", "<leader>f", vim.lsp.buf.format)
+_G.nmap("]c", "<cmd>cnext<CR>zz", { desc = "Next entry in quickfix" })
+_G.nmap("[c", "<cmd>cprev<CR>zz", { desc = "Previous entry in quickfix" })
+_G.nmap("]l", "<cmd>lnext<CR>zz", { desc = "Next entry in locallist" })
+_G.nmap("[l", "<cmd>lprev<CR>zz", { desc = "Previous entry in locallist" })
 
-_G.map("n", "]c", "<cmd>cnext<CR>zz")
-_G.map("n", "[c", "<cmd>cprev<CR>zz")
-_G.map("n", "]l", "<cmd>lnext<CR>zz")
-_G.map("n", "[l", "<cmd>lprev<CR>zz")
-
-_G.map("n", "<leader>rl", ":so<cr>", { silent = false })
-
-_G.map("n", "<leader>se", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace in whole file
-_G.map("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true })               -- make current file executable
+_G.nmap("<leader>se", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    { silent = false, desc = "Substitute in whole file" })
+_G.nmap("<leader>X", "<cmd>!chmod +x %<CR>", { desc = "Make current file executable" })
