@@ -5,6 +5,12 @@ return {
         config = function()
             local dap = require("dap")
 
+            local sign = vim.fn.sign_define
+            sign("DapBreakpoint", { text = _G.LSPDsigns.Breakpoint, texthl = "red", linehl = "", numhl = "" })
+            sign("DapBreakpointCondition",
+                { text = _G.LSPDsigns.BreakpointCondition, texthl = "red", linehl = "", numhl = "" })
+            sign("DapLogPoint", { text = _G.LSPDsigns.Logpoint, texthl = "red", linehl = "", numhl = "" })
+
             _G.nmap("<F5>", function() dap.continue() end, { desc = "Dap contiue" })
             _G.nmap("<F10>", function() dap.step_over() end, { desc = "Dap step over" })
             _G.nmap("<F11>", function() dap.step_into() end, { desc = "Dap step into" })
@@ -64,12 +70,6 @@ return {
             dap.listeners.before.event_exited["dapui_config"] = function()
                 dapui.close()
             end
-
-            local sign = vim.fn.sign_define
-            sign("DapBreakpoint", { text = _G.LSPDsigns.Breakpoint, texthl = "DapBreakpoint", linehl = "", numhl = "" })
-            sign("DapBreakpointCondition",
-                { text = _G.LSPDsigns.BreakpointCondition, texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-            sign("DapLogPoint", { text = _G.LSPDsigns.Logpoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
             _G.nmap("<leader>de", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>",
                 { desc = "Dap floating elements" })
