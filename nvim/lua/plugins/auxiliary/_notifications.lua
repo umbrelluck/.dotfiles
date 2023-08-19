@@ -1,7 +1,7 @@
 return {
     {
         "rcarriga/nvim-notify",
-        -- dependencies = { "nvim-telescope/telescope.nvim" },
+        dependencies = { "nvim-telescope/telescope.nvim" },
         opts = {
             background_colour = "#282C34", --onedark grey background
             -- background_colour = "#00000000",
@@ -36,11 +36,13 @@ return {
             vim.notify = require("notify")
             require("notify").setup(opts)
 
-            _G.map("n", "Z", function()
+            _G.nmap("ZN", function()
                 require("notify").dismiss({ silent = true, pending = true })
             end, { desc = "Delete all notifications" })
-            _G.map("n", "z[", ":Telescope notify<cr>", { desc = "View all notifications in Telescope" })
-            _G.map("n", "z]", ":Notifications<cr>", { desc = "View all notifications" })
+
+            require("telescope").load_extension("notify")
+            _G.nmap("<leader>sn", ":Telescope notify<cr>")
+
             -- local client_notifs = {}
             --
             -- local function get_notif_data(client_id, token)

@@ -12,27 +12,28 @@ return {
         -- cmd = "Telesope",
         config = function()
             local builtin = require("telescope.builtin")
-            _G.map("n", "<leader>tt", ":Telescope<cr>")
+            _G.nmap("<leader>tt", ":Telescope<cr>")
 
-            _G.map("n", '<leader>?', builtin.oldfiles,
+            _G.nmap('<leader>?', builtin.oldfiles,
                 { desc = '[?] Find recently opened files' })
-            _G.map("n", '<leader>so', builtin.oldfiles,
+            _G.nmap('<leader>so', builtin.oldfiles,
                 { desc = '[?] Find recently opened files' })
-            _G.map("n", '<leader><space>', builtin.buffers,
+            _G.nmap('<leader><space>', builtin.buffers,
                 { desc = '[ ] Find existing buffers' })
-            _G.map("n", '<leader>/', function()
+            _G.nmap('<leader>/', function()
                 builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
                     winblend = 5,
                     previewer = false,
                 })
             end, { desc = '[/] Fuzzily search in current buffer' })
 
-            _G.map("n", '<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
-            _G.map("n", '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-            _G.map("n", '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-            _G.map("n", '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-            _G.map("n", '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-            _G.map("n", '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+            _G.nmap('<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
+            _G.nmap('<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+            _G.nmap('<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+            _G.nmap('<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
+            _G.nmap('<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
+            _G.nmap('<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
+            _G.nmap("<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 
             local telescope = require("telescope")
             local actions = require("telescope.actions")
@@ -98,6 +99,5 @@ return {
             })
 
             telescope.load_extension("fzf")
-            telescope.load_extension("notify")
         end,
     } }

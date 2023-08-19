@@ -38,7 +38,7 @@ _G.nmap("]b", ":bnext<cr>", { desc = "Next buffer" })
 _G.nmap("[b", ":bprev<cr>", { desc = "Previous buffer" })
 _G.nmap("<leader>0", ":b#<cr>", { desc = "Last buffer" })
 _G.nmap("<c-v>", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
-_G.nmap("<c-b>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
+_G.nmap("<c-g>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 _G.nmap("<c-n>", ":enew<cr>", { silent = false, desc = "Create new buffer" })
 
 -- windows
@@ -73,7 +73,7 @@ _G.nmap("n", "nzzzv", { desc = "n stays in the middle of the screen" })
 _G.nmap("N", "Nzzzv", { desc = "N stays in the middle of the screen" })
 
 -- greatest remap ever
-_G.map("x", "<leader>p", [["_dP]], { desc = "Remebers what you pasted instead of what you pasted over" })
+_G.xmap("<leader>p", [["_dP]], { desc = "Remebers what you pasted instead of what you pasted over" })
 -- next greatest remap ever : asbjornHaland
 _G.map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy selected to clipboard" })
 _G.nmap("<leader>Y", [["+Y]], { desc = "Copy line to clipboard" })

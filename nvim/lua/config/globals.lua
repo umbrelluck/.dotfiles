@@ -34,6 +34,10 @@ function _G.emap(btn, action, opts)
     _G.map("", btn, action, opts)
 end
 
+function _G.xmap(btn, action, opts)
+    _G.map("x", btn, action, opts)
+end
+
 _G.is_empty = function(str)
     return str == nil or str == ""
 end

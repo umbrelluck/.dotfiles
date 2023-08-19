@@ -86,7 +86,6 @@ return {
                     ["<A-e>"] = cmp.mapping.abort(),
                     ["<c-e>"] = cmp.mapping.abort(),
                     ["<c-c>"] = cmp.mapping.abort(),
-                    ["<Esc>"] = cmp.mapping.abort(),
                     ["<c-j>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
