@@ -1,4 +1,4 @@
-return { {
+return {
     "jiaoshijie/undotree",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = { "<leader>u" },
@@ -24,4 +24,4 @@ return { {
         undotree.setup(opts)
         _G.map("n", "<leader>u", undotree.toggle)
     end,
-} }
+}
