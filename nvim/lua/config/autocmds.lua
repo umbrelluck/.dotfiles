@@ -1,4 +1,4 @@
-vim.api.nvim_create_augroup("CustomHighlights", { clear = true })
+_G.rainbow_highlight_group = vim.api.nvim_create_augroup("RainbowHighlights", { clear = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

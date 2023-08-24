@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
-    group = "CustomHighlights",
+    group = _G.rainbow_highlight_group,
     pattern = "*",
     callback = function() -- has parameter ev
         vim.cmd([[highlight RainbowDelimiterRed guifg=#FDC9C9]])
