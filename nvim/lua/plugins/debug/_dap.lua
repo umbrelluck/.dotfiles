@@ -71,8 +71,8 @@ return {
                 { text = _G.LSPDsigns.BreakpointCondition, texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
             sign("DapLogPoint", { text = _G.LSPDsigns.Logpoint, texthl = "DapLogPoint", linehl = "", numhl = "" })
 
-            _G.map(_G.mods.n, "<leader>dk", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>")
-            _G.map(_G.mods.v, "<leader>de", ":lua require('dapui').eval()<CR>")
+            _G.map("n", "<leader>dk", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>")
+            _G.map("v", "<leader>de", ":lua require('dapui').eval()<CR>")
         end
     }
 }

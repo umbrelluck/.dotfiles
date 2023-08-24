@@ -1,6 +1,9 @@
 return { {
     "nvim-treesitter/nvim-treesitter",
-    dependencies = { "nvim-treesitter/playground" },
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/playground"
+    },
     build = function()
         local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
         ts_update()
@@ -18,7 +21,7 @@ return { {
             parser_install_dir = parser_dir,
             highlight = {
                 enable = true,
-                additional_vim_regex_highlighting = false,
+                additional_vim_regex_highlighting = { "markdown" },
             },
             incremental_selection = {
                 enable = true,
@@ -33,6 +36,7 @@ return { {
                 select = {
                     enable = true,
                     lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+                    include_surrounding_whitespace = true,
                     keymaps = {
                         -- You can use the capture groups defined in textobjects.scm
                         ["aa"] = "@parameter.outer",
@@ -43,12 +47,19 @@ return { {
                         ["ic"] = "@class.inner",
                     },
                 },
+                selection_modes = {
+                    ['@parameter.outer'] = 'v', -- charwise
+                    ['@function.outer'] = 'V',  -- linewise
+                    ['@class.outer'] = '<c-v>', -- blockwise
+                },
                 move = {
                     enable = true,
                     set_jumps = true, -- whether to set jumps in the jumplist
                     goto_next_start = {
                         ["]m"] = "@function.outer",
                         ["]]"] = "@class.outer",
+                        ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
+                        ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
                     },
                     goto_next_end = {
                         ["]M"] = "@function.outer",
@@ -57,11 +68,19 @@ return { {
                     goto_previous_start = {
                         ["[m"] = "@function.outer",
                         ["[["] = "@class.outer",
+                        ["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
+                        ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
                     },
                     goto_previous_end = {
                         ["[M"] = "@function.outer",
                         ["[]"] = "@class.outer",
                     },
+                    goto_next = {
+                        ["]g"] = "@conditional.outer",
+                    },
+                    goto_previous = {
+                        ["[g"] = "@conditional.outer",
+                    }
                 },
                 swap = {
                     enable = true,
@@ -70,6 +89,15 @@ return { {
                     },
                     swap_previous = {
                         ["<leader>I"] = "@parameter.inner",
+                    },
+                },
+                lsp_interop = {
+                    enable = true,
+                    border = 'rounded',
+                    floating_preview_opts = {},
+                    peek_definition_code = {
+                        ["<leader>df"] = "@function.outer",
+                        ["<leader>dc"] = "@class.outer",
                     },
                 },
             },

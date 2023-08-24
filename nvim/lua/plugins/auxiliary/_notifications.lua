@@ -36,11 +36,11 @@ return {
             vim.notify = require("notify")
             require("notify").setup(opts)
 
-            _G.map(_G.mods.n, "Z", function()
+            _G.map("n", "Z", function()
                 require("notify").dismiss({ silent = true, pending = true })
             end, { desc = "Delete all notifications" })
-            _G.map(_G.mods.n, "z[", ":Telescope notify<cr>", { desc = "View all notifications in Telescope" })
-            _G.map(_G.mods.n, "z]", ":Notifications<cr>", { desc = "View all notifications" })
+            _G.map("n", "z[", ":Telescope notify<cr>", { desc = "View all notifications in Telescope" })
+            _G.map("n", "z]", ":Notifications<cr>", { desc = "View all notifications" })
             -- local client_notifs = {}
             --
             -- local function get_notif_data(client_id, token)

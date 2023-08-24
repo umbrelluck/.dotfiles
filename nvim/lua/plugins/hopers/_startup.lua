@@ -69,10 +69,9 @@ return {
                 title = "",
                 content = function()
                     local stats = require("lazy").stats()
-                    local startup_time = "Startuptime 󱫑 " .. stats.startuptime .. "ms"
-                    local plugins = "Plugins installed 󱊍 " .. stats.count
-                    local loaded_plugins = "Plugins loaded 󱊏 " .. stats.loaded
-                    return { startup_time, plugins, loaded_plugins }
+                    local plugins = "Plugins installed 󰏖 " .. stats.count
+                    local loaded_plugins = "Plugins loaded 󱧘 " .. stats.loaded
+                    return { plugins, loaded_plugins }
                 end,
                 oldfiles_directory = false,
                 align = "center",

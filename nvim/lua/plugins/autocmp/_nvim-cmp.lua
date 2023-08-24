@@ -91,7 +91,7 @@ return {
                         else
                             fallback()
                         end
-                    end, { _G.mods.i, _G.mods.s }),
+                    end, { "i", "s" }),
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
@@ -100,7 +100,7 @@ return {
                         else
                             fallback()
                         end
-                    end, { _G.mods.i, _G.mods.s }),
+                    end, { "i", "s" }),
                 }),
                 sources = cmp.config.sources({
                     { name = 'nvim_lsp' },
