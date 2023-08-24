@@ -1,3 +1,16 @@
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = "CustomHighlights",
+    pattern = "*",
+    callback = function() -- has parameter ev
+        vim.cmd([[highlight IndentContext1 guifg=#FDC9C9 ]])
+        vim.cmd([[highlight IndentContext2 guifg=#FFE7C9 ]])
+        vim.cmd([[highlight IndentContext3 guifg=#FFFAC9 ]])
+        vim.cmd([[highlight IndentContext4 guifg=#C9EFCB ]])
+        vim.cmd([[highlight IndentContext5 guifg=#C9F4FB ]])
+        vim.cmd([[highlight IndentContext6 guifg=#DBC9E9 ]])
+    end
+})
+
 return { {
     "lukas-reineke/indent-blankline.nvim",
     opts = {
@@ -17,14 +30,4 @@ return { {
             "IndentContext6",
         },
     },
-    config = function(_, opts)
-        vim.cmd([[highlight IndentContext1 guifg=#FDC9C9 gui=nocombine]])
-        vim.cmd([[highlight IndentContext2 guifg=#FFE7C9 gui=nocombine]])
-        vim.cmd([[highlight IndentContext3 guifg=#FFFAC9 gui=nocombine]])
-        vim.cmd([[highlight IndentContext4 guifg=#C9EFCB gui=nocombine]])
-        vim.cmd([[highlight IndentContext5 guifg=#C9F4FB gui=nocombine]])
-        vim.cmd([[highlight IndentContext6 guifg=#DBC9E9 gui=nocombine]])
-
-        require("indent_blankline").setup(opts)
-    end,
 } }
