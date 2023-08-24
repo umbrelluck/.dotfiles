@@ -105,8 +105,8 @@ _G.map("n", "Q", "<nop>")
 -- _G.map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- _G.map("n", "<leader>f", vim.lsp.buf.format)
 
-_G.map("n", "]c", "<cmd>cnext<CR>zz")
-_G.map("n", "[c", "<cmd>cprev<CR>zz")
+_G.map("n", "]e", "<cmd>cnext<CR>zz")
+_G.map("n", "[e", "<cmd>cprev<CR>zz")
 _G.map("n", "]l", "<cmd>lnext<CR>zz")
 _G.map("n", "[l", "<cmd>lprev<CR>zz")
 
