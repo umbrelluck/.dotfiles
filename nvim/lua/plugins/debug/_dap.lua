@@ -7,26 +7,34 @@ return {
 
             vim.fn.sign_define('DapBreakpoint',
                 {
-                    text = _G.LSPDsigns.Breakpoint, texthl = 'Error', linehl = '', numhl = 'Error'
+                    text = _G.LSPDsigns.Breakpoint,
+                    texthl = 'DiagnosticDiagnosticError',
+                    linehl = '',
+                    numhl = 'DiagnosticError'
                 })
             vim.fn.sign_define('DapBreakpointCondition',
                 {
                     text = _G.LSPDsigns.BreakpointCondition,
-                    texthl = 'Error',
+                    texthl = 'DiagnosticDiagnosticError',
                     linehl = '',
-                    numhl = 'Error'
+                    numhl = 'DiagnosticDiagnosticError'
                 })
             vim.fn.sign_define('DapBreakpointRejected',
                 {
                     text = _G.LSPDsigns.BreakpointRejected,
-                    texthl = 'Error',
+                    texthl = 'DiagnosticDiagnosticError',
                     linehl = '',
-                    numhl = 'Error'
+                    numhl = 'DiagnosticDiagnosticError'
                 })
             vim.fn.sign_define('DapLogPoint',
-                { text = _G.LSPDsigns.LogPoint, texthl = 'Warn', linehl = '', numhl = 'Warn' })
+                {
+                    text = _G.LSPDsigns.LogPoint,
+                    texthl = 'DiagnosticDiagnosticWarn',
+                    linehl = '',
+                    numhl = 'DiagnosticWarn'
+                })
             vim.fn.sign_define('DapStopped', {
-                text = _G.LSPDsigns.Stopped, texthl = 'Ok', linehl = '', numhl = 'Ok'
+                text = _G.LSPDsigns.Stopped, texthl = 'DiagnosticOK', linehl = '', numhl = 'DiagnosticOK'
             })
 
             _G.nmap("<F5>", function() dap.continue() end, { desc = "Dap contiue" })
