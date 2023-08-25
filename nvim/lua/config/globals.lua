@@ -7,7 +7,9 @@ _G.LSPDsigns = {
     Dprefix = "●",
     Breakpoint = "●",
     BreakpointCondition = "",
-    Logpoint = "◆"
+    BreakpointRejected = "",
+    LogPoint = "",
+    Stopped = ""
 }
 
 function _G.map(mode, btn, action, opts)

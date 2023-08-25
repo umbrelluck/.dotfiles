@@ -1,15 +1,33 @@
 return {
     {
         "mfussenegger/nvim-dap",
-        keys = { "<leader>b" },
+        keys = { "<leader>b", "<F5>" },
         config = function()
             local dap = require("dap")
 
-            local sign = vim.fn.sign_define
-            sign("DapBreakpoint", { text = _G.LSPDsigns.Breakpoint, texthl = "red", linehl = "", numhl = "" })
-            sign("DapBreakpointCondition",
-                { text = _G.LSPDsigns.BreakpointCondition, texthl = "red", linehl = "", numhl = "" })
-            sign("DapLogPoint", { text = _G.LSPDsigns.Logpoint, texthl = "red", linehl = "", numhl = "" })
+            vim.fn.sign_define('DapBreakpoint',
+                {
+                    text = _G.LSPDsigns.Breakpoint, texthl = 'Error', linehl = '', numhl = 'Error'
+                })
+            vim.fn.sign_define('DapBreakpointCondition',
+                {
+                    text = _G.LSPDsigns.BreakpointCondition,
+                    texthl = 'Error',
+                    linehl = '',
+                    numhl = 'Error'
+                })
+            vim.fn.sign_define('DapBreakpointRejected',
+                {
+                    text = _G.LSPDsigns.BreakpointRejected,
+                    texthl = 'Error',
+                    linehl = '',
+                    numhl = 'Error'
+                })
+            vim.fn.sign_define('DapLogPoint',
+                { text = _G.LSPDsigns.LogPoint, texthl = 'Warn', linehl = '', numhl = 'Warn' })
+            vim.fn.sign_define('DapStopped', {
+                text = _G.LSPDsigns.Stopped, texthl = 'Ok', linehl = '', numhl = 'Ok'
+            })
 
             _G.nmap("<F5>", function() dap.continue() end, { desc = "Dap contiue" })
             _G.nmap("<F10>", function() dap.step_over() end, { desc = "Dap step over" })
@@ -56,7 +74,7 @@ return {
             { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true }, }, },
         },
         opts = {},
-        keys = { "<leader>b" },
+        keys = { "<leader>b", "<F5>" },
         config = function(_, opts)
             require("dapui").setup(opts)
 
