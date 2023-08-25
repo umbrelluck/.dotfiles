@@ -91,7 +91,8 @@ draw_bold_text_with_bright_colors: false
 
 # ======== Imported themes ========
 import:
-  - ~/.config/alacritty/a_themes/themes/midnight-haze.yaml
+  - ~/.config/alacritty/a_themes/themes/rose-pine.yaml
+    # - ~/.config/alacritty/a_themes/themes/midnight-haze.yaml
   # - ~/.config/alacritty/a_themes/themes/omni.yaml
   # - ~/.config/alacritty/a_themes/themes/papercolor_dark.yaml
 

@@ -1,7 +1,7 @@
 return {
     {
         "mfussenegger/nvim-dap",
-        keys = { "<leader>b", "<F5>" },
+        keys = { "<leader>b" },
         config = function()
             local dap = require("dap")
 
@@ -82,7 +82,7 @@ return {
             { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true }, }, },
         },
         opts = {},
-        keys = { "<leader>b", "<F5>" },
+        keys = { "<leader>b" },
         config = function(_, opts)
             require("dapui").setup(opts)
 
