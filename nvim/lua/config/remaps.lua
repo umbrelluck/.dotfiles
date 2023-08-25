@@ -82,8 +82,8 @@ _G.map({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Do not know what this is d
 
 _G.nmap("Q", "<nop>", { desc = "Q literally does nothing" })
 
-_G.nmap("]c", "<cmd>cnext<CR>zz", { desc = "Next entry in quickfix" })
-_G.nmap("[c", "<cmd>cprev<CR>zz", { desc = "Previous entry in quickfix" })
+_G.nmap("]e", "<cmd>cnext<CR>zz", { desc = "Next entry in quickfix" })
+_G.nmap("[e", "<cmd>cprev<CR>zz", { desc = "Previous entry in quickfix" })
 _G.nmap("]l", "<cmd>lnext<CR>zz", { desc = "Next entry in locallist" })
 _G.nmap("[l", "<cmd>lprev<CR>zz", { desc = "Previous entry in locallist" })
 

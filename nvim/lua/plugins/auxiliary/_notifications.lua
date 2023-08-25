@@ -141,8 +141,10 @@ return {
         end,
     },
     {
+        -- BUG: apparently somehow fucks up nvim -d mode
         "mrded/nvim-lsp-notify",
         dependencies = { "rcarriga/nvim-notify" },
+        enabled = false,
         config = function()
             require("lsp-notify").setup({
                 -- notify = require("notify")
