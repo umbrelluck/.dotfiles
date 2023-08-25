@@ -8,28 +8,28 @@ return {
             vim.fn.sign_define('DapBreakpoint',
                 {
                     text = _G.LSPDsigns.Breakpoint,
-                    texthl = 'DiagnosticDiagnosticError',
+                    texthl = 'DiagnosticError',
                     linehl = '',
                     numhl = 'DiagnosticError'
                 })
             vim.fn.sign_define('DapBreakpointCondition',
                 {
                     text = _G.LSPDsigns.BreakpointCondition,
-                    texthl = 'DiagnosticDiagnosticError',
+                    texthl = 'DiagnosticError',
                     linehl = '',
-                    numhl = 'DiagnosticDiagnosticError'
+                    numhl = 'DiagnosticError'
                 })
             vim.fn.sign_define('DapBreakpointRejected',
                 {
                     text = _G.LSPDsigns.BreakpointRejected,
-                    texthl = 'DiagnosticDiagnosticError',
+                    texthl = 'DiagnosticError',
                     linehl = '',
-                    numhl = 'DiagnosticDiagnosticError'
+                    numhl = 'DiagnosticError'
                 })
             vim.fn.sign_define('DapLogPoint',
                 {
                     text = _G.LSPDsigns.LogPoint,
-                    texthl = 'DiagnosticDiagnosticWarn',
+                    texthl = 'DiagnosticWarn',
                     linehl = '',
                     numhl = 'DiagnosticWarn'
                 })
