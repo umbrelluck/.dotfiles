@@ -36,12 +36,13 @@ _G.imap("<a-h>", "<ESC><<", { noremap = false, desc = "Indent line left" })
 -- buffers
 _G.nmap("]b", ":bnext<cr>", { desc = "Next buffer" })
 _G.nmap("[b", ":bprev<cr>", { desc = "Previous buffer" })
-_G.nmap("<leader>0", ":b#<cr>", { desc = "Last buffer" })
-_G.nmap("<c-v>", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
-_G.nmap("<c-g>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 _G.nmap("<c-n>", ":enew<cr>", { silent = false, desc = "Create new buffer" })
+_G.nmap("\\b", ":bd<cr>", { desc = "Delete current buffer" })
 
 -- windows
+_G.nmap("<c-v>", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
+_G.nmap("<c-g>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
+
 _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
 _G.nmap("<C-k>", "<C-w>k", { noremap = false, desc = "Move to top window" })

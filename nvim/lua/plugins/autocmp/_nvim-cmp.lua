@@ -71,25 +71,26 @@ return {
                 experimental = { ghost_text = true },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<Tab>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            local entry = cmp.get_selected_entry()
-                            if not entry then
-                                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                            else
-                                cmp.confirm()
-                            end
-                        else
-                            fallback()
-                        end
-                    end, { "i", "s", "c", }),
                     ["<A-e>"] = cmp.mapping.abort(),
                     ["<c-e>"] = cmp.mapping.abort(),
                     ["<c-c>"] = cmp.mapping.abort(),
-                    ["<c-j>"] = cmp.mapping(function(fallback)
+                    ["<CR>"] = cmp.mapping({
+                        i = function(fallback)
+                            if cmp.visible() and cmp.get_active_entry() then
+                                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                            else
+                                fallback()
+                            end
+                        end,
+                        s = cmp.mapping.confirm({ select = true }),
+                        -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                    }),
+                    ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
+                            -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+                            -- they way you will only jump inside the snippet region
+                        elseif luasnip.expand_or_locally_jumpable() then
                             luasnip.expand_or_jump()
                         elseif has_words_before() then
                             cmp.complete()
@@ -97,7 +98,8 @@ return {
                             fallback()
                         end
                     end, { "i", "s" }),
-                    ["<c-k>"] = cmp.mapping(function(fallback)
+
+                    ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
                         elseif luasnip.jumpable(-1) then
@@ -112,11 +114,11 @@ return {
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),  -- Down
                 }),
                 sources = cmp.config.sources({
-                    { name = 'nvim_lsp' },
-                    { name = 'luasnip' },
-                    { name = 'path' }
+                    { name = "nvim_lsp" },
+                    { name = "luasnip" },
+                    { name = "path" }
                 }, {
-                    { name = 'buffer' },
+                    { name = "buffer" },
                 }),
                 formatting = {
                     fields = { "kind", "abbr", "menu" },
