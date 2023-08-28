@@ -29,3 +29,4 @@ stow -t "$homed" scripts
 stow -t "$homed" zsh 
 zsh && . "$SCRSDIR/zsh_plugin&script_downloader.sh"
 stow -t "$homed" powerlevel10k 
+stow -t "$homed" tmux

@@ -41,7 +41,7 @@ _G.nmap("\\b", ":bd<cr>", { desc = "Delete current buffer" })
 
 -- windows
 _G.nmap("<c-v>", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
-_G.nmap("<c-g>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
+_G.nmap("<c-f>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 
 _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
