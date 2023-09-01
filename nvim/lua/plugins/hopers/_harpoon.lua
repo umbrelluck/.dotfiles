@@ -6,7 +6,6 @@ return { {
 
         _G.nmap("<leader>a", mark.add_file, { desc = "[A] buffer in harpoon" })
         _G.nmap("<a-e>", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
-        _G.nmap("<a-v>", ui.toggle_quick_menu, { desc = "[V]iew added buffers in harpoon" })
         _G.nmap("<leader>1", function()
             ui.nav_file(1)
         end, { desc = "Open first file in harpoon" })
