@@ -1,5 +1,0 @@
-doas rm mirrorlist.old
-mv mirrorlist mirrorlist.old
-doas mv mirrorlist mirrorlist.old
-mv mirrorlist.new mirrorlist
-doas mv mirrorlist.new mirrorlist
