@@ -100,6 +100,8 @@ alias wttr='curl wttr.in'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
+
 export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/default/
 
