@@ -16,7 +16,7 @@ stow -t "$confd/paru" paru
 mkdir -p "$confd/qtile"
 stow -t "$confd/qtile" qtile 
 
-mkdir -p "$confd/alacritty"
+mkdir -p "$confd/ranger"
 stow -t "$confd/ranger" ranger 
 
 mkdir -p "$confd/X11"
