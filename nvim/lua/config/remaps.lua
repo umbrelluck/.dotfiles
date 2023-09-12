@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+_G.map("t", "<A-n>", "<C-\\><C-n>", { noremap = false, silent = true })
+
 _G.nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Better k motions" })
 _G.nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Better j motions" })
 
