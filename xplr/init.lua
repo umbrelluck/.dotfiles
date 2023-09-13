@@ -1,5 +1,5 @@
 ---@diagnostic disable
-version = "0.21.1"
+version = "0.21.3"
 local xplr = xplr -- The globally exposed configuration to be overridden.
 ---@diagnostic enable
 
@@ -158,11 +158,11 @@ xplr.config.general.logs.error.style = { fg = "Red" }
 -- * format: nullable string
 -- * style: [Style](https://xplr.dev/en/style)
 xplr.config.general.table.header.cols = {
-    { format = " index",            style = {} },
+    { format = " index", style = {} },
     { format = "╭─── path", style = {} },
-    { format = "perm",              style = {} },
-    { format = "size",              style = {} },
-    { format = "modified",          style = {} },
+    { format = "perm", style = {} },
+    { format = "size", style = {} },
+    { format = "modified", style = {} },
 }
 
 -- Style of the table header.
