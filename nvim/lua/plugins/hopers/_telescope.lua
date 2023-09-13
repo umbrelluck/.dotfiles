@@ -12,11 +12,9 @@ return {
         -- cmd = "Telesope",
         config = function()
             local builtin = require("telescope.builtin")
-            _G.nmap("<leader>tt", ":Telescope<cr>")
+            _G.nmap("<leader>te", ":Telescope<cr>")
 
             _G.nmap('<leader>?', builtin.oldfiles,
-                { desc = '[?] Find recently opened files' })
-            _G.nmap('<leader>so', builtin.oldfiles,
                 { desc = '[?] Find recently opened files' })
             _G.nmap('<leader><space>', builtin.buffers,
                 { desc = '[ ] Find existing buffers' })
