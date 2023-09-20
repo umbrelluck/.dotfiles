@@ -40,6 +40,12 @@ return {
                         },
                     })
                 end,
+
+                -- ["clangd"]=function ()
+                --     lspconfig["clangd"].setup({
+                --         capabilities=capabilities,
+                --     })
+                -- end
             })
         end,
     },
@@ -147,7 +153,7 @@ return {
             },
             hint_enable = false,
             hint_prefix = "",
-            toggle_key = "<a-x>",
+            toggle_key = "<a-m>",
             select_signature_key = "<a-n>",
         },
     }

@@ -1,7 +1,7 @@
 return {
     {
         "mfussenegger/nvim-dap",
-        keys = { "<leader>b" },
+        -- keys = { "<leader>b" },
         config = function()
             local dap = require("dap")
 
@@ -62,6 +62,8 @@ return {
                 widgets.centered_float(widgets.scopes)
             end, { desc = "Dap centered float" })
 
+            -- require("dapui") -- to open awaken dapui
+
             -- dap.adapters.after
             dap.adapters.cppdbg = {
                 id = 'cppdbg',
@@ -114,7 +116,7 @@ return {
             { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true }, }, },
         },
         opts = {},
-        keys = { "<leader>b" },
+        -- keys = { "<leader>b" },
         config = function(_, opts)
             require("dapui").setup(opts)
 
