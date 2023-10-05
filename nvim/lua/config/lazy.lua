@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local specs = {
     { import = "plugins.lsp" },
     { import = "plugins.autocmp" },
-    { import = "plugins.build_tools" },
+    { import = "plugins.btools" },
     { import = "plugins.highlighting" },
     { import = "plugins.git" },
     { import = "plugins.debug" },

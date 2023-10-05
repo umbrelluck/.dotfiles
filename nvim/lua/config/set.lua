@@ -15,6 +15,8 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- vim.o.mouse = 'a'
 
+vim.opt.autoread = true
+
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.o.ignorecase = true
 vim.o.smartcase = true

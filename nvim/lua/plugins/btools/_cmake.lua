@@ -7,6 +7,12 @@ return {
         "BufReadPre *.h",
         "BufReadPre CMakeLists.txt",
     },
+    keys = {
+        { "<leader>cg", ":CMakeGenerate<cr>", desc = "[C]Make[G]enerate" },
+        { "<leader>cb", ":CMakeBuild<cr>",    desc = "[C]Make[B]uild" },
+        { "<leader>cr", ":CMakeRun<cr>",      desc = "[C]Make[R]un" },
+        { "<leader>cd", ":CMakeDebug<cr>",    desc = "[C]Make[D]ebug" },
+    },
     opts = {
         cmake_command = "cmake",                                          -- this is used to specify cmake command path
         cmake_regenerate_on_save = true,                                  -- auto generate when save CMakeLists.txt
