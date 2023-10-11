@@ -69,6 +69,7 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
 bindkey  "^[[3~"  delete-char
 bindkey '^[[Z' reverse-menu-complete
 
+alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes'
 alias lsa='ls -la | rg "^d" && ls -la | rg "^-" && ls -la | rg "^l"'
 alias trone='ssh sshtron.zachlatta.com'
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
