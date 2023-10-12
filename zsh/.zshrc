@@ -36,6 +36,8 @@ autoload -Uz promptinit compinit
 compinit
 promptinit
 
+eval "$(zoxide init zsh)"
+
 zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
