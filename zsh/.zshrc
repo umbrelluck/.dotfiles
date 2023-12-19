@@ -77,7 +77,7 @@ alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-ori
 alias lsa='ls -la | rg "^d" && ls -la | rg "^-" && ls -la | rg "^l"'
 alias trone='ssh sshtron.zachlatta.com'
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
-alias sudo='doas'
+# alias sudo='doas'
 alias las='xplr'
 alias pconf="p10k configure"
 alias ckupd="checkupdates"
