@@ -63,18 +63,18 @@ return {
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                             ["<C-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-                            ["<CR>"] = actions.select_default + actions.center,
+                            ["<CR>"] = actions.select_default, -- + actions.center,
                             ["<C-c>"] = actions.close,
                             ["<c-p>"] = actions.drop_all,
 
-                            ["<c-t>"] = trouble.open_with_trouble,
+                            ["<c-t>"] = trouble.open_with_trole,
                         },
                         n = {
                             ["<C-j>"] = actions.move_selection_next,
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                             ["<C-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-                            ["<CR>"] = actions.select_default + actions.center,
+                            ["<CR>"] = actions.select_default, -- + actions.center,
                             ["<c-p>"] = actions.drop_all,
                             ["<C-c>"] = actions.close,
 
@@ -121,16 +121,26 @@ return {
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
 
         config = function()
-            require("telescope").setup {
+            local actions = require("telescope.actions")
+
+            require("telescope").setup({
                 extensions = {
                     file_browser = {
                         theme = "ivy",
                         hijack_netrw = true,
-
+                        -- mappings = {
+                        --     ["i"] = {
+                        --         ["<cr>"] = actions.select_default,
+                        --     },
+                        --     ["n"] = {
+                        --         ["<cr>"] = actions.select_default,
+                        --     }
+                        -- }
                     },
                 },
-            }
-            require("telescope").load_extension "file_browser"
+            })
+
+            require("telescope").load_extension("file_browser")
         end
     }
 }
