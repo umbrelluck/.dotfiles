@@ -128,6 +128,7 @@ return {
                     file_browser = {
                         theme = "ivy",
                         hijack_netrw = true,
+                        promt_path = true,
                         -- mappings = {
                         --     ["i"] = {
                         --         ["<cr>"] = actions.select_default,
