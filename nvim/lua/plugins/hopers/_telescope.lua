@@ -8,10 +8,10 @@ return {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
             },
-            {
-                "nvim-telescope/telescope-file-browser.nvim",
-                dependencies = { "nvim-tree/nvim-web-devicons" }
-            }
+            -- {
+            --     "nvim-telescope/telescope-file-browser.nvim",
+            --     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" }
+            -- }
         },
         -- cmd = "Telesope",
         config = function()
@@ -105,14 +105,32 @@ return {
                         override_file_sorter = true,    -- override the file sorter
                         case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                     },
-                    file_browser = {
-                        theme = "ivy",
-                        hijack_netrw = true,
-                    }
+                    -- file_browser = {
+                    --     theme = "ivy",
+                    --     -- hijack_netrw = true,
+                    -- }
                 }
             })
 
             telescope.load_extension("fzf")
-            telescope.load_extension("file_browser")
+            -- telescope.load_extension("file_browser")
         end,
-    } }
+    },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
+
+        config = function()
+            require("telescope").setup {
+                extensions = {
+                    file_browser = {
+                        theme = "ivy",
+                        hijack_netrw = true,
+
+                    },
+                },
+            }
+            require("telescope").load_extension "file_browser"
+        end
+    }
+}
