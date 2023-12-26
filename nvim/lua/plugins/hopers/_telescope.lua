@@ -7,12 +7,16 @@ return {
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
+            },
+            {
+                "nvim-telescope/telescope-file-browser.nvim",
+                dependencies = { "nvim-tree/nvim-web-devicons" }
             }
         },
         -- cmd = "Telesope",
         config = function()
             local builtin = require("telescope.builtin")
-            _G.nmap("<leader>te", ":Telescope<cr>")
+            _G.nmap("<leader>te", ":Telescope<cr>", { desc = "Open [TE]lescope" })
 
             _G.nmap('<leader>?', builtin.oldfiles,
                 { desc = '[?] Find recently opened files' })
@@ -32,6 +36,10 @@ return {
             _G.nmap('<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
             _G.nmap('<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
             _G.nmap("<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
+
+            _G.nmap("<leader>fb", ":Telescope file_browser<CR>", { desc = "[F]ile [B]rowser" })
+            _G.nmap("<leader>fc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+                { desc = "[F]ile browser [C]urrent" })
 
             local telescope = require("telescope")
             local actions = require("telescope.actions")
@@ -96,10 +104,15 @@ return {
                         override_generic_sorter = true, -- override the generic sorter
                         override_file_sorter = true,    -- override the file sorter
                         case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+                    },
+                    file_browser = {
+                        theme = "ivy",
+                        hijack_netrw = true,
                     }
                 }
             })
 
             telescope.load_extension("fzf")
+            telescope.load_extension("file_browser")
         end,
     } }

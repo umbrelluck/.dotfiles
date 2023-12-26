@@ -41,7 +41,7 @@ return {
             end, { desc = "Delete all notifications" })
 
             require("telescope").load_extension("notify")
-            _G.nmap("<leader>sn", ":Telescope notify<cr>")
+            _G.nmap("<leader>sn", ":Telescope notify<cr>", { desc = "[S]earch [N]otifications" })
 
             -- local client_notifs = {}
             --
