@@ -49,7 +49,7 @@ return {
                 defaults = {
                     color_devicons = true,
                     use_less = true,
-                    file_ignore_patterns = { "node_modules", "build" },
+                    file_ignore_patterns = { "node_modules", "build", ".godot" },
                     file_sorter = require("telescope.sorters").get_fuzzy_file,
                     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
                     file_previewer = require("telescope.previewers").vim_buffer_cat.new,

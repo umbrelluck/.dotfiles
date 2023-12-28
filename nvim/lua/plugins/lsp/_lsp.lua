@@ -71,7 +71,7 @@ return {
             _G.nmap("<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
             _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
             _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-            _G.nmap("<a-f>", "gg=G<c-o>>", { noremap = false, desc = "Format current buffer" })
+            _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.nmap("<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
             for type, icon in pairs(_G.LSPDsigns) do
@@ -96,15 +96,6 @@ return {
                     vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
-
-                    -- if (client.name == "gdscript") then
-                    --     local pipe = "/tmp/godot.pipe"
-                    --     if (vim.fn.filereadable(pipe)) then
-                    --         vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
-                    --     else
-                    --         vim.cmd('echo "WARNING! Pipe "' .. pipe .. '"does not exist!"')
-                    --     end
-                    -- end
 
                     if client.server_capabilities.documentSymbolProvider then
                         require("nvim-navic").attach(client, ev.buf)
@@ -133,6 +124,18 @@ return {
                     _G.map({ "n", "i" }, "<a-f>", function()
                         vim.lsp.buf.format({ async = true })
                     end, opts)
+
+                    if (client.name == "gdscript") then
+                        -- local pipe = "/tmp/godot.pipe"
+                        -- if (vim.fn.filereadable(pipe)) then
+                        --     vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+                        -- else
+                        --     vim.cmd('echo "WARNING! Pipe "' .. pipe .. '"does not exist!"')
+                        -- end
+                        _G.map({ "n", "i" }, "<a-f>", function()
+                            vim.cmd("!gdformat %")
+                        end, opts)
+                    end
                 end,
             })
 
