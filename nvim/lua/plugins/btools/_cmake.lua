@@ -28,7 +28,7 @@ return {
             long = { show = true, max_length = 40 },                      -- whether to show long message
         },
         cmake_dap_configuration = {                                       -- debug settings for cmake
-            name = "Launch CMake cpp",
+            name = "Launch Debug CMake cpp",
             type = "cppdbg",
             request = "launch",
             stopOnEntry = false,

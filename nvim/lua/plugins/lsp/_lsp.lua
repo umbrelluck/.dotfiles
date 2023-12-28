@@ -32,6 +32,7 @@ return {
                                 diagnostics = {
                                     -- Get the language server to recognize the `vim` global
                                     globals = { "vim" },
+                                    missing_parameters = true, -- missing fields like in treesitter
                                 },
                                 completion = {
                                     callSnippet = "Replace"
@@ -53,16 +54,24 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+            -- because mason has older zls
             lspconfig.zls.setup({
                 cmd = { "/home/umbrelluck/Git/zls/zig-out/bin/zls" },
                 filetypes = { "zig" },
                 root_dir = lspconfig.util.root_pattern("build.zig", ".git"),
+                capabilities = capabilities,
+            })
+
+            lspconfig.gdscript.setup({
+                capabilities = capabilities,
             })
 
             _G.nmap("<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
             _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
             _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-            _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
+            _G.nmap("<a-f>", "gg=G<c-o>>", { noremap = false, desc = "Format current buffer" })
             _G.nmap("<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
             for type, icon in pairs(_G.LSPDsigns) do
@@ -87,6 +96,16 @@ return {
                     vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+                    -- if (client.name == "gdscript") then
+                    --     local pipe = "/tmp/godot.pipe"
+                    --     if (vim.fn.filereadable(pipe)) then
+                    --         vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+                    --     else
+                    --         vim.cmd('echo "WARNING! Pipe "' .. pipe .. '"does not exist!"')
+                    --     end
+                    -- end
+
                     if client.server_capabilities.documentSymbolProvider then
                         require("nvim-navic").attach(client, ev.buf)
                         require("nvim-navbuddy").attach(client, ev.buf)
@@ -156,5 +175,24 @@ return {
             toggle_key = "<a-m>",
             select_signature_key = "<a-n>",
         },
+    },
+    {
+        "nvimdev/guard.nvim",
+        dependencies = {
+            "nvimdev/guard-collection",
+        },
+        opts = {
+            fmt_on_save = true,
+            -- Use lsp if no formatter was defined for this filetype
+            lsp_as_default_formatter = true,
+        },
+        config = function(_, opts)
+            local ft = require("guard.filetype")
+
+            -- ft("gdscript"):fmt("gdformat")
+            --     :lint("gdlint")
+
+            require("guard").setup(opts)
+        end
     }
 }

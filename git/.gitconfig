@@ -1,0 +1,35 @@
+[init]
+    defaultBranch = main
+
+[core]
+    editor = nvim
+    pager = delta
+
+[pull]
+    rebase = false
+
+[merge]
+    conflictstyle = diff3
+
+[interactive]
+    diffFilter = delta --color-only
+
+[diff]
+    colorMoved = default
+
+[credential]
+    helper = /usr/bin/git-credential-manager
+    helper = store
+    credentialStore = gpg
+    credentialStore = secretservice
+
+[delta]
+    navigate = true
+    light = false
+    line-numbers = true
+
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f

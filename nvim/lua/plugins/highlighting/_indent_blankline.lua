@@ -25,7 +25,7 @@ local highlight = {
 return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    requires = "HiPhish/rainbow-delimiters.nvim",
+    dependencies = "HiPhish/rainbow-delimiters.nvim",
     opts = {
         debounce = 100,
         indent = {
