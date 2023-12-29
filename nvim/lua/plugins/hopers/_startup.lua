@@ -1,7 +1,7 @@
 vim.g.startup_bookmarks = {
     ["N"] = "~/.dotfiles/nvim/",
     ["Z"] = "~/.zshrc",
-    ["A"] = "~/.dotfiles/alacritty/alacritty.yml",
+    ["A"] = "~/.dotfiles/alacritty/alacritty.toml",
     ["D"] = "~/.dotfiles/",
     ["P"] = "~/.local/share/nvim/lazy/"
 }
