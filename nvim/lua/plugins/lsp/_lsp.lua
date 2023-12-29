@@ -68,12 +68,6 @@ return {
                 capabilities = capabilities,
             })
 
-            _G.nmap("<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-            _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-            _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-            _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
-            _G.nmap("<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
-
             for type, icon in pairs(_G.LSPDsigns) do
                 local hlv = "DiagnosticVirtualText" .. type
                 local hls = "DiagnosticSign" .. type
@@ -82,7 +76,7 @@ return {
             end
 
             vim.diagnostic.config({
-                -- underline = false,
+                underline = true,
                 virtual_text = {
                     prefix = _G.LSPDsigns.Dprefix,
                     -- severity = vim.diagnostic.severity.ERROR,
@@ -91,10 +85,16 @@ return {
                             return diagnostic.message
                         end
                         return ""
-                    end
+                    end,
                 },
-
+                severity_sort = true,
             })
+
+            _G.nmap("<space>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+            _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+            _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+            _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
+            _G.nmap("<space>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),

@@ -2,6 +2,7 @@ vim.api.nvim_set_hl(0, "BlackOnLightYellow", { fg = "#000000", bg = "#ebbcba" })
 
 return {
     "yorickpeterse/nvim-window",
+    enabled = false,
     keys = {
         { "<m-w>", function() require("nvim-window").pick() end, desc = "Pick window" }
     },
