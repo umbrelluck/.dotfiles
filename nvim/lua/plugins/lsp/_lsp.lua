@@ -82,10 +82,18 @@ return {
             end
 
             vim.diagnostic.config({
+                -- underline = false,
                 virtual_text = {
                     prefix = _G.LSPDsigns.Dprefix,
-                    -- update_in_insert=false,
+                    -- severity = vim.diagnostic.severity.ERROR,
+                    format = function(diagnostic)
+                        if diagnostic.severity == vim.diagnostic.severity.ERROR then
+                            return diagnostic.message
+                        end
+                        return ""
+                    end
                 },
+
             })
 
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -165,6 +173,7 @@ return {
         end,
     },
     {
+        -- this is help for variables when typing function
         "ray-x/lsp_signature.nvim",
         event = { "InsertEnter" },
         opts = {

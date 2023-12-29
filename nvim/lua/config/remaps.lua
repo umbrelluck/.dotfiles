@@ -62,14 +62,18 @@ _G.nmap("<C-A-l>", "5<C-w>>", { noremap = false, desc = "Increase window horizon
 _G.nmap("<C-A-h>", "5<C-w><", { noremap = false, desc = "Decrease window horizontally by 5 columns" })
 
 --tabs
-_G.nmap("tk", ":tabnext<cr>", { desc = "Next tab" })
+-- _G.nmap("tk", ":tabnext<cr>", { desc = "Next tab" })
 _G.nmap("]t", ":tabnext<cr>", { desc = "Next tab" })
 _G.nmap("tj", ":tabNext<cr>", { desc = "Previous tab" })
 _G.nmap("[t", ":tabNext<cr>", { desc = "Previous tab" })
-_G.nmap("tn", ":tabnew<cr>", { desc = "New tab" })
-_G.nmap("tf", ":tabfind ", { silent = false, desc = "Open new tab and edit file inside" })
-_G.nmap("tq", ":tabclose<cr>", { desc = "Close tab" })
-_G.nmap("tc", ":tabclose<cr>", { desc = "Close tab" })
+_G.nmap("<m-t>", ":tabnew<cr>", { desc = "New tab" })
+-- _G.nmap("tn", ":tabnew<cr>", { desc = "New tab" })
+-- _G.nmap("tf", ":tabfind ", { silent = false, desc = "Open new tab and edit file inside" })
+_G.nmap("<c-t>", ":tabclose<cr>", { desc = "Close tab" })
+-- _G.nmap("tq", ":tabclose<cr>", { desc = "Close tab" })
+-- _G.nmap("tc", ":tabclose<cr>", { desc = "Close tab" })
+
+-- _G.nmap("tt", "t", { noremap = false, desc = "Add mapping to till character occurence" })
 
 --better jumping
 _G.nmap("<C-d>", "<C-d>zz", { desc = "<C-d> always stays in the middle of the screen" })

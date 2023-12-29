@@ -66,12 +66,11 @@ return { {
         _G.nmap("<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
         _G.nmap("<leader>xr", "<cmd>TroubleToggle lsp_references<cr>")
         -- jump to the next item, skipping the groups
-        _G.nmap("]r", "require('trouble').next({skip_groups = true, jump = true})")
+        _G.nmap("]r", function() require('trouble').next({ skip_groups = true, jump = true }) end)
         -- jump to the previous item, skipping the groups
-        _G.nmap("[r", "require('trouble').previous({skip_groups = true, jump = true})")
-        -- jump to the first item, skipping the groups
-        _G.nmap("<leader>x[", "require('trouble').first({skip_groups = true, jump = true})")
+
+        _G.nmap("<leader>x[", function() require('trouble').first({ skip_groups = true, jump = true }) end)
         -- jump to the last item, skipping the groups
-        _G.nmap("<leader>x]", "require('trouble').last({skip_groups = true, jump = true})")
+        _G.nmap("<leader>x]", function() require('trouble').last({ skip_groups = true, jump = true }) end)
     end,
 } }

@@ -130,6 +130,7 @@ return {
                     { name = "buffer" },
                 }),
                 formatting = {
+                    expandable_indicator = true,
                     fields = { "kind", "abbr", "menu" },
                     format = function(entry, vim_item)
                         local kind = vim_item.kind
@@ -149,6 +150,7 @@ return {
                     end,
                 },
                 sorting = {
+                    priority_weight = 1,
                     comparators = {
                         cmp.config.compare.offset,
                         cmp.config.compare.exact,
