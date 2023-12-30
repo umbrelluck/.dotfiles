@@ -25,10 +25,6 @@ return {
                     return term.name
                 end
             },
-        },
-        config = function(_, opts)
-            require("toggleterm").setup(opts)
-            _G.nmap("<leader>tt", ":ToggleTerm<cr>", { desc = "Open ToggleTerm" })
-        end
+        }
     }
 }

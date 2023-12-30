@@ -37,7 +37,7 @@ return {
                         init_selection = "gnn",
                         node_incremental = "gni",
                         scope_incremental = "gnc",
-                        node_decremental = "grd",
+                        node_decremental = "gnd",
                     },
                 },
 

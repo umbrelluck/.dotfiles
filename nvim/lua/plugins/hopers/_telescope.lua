@@ -129,7 +129,7 @@ return {
                         theme = "ivy",
                         hijack_netrw = true,
                         promt_path = true,
-                        hidden = { file_browser = false, folder_browser = false },
+                        hidden = { file_browser = true, folder_browser = true },
                         -- mappings = {
                         --     ["i"] = {
                         --         ["<cr>"] = actions.select_default,

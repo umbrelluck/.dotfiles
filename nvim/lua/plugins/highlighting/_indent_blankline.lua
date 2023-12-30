@@ -21,7 +21,6 @@ local highlight = {
     "RainbowCyan",
 }
 
-
 return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
@@ -47,13 +46,13 @@ return {
         -- create the highlight groups in the highlight setup hook, so they are reset
         -- every time the colorscheme changes
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-            vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#FDC9C9" })
-            vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#FFFAC9" })
+            vim.api.nvim_set_hl(0, highlight[1], { fg = "#FDC9C9" })
+            vim.api.nvim_set_hl(0, highlight[2], { fg = "#FFFAC9" })
             -- vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-            vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#FFE7C9" })
-            vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#C9EFCB" })
-            vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#DBC9E9" })
-            vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#C9F4FB" })
+            vim.api.nvim_set_hl(0, highlight[3], { fg = "#FFE7C9" })
+            vim.api.nvim_set_hl(0, highlight[4], { fg = "#C9EFCB" })
+            vim.api.nvim_set_hl(0, highlight[5], { fg = "#DBC9E9" })
+            vim.api.nvim_set_hl(0, highlight[6], { fg = "#C9F4FB" })
         end)
 
         vim.g.rainbow_delimiters = { highlight = highlight }
