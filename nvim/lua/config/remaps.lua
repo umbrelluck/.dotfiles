@@ -1,6 +1,33 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Nice utility fucntions
+_G.nmap("<F1>", ":setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
+_G.imap("<F1>", "<c-o>:setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
+
+_G.nmap("<F2>", ":setlocal spell!<cr>", { silent = false, desc = "Toggle spell checking" }) -- alt
+_G.imap("<F2>", "<c-o>:setlocal spell!<cr>", { silent = false, desc = "Toggle spell checking" })
+
+_G.nmap("<F3>", ":setlocal expandtab!<cr>", { silent = false, desc = "Toggle expandtab (tab is tab or spaces)" })
+_G.imap("<F3>", "<c-o>:setlocal expandtab!<cr>", { silent = false, desc = "Toggle expandtab (tab is tab or spaces)" })
+
+_G.nmap("<F4>", ":setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
+_G.imap("<F4>", "<c-o>:setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
+-- -------------------------------------------------------------------------------------------------------
+
+-- Foramt paragraph
+-- BUG: pq not working
+_G.nmap("<m-g>", "gqap", { noremap = false, desc = "Format paragraph" }) -- gq formats line with motion, gw does almost the same
+_G.xmap("<m-g>", "gqa", { noremap = false, desc = "Format paragraph" })  -- gq formats line with motion, gw does almost the same
+-- -------------------------------------------------------------------------------------------------------
+
+--Prevent x from messing with clipboard
+_G.nmap("x", '"_x', { desc = "Prevent x from overriding clipboard" })
+_G.nmap("X", '"_x', { desc = "Prevent X from overriding clipboard" })
+_G.nmap("<Del>", '"_x', { desc = "Prevent <Del> from overriding clipboard" })
+
+_G.nmap("cp", ":Cppath<cr>", { silent = false, desc = "Copy current buffer path to clipboard" })
+
 _G.map("t", "<A-n>", "<C-\\><C-n>", { noremap = false, silent = true, desc = "Go back to normal mode" })
 
 _G.nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Better k motions" })
@@ -64,7 +91,7 @@ _G.nmap("<C-A-h>", "5<C-w><", { noremap = false, desc = "Decrease window horizon
 --tabs
 -- _G.nmap("tk", ":tabnext<cr>", { desc = "Next tab" })
 _G.nmap("]t", ":tabnext<cr>", { desc = "Next tab" })
-_G.nmap("tj", ":tabNext<cr>", { desc = "Previous tab" })
+-- _G.nmap("tj", ":tabNext<cr>", { desc = "Previous tab" })
 _G.nmap("[t", ":tabNext<cr>", { desc = "Previous tab" })
 _G.nmap("<m-t>", ":tabnew<cr>", { desc = "New tab" })
 -- _G.nmap("tn", ":tabnew<cr>", { desc = "New tab" })
