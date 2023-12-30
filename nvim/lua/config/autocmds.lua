@@ -4,18 +4,52 @@ _G.rainbow_highlight_group = vim.api.nvim_create_augroup("RainbowHighlights", { 
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = highlight_group,
-	pattern = '*',
+    group = highlight_group,
+    pattern = '*',
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
-local godot_autogroup = vim.api.nvim_create_augroup("Godot", { clear = true })
-vim.api.nvim_create_autocmd("GodotTabTab", {
-	callback = function()
-		vim.cmd("set noexpandtab")
-	end,
-	group = godot_autogroup,
-	pattern = "*.gd"
+vim.api.nvim_create_user_command("Cppath", function()
+    local path = vim.fn.expand("%:p")
+    vim.fn.setreg("+", path)
+    -- vim.notify('Copied "' .. path .. '" to the clipboard!')
+end, {})
+
+--  filetype: 'ft' | syntax: 'syntax'
+local file_group = vim.api.nvim_create_augroup("FileTypes", { clear = true })
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
+--     group = file_group,
+--     pattern = ".zshrc",
+--     callback = function()
+--         vim.cmd("set syntax=zsh") --  filetype: 'ft' | syntax: 'syntax'
+--     end
+-- })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
+    group = file_group,
+    pattern = "requirements*.txt",
+    callback = function()
+        vim.cmd("set syntax=python")
+    end
 })
+
+-- so that make files wont have tabs converted to spaces
+vim.api.nvim_create_autocmd("FileType", {
+    group = file_group,
+    pattern = "make",
+    callback = function()
+        vim.cmd("setlocal noexpandtab")
+    end
+})
+
+
+-- local godot_autogroup = vim.api.nvim_create_augroup("Godot", { clear = true })
+-- vim.api.nvim_create_autocmd("GodotTabTab", {
+-- 	callback = function()
+-- 		vim.cmd("set noexpandtab")
+-- 	end,
+-- 	group = godot_autogroup,
+-- 	pattern = "*.gd"
+-- })
