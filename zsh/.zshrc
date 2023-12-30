@@ -50,7 +50,7 @@ source $ZDOTDIR/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 
 for script ($ZDOTDIR/.zsh/scripts/*.zsh) source $script
 
-    fpath=($HOME/Git/zsh-completions/src $fpath)
+fpath=($HOME/Git/zsh-completions/src $fpath)
 
 
 # fzf bindings and completions
@@ -60,12 +60,13 @@ source /usr/share/fzf/completion.zsh
 
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
 export FZF_DEFAULT_OPTS='--no-height'
+export FZF_DEFAULT_BINDS='--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,ctrl-f:preview-down,ctrl-b:preview-up'
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}' $FZF_DEFAULT_BINDS"
 
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden --no-ignore'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50' $FZF_DEFAULT_BINDS"
 
 
 bindkey  "^[[3~"  delete-char
@@ -112,10 +113,8 @@ alias wttr='curl wttr.in'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
-
 export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/default/
-
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
 # NVM
