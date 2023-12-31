@@ -38,6 +38,12 @@ local function SetBufferName(buf)
     return buf
 end
 
+-- FIXME: Do not know wy, but the shit does not work with custom highlights
+-- vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#e0def4", bg = "#191724" })
+-- vim.api.nvim_set_hl(0, "TabLineIn", { bg = "#26233a" })
+-- vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1f1d2e" })
+-- vim.api.nvim_set_hl(0, "TabLine", { fg = "#908caa", bg = "#403d52" })
+
 local theme = {
     fill = 'TabLineFill',
     -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
@@ -57,7 +63,7 @@ return {
         require('tabby.tabline').set(function(line)
             return {
                 {
-                    { '  ', hl = theme.head },
+                    -- { '  ', hl = theme.head },
                     line.sep('', theme.head, theme.fill),
                 },
                 line.tabs().foreach(function(tab)
