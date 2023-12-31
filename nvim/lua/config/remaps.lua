@@ -1,6 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Do remeber s (substitute character is cl)
+-- Do remeber S (substitute character is cc)
+
 -- Nice utility fucntions
 _G.nmap("<F1>", ":setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
 _G.imap("<F1>", "<c-o>:setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
@@ -25,6 +28,7 @@ _G.xmap("<m-g>", "gqa", { noremap = false, desc = "Format paragraph" })  -- gq f
 _G.nmap("x", '"_x', { desc = "Prevent x from overriding clipboard" })
 _G.nmap("X", '"_x', { desc = "Prevent X from overriding clipboard" })
 _G.nmap("<Del>", '"_x', { desc = "Prevent <Del> from overriding clipboard" })
+-- -------------------------------------------------------------------------------------------------------
 
 _G.nmap("cp", ":Cppath<cr>", { silent = false, desc = "Copy current buffer path to clipboard" })
 
