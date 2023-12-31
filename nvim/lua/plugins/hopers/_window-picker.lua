@@ -18,7 +18,7 @@ return {
         require("window-picker").setup(opts)
 
         local wp_h = vim.api.nvim_get_hl(0, { name = "WindowPicker" })
-        local lu_p_h = vim.api.nvim_get_hl(0, { name = "lualine_a_replace" }) --lualine_a_insert
+        local lu_p_h = vim.api.nvim_get_hl(0, { name = "lualine_a_normal" }) --lualine_a_insert
 
         local ws_h = vim.api.nvim_get_hl(0, { name = "WindowPickerSwap" })
         local lu_s_h = vim.api.nvim_get_hl(0, { name = "lualine_a_visual" })
