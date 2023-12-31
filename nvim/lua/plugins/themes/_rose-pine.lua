@@ -2,6 +2,7 @@ return {
     {
         "rose-pine/neovim",
         name = "rose-pine",
+        enabled = false,
         opts = {
             --- @usage 'auto'|'main'|'moon'|'dawn'
             variant = 'auto',
