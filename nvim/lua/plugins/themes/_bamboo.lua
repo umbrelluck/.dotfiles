@@ -39,8 +39,8 @@ return {
         },
         -- Override highlight groups
         highlights = {
-            ['@comment'] = { fg = '$green' },
-            ['@string'] = { fg = '#e2c792' }, --fmt = 'bold'
+            -- ['@comment'] = { fg = '$green' },
+            -- ['@string'] = { fg = '#e2c792' }, --fmt = 'bold'
         },
 
         -- Plugins Config --
