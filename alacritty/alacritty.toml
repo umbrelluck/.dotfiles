@@ -7,7 +7,7 @@ TERM = "alacritty"
 
 [window]
 dimensions = { columns = 100, lines = 35 }
-opacity = 0.95
+opacity = 0.98
 padding = { x = 10, y = 10 }
 dynamic_padding = true
 decorations = "None"
