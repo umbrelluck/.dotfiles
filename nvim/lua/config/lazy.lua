@@ -12,17 +12,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local specs = {
-    { import = "plugins.lsp" },
     { import = "plugins.autocmp" },
-    { import = "plugins.btools" },
-    { import = "plugins.highlighting" },
-    { import = "plugins.git" },
-    { import = "plugins.debug" },
-    { import = "plugins.hopers" },
-    { import = "plugins.motions" },
     { import = "plugins.auxiliary" },
-    { import = "plugins.visuals" },
+    { import = "plugins.btools" },
+    { import = "plugins.debug" },
+    { import = "plugins.git" },
+    { import = "plugins.highlighting" },
+    { import = "plugins.hopers" },
+    { import = "plugins.lsp" },
+    { import = "plugins.motions" },
+    { import = "plugins.organization" },
     { import = "plugins.themes" },
+    { import = "plugins.visuals" },
 }
 
 local opts = {
