@@ -64,7 +64,22 @@ function _G.lsp_clients()
 
     local c = {}
     for _, client in pairs(clients) do
-        table.insert(c, client.name)
+        table.insert(c, client.ngme)
     end
     return " " .. table.concat(c, "|")
+end
+
+function _G.mod_hl_by_opts(hl_name, opts)
+    local hl_id = vim.api.nvim_get_hl_id_by_name(hl_name)
+    local hl_def = vim.api.nvim_get_hl(0, { id = hl_id })
+
+    for k, v in pairs(opts) do hl_def[k] = v end
+    vim.api.nvim_set_hl(0, hl_name, hl_def)
+end
+
+function _G.mod_hl_copy_existing(hl_name, existing_hl_name)
+    local hl_def = vim.api.nvim_get_hl(0, { name = hl_name })
+    local ex_def = vim.api.nvim_get_hl(0, { name = existing_hl_name }) --lualine_a_insert
+    local new_def = vim.tbl_extend("force", {}, hl_def, ex_def)
+    vim.api.nvim_set_hl(0, hl_name, new_def)
 end

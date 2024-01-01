@@ -69,10 +69,11 @@ return {
             })
 
             for type, icon in pairs(_G.LSPDsigns) do
-                local hlv = "DiagnosticVirtualText" .. type
-                local hls = "DiagnosticSign" .. type
-                vim.api.nvim_set_hl(0, hlv, { italic = true })
-                vim.fn.sign_define(hls, { text = icon, texthl = hls, numhl = "" })
+                local hlv_name = "DiagnosticVirtualText" .. type
+                local hls_name = "DiagnosticSign" .. type
+                -- vim.api.nvim_set_hl(0, hlv, { italic = true })
+                _G.mod_hl_by_opts(hlv_name, { italic = true })
+                vim.fn.sign_define(hls_name, { text = icon, texthl = hls_name, numhl = "" })
             end
 
             vim.diagnostic.config({

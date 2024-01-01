@@ -17,21 +17,8 @@ return {
     config = function(_, opts)
         require("window-picker").setup(opts)
 
-        local wp_h = vim.api.nvim_get_hl(0, { name = "WindowPicker" })
-        local lu_p_h = vim.api.nvim_get_hl(0, { name = "lualine_a_normal" }) --lualine_a_insert
-
-        local ws_h = vim.api.nvim_get_hl(0, { name = "WindowPickerSwap" })
-        local lu_s_h = vim.api.nvim_get_hl(0, { name = "lualine_a_visual" })
-
-        local wz_h = vim.api.nvim_get_hl(0, { name = "WindowPickerZap" })
-        local lu_z_h = vim.api.nvim_get_hl(0, { name = "lualine_a_command" })
-
-        local nwp_h = vim.tbl_extend('force', {}, wp_h, lu_p_h)
-        local nws_h = vim.tbl_extend('force', {}, ws_h, lu_s_h)
-        local nwz_h = vim.tbl_extend('force', {}, wz_h, lu_z_h)
-
-        vim.api.nvim_set_hl(0, "WindowPicker", nwp_h)
-        vim.api.nvim_set_hl(0, "WindowPickerSwap", nws_h)
-        vim.api.nvim_set_hl(0, "WindowPickerZap", nwz_h)
+        _G.mod_hl_copy_existing("WindowPicker", "lualine_a_normal") -- lualine_a_insert
+        _G.mod_hl_copy_existing("WindowPickerSwap", "lualine_a_visual")
+        _G.mod_hl_copy_existing("WindowPickerZap", "lualine_a_command")
     end
 }
