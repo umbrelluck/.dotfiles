@@ -6,17 +6,17 @@ live_config_reload = true
 TERM = "alacritty"
 
 [window]
-dimensions = { columns = 100, lines = 35 }
-opacity = 0.98
+dimensions = { columns = 120, lines = 35 }
 padding = { x = 10, y = 10 }
 dynamic_padding = true
 decorations = "None"
+opacity = 0.98
+blur = true
 startup_mode = "windowed"
 title = "Alacritty"
 dynamic_title = true
 class = { instance = "Alacritty", general = "Alacritty" }
 resize_increments = false
-# option_as_alt = "OnlyLeft"
 
 [scrolling]
 history = 10000

@@ -45,9 +45,9 @@ return {
 
         -- Plugins Config --
         diagnostics = {
-            darker = false,    -- darker colors for diagnostic
-            undercurl = true,  -- use undercurl instead of underline for diagnostics
-            background = true, -- use background color for virtual text
+            darker = false,     -- darker colors for diagnostic
+            undercurl = true,   -- use undercurl instead of underline for diagnostics
+            background = false, -- use background color for virtual text
         },
     },
     config = function(_, opts)

@@ -24,10 +24,10 @@ _G.nmap("<m-g>", "gqap", { noremap = false, desc = "Format paragraph" }) -- gq f
 _G.xmap("<m-g>", "gqa", { noremap = false, desc = "Format paragraph" })  -- gq formats line with motion, gw does almost the same
 -- -------------------------------------------------------------------------------------------------------
 
---Prevent x from messing with clipboard
-_G.nmap("x", '"_x', { desc = "Prevent x from overriding clipboard" })
-_G.nmap("X", '"_x', { desc = "Prevent X from overriding clipboard" })
-_G.nmap("<Del>", '"_x', { desc = "Prevent <Del> from overriding clipboard" })
+-- Prevent x from messing with clipboard
+-- _G.nmap("x", '"_x', { desc = "Prevent x from overriding clipboard" })
+-- _G.nmap("X", '"_x', { desc = "Prevent X from overriding clipboard" })
+-- _G.nmap("<Del>", '"_x', { desc = "Prevent <Del> from overriding clipboard" })
 -- -------------------------------------------------------------------------------------------------------
 
 _G.nmap("cp", ":Cppath<cr>", { silent = false, desc = "Copy current buffer path to clipboard" })
@@ -131,4 +131,5 @@ _G.nmap("[l", "<cmd>lprev<CR>zz", { desc = "Previous entry in locallist" })
 
 _G.nmap("<leader>se", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { silent = false, desc = "Substitute in whole file" })
+_G.nmap("<leader>X", "<cmd>!chmod +x %<CR>", { desc = "Make current file executable" })
 _G.nmap("<leader>X", "<cmd>!chmod +x %<CR>", { desc = "Make current file executable" })
