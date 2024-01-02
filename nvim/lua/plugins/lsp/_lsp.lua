@@ -96,7 +96,7 @@ return {
             _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
             _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.nmap("<Leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list in quickfix" })
-            _G.nmap("<Leader>do", ":Telescope diagnostics", { desc = "Open diagnostics list in Telescope" })
+            -- _G.nmap("<Leader>do", ":Telescope diagnostics", { desc = "Open diagnostics list in Telescope" })
 
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -132,9 +132,12 @@ return {
                     _G.nmap("<space>rn", vim.lsp.buf.rename, opts)
                     _G.nmap("<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-                    _G.map({ "n", "i" }, "<a-f>", function()
-                        vim.lsp.buf.format({ async = true })
-                    end, opts)
+
+                    if (client.supports_method("textDocument/formatting")) then
+                        _G.map({ "n", "i" }, "<a-f>", function()
+                            vim.lsp.buf.format({ async = true })
+                        end, opts)
+                    end
 
                     if (client.name == "gdscript") then
                         -- local pipe = "/tmp/godot.pipe"
