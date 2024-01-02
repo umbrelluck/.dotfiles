@@ -19,12 +19,18 @@ return {
         code_style = {
             comments = 'italic',
             conditionals = 'italic',
-            keywords = 'none',
+            -- loops = 'italic',
             functions = 'none',
-            namespaces = 'italic',
-            parameters = 'italic',
+            keywords = 'none',
             strings = 'none',
             variables = 'none',
+            -- numbers = 'none',
+            -- boleans = 'none',
+            -- properties = 'none',
+            -- types = 'italic',
+            parameters = 'italic',
+            namespaces = 'italic',
+            -- operators = 'none',
         },
 
         lualine = {
