@@ -1,3 +1,5 @@
+vim.api.nvim_set_hl(0, "Search", {})
+
 -- Numbers relative and static
 vim.opt.nu = true
 vim.opt.relativenumber = true

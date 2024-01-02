@@ -53,6 +53,5 @@ return {
     config = function(_, opts)
         require("bamboo").setup(opts)
         require("bamboo").load()
-        vim.api.nvim_set_hl(0, "Search", {})
     end,
 }
