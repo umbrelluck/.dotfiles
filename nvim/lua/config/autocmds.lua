@@ -11,6 +11,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
+local highlight_ssearch_group = vim.api.nvim_create_augroup("SearchHighlight", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = highlight_ssearch_group,
+    callback = function()
+        vim.api.nvim_set_hl(0, "Search", {})
+    end
+})
+
 vim.api.nvim_create_user_command("Cppath", function()
     local path = vim.fn.expand("%:p")
     vim.fn.setreg("+", path)
