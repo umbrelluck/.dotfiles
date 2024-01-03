@@ -95,7 +95,8 @@ return {
             _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
             _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
             _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
-            _G.nmap("<Leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list in quickfix" })
+            _G.nmap("<Leader>dq", vim.diagnostic.setqflist, { desc = "Open diagnostics list in quickfix" })
+            _G.nmap("<Leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostics list in loclist" })
             -- _G.nmap("<Leader>do", ":Telescope diagnostics", { desc = "Open diagnostics list in Telescope" })
 
             vim.api.nvim_create_autocmd("LspAttach", {

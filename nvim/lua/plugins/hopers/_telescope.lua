@@ -36,6 +36,7 @@ return {
             _G.nmap('<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
             _G.nmap('<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
             _G.nmap("<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
+            _G.nmap("<leader>sj", builtin.jumplist, { desc = "[S]earch [J]umplist" })
 
             _G.nmap("<leader>fb", ":Telescope file_browser<CR>", { desc = "[F]ile [B]rowser" })
             _G.nmap("<leader>fc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
