@@ -35,7 +35,7 @@ _G.xmap("<m-g>", "gqa", { noremap = false, desc = "Format paragraph" })  -- gq f
 
 _G.nmap("cp", ":Cppath<cr>", { silent = false, desc = "Copy current buffer path to clipboard" })
 
-_G.map("t", "<A-n>", "<C-\\><C-n>", { noremap = false, silent = true, desc = "Go back to normal mode" })
+-- _G.map("t", "<A-n>", "<C-\\><C-n>", { noremap = false, silent = true, desc = "Go back to normal mode" })
 
 _G.nmap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true, desc = "Better k motions" })
 _G.nmap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc = "Better j motions" })
@@ -72,7 +72,7 @@ _G.imap("<a-h>", "<ESC><<", { noremap = false, desc = "Indent line left" })
 -- buffers
 _G.nmap("]b", ":bnext<cr>", { desc = "Next buffer" })
 _G.nmap("[b", ":bprev<cr>", { desc = "Previous buffer" })
-_G.nmap("<c-n>", ":enew<cr>", { silent = false, desc = "Create new buffer" })
+_G.nmap("<m-n>", ":enew<cr>", { silent = false, desc = "Create new buffer" })
 _G.nmap("\\b", ":bd<cr>", { desc = "Delete current buffer" })
 
 -- windows
@@ -81,13 +81,13 @@ _G.nmap("<a-V>", ":sb<cr>", { silent = false, desc = "Create horizontal split" }
 _G.nmap("<a-x>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 
 _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
-_G.nmap("<C-left>", "<C-w>h", { noremap = false, desc = "Move to left window" })
+-- _G.nmap("<C-left>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
-_G.nmap("<C-down>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
+-- _G.nmap("<C-down>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
 _G.nmap("<C-k>", "<C-w>k", { noremap = false, desc = "Move to top window" })
-_G.nmap("<C-up>", "<C-w>k", { noremap = false, desc = "Move to top window" })
+-- _G.nmap("<C-up>", "<C-w>k", { noremap = false, desc = "Move to top window" })
 _G.nmap("<C-l>", "<C-w>l", { noremap = false, desc = "Move to right window" })
-_G.nmap("<C-right>", "<C-w>l", { noremap = false, desc = "Move to right window" })
+-- _G.nmap("<C-right>", "<C-w>l", { noremap = false, desc = "Move to right window" })
 _G.nmap("<C-q>", "<C-w>c", { noremap = false, desc = "Close current buffer" })
 
 _G.nmap("<C-A-e>", "<C-w>=", { noremap = false, desc = "Resize all windows to the same size" })

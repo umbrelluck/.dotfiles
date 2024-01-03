@@ -38,10 +38,6 @@ return {
             _G.nmap("<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
             _G.nmap("<leader>sj", builtin.jumplist, { desc = "[S]earch [J]umplist" })
 
-            _G.nmap("<leader>fb", ":Telescope file_browser<CR>", { desc = "[F]ile [B]rowser" })
-            _G.nmap("<leader>fc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-                { desc = "[F]ile browser [C]urrent" })
-
             local telescope = require("telescope")
             local actions = require("telescope.actions")
             local trouble = require("trouble.providers.telescope")
@@ -143,17 +139,21 @@ return {
                 },
             })
 
+            _G.nmap("<leader>fb", ":Telescope file_browser<CR>", { desc = "[F]ile [B]rowser" })
+            _G.nmap("<leader>fc", ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+                { desc = "[F]ile browser [C]urrent" })
+
             require("telescope").load_extension("file_browser")
         end
     },
     {
         "nvim-telescope/telescope-project.nvim",
         keys = { {
-            "<leader>sp",
+            "<leader>ps",
             function()
                 require("telescope").extensions.project.project({ display_type = "mininal" }) -- "full" | "minimal"
             end,
-            desc = "Telescope [S]earch [P]rojects"
+            desc = "Telescope [S]earch [P]rojects (but ps for consistency with pv)"
         } },
         config = function()
             local project_actions = require("telescope._extensions.project.actions")
