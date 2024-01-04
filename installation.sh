@@ -6,7 +6,12 @@ etcd="/etc"
 
 mkdir -p "$confd/alacritty/a_themes" 
 stow -t "$confd/alacritty" alacritty 
-git clone https://github.com/alacritty/alacritty-theme "$confd/alacritty/a_themes"
+if [ ! -d "$confd/alacritty/a_themes" ]; then 
+    git clone https://github.com/alacritty/alacritty-theme "$confd/alacritty/a_themes"
+else
+    echo "Updating existing alacritty themes"
+    git --git-dir="$homed/.dotfiles/.git/" --work-tree="$homed/.dotfiles/" pull
+fi
 
 mkdir -p "$confd/nvim"
 stow -t "$confd/nvim" nvim 
@@ -26,9 +31,14 @@ stow -t "$confd/X11" X11
 mkdir -p "$confd/xplr"
 stow -t "$confd/xplr" xplr 
 
-echo "Lemurs setup need password to write files"
-sudo ln -s "$homed/.dotfiles/lemurs/wms" "$etcd/lemurs/wms"
-sudo ln -s "$homed/.dotfiles/lemurs/wayland" "$etcd/lemurs/wayland"
+mkdir -p "$confd/hypr"
+stow -t "$confd/hypr" hyprland
+
+if [ ! -d "$etcd/lemurs/wms" ] || [ ! -d "$etcd/lemurs/wayland" ]; then
+    echo "Lemurs setup needs password to write files"
+    sudo ln -s "$homed/.dotfiles/lemurs/wms" "$etcd/lemurs/wms"
+    sudo ln -s "$homed/.dotfiles/lemurs/wayland" "$etcd/lemurs/wayland"
+fi
 
 stow -t "$homed" scripts 
 stow -t "$homed" zsh 
