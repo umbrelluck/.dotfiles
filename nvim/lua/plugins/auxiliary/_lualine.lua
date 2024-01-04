@@ -1,3 +1,7 @@
+local function maximize_status()
+    return vim.t.maximized and '   ' or ''
+end
+
 return { {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -15,7 +19,8 @@ return { {
         sections = {
             lualine_a = {
                 "mode",
-                "filename",
+                "filename", -- .. vim.t.maximized and ' 🔍 ' or '',
+                maximize_status
             },
             lualine_b = { "branch", "diff", "diagnostics" },
             lualine_c = { _G.lsp_clients },
