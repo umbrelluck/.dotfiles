@@ -77,6 +77,9 @@ _G.nmap("<a-v>", ":vert sb<cr>", { silent = false, desc = "Create vertical split
 _G.nmap("<a-V>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 _G.nmap("<a-x>", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 
+_G.nmap("<Leader>|", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
+_G.nmap("<Leader>-", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
+
 _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-left>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
