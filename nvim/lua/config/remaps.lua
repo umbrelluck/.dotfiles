@@ -4,9 +4,6 @@ vim.g.maplocalleader = " "
 -- Do remeber s (substitute character is cl)
 -- Do remeber S (substitute character is cc)
 
-_G.nmap("<Leader>q", ":copen<cr>", { desc = "Open quickfix" })
-_G.nmap("<Leader>Q", ":ccl<cr>", { desc = "Close quickfix" })
-
 -- Nice utility fucntions
 _G.nmap("<F1>", ":setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
 _G.imap("<F1>", "<c-o>:setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
@@ -129,19 +126,24 @@ _G.map({ "n", "v" }, "<leader>dd", [["_d]], { desc = "Do not know what this is d
 _G.nmap("Q", "<nop>", { desc = "Q literally does nothing" })
 
 -- Quickfix region
-_G.nmap("<Leader>doj", ":cdo ", { silent = false, desc = ":cdo" })
-_G.nmap("<Leader>doo", ":cdo ", { silent = false, desc = ":cdo" })
-_G.nmap("<Leader>dof", ":cfd ", { silent = false, desc = ":cfdo" })
+_G.nmap("<Leader>q", ":copen<cr>", { desc = "Open quickfix" })
+_G.nmap("<Leader>Q", ":ccl<cr>", { desc = "Close quickfix" })
+_G.nmap("<Leader>do", ":cdo ", { silent = false, desc = ":cdo" })
+_G.nmap("<Leader>fdo", ":cfd ", { silent = false, desc = ":cfdo" })
 _G.nmap("]q", "<cmd>cnext<CR>zz", { desc = "Next entry in quickfix" })
 _G.nmap("[q", "<cmd>cprev<CR>zz", { desc = "Previous entry in quickfix" })
 _G.nmap("<Leader>.", ":cnext<cr>zz", { desc = "Next entry in quickfix" })
 _G.nmap("<Leader>,", ":cprev<cr>zz", { desc = "Previous entry in quickfix" })
 -- -------------------------------------------------------------------------------------------------------
 
+-- Loclist region
+_G.nmap("<Leader>\'", ":lopen<cr>", { desc = "Open loclist" })
+_G.nmap("<Leader>\"", ":lclose<cr>", { desc = "Close loclist" })
 _G.nmap("]l", "<cmd>lnext<CR>zz", { desc = "Next entry in locallist" })
 _G.nmap("[l", "<cmd>lprev<CR>zz", { desc = "Previous entry in locallist" })
 _G.nmap("<m-.>", ":lnext<cr>zz", { desc = "Next entry in locallist" })
 _G.nmap("<m-,>", ":lprev<cr>zz", { desc = "Previous entry in locallist" })
+-- -------------------------------------------------------------------------------------------------------
 
 _G.nmap("<leader>se", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     { silent = false, desc = "Substitute in whole file" })
