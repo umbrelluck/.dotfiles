@@ -1,8 +1,6 @@
 #! /bin/bash
 
 confd="$XDG_CONFIG_HOME"
-homed="$HOME"
-etcd="/etc"
 
 mkdir -p "$confd/alacritty/a_themes" 
 stow -t "$confd/alacritty" alacritty 
@@ -10,7 +8,7 @@ if [ ! -d "$confd/alacritty/a_themes" ]; then
     git clone https://github.com/alacritty/alacritty-theme "$confd/alacritty/a_themes"
 else
     echo "Updating existing alacritty themes"
-    git --git-dir="$homed/.dotfiles/.git/" --work-tree="$homed/.dotfiles/" pull
+    git --git-dir="$HOME/.dotfiles/.git/" --work-tree="$HOME/.dotfiles/" pull
 fi
 
 mkdir -p "$confd/nvim"
@@ -34,15 +32,19 @@ stow -t "$confd/xplr" xplr
 mkdir -p "$confd/hypr"
 stow -t "$confd/hypr" hyprland
 
-if [ ! -d "$etcd/lemurs/wms" ] || [ ! -d "$etcd/lemurs/wayland" ]; then
+if [ ! -d "/etc/lemurs/wms" ] || [ ! -d "/etc/lemurs/wayland" ]; then
     echo "Lemurs setup needs password to write files"
-    sudo ln -s "$homed/.dotfiles/lemurs/wms" "$etcd/lemurs/wms"
-    sudo ln -s "$homed/.dotfiles/lemurs/wayland" "$etcd/lemurs/wayland"
+    sudo ln -s "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
+    sudo ln -s "$HOME/.dotfiles/lemurs/wayland" "/etc/lemurs/wayland"
 fi
 
-stow -t "$homed" scripts 
-stow -t "$homed" zsh 
+stow -t "$HOME" tmux
+if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
+stow -t "$HOME" scripts 
+stow -t "$HOME" zsh 
 zsh && . "$SCRSDIR/zsh_plugin&script_downloader.sh"
-stow -t "$homed" powerlevel10k 
-stow -t "$homed" tmux
+stow -t "$HOME" powerlevel10k 
 
