@@ -10,7 +10,7 @@ return {
                     return vim.o.columns * 0.4
                 end
             end,
-            open_mapping = [[<c-\>]],
+            open_mapping = [[<m-\>]],
             direction = 'horizontal', -- can be vertical, horizontal, window, float
             start_in_insert = true,
             insert_mappings = true,   -- whether or not the open mapping applies in insert mode

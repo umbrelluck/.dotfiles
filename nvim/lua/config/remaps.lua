@@ -18,6 +18,13 @@ _G.nmap("<F4>", ":setlocal list!<cr>", { silent = false, desc = "Toggle whitespa
 _G.imap("<F4>", "<c-o>:setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
 -- -------------------------------------------------------------------------------------------------------
 
+-- Built-in terminal
+_G.map({ "n", "v" }, "<m-c-\\>", ":terminal<cr>", { silent = false, desc = "Open built-in terminal" })
+_G.imap("<m-c-\\>", ":terminal<cr>", { silent = false, desc = "Open built-in terminal" })
+_G.map("t", "<Esc>", "<c-\\><c-n>", { desc = "Go to normal mode from built-in terminal" })
+
+-- -------------------------------------------------------------------------------------------------------
+
 -- Foramt paragraph
 -- BUG: pq not working
 _G.nmap("<m-g>", "gqap", { noremap = false, desc = "Format paragraph" }) -- gq formats line with motion, gw does almost the same
@@ -80,7 +87,15 @@ _G.nmap("<a-x>", ":sb<cr>", { silent = false, desc = "Create horizontal split" }
 _G.nmap("<Leader>|", ":vert sb<cr>", { silent = false, desc = "Create vertical split" })
 _G.nmap("<Leader>-", ":sb<cr>", { silent = false, desc = "Create horizontal split" })
 
--- NOTE: Windows navigation goes to vim-tmux-navigator for seamless tmux integration
+-- NOTE: Window navigation goes to vim-tmux-navigator for seamless tmux integration
+_G.map("t", "<c-h>", "<C-\\><C-N><C-w>h", { desc = "Window navigation in terminal" })
+_G.map("t", "<c-j>", "<C-\\><C-N><C-w>j", { desc = "Window navigation in terminal" })
+_G.map("t", "<c-k>", "<C-\\><C-N><C-w>k", { desc = "Window navigation in terminal" })
+_G.map("t", "<c-l>", "<C-\\><C-N><C-w>l", { desc = "Window navigation in terminal" })
+_G.imap("<c-h>", "<C-\\><C-N><C-w>h", { desc = "Window navigation in insert" })
+_G.imap("<c-j>", "<C-\\><C-N><C-w>j", { desc = "Window navigation in insert" })
+_G.imap("<c-k>", "<C-\\><C-N><C-w>k", { desc = "Window navigation in insert" })
+_G.imap("<c-l>", "<C-\\><C-N><C-w>ls", { desc = "Window navigation in insert" })
 -- _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-left>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
