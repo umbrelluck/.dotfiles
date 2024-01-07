@@ -42,7 +42,7 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
 
-prompt oliver
+# prompt oliver
 
 source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -110,7 +110,7 @@ alias rpcb='lsof +L1'
 alias wttr='curl wttr.in'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
 export PATH="$PATH:$HOME/.local/bin"
