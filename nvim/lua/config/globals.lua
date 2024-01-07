@@ -83,3 +83,28 @@ function _G.mod_hl_copy_existing(hl_name, existing_hl_name)
     local new_def = vim.tbl_extend("force", {}, hl_def, ex_def)
     vim.api.nvim_set_hl(0, hl_name, new_def)
 end
+
+function _G.get_current_colors()
+    colors = {
+        red = "",
+        orange = "",
+        yellow = "",
+        blue = "",
+        green = "",
+        violet = "",
+        cyan = ""
+    }
+
+    if (vim.g.colors_name == "bamboo") then
+        local c = require('bamboo.colors')
+        colors.red = c.red
+        colors.orange = c.orange
+        colors.yellow = c.yellow
+        colors.blue = c.blue
+        colors.green = c.green
+        colors.violet = c.purple
+        colors.cyan = c.cyan
+    end
+
+    return colors
+end
