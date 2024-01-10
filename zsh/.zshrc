@@ -58,15 +58,30 @@ fpath=($HOME/Git/zsh-completions/src $fpath)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+# export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
 export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
-export FZF_DEFAULT_OPTS='--no-height'
-export FZF_DEFAULT_BINDS='--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,ctrl-f:preview-down,ctrl-b:preview-up'
+export FZF_DEFAULT_OPTS='--height 60%'
+# export FZF_DEFAULT_OPTS='--no-height'
+export FZF_DEFAULT_BINDS="--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,ctrl-f:preview-down,ctrl-b:preview-up
+    --bind 'ctrl-/:toggle-preview'
+    --bind 'ctrl-\\:change-preview-window(down|hidden|)'"
+
+export FZF_CTRL_R_OPTS="
+    --reverse
+    --color header:italic
+    --header 'Select command to insert'"
 
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}' $FZF_DEFAULT_BINDS"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'
+    $FZF_DEFAULT_BINDS
+    --color header:italic
+    --header 'Get file path'"
 
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden --no-ignore'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50' $FZF_DEFAULT_BINDS"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'
+    $FZF_DEFAULT_BINDS
+    --color header:italic
+    --header 'CD into directory'"
 
 
 bindkey  "^[[3~"  delete-char
@@ -110,7 +125,7 @@ alias rpcb='lsof +L1'
 alias wttr='curl wttr.in'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
 export PATH="$PATH:$HOME/.local/bin"
