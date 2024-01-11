@@ -22,12 +22,19 @@ return {
                 { desc = '[?] Find recently opened files' })
             _G.nmap('<leader><space>', builtin.buffers,
                 { desc = '[ ] Find existing buffers' })
-            _G.nmap('<leader>/', function()
-                builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                    winblend = 5,
-                    previewer = false,
-                })
-            end, { desc = '[/] Fuzzily search in current buffer' })
+            _G.nmap('<leader>/',
+                function()
+                    builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+                        -- winblend = 5,
+                        previewer = false,
+                        -- layout_strategy = "center",
+                        layout_config = {
+                            prompt_position = "bottom",
+                        },
+                    })
+                end,
+                -- builtin.current_buffer_fuzzy_find({ previewer = false }),
+                { desc = '[/] Fuzzily search in current buffer' })
 
             _G.nmap('<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
             _G.nmap('<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -46,7 +53,7 @@ return {
                 defaults = {
                     color_devicons = true,
                     use_less = true,
-                    file_ignore_patterns = { "node_modules", "build", ".godot", "resources", "resource" },
+                    file_ignore_patterns = { "node_modules", "build$", ".godot", "resources", "resource" },
                     file_sorter = require("telescope.sorters").get_fuzzy_file,
                     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
                     file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -110,7 +117,6 @@ return {
             })
 
             telescope.load_extension("fzf")
-            -- telescope.load_extension("file_browser")
         end,
     },
     {

@@ -16,6 +16,8 @@ _G.imap("<F3>", "<c-o>:setlocal expandtab!<cr>", { silent = false, desc = "Toggl
 
 _G.nmap("<F4>", ":setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
 _G.imap("<F4>", "<c-o>:setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
+
+_G.nmap("-", ":set cursorline!<cr>", { desc = "Toggle cursor line" })
 -- -------------------------------------------------------------------------------------------------------
 
 -- Built-in terminal
@@ -55,7 +57,7 @@ _G.nmap("\\s", ":so<cr>", { silent = false, desc = "Source current file" })
 _G.nmap("<leader>rl", ":so<cr>", { silent = false, desc = "Source current file" })
 
 _G.nmap("<leader>pv", vim.cmd.Ex, { desc = "Open Explorer" })
--- _G.nmap("<A-a>", "ggVG", { noremap = false, desc = "Select all" })
+_G.nmap("<A-a>", "ggVG", { noremap = false, desc = "Select all" })
 
 _G.nmap("<Leader>hh", ":noh<cr>", { desc = "Remove highlight" })
 _G.nmap("<Leader>hi", ":noh<cr>", { desc = "Remove highlight" })

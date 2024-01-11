@@ -122,7 +122,7 @@ return {
                     _G.nmap("<leader>ws", require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
                     _G.nmap("gi", vim.lsp.buf.implementation, opts)
                     _G.nmap("<leader>k", vim.lsp.buf.signature_help, opts)
-                    _G.nmap("<s-m-k>", vim.lsp.buf.signature_help, opts)
+                    _G.nmap("<Leader>ss", vim.lsp.buf.signature_help, opts)
                     _G.map({ "n", "i" }, "<a-u>", vim.lsp.buf.signature_help, opts)
                     _G.nmap("<space>wa", vim.lsp.buf.add_workspace_folder, opts)
                     _G.nmap("<space>wr", vim.lsp.buf.remove_workspace_folder, opts)

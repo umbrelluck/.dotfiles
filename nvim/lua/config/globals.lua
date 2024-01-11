@@ -56,6 +56,16 @@ function _G.get_filename(path)
 end
 
 function _G.lsp_clients()
+    local lsp = vim.lsp.util.get_progress_messages()[1]
+    if lsp then
+        local name = lsp.name or ""
+        local msg = lsp.message or ""
+        local percentage = lsp.percentage or 0
+        local title = lsp.title or ""
+        -- return string.format(" %%<%s: %s %s (%s%%%%) ", name, title, msg, percentage)
+        return name
+    end
+
     local bufnr = vim.api.nvim_get_current_buf()
     local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
     if next(clients) == nil then
@@ -85,7 +95,7 @@ function _G.mod_hl_copy_existing(hl_name, existing_hl_name)
 end
 
 function _G.get_current_colors()
-    colors = {
+    local colors = {
         red = "",
         orange = "",
         yellow = "",

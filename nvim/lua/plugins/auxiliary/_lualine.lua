@@ -23,7 +23,7 @@ return { {
                 maximize_status
             },
             lualine_b = { "branch", "diff", "diagnostics" },
-            lualine_c = { _G.lsp_clients },
+            lualine_c = {}, --_G.lsp_clients },
             lualine_x = {
                 "encoding",
                 "fileformat",
