@@ -59,8 +59,8 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 # export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
-export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
-export FZF_DEFAULT_OPTS='--height 60%'
+export FZF_DEFAULT_COMMAND='fd --color=never --hidden --no-ignore'
+export FZF_DEFAULT_OPTS='--height 60% --reverse --border --border-label='
 # export FZF_DEFAULT_OPTS='--no-height'
 export FZF_DEFAULT_BINDS="--bind ctrl-d:preview-page-down,ctrl-u:preview-page-up,ctrl-f:preview-down,ctrl-b:preview-up
     --bind 'ctrl-/:toggle-preview'
@@ -71,7 +71,7 @@ export FZF_CTRL_R_OPTS="
     --color header:italic
     --header 'Select command to insert'"
 
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND="fd --type f --color=never --hidden --no-ignore"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'
     $FZF_DEFAULT_BINDS
     --color header:italic
@@ -91,6 +91,7 @@ alias nnvim="nvim --listen /tmp/nvim.pipe"
 alias gnvim="nvim --listen /tmp/godot.pipe"
 alias linvim="nvim --listen"
 
+alias notesium="~/Git/notesium//notesium"
 alias orcas="~/ProgramFiles/OrcaSlicer_Linux_V1.8.1.AppImage"
 alias godotm="~/ProgramFiles/GodotManager/GodotManager.x86_64"
 alias drmemory='~/TarGZ/DrMemory-Linux-2.6.0/bin64/drmemory'
@@ -99,14 +100,14 @@ alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-ori
 
 alias trone='ssh sshtron.zachlatta.com'
 
-alias lsa='ls -la | rg "^d" && ls -la | rg "^-" && ls -la | rg "^l"'
+alias lsa='lso -la | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 # alias sudo='doas'
 alias las='xplr'
 alias ckupd="checkupdates"
 alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
 alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
-alias ls='ls --color'
+alias lso='ls --color'
 alias gupd=$SCRSDIR/git_rep_updater.sh
 alias ncdu='ncdu -e --color off'
 alias duf='duf -all -warnings'
