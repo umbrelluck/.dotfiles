@@ -56,11 +56,11 @@ return {
         vim.g.rainbow_delimiters = {
             strategy = {
                 [''] = rainbow_delimiters.strategy["global"],
-                -- commonlisp = rainbow_delimiters.strategy['local'],
+                commonlisp = rainbow_delimiters.strategy['local'],
             },
             query = {
                 [""] = "rainbow-delimiters",
-                lua = "rainbow-blocks",
+                -- lua = "rainbow-blocks",
             },
             highlight = highlight
         }
