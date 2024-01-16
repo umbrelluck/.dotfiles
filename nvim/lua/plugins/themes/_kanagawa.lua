@@ -1,5 +1,8 @@
 return {
     "rebelot/kanagawa.nvim",
+    enabled = false,
+    prioirty = 1000,
+    lazy = false,
     opts = {
         compile = false,  -- enable compiling the colorscheme
         undercurl = true, -- enable undercurls
@@ -27,6 +30,6 @@ return {
     config = function(_, opts)
         require('kanagawa').setup(opts)
 
-        -- vim.cmd("colorscheme kanagawa")
+        vim.cmd("colorscheme kanagawa")
     end
 }

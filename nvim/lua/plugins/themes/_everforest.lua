@@ -1,6 +1,9 @@
 return {
     {
         "sainnhe/everforest",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
         config = function()
             vim.o.background = "dark"
             vim.g.everforest_background = "hard"
@@ -9,7 +12,7 @@ return {
             vim.g.everforest_better_performance = 1
             -- let g:everforest_colors_override = {'bg0': ['#202020', '234'], 'bg2': ['#282828', '235']}
             -- available keys gound at `/path/to/everforest/autoload/everforest.vim`.
-            -- vim.cmd.colorscheme("everforest")
+            vim.cmd.colorscheme("everforest")
         end
     }
 }
