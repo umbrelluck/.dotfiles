@@ -2,7 +2,6 @@ return {
     {
         'echasnovski/mini.surround',
         version = false,
-        keys = { 'sa', 'sd', 'sf', 'sF', 'sh', 'sr', 'sn' },
         opts = {
             -- Add custom surroundings to be used on top of builtin ones. For more
             -- information with examples, see `:h MiniSurround.config`.
