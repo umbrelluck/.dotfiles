@@ -153,12 +153,6 @@ return {
         end
     },
     {
-        "j-hui/fidget.nvim",
-        -- enabled = false,
-        opts = {
-        },
-    },
-    {
         "vigoux/notifier.nvim",
         opts = {
             ignore_messages = {}, -- Ignore message from LSP servers with this name
@@ -178,8 +172,13 @@ return {
             require("notifier").setup(opts)
 
             _G.nmap("<Leader>nc", ":NotifierClear<cr>", { desc = "Clear notifications" })
-            _G.nmap("<Leader>ns", ":NotifierReplay<cr>", { desc = "Replay notifications" })
+            _G.nmap("<Leader>nr", ":NotifierReplay<cr>", { desc = "Replay notifications" })
             _G.nmap("<Leader>nq", ":NotifierReplay!<cr>", { desc = "Send notifications to quickfix" })
         end
-    }
+    },
+    {
+        "j-hui/fidget.nvim",
+        event = "LspAttach",
+        opts = {}
+    },
 }

@@ -27,8 +27,9 @@ local specs = {
 }
 
 local opts = {
-    { defaults = { lazy = true } },
-    { ui = { border = "rounded" } }
+    -- defaults = { lazy = true },
+    -- install = { "bamboo" },
+    ui = { border = "rounded" },
 }
 
 require("lazy").setup(specs, opts)

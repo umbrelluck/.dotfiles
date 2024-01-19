@@ -12,7 +12,7 @@ return {
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
-        keys = { { "\\rd", ':lua require("nvim-navbuddy").open()<cr>', silent = true, desc = "Open navbuddy" } },
+        keys = { { "<Leader>nv", ':lua require("nvim-navbuddy").open()<cr>', silent = true, desc = "Open navbuddy" } },
         opts = { lsp = { auto_attach = true } },
     }
 }

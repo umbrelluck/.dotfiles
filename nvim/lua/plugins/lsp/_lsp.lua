@@ -108,10 +108,11 @@ return {
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-                    if client.server_capabilities.documentSymbolProvider then
-                        require("nvim-navic").attach(client, ev.buf)
-                        require("nvim-navbuddy").attach(client, ev.buf)
-                    end
+                    -- INFO: breadcrumbs attachment is handled by breadcrumbs themselves
+                    -- if client.server_capabilities.documentSymbolProvider then
+                    --     require("nvim-navic").attach(client, ev.buf)
+                    --     require("nvim-navbuddy").attach(client, ev.buf)
+                    -- end
 
                     local opts = { buffer = ev.buf }
                     _G.nmap("gD", vim.lsp.buf.declaration, opts)
@@ -196,6 +197,7 @@ return {
         },
     },
     {
+        -- INFO: this is apperently null-ls replacement
         "nvimdev/guard.nvim",
         dependencies = {
             "nvimdev/guard-collection",

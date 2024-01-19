@@ -5,6 +5,12 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-neorg/neorg-telescope"
     },
+    event = "BufReadPre *.norg",
+    keys = {
+        {"<Leader>no", ":Neorg<cr>", desc = "Open Neorg"},
+        {"<Leader>ne", ":Neorg<cr>", desc = "Open Neorg"},
+        {"<Leader>nt", ":Telescope neorg<cr>", desc = "Open Neorg in Telescope"},
+    },
     opts = {
         load = {
             ["core.defaults"] = {},  -- Default behaviour
@@ -32,11 +38,6 @@ return {
     },
     config = function(_, opts)
         require("neorg").setup(opts)
-
-        _G.nmap("<Leader>no", ":Neorg<cr>", { desc = "Open Neorg" })
-        _G.nmap("<Leader>ne", ":Neorg<cr>", { desc = "Open Neorg" })
-
-        _G.nmap("<Leader>nt", ":Telescope neorg<cr>", { desc = "Open Neorg in Telescope" })
 
         local neorg_callbacks = require("neorg.core.callbacks")
         neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
