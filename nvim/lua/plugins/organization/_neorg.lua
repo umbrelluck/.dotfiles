@@ -7,9 +7,9 @@ return {
     },
     event = "BufReadPre *.norg",
     keys = {
-        {"<Leader>no", ":Neorg<cr>", desc = "Open Neorg"},
-        {"<Leader>ne", ":Neorg<cr>", desc = "Open Neorg"},
-        {"<Leader>nt", ":Telescope neorg<cr>", desc = "Open Neorg in Telescope"},
+        { "<Leader>no", ":Neorg<cr>",           desc = "Open Neorg" },
+        { "<Leader>ne", ":Neorg<cr>",           desc = "Open Neorg" },
+        { "<Leader>nt", ":Telescope neorg<cr>", desc = "Open Neorg in Telescope" },
     },
     opts = {
         load = {
@@ -45,10 +45,12 @@ return {
             keybinds.map_event_to_mode("norg", {
                 n = {
                     { "<C-s>", "core.integrations.telescope.find_linkable" },
+                    { "<m-l>", "core.integrations.telescope.find_linkable" },
                 },
 
                 i = {
                     { "<C-l>", "core.integrations.telescope.insert_link" },
+                    { "<m-i>", "core.integrations.telescope.insert_link" },
                 },
             }, {
                 silent = true,

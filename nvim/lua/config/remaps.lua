@@ -71,9 +71,9 @@ _G.vmap("<a-j>", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 _G.vmap("<a-k>", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 _G.map({ "n", "v" }, "<a-l>", ">>", { noremap = false, desc = "Indent line right" })
-_G.map({ "n", "i" }, "<a-h>", "<<", { noremap = false, desc = "Indent line left" })
-_G.imap("<a-l>", "<ESC>>>", { noremap = false, desc = "Indent line right" })
-_G.imap("<a-h>", "<ESC><<", { noremap = false, desc = "Indent line left" })
+_G.map({ "n", "v" }, "<a-h>", "<<", { noremap = false, desc = "Indent line left" })
+-- _G.imap("<a-l>", "<ESC>>>", { noremap = false, desc = "Indent line right" })
+-- _G.imap("<a-h>", "<ESC><<", { noremap = false, desc = "Indent line left" })
 
 -- buffers
 _G.nmap("]b", ":bnext<cr>", { desc = "Next buffer" })
@@ -94,10 +94,11 @@ _G.map("t", "<c-h>", "<C-\\><C-N><C-w>h", { desc = "Window navigation in termina
 _G.map("t", "<c-j>", "<C-\\><C-N><C-w>j", { desc = "Window navigation in terminal" })
 _G.map("t", "<c-k>", "<C-\\><C-N><C-w>k", { desc = "Window navigation in terminal" })
 _G.map("t", "<c-l>", "<C-\\><C-N><C-w>l", { desc = "Window navigation in terminal" })
-_G.imap("<c-h>", "<C-\\><C-N><C-w>h", { desc = "Window navigation in insert" })
-_G.imap("<c-j>", "<C-\\><C-N><C-w>j", { desc = "Window navigation in insert" })
-_G.imap("<c-k>", "<C-\\><C-N><C-w>k", { desc = "Window navigation in insert" })
-_G.imap("<c-l>", "<C-\\><C-N><C-w>ls", { desc = "Window navigation in insert" })
+-- _G.imap("<c-h>", "<C-\\><C-N><C-w>h", { desc = "Window navigation in insert" })
+-- _G.imap("<c-j>", "<C-\\><C-N><C-w>j", { desc = "Window navigation in insert" })
+-- _G.imap("<c-k>", "<C-\\><C-N><C-w>k", { desc = "Window navigation in insert" })
+-- _G.imap("<c-l>", "<C-\\><C-N><C-w>ls", { desc = "Window navigation in insert" })
+--
 -- _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-left>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })
