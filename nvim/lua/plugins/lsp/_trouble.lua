@@ -1,6 +1,21 @@
 return { {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+        { "<leader>xx", "<cmd>TroubleToggle<cr>",                                                        desc = "Trouble toggle" },
+        { "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",                                  desc = "Trouble toggle workspace" },
+        { "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",                                   desc = "Trouble toggle document" },
+        { "<leader>xl", "<cmd>TroubleToggle loclist<cr>",                                                desc = "Trouble toggle loclsit" },
+        { "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",                                               desc = "Trouble toggle quickfix" },
+        { "<leader>xr", "<cmd>TroubleToggle lsp_references<cr>",                                         desc = "Trouble toggle lsp references" },
+
+        { "]r",         function() require('trouble').next({ skip_groups = true, jump = true }) end,     desc = "Trouble next" },
+        { "[r",         function() require('trouble').previous({ skip_groups = true, jump = true }) end, desc = "Trouble previous" },
+
+        { "<leader>x[", function() require('trouble').first({ skip_groups = true, jump = true }) end,    desc = "Trouble first" },
+        { "<leader>x]", function() require('trouble').last({ skip_groups = true, jump = true }) end,     desc = "Trouble last" },
+
+    },
     opts = {
         position = "bottom", -- position of the list can be: bottom, top, left, right
         height = 10, -- height of the trouble list when position is top or bottom
@@ -58,18 +73,5 @@ return { {
     },
     config = function(_, opts)
         require("trouble").setup(opts)
-
-        _G.nmap("<leader>xx", "<cmd>TroubleToggle<cr>")
-        _G.nmap("<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
-        _G.nmap("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
-        _G.nmap("<leader>xl", "<cmd>TroubleToggle loclist<cr>")
-        _G.nmap("<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
-        _G.nmap("<leader>xr", "<cmd>TroubleToggle lsp_references<cr>")
-
-        _G.nmap("]r", function() require('trouble').next({ skip_groups = true, jump = true }) end)
-        _G.nmap("[r", function() require('trouble').previous({ skip_groups = true, jump = true }) end)
-
-        _G.nmap("<leader>x[", function() require('trouble').first({ skip_groups = true, jump = true }) end)
-        _G.nmap("<leader>x]", function() require('trouble').last({ skip_groups = true, jump = true }) end)
     end,
 } }
