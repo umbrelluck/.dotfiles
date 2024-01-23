@@ -1,17 +1,12 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        -- tag = "0.1.1",
         dependencies = {
             "nvim-lua/plenary.nvim",
             {
                 "nvim-telescope/telescope-fzf-native.nvim",
                 build = "make",
-            },
-            -- {
-            --     "nvim-telescope/telescope-file-browser.nvim",
-            --     dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" }
-            -- }
+            }
         },
         -- cmd = "Telesope",
         config = function()
@@ -122,7 +117,7 @@ return {
     {
         "nvim-telescope/telescope-file-browser.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons" },
-
+        enabled = false,
         config = function()
             local actions = require("telescope.actions")
 
@@ -133,14 +128,6 @@ return {
                         hijack_netrw = true,
                         promt_path = true,
                         hidden = { file_browser = true, folder_browser = true },
-                        -- mappings = {
-                        --     ["i"] = {
-                        --         ["<cr>"] = actions.select_default,
-                        --     },
-                        --     ["n"] = {
-                        --         ["<cr>"] = actions.select_default,
-                        --     }
-                        -- }
                     },
                 },
             })
