@@ -104,7 +104,7 @@ return {
                 callback = function(ev)
                     -- Enable completion triggered by <c-x><c-o>
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-                    vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]])
+                    vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format() ]])
 
                     local client = vim.lsp.get_client_by_id(ev.data.client_id)
 

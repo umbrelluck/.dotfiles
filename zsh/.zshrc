@@ -129,6 +129,11 @@ alias wttr='curl wttr.in'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+# LaTex
+export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2023/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:$HOME/ProgramFiles/LaTeX/texlive/2023/texmf-dist/doc/info"
+export PATH="$PATH:$HOME/ProgramFiles/LaTeX/texlive/2023/bin/x86_64-linux"
+
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/default/
