@@ -62,7 +62,7 @@ return {
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                             ["<C-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-                            ["<CR>"] = actions.select_default, -- + actions.center,
+                            ["<CR>"] = actions.select_default + actions.center, -- must be commented out after + for browser
                             ["<C-c>"] = actions.close,
                             ["<c-p>"] = actions.drop_all,
 
@@ -73,7 +73,7 @@ return {
                             ["<C-k>"] = actions.move_selection_previous,
                             ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
                             ["<C-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-                            ["<CR>"] = actions.select_default, -- + actions.center,
+                            ["<CR>"] = actions.select_default + actions.center, -- must be commented out after + for browser
                             ["<c-p>"] = actions.drop_all,
                             ["<C-c>"] = actions.close,
 
