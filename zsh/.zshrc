@@ -107,7 +107,7 @@ alias las='xplr'
 alias ckupd="checkupdates"
 alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
 alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
-alias lso='ls --color'
+alias lso='ls --color --time-style=long-iso'
 alias gupd=$SCRSDIR/git_rep_updater.sh
 # alias ncdu='ncdu -e --color off'
 alias ncdu='ncdu -e'
