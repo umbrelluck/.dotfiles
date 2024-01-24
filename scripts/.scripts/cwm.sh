@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [[ $XDG_CURRENT_DESKTOP == "GNOME" ]]; then
 	sudo systemctl disable NetworkManager
