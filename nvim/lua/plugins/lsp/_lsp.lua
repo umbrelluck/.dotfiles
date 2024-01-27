@@ -1,8 +1,12 @@
 return {
-    { "folke/neodev.nvim", opts = {} },
+    {
+        "folke/neodev.nvim",
+        opts = {}
+    },
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
+        -- cmd = "Mason",
         opts = {
             ui = {
                 border = "rounded"
@@ -42,6 +46,15 @@ return {
                     })
                 end,
 
+                -- ["csharp_ls"] = function()
+                --     lspconfig["csharp_ls"].setup({
+                --         capabilities = capabilities,
+                --         cmd = { "csharp-ls" },
+                --         filetypes = { "cs" },
+                --         init_options = { AutomaticWorkspaceInit = true }
+                --     })
+                -- end,
+
                 -- ["clangd"]=function ()
                 --     lspconfig["clangd"].setup({
                 --         capabilities=capabilities,
@@ -55,6 +68,12 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+            -- because fuck csharp_ls
+            -- lspconfig.omnisharp.setup({
+            --     cmd = { "dotnet", "/usr/lib/omnisharp-roslyn/OmniSharp.dll" },
+            --     capabilities = capabilities,
+            -- })
 
             -- because mason has older zls
             lspconfig.zls.setup({
@@ -71,9 +90,11 @@ return {
             for type, icon in pairs(_G.LSPDsigns) do
                 local hlv_name = "DiagnosticVirtualText" .. type
                 local hls_name = "DiagnosticSign" .. type
+                local diag_name = "DiagnosticUnderline" .. type
                 -- vim.api.nvim_set_hl(0, hlv, { italic = true })
                 _G.mod_hl_by_opts(hlv_name, { italic = true })
                 vim.fn.sign_define(hls_name, { text = icon, texthl = hls_name, numhl = "" })
+                vim.cmd("highlight " .. diag_name .. " gui=underline")
             end
 
             vim.diagnostic.config({
@@ -199,19 +220,25 @@ return {
     {
         -- INFO: this is apperently null-ls replacement
         "nvimdev/guard.nvim",
+        enabled = false,
         dependencies = {
             "nvimdev/guard-collection",
         },
         opts = {
             fmt_on_save = true,
-            -- Use lsp if no formatter was defined for this filetype
             lsp_as_default_formatter = true,
         },
         config = function(_, opts)
             local ft = require("guard.filetype")
 
-            -- ft("gdscript"):fmt("gdformat")
-            --     :lint("gdlint")
+            ft("gdscript")
+                :fmt({
+                    cmd = "gdformat",
+                    stdin = true
+                })
+                :lint({
+                    cmd = "gdlint"
+                })
 
             require("guard").setup(opts)
         end

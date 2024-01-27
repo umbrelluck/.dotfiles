@@ -66,7 +66,7 @@ return {
                             ["<C-c>"] = actions.close,
                             ["<c-p>"] = actions.drop_all,
 
-                            ["<c-t>"] = trouble.open_with_trole,
+                            ["<c-t>"] = trouble.open_with_trouble,
                         },
                         n = {
                             ["<C-j>"] = actions.move_selection_next,
@@ -141,6 +141,7 @@ return {
     },
     {
         "nvim-telescope/telescope-project.nvim",
+        dependencies = "nvim-telescope/telescope.nvim",
         keys = { {
             "<leader>ps",
             function()

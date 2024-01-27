@@ -100,14 +100,17 @@ alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-ori
 
 alias trone='ssh sshtron.zachlatta.com'
 
+alias lso='ls --color --time-style=long-iso'
 alias lsa='lso -la | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
+alias lst='lso -lat'
+alias lsat='lso -lat | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
+
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 # alias sudo='doas'
 alias las='xplr'
 alias ckupd="checkupdates"
 alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
 alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
-alias lso='ls --color --time-style=long-iso'
 alias gupd=$SCRSDIR/git_rep_updater.sh
 # alias ncdu='ncdu -e --color off'
 alias ncdu='ncdu -e'
