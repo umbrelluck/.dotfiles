@@ -6,7 +6,7 @@ return {
     {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
-        -- cmd = "Mason",
+        cmd = "Mason",
         opts = {
             ui = {
                 border = "rounded"
@@ -46,15 +46,6 @@ return {
                     })
                 end,
 
-                -- ["csharp_ls"] = function()
-                --     lspconfig["csharp_ls"].setup({
-                --         capabilities = capabilities,
-                --         cmd = { "csharp-ls" },
-                --         filetypes = { "cs" },
-                --         init_options = { AutomaticWorkspaceInit = true }
-                --     })
-                -- end,
-
                 -- ["clangd"]=function ()
                 --     lspconfig["clangd"].setup({
                 --         capabilities=capabilities,
@@ -68,12 +59,6 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-            -- because fuck csharp_ls
-            -- lspconfig.omnisharp.setup({
-            --     cmd = { "dotnet", "/usr/lib/omnisharp-roslyn/OmniSharp.dll" },
-            --     capabilities = capabilities,
-            -- })
 
             -- because mason has older zls
             lspconfig.zls.setup({
