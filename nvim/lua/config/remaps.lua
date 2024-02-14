@@ -4,6 +4,8 @@ vim.g.maplocalleader = " "
 -- Do remeber s (substitute character is cl)
 -- Do remeber S (substitute character is cc)
 
+_G.imap("<m-c>", "<Esc>", { noremap = false, desc = "Esc in insert mode" })
+
 -- Nice utility fucntions
 _G.nmap("<F1>", ":setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
 _G.imap("<F1>", "<c-o>:setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })

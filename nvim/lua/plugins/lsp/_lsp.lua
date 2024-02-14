@@ -189,7 +189,7 @@ return {
     {
         -- this is help for variables when typing function
         "ray-x/lsp_signature.nvim",
-        event = { "InsertEnter" },
+        -- event = { "InsertEnter" },
         opts = {
             bind = true, -- This is mandatory, otherwise border config won't get registered.
             floating_window = false,
