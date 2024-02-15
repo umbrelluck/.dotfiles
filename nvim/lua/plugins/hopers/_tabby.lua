@@ -44,6 +44,7 @@ end
 -- vim.api.nvim_set_hl(0, "TabLineFill", { bg = "#1f1d2e" })
 -- vim.api.nvim_set_hl(0, "TabLine", { fg = "#908caa", bg = "#403d52" })
 
+
 local theme = {
     fill = 'TabLineFill',
     -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
@@ -124,6 +125,8 @@ return {
         --     },
         --
         -- })
+
+        _G.mod_hl_by_opts("TabLineSel", { fg = _G.get_current_colors().text })
 
         _G.nmap("<leader>ta", ":$tabnew<CR>", { desc = "Create new tab" })
         _G.nmap("<leader>tc", ":tabclose<CR>", { desc = "Close tab" })

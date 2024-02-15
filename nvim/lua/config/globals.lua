@@ -102,7 +102,8 @@ function _G.get_current_colors()
         blue = "",
         green = "",
         violet = "",
-        cyan = ""
+        cyan = "",
+        text = ""
     }
     local theme_name = vim.g.colors_name
 
@@ -137,6 +138,7 @@ function _G.get_current_colors()
         colors.green = c.green
         colors.violet = c.lavender
         colors.cyan = c.teal
+        colors.text = c.text
     elseif (theme_name == "catppuccin-macchiato") then
         local c = require("catppuccin.palettes").get_palette("macchiato")
 
@@ -147,6 +149,7 @@ function _G.get_current_colors()
         colors.green = c.green
         colors.violet = c.lavender
         colors.cyan = c.teal
+        colors.text = c.text
     end
 
 
