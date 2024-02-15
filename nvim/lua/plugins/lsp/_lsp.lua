@@ -78,8 +78,8 @@ return {
                 local hls_name = "DiagnosticSign" .. type
                 local diag_name = "DiagnosticUnderline" .. type
                 -- vim.api.nvim_set_hl(0, hlv, { italic = true })
-                _G.mod_hl_by_opts(hlv_name, { italic = true })
-                vim.fn.sign_define(hls_name, { text = icon, texthl = hls_name, numhl = "" })
+                _G.mod_hl_by_opts(hlv_name, { italic = true, bg = "" })
+                vim.fn.sign_define(hls_name, { text = icon, texthl = hls_name, numhl = hls_name })
                 vim.cmd("highlight " .. diag_name .. " gui=underline")
             end
 
