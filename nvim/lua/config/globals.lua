@@ -104,8 +104,9 @@ function _G.get_current_colors()
         violet = "",
         cyan = ""
     }
+    local theme_name = vim.g.colors_name
 
-    if (vim.g.colors_name == "bamboo") then
+    if (theme_name == "bamboo") then
         local c = require('bamboo.colors')
         colors.red = c.red
         colors.orange = c.orange
@@ -114,7 +115,40 @@ function _G.get_current_colors()
         colors.green = c.green
         colors.violet = c.purple
         colors.cyan = c.cyan
+    elseif (theme_name == "edge") then
+        local configuration = vim.fn['edge#get_configuration']()
+        local c = vim.fn['edge#get_palette'](configuration.style, configuration.dim_foreground,
+            configuration.colors_override)
+
+        colors.red = c.red[1]
+        colors.orange = c.yellow[1]
+        colors.yellow = c.yellow[1]
+        colors.blue = c.blue[1]
+        colors.green = c.green[1]
+        colors.violet = c.purple[1]
+        colors.cyan = c.cyan[1]
+    elseif (theme_name == "catppuccin-mocha") then
+        local c = require("catppuccin.palettes").get_palette("mocha")
+
+        colors.red = c.red
+        colors.orange = c.peach
+        colors.yellow = c.yellow
+        colors.blue = c.blue
+        colors.green = c.green
+        colors.violet = c.lavender
+        colors.cyan = c.teal
+    elseif (theme_name == "catppuccin-macchiato") then
+        local c = require("catppuccin.palettes").get_palette("macchiato")
+
+        colors.red = c.red
+        colors.orange = c.peach
+        colors.yellow = c.yellow
+        colors.blue = c.blue
+        colors.green = c.green
+        colors.violet = c.lavender
+        colors.cyan = c.teal
     end
+
 
     return colors
 end

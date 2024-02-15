@@ -1,6 +1,7 @@
 return {
     "ribru17/bamboo.nvim",
-    lazy = false,
+    -- lazy = false,
+    enabled = false,
     priority = 1000,
     opts = {
         -- NOTE: to use the light theme, set `vim.o.background = 'light'`
