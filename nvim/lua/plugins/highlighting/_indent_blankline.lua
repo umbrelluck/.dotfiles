@@ -1,9 +1,9 @@
 local highlight = {
     "RainbowRed",
-    "RainbowYellow",
-    -- "RainbowBlue",
     "RainbowOrange",
+    "RainbowYellow",
     "RainbowGreen",
+    "RainbowBlue",
     "RainbowViolet",
     "RainbowCyan",
 }
@@ -45,12 +45,12 @@ return {
 
             local c = _G.get_current_colors()
             vim.api.nvim_set_hl(0, highlight[1], { fg = c.red })
-            vim.api.nvim_set_hl(0, highlight[2], { fg = c.yellow })
-            -- vim.api.nvim_set_hl(0, "RainbowBlue", { fg = c.blue })
-            vim.api.nvim_set_hl(0, highlight[3], { fg = c.orange })
-            vim.api.nvim_set_hl(0, highlight[4], { fg = c.green })
-            vim.api.nvim_set_hl(0, highlight[5], { fg = c.violet })
-            vim.api.nvim_set_hl(0, highlight[6], { fg = c.cyan })
+            vim.api.nvim_set_hl(0, highlight[2], { fg = c.orange })
+            vim.api.nvim_set_hl(0, highlight[3], { fg = c.yellow })
+            vim.api.nvim_set_hl(0, highlight[4], { fg = c.blue })
+            vim.api.nvim_set_hl(0, highlight[5], { fg = c.green })
+            vim.api.nvim_set_hl(0, highlight[6], { fg = c.violet })
+            vim.api.nvim_set_hl(0, highlight[7], { fg = c.cyan })
         end)
 
         vim.g.rainbow_delimiters = {
