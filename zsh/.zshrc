@@ -133,9 +133,9 @@ alias wttr='curl wttr.in'
 # [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # LaTex
-export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2023/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:$HOME/ProgramFiles/LaTeX/texlive/2023/texmf-dist/doc/info"
-export PATH="$PATH:$HOME/ProgramFiles/LaTeX/texlive/2023/bin/x86_64-linux"
+export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/info"
+export PATH="$PATH:$HOME/ProgramFiles/LaTeX/texlive/2024/bin/x86_64-linux"
 
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
 export PATH="$PATH:$HOME/.local/bin"

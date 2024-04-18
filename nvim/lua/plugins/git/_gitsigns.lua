@@ -11,6 +11,7 @@ return { {
             end
 
             -- Navigation
+            -- TODO: change to ]h, move ]c to tresitter classes
             map("n", "]c", function()
                 if vim.wo.diff then
                     return "]c"

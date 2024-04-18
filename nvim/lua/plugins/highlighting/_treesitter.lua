@@ -73,22 +73,26 @@ return {
                         set_jumps = true, -- whether to set jumps in the jumplist
                         goto_next_start = {
                             ["]m"] = "@function.outer",
+                            ["]f"] = "@function.outer",
                             ["]]"] = "@class.outer",
                             ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
                             ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
                         },
                         goto_next_end = {
                             ["]M"] = "@function.outer",
+                            ["]F"] = "@function.outer",
                             ["]["] = "@class.outer",
                         },
                         goto_previous_start = {
                             ["[m"] = "@function.outer",
+                            ["[f"] = "@function.outer",
                             ["[["] = "@class.outer",
                             ["[s"] = { query = "@scope", query_group = "locals", desc = "Previous scope" },
                             ["[z"] = { query = "@fold", query_group = "folds", desc = "Previous fold" },
                         },
                         goto_previous_end = {
                             ["[M"] = "@function.outer",
+                            ["[F"] = "@function.outer",
                             ["[]"] = "@class.outer",
                         },
                         goto_next = {
