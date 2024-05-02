@@ -59,6 +59,9 @@ return {
         "neovim/nvim-lspconfig",
         config = function()
             local lspconfig = require("lspconfig")
+            -- lspconfig.setup({
+            --     inlay_hints = { enabled = true }
+            -- })
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             -- because mason has older zls
@@ -101,7 +104,7 @@ return {
             _G.nmap("<Leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
             _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
             _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-            _G.nmap("<a-f>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
+            _G.nmap("<a-F>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.nmap("<Leader>dq", vim.diagnostic.setqflist, { desc = "Open diagnostics list in quickfix" })
             _G.nmap("<Leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostics list in loclist" })
             -- _G.nmap("<Leader>do", ":Telescope diagnostics", { desc = "Open diagnostics list in Telescope" })
@@ -142,12 +145,12 @@ return {
                     _G.nmap("<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 
-                    if (client.server_capabilities.inlayHintProvider) then
-                        vim.lsp.buf.inlay_hint(0, true)
-                    end
+                    -- if (client.server_capabilities.inlayHintProvider) then
+                    --     vim.lsp.buf.inlay_hint(ev.buf, true)
+                    -- end
 
                     if (client.supports_method("textDocument/formatting")) then
-                        _G.map({ "n", "i" }, "<a-f>", function()
+                        _G.map({ "n", "i" }, "<a-F>", function()
                             vim.lsp.buf.format({ async = true })
                         end, opts)
                     end
@@ -159,7 +162,7 @@ return {
                         -- else
                         --     vim.cmd('echo "WARNING! Pipe "' .. pipe .. '"does not exist!"')
                         -- end
-                        _G.map({ "n", "i" }, "<a-f>", function()
+                        _G.map({ "n", "i" }, "<a-F>", function()
                             vim.cmd("!gdformat %")
                         end, opts)
                     end

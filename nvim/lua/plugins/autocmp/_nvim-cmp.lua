@@ -9,7 +9,9 @@ return {
             "hrsh7th/cmp-nvim-lsp",     -- LSP source for nvim-cmp
             "L3MON4D3/LuaSnip",         -- Snippets plugin
             "saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
-            "lukas-reineke/cmp-under-comparator"
+            "lukas-reineke/cmp-under-comparator",
+
+            "kdheepak/cmp-latex-symbols",
         },
         config = function()
             local luasnip, cmp
@@ -125,7 +127,13 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "luasnip" },
-                    { name = "path" }
+                    { name = "path" },
+                    -- {
+                    --     name = "latex_symbols",
+                    --     option = {
+                    --         strategy = 0, -- mixed
+                    --     },
+                    -- },
                 }, {
                     { name = "buffer" },
                 }),

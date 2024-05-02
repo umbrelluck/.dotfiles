@@ -17,6 +17,7 @@ export EDITOR="nvim"
 export SCRSDIR="$HOME/.scripts"
 export GITDIR="$HOME/Git"
 
+export DIFFPROG="nvim -d $1"
 
 # wal -R
 [[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
