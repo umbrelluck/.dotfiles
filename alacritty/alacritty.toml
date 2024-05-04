@@ -17,7 +17,7 @@ dimensions = { columns = 120, lines = 35 }
 padding = { x = 10, y = 10 }
 dynamic_padding = true
 decorations = "None"
-opacity = 0.98
+opacity = 0.983
 blur = true
 startup_mode = "windowed"
 title = "Alacritty"
