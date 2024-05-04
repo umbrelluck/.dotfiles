@@ -13,7 +13,7 @@ function GetTabModifiedStatusIcon(tab)
             return ""
         end
     end
-    return " " --""
+    return "" --""
 end
 
 function GetDiagnosticIcon(buf)
@@ -28,7 +28,7 @@ function GetDiagnosticIcon(buf)
     elseif count[2] > 0 then
         return vim.bo[buf].modified and "" or ""
     end
-    return vim.bo[buf].modified and "" or " " --""
+    return vim.bo[buf].modified and "" or "" --""
 end
 
 local function SetBufferName(buf)
@@ -64,19 +64,19 @@ return {
         require('tabby.tabline').set(function(line)
             return {
                 {
-                    -- { '  ', hl = theme.head },
-                    line.sep('', theme.head, theme.fill),
+                    -- { '  ', hl = theme.head },   
+                    -- line.sep('', theme.head, theme.fill),
                 },
                 line.tabs().foreach(function(tab)
                     local hl = tab.is_current() and theme.current_tab or theme.inactive_tab
                     return {
-                        line.sep('', hl, theme.fill),
+                        line.sep('', hl, theme.fill),
                         tab.number(),
                         -- "",
                         -- SetTabName(tab.name()),
                         -- "",
                         GetTabModifiedStatusIcon(tab.id),
-                        line.sep('', hl, theme.fill),
+                        line.sep('', hl, theme.fill),
                         hl = hl,
                         margin = ' ',
                     }
@@ -85,19 +85,19 @@ return {
                 line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
                     local hl = win.is_current() and theme.current_tab or theme.inactive_tab
                     return {
-                        line.sep('', hl, theme.fill),
+                        line.sep('', hl, theme.fill),
                         -- win.file_icon(),
                         -- "",
                         SetBufferName(win.buf_name()),
                         -- "",
                         GetDiagnosticIcon(win.buf().id),
-                        line.sep('', hl, theme.fill),
+                        line.sep('', hl, theme.fill),
                         hl = hl,
                         margin = ' ',
                     }
                 end),
                 {
-                    line.sep('', theme.tail, theme.fill),
+                    -- line.sep('', theme.tail, theme.fill),
                     -- { '  ', hl = theme.tail },
                 },
                 hl = theme.fill,

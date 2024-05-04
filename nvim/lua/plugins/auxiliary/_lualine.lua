@@ -11,26 +11,28 @@ return { {
             theme = "auto",
             -- component_separators = { left = "", right = "" },
             component_separators = "|",
-            section_separators = { left = "", right = "" },
+            -- section_separators = { left = "", right = "" },
             -- section_separators = { left = "", right = "" },
-            -- section_separators = { left = "", right = "" },
+            section_separators = { left = "", right = "" },
             disabled_filetypes = { "startup" },
         },
         sections = {
-            lualine_a = {
+            lualine_a = { {
                 "mode",
-                "filename", -- .. vim.t.maximized and ' 🔍 ' or '',
-                maximize_status
-            },
-            lualine_b = { "branch", "diff", "diagnostics" },
-            lualine_c = {}, --_G.lsp_clients },
+                -- maximize_status,
+                -- "filename", -- .. vim.t.maximized and ' 🔍 ' or '',
+                separator = { left = '' },
+                right_padding = 2,
+            } },
+            lualine_b = { "filename", "branch", "diff", "diagnostics" },
+            lualine_c = { maximize_status }, --_G.lsp_clients },
             lualine_x = {
                 "encoding",
                 "fileformat",
-                "filetype",
+                -- "filetype",
             },
-            lualine_y = {},
-            lualine_z = { "progress", "location" },
+            lualine_y = { 'filetype', 'progress' },
+            lualine_z = { { 'location', separator = { right = '' }, left_padding = 2 } },
         },
         inactive_sections = {
             lualine_a = { "filename" },
@@ -38,7 +40,7 @@ return { {
             lualine_c = {},
             lualine_x = {},
             lualine_y = {},
-            lualine_z = { "location" },
+            lualine_z = { { "location", separator = { right = '' }, left_padding = 2 } },
         },
     },
     -- config = function()
