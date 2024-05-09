@@ -32,6 +32,9 @@ stow -t "$confd/xplr" xplr
 mkdir -p "$confd/hypr"
 stow -t "$confd/hypr" hyprland
 
+mkdir -p "$confd/yazi"
+stow -t "$confd/yazi" yazi
+
 if [ ! -d "/etc/lemurs/wms" ] || [ ! -d "/etc/lemurs/wayland" ]; then
     echo "Lemurs setup needs password to write files"
     sudo ln -s "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
