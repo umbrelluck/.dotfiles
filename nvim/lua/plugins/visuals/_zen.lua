@@ -31,8 +31,8 @@ return {
                         ruler = false,              -- disables the ruler text in the cmd line area
                         showcmd = false,            -- disables the command in the last line of the screen
                     },
-                    twilight = { enabled = true },  -- enable to start Twilight when zen mode opens
-                    gitsigns = { enabled = false }, -- disables git signs
+                    twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
+                    gitsigns = { enabled = true },  -- disables git signs
                     tmux = { enabled = false },     -- disables the tmux statusline
                     -- this will change the font size on kitty when in zen mode
                     -- to make this work, you need to set the following kitty options:
@@ -77,11 +77,11 @@ return {
                 term_bg = "#000000", -- if guibg=NONE, this will be used to calculate text color
                 inactive = false,    -- when true, other windows will be fully dimmed (unless they contain the same buffer)
             },
-            context = 10,            -- amount of lines we will try to show around the current line
+            context = 20,            -- amount of lines we will try to show around the current line
             treesitter = true,       -- use treesitter when available for the filetype
             -- treesitter is used to automatically expand the visible text,
             -- but you can further control the types of nodes that should always be fully expanded
-            expand = { -- for treesitter, we we always try to expand to the top-most ancestor with these types
+            expand = { -- for treesitter, we always try to expand to the top-most ancestor with these types
                 "function",
                 "method",
                 "table",
