@@ -47,7 +47,8 @@ zstyle ':completion:*' rehash true
 
 source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZDOTDIR/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+# source $ZDOTDIR/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 for script ($ZDOTDIR/.zsh/scripts/*.zsh) source $script
 
