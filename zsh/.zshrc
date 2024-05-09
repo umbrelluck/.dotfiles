@@ -88,6 +88,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'
 bindkey  "^[[3~"  delete-char
 bindkey '^[[Z' reverse-menu-complete
 
+alias parur="paru --review"
+
 alias nnvim="nvim --listen /tmp/nvim.pipe"
 alias gnvim="nvim --listen /tmp/godot.pipe"
 alias linvim="nvim --listen"
