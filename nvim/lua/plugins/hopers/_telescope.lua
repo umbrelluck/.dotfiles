@@ -123,12 +123,12 @@ return {
 
             require("telescope").setup({
                 extensions = {
-                    file_browser = {
-                        theme = "ivy",
-                        hijack_netrw = true,
-                        promt_path = true,
-                        hidden = { file_browser = true, folder_browser = true },
-                    },
+                    -- file_browser = {
+                    --     theme = "ivy",
+                    --     hijack_netrw = true,
+                    --     promt_path = true,
+                    --     hidden = { file_browser = true, folder_browser = true },
+                    -- },
                 },
             })
 
