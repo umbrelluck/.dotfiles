@@ -35,11 +35,13 @@ stow -t "$confd/hypr" hyprland
 mkdir -p "$confd/yazi"
 stow -t "$confd/yazi" yazi
 
-if [ ! -d "/etc/lemurs/wms" ] || [ ! -d "/etc/lemurs/wayland" ]; then
-    echo "Lemurs setup needs password to write files"
-    sudo ln -s "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
-    sudo ln -s "$HOME/.dotfiles/lemurs/wayland" "/etc/lemurs/wayland"
-fi
+# if [ ! -d "/etc/lemurs/wms" ] || [ ! -d "/etc/lemurs/wayland" ]; then
+echo "Lemurs setup needs password to write files"
+sudo cp "$HOME/.dotfiles/lemurs/xsetup.sh" "/etc/lemurs/xsetup.sh"
+sudo cp "$HOME/.dotfiles/lemurs/config.toml" "/etc/lemurs/config.toml"
+sudo cp -r "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
+sudo cp -r "$HOME/.dotfiles/lemurs/wayland" "/etc/lemurs/wayland"
+# fi
 
 stow -t "$HOME" tmux
 if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
