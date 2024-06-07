@@ -145,9 +145,10 @@ return {
                     _G.nmap("<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 
-                    -- if (client.server_capabilities.inlayHintProvider) then
-                    --     vim.lsp.buf.inlay_hint(ev.buf, true)
-                    -- end
+                    if (client.server_capabilities.inlayHintProvider) then
+                        -- vim.lsp.buf.inlay_hint(ev.buf, true)
+                        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+                    end
 
                     if (client.supports_method("textDocument/formatting")) then
                         _G.map({ "n", "i" }, "<a-F>", function()
