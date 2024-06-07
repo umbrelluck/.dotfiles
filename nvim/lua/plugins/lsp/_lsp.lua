@@ -146,7 +146,6 @@ return {
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 
                     if (client.server_capabilities.inlayHintProvider) then
-                        -- vim.lsp.buf.inlay_hint(ev.buf, true)
                         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
                     end
 

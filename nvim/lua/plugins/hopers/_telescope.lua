@@ -77,6 +77,7 @@ return {
                             ["<CR>"] = actions.select_default + actions.center, -- must be commented out after + for browser
                             ["<c-p>"] = actions.drop_all,
                             ["<C-c>"] = actions.close,
+                            ["<m-c>"] = actions.close,
 
                             ["<c-t>"] = troubles.open,
                         },
