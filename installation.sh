@@ -43,6 +43,11 @@ sudo cp -r "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
 sudo cp -r "$HOME/.dotfiles/lemurs/wayland" "/etc/lemurs/wayland"
 # fi
 
+echo "Reflector needs password to write files"
+sudo cp "$HOME/.dotfiles/reflector/refletor.conf" "/etc/xdg/reflector/reflector.conf"
+sudo systemctl enable reflector.timer
+sudo systemctl start reflector.timer
+
 stow -t "$HOME" tmux
 if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
