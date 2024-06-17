@@ -1,4 +1,5 @@
 # export TERM="alacritty"
+# export TERM="xterm-256color"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -43,8 +44,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
 
-# prompt oliver
-
 source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $ZDOTDIR/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
@@ -85,9 +84,14 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'
     --color header:italic
     --header 'CD into directory'"
 
-
+# From showkey -a
+# see commands at https://zsh.sourceforge.io/Guide/zshguide04.html
+# zsh docs https://wiki.zshell.dev/docs/guides/syntax/bindkey
 bindkey  "^[[3~"  delete-char
 bindkey '^[[Z' reverse-menu-complete
+# bindkey '^?' backward-delete-char
+# bindkey '^[[A' up-line-or-history
+# bindkey '^[[B' down-line-or-history
 
 alias parur="paru --review"
 
@@ -116,7 +120,6 @@ alias ckupd="checkupdates"
 alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
 alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
 alias gupd=$SCRSDIR/git_rep_updater.sh
-# alias ncdu='ncdu -e --color off'
 alias ncdu='ncdu -e'
 alias duf='duf -all -warnings'
 alias dufi='sudo duf -warnings -hide loops'
@@ -127,7 +130,6 @@ alias rm='rm -v'
 alias cp='cp -v'
 alias grep='grep --color=auto'
 alias lg='lazygit'
-alias p='bpython'
 alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
 alias rpc='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rns $(pacman -Qdtq) || echo "\033[0;35m\nNo orphans to remove\n"'
 alias rpcb='lsof +L1'
