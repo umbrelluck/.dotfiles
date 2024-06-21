@@ -37,6 +37,9 @@ stow -t "$confd/yazi" yazi
 
 stow -t "$HOME" gdu
 
+cp ./git/.gitconfig "$HOME"
+echo "Do not forget to add user section in .gitconfig"
+
 # if [ ! -d "/etc/lemurs/wms" ] || [ ! -d "/etc/lemurs/wayland" ]; then
 echo "Lemurs setup needs password to write files"
 sudo cp "$HOME/.dotfiles/lemurs/xsetup.sh" "/etc/lemurs/xsetup.sh"

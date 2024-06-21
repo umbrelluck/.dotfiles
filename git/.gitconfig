@@ -12,7 +12,7 @@
     conflictstyle = diff3
 
 [interactive]
-    diffFilter = delta --color-only
+    diffFilter = delta --color-only --features=interactive
 
 [diff]
     colorMoved = default
@@ -25,11 +25,13 @@
 
 [delta]
     navigate = true
+    hunk-header-style = file line-number syntax
     light = false
     line-numbers = true
 
 [filter "lfs"]
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-    clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
