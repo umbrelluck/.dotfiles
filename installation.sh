@@ -58,7 +58,7 @@ if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-stow -t "$HOME" scripts 
+# stow -t "$HOME" scripts 
 stow -t "$HOME" powerlevel10k 
 stow -t "$HOME" zsh 
 zsh && . "$SCRSDIR/zsh_plugin&script_downloader.sh"

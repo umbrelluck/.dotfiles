@@ -15,7 +15,8 @@ export MANPAGER='nvim +Man!'
 export EDITOR="nvim"
 # export VISUAL="nvim"
 
-export SCRSDIR="$HOME/.scripts"
+# export SCRSDIR="$HOME/.scripts"
+export SCRSDIR="$HOME/.dotfiles/scripts/"
 export GITDIR="$HOME/Git"
 
 export DIFFPROG="nvim -d $1"
