@@ -28,6 +28,9 @@ return {
                 max = vim.diagnostic.severity.ERROR,
             },
         },
+        git = {
+            enabled = false,
+        },
         modified = {
             enable = true,
             show_on_dirs = true,
@@ -50,5 +53,6 @@ return {
         _G.nmap("<Leader>fl", ":NvimTreeToggle<cr>", { desc = "Toggle NvimTree" })
         _G.nmap("<Leader>fo", ":NvimTreeFocus<cr>", { desc = "Focus NvimTree" })
         _G.nmap("<Leader>ff", ":NvimTreeFindFile<cr>", { desc = "Find current file NvimTree" })
+        _G.nmap("<Leader>fk", ":NvimTreeCollapse<cr>", { desc = "NvimTree Collapse" })
     end,
 }
