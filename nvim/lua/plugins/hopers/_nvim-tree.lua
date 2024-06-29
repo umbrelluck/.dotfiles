@@ -29,7 +29,7 @@ return {
             },
         },
         git = {
-            enabled = false,
+            enable = false,
         },
         modified = {
             enable = true,
