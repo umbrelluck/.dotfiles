@@ -35,6 +35,9 @@ stow -t "$confd/hypr" hyprland
 mkdir -p "$confd/yazi"
 stow -t "$confd/yazi" yazi
 
+mkdir -p "$confd/waybar"
+stow -t "$confd/waybar" waybar
+
 stow -t "$HOME" gdu
 
 cp ./git/.gitconfig "$HOME"
