@@ -103,6 +103,7 @@ alias linvim="nvim --listen"
 alias notesium="~/Git/notesium//notesium"
 alias orcas="~/ProgramFiles/OrcaSlicer_Linux_V1.8.1.AppImage"
 alias godotm="~/ProgramFiles/GodotManager/GodotManager.x86_64"
+
 alias drmemory='~/TarGZ/DrMemory-Linux-2.6.0/bin64/drmemory'
 alias drmemory32='~/TarGZ/DrMemory-Linux-2.6.0/bin/drmemory'
 alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes'
@@ -116,23 +117,26 @@ alias lsat='lso -lat | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 # alias sudo='doas'
-alias las='xplr'
-alias ckupd="checkupdates"
-alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
-alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
-alias gupd=$SCRSDIR/git_rep_updater.sh
+# alias las='xplr'
+# alias ckupd="checkupdates"
+# alias cklupd='ckupd | rip "linux" >> /dev/null && echo -e "\033[35mLinux Kernel update" || echo -e "No Linux kernel update\033[0m"'
+# alias ckgupd='ckupd | rip "gnome" >> /dev/null && echo -e "\033[35mGnome update" || echo -e "No Gnome update\033[0m"'
+# alias gupd=$SCRSDIR/git_rep_updater.sh
+#
 alias ncdu='ncdu -e'
 alias duf='duf -all -warnings'
 alias dufi='sudo duf -warnings -hide loops'
+
 alias echo='echo -e'
+
 alias rip='rg -ie'
-# alias mv='mv -v'
-# alias rm='rm -v'
-# alias cp='cp -v'
 alias grep='grep --color=auto'
+
 alias lg='lazygit'
+
 alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
 alias rpc='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rns $(pacman -Qdtq) || echo "\033[0;35m\nNo orphans to remove\n"'
+
 alias rpcb='lsof +L1'
 alias wttr='curl wttr.in'
 
