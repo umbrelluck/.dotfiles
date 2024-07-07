@@ -58,7 +58,7 @@ _G.nmap("\\a", ":wq<cr>", { desc = "Save and quit" })
 _G.nmap("\\s", ":so<cr>", { silent = false, desc = "Source current file" })
 _G.nmap("<leader>rl", ":so<cr>", { silent = false, desc = "Source current file" })
 
-_G.nmap("<leader>pv", vim.cmd.Ex, { desc = "Open Explorer" })
+_G.nmap("<leader>rv", vim.cmd.Ex, { desc = "Open Explorer" })
 _G.nmap("<m-a>", "ggVG", { noremap = false, desc = "Select all" })
 
 _G.nmap("<Leader>hh", ":noh<cr>", { desc = "Remove highlight" })

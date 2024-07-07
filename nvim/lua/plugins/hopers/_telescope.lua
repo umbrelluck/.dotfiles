@@ -145,11 +145,11 @@ return {
         "nvim-telescope/telescope-project.nvim",
         dependencies = "nvim-telescope/telescope.nvim",
         keys = { {
-            "<leader>ps",
+            "<leader>rs",
             function()
                 require("telescope").extensions.project.project({ display_type = "mininal" }) -- "full" | "minimal"
             end,
-            desc = "Telescope [S]earch [P]rojects (but ps for consistency with pv)"
+            desc = "Telescope [S]earch p[R]ojects (but rs for consistency with rv)"
         } },
         config = function()
             local project_actions = require("telescope._extensions.project.actions")
