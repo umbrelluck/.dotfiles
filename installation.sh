@@ -39,6 +39,7 @@ mkdir -p "$confd/waybar"
 stow -t "$confd/waybar" waybar
 
 stow -t "$HOME" gdu
+doas cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
 
 cp ./git/.gitconfig "$HOME"
 echo "Do not forget to add user section in .gitconfig"
