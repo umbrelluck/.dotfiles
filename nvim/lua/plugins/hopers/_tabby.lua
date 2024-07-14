@@ -130,11 +130,11 @@ return {
 
         _G.nmap("<leader>ta", ":$tabnew<CR>", { desc = "Create new tab" })
         _G.nmap("<leader>tc", ":tabclose<CR>", { desc = "Close tab" })
-        _G.nmap("<leader>to", ":tabonly<CR>", { desc = "Close all tabs but current" })
+        _G.nmap("<leader>ta", ":tabonly<CR>", { desc = "Close all tabs but current" })
         _G.nmap("<leader>tn", ":tabn<CR>", { desc = "Next tab" })
         _G.nmap("<leader>tp", ":tabp<CR>", { desc = "Previous tab" })
 
-        _G.nmap("<leader>tmp", ":-tabmove<CR>", { desc = "Move current tab to previous position" })
-        _G.nmap("<leader>tmn", ":+tabmove<CR>", { desc = "Move current tab to next position" })
+        _G.nmap("tmp", ":-tabmove<CR>", { desc = "Move current tab to previous position" })
+        _G.nmap("tmn", ":+tabmove<CR>", { desc = "Move current tab to next position" })
     end
 }
