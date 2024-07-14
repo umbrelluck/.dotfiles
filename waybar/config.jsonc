@@ -15,6 +15,7 @@
     "modules-right": [
         "tray",
         "idle_inhibitor",
+        "custom/updates",
         // "pulseaudio", 
         "backlight",
         "wireplumber",
@@ -53,17 +54,42 @@
         // "icon-size": 21,
         "spacing": 10
     },
+    "custom/updates": {
+        "format": "   {} ",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.dotfiles/scripts/packages/updates#.sh",
+        "restart-interval": 60,
+        "tooltip": false,
+        "on-click": "~/.dotfiles/scripts/packages/install_updates.sh"
+    },
     "backlight": {
         "device": "intel_backlight",
-        "format": " {icon} {percent}% ",
+        "format": "{icon} {percent}% ",
         "tooltip": false,
+        // "format-icons": [
+        //     "󰃜",
+        //     "󰃛",
+        //     "󰃚"
+        // ],
         "format-icons": [
-            "󰃜",
-            "󰃛",
-            "󰃚"
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
         ],
-        "on-scroll-up": "light -A 10",
-        "on-scroll-down": "light -U 10"
+        "on-scroll-up": "~/.dotfiles/scripts/backlight/bright+.sh",
+        "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-.sh"
     },
     "clock": {
         "format": "  {:%H:%M}",
@@ -189,10 +215,10 @@
         "format-uk": "ua"
     },
     "idle_inhibitor": {
-        "format": "{icon} ",
+        "format": " {icon} ",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         }
     }
 }
