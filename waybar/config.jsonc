@@ -4,7 +4,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -13,17 +13,18 @@
         "clock"
     ],
     "modules-right": [
+        // "group/tray",
         "tray",
         "idle_inhibitor",
         "custom/updates",
         // "pulseaudio", 
         "backlight",
         "wireplumber",
+        "hyprland/language",
         "bluetooth",
         "network",
-        "hyprland/language",
         "battery",
-        "custom/exit"
+        "custom/power"
     ],
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -50,12 +51,25 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
+    //FIXME: not working
+    "group/tray": {
+        // "orientation": "inherit",
+        "modules": [
+            "custom/tray-icon",
+            "tray"
+        ]
+    },
+    "custom/tray-icon": {
+        "format": "󰎟",
+        "tooltip": false
+    },
     "tray": {
         // "icon-size": 21,
         "spacing": 10
     },
     "custom/updates": {
-        "format": "   {} ",
+        "format": "󱧘 {}",
+        // "format": "   {} ",
         "escape": true,
         "return-type": "json",
         "exec": "~/.dotfiles/scripts/packages/updates#.sh",
@@ -65,7 +79,7 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "{icon} {percent}% ",
+        "format": "{icon} {percent}%",
         "tooltip": false,
         // "format-icons": [
         //     "󰃜",
@@ -140,14 +154,13 @@
         "on-click": "pavucontrol"
     },
     "wireplumber": {
-        "format": " {icon} {volume}% ",
-        "format-muted": " 󰖁 ", // 󰖁   
-        "tooltip-format": "",
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%", // 󰖁   
         "on-click": "~/.dotfiles/scripts/sound/pwvucontrol.sh", //pulseaudio , helvum
         "max-volume": 100,
         "format-icons": [
-            "",
-            "",
+            // "",
+            // "",
             " "
         ],
         "on-click-right": "~/.dotfiles/scripts/sound/wpctl~.sh",
@@ -158,26 +171,42 @@
         "bat": "BAT0",
         "interval": 60,
         "states": {
+            "meh": 60,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}  {capacity}%",
-        // "format-charging":"󰠠 {capacity}%",
+        "format": "{icon} {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "tooltip-format": "{timeTo}",
+        // "format-icons": [
+        //     "",
+        //     "",
+        //     "",
+        //     "",
+        //     ""
+        // ],
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
         ],
         "max-length": 25
     },
     "bluetooth": {
-        "format": "  {status}",
-        "format-connected": "  {device_alias}",
-        "format-connected-battery": "  {device_alias} {device_battery_percentage}%",
+        "format": " {status}",
+        "format-connected": " con",
+        // "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_battery_percentage}%",
         // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
-        "tooltip-format": "{num_connections} connected",
+        // "tooltip-format": "{num_connections} connected",
         "tooltip-format-connected": "{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
@@ -186,16 +215,24 @@
     "network": {
         // "interface": "wlp2s0",
         "format": "{ifname}",
-        "format-wifi": "   {signalStrength}%",
+        // "format-wifi": "  {signalStrength}%",
+        "format-wifi": "{icon} {signalStrength}%",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
         "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
-        "format-disconnected": " 󰤭 ", //An empty format will hide the module.
+        "format-disconnected": "󰤭 ", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
         "tooltip-format-wifi": "{essid}",
         "tooltip-format-ethernet": "{ifname}",
         // "tooltip-format-disconnected": " 󰤭 ",  // 󰖪  󰤮  󰤭
         "max-length": 50
     },
-    "custom/exit": {
+    "custom/power": {
         "format": "",
         "on-click": "wlogout",
         "tooltip": false
@@ -205,7 +242,7 @@
         "rewrite": {
             // "(.*) — Mozilla Firefox": "🌎 $1",
             // "(.*) - fish": " [$1]", //   
-            "(.*) - Alacritty": " " //   
+            "(.*) - Alacritty": " [$1]" //   
         },
         "separate-outputs": true
     },
@@ -215,10 +252,11 @@
         "format-uk": "ua"
     },
     "idle_inhibitor": {
-        "format": " {icon} ",
+        "format": "{icon}",
         "format-icons": {
             "activated": " ",
             "deactivated": " "
-        }
+        },
+        "tooltip": false
     }
 }

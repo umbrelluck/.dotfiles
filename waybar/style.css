@@ -1,15 +1,22 @@
+@import url("themes/catppuccin/macchiato.css");
+
+@define-color background @crust;
+/* @define-color text @mantle; */
+
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: Hack Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
+    /* font-size: 13.5px; */
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    /* background-color: rgba(43, 48, 59, 0.5); */
+    background-color: rgba(43, 48, 59, 0);
+    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    /* transition-property: background-color; */
+    /* transition-duration: 5.5s; */
+    /* margin-top: 0.5rem; */
 }
 
 window#waybar.hidden {
@@ -65,33 +72,27 @@ button {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#clock,
-#pulseaudio,
-#custom-exit,
-#custom-updates
-#tray
-{
-    padding: 0 10px;
-    color: #ffffff;
-}
-
 #window,
 #workspaces {
     margin: 0 4px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0.5rem;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0.5rem;
 }
 
 #clock {
-    background-color: #64727D;
+    color: @rosewater;
+    background-color: @background;
+    border-radius: 1rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
 }
 
 
@@ -107,37 +108,136 @@ button {
     color: #000000;
 }
 
-#wireplumber{
-    background-color: #f1c40f;
-    color: #000000;
+#tray{
+    margin-right: 0.75rem;
 }
 
-/* #tray { */
-/*     background-color: #2980b9; */
-/* } */
-
-#tray > .passive {
+#tray>.passive {
     -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
 }
 
+#idle_inhibitor,
+#custom-updates{
+    background-color: @background; 
+    margin: 0;
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+}
+
 #idle_inhibitor {
-    background-color: #2d3436;
+    color: @lavender;
+    border-radius: 1rem 0 0 1rem;
+    padding-left: 0.9rem;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+    color: @background;
+    background-color: @lavender;
+}
+
+#custom-updates{
+    color: @green;
+    border-radius: 0 1rem 1rem 0;
+    margin-right: 0.75rem;
+    padding-right: 0.9rem;
+}
+
+#custom-updates.yes{
+    color: @background;
+    background-color: @green;
+}
+
+#backlight,
+#wireplumber,
+#language,
+#bluetooth,
+#network,
+#battery{
+    background-color: @background;
+    margin: 0;
+    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+}
+
+#backlight{
+    color: @rosewater;
+    border-radius: 1rem 0 0 1rem;
+    min-width: 3.55rem;
+    padding-left:0.8rem;
+}
+
+#wireplumber {
+    color: @peach;
+    min-width: 4.15rem;
+}
+
+#wireplumber.muted{
+    color: @background;
+    background-color: @peach;
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
+    color: @rosewater;
+    /* background-color: @green; */
 }
+
+#bluetooth{
+    color: @blue;
+}
+
+/* + off & on*/
+#bluetooth.disabled{
+    color: @background;
+    background-color: @blue;
+}
+
+#network{
+    color: @flamingo;
+}
+
+#network.disabled{
+    color: @background;
+    background-color: @flamingo;
+}
+
+#battery{
+    color: @sky;
+    border-radius: 0 1rem 1rem 0;
+    margin-right: 0.75rem;
+    padding-right: 0.8rem;
+}
+
+#battery.plugged{
+    color:@green;
+}
+
+#battery.meh:not(.plugged) {
+    color: @backgrond;
+    background-color: @yellow;
+}
+
+#battery.warning:not(.plugged) {
+    color: @backgrond;
+    background-color: @peach;
+}
+
+#battery.critical:not(.plugged) {
+    color: @backgrond;
+    background-color: @red;
+}
+
+#custom-power {
+    color: @maroon;
+    background-color: @background;
+    border-radius: 1rem;
+    margin-right: 0.5rem;
+    padding-right: 0.9rem;
+    padding-left: 0.6rem;
+}
+
+
