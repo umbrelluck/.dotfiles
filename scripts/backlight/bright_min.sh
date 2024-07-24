@@ -1,3 +1,3 @@
 #! /bin/sh
 
-brightnessctl -n 1
+brightnessctl -n 240

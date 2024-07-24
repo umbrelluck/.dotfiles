@@ -38,6 +38,9 @@ stow -t "$confd/yazi" yazi
 mkdir -p "$confd/waybar"
 stow -t "$confd/waybar" waybar
 
+mkdir -p "$confd/walker"
+stow -t "$confd/walker" walker
+
 stow -t "$HOME" gdu
 doas cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
 

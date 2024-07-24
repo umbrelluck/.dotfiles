@@ -1,5 +1,6 @@
 #!/usr/bin/envbash
 
+enabled=false
 
 install_gnome(){
     sudo pacman -S gnome
@@ -16,53 +17,51 @@ install_hypr(){
         waybar \
         xdg-desktop-portal-hyprland
 
-
     paru \
         hyprpicker
 }
 
 enable_gnome(){
-    sudo systemctl enable gdm
+    if ! [[ $enabled ]]; then
+        sudo systemctl enable gdm
+        enabled=true
+    fi
 }
 
 disable_gnome(){
-    sudo systemctl disable gdm
+    if [[ $(systemctl is-enabled gdm) ]]; then
+        sudo systemctl disable gdm
+    fi
 }
 
 enable_hypr(){
-    sudo systemctl enable lemurs
+    if ! [[ $enabled ]]; then
+        sudo systemctl enable lemurs
+        enabled=true
+    fi
 }
 
 disable_hypr(){
-    sudo systemctl disable lemurs
+    if [[ $(systemctl is-enabled lemurs) ]]; then
+        sudo systemctl disable lemurs
+    fi
 }
 
-gdm=0
-hypr=0
+disable_hypr
+disable_gnome
 
-while getopts gG:hH: flag
+while getopts gGhH flag
 do
     case "${flag}" in
-        g)  install_gnome;;
-        G) gdm=${OPTARG};;
+        g) install_gnome;;
+        G) enable_gnome
+           ;;
         h) install_hypr;;
-        H) hypr=${OPTARG};;
+        H) enable_hypr
+           ;;
+        *) echo "Incorrect flag" ;;
     esac
 done
-
-if [[ "$gdm" -eq "0" ]]; then
-    disable_gnome
-elif [[ "$gdm" -eq "1" ]]; then
-    enable_gnome 
-else echo "Incorrect gdm activate flag value"
-fi
-
-if [[ "$hypr" -eq "0" ]]; then
-    disable_hypr
-elif [[ "$hypr" -eq "1" ]]; then
-    enable_hypr 
-else echo "Incorrect hypr activate flag value"
-fi
 
 # TODO: add wireplumber audio controll
 

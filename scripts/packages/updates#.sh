@@ -12,4 +12,9 @@ fi
 
 updates_total=$(($pacman_upd+$aur_upd))
 
-printf '{"text": "%s", "tooltip": "Click to update your system"}' "$updates_total"
+class="yes"
+if [[ $updates_total -eq 0 ]]; then
+    class="no"
+fi
+
+printf '{"text": "%s", "class": "%s"}' "$updates_total" "$class"
