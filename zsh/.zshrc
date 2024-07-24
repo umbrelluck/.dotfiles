@@ -1,3 +1,5 @@
+# zmodload zsh/zprof 
+
 # export TERM="alacritty"
 # export TERM="xterm-256color"
 
@@ -10,8 +12,6 @@ export ZDOTDIR="$HOME"
 export HISTFILE="$ZDOTDIR/.zsh/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
-
-export QT_STYLE_OVERRIDE=kvantum
 
 export MANPAGER='nvim +Man!'
 export EDITOR="nvim"
@@ -112,6 +112,11 @@ alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-ori
 
 alias trone='ssh sshtron.zachlatta.com'
 
+alias ea='eza -laxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
+alias eas='ea -s type'
+alias ead='ea --group-directories-first -s type'
+# alias ead='ea -D -s type --show-symlinks && ea -f -s type --show-symlinks'
+
 alias lso='ls --color --time-style=long-iso'
 alias lsa='lso -la | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 alias lst='lso -lat'
@@ -157,10 +162,16 @@ export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
+
+# FNM - Fast Node Manager
+# NOTE: do not forget to run fnm default system after this 
+# eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+eval "$(fnm env --use-on-cd)"
+
 # NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -168,3 +179,5 @@ eval "$(pyenv init -)"
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/powerlevel10k/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# zprof
