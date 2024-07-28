@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#! /usr/bin/zsh
 
 dkms=0
 cuda=0

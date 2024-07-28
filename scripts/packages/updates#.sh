@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/zsh
 
 if ! pacman_upd=$(checkupdates 2>/dev/null | wc -l); then
     pacman_upd=0
@@ -12,9 +12,6 @@ fi
 
 updates_total=$(($pacman_upd+$aur_upd))
 
-class="yes"
-if [[ $updates_total -eq 0 ]]; then
-    class="no"
-fi
+[[ $updates_total -gt 0 ]] && class="yes" || class="no"
 
 printf '{"text": "%s", "class": "%s"}' "$updates_total" "$class"

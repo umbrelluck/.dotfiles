@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/zsh
 
 alacritty --class 'bluetuith' -e 'bluetuith'
 

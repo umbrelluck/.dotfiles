@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/zsh
 
 confd="$XDG_CONFIG_HOME"
 
@@ -68,5 +68,5 @@ fi
 # stow -t "$HOME" scripts 
 stow -t "$HOME" powerlevel10k 
 stow -t "$HOME" zsh 
-zsh && . "$SCRSDIR/zsh_plugin&script_downloader.sh"
+source ~/.zshrc && . "$SCRSDIR/zsh_plugin&script_downloader.sh"
 

@@ -1,3 +1,3 @@
-#! /bin/sh
+#! /usr/bin/zsh
 
 light -A 10

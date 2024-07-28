@@ -1,4 +1,4 @@
-#!/usr/bin/envbash
+#! /usr/bin/zsh
 
 enabled=false
 
