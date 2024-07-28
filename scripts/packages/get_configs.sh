@@ -1,6 +1,7 @@
 #! /usr/bin/zsh
 
 confd="$XDG_CONFIG_HOME"
+dotdir="$HOME/.dotfiles"
 
 mkdir -p "$confd/alacritty/a_themes" 
 stow -t "$confd/alacritty" alacritty 
@@ -12,36 +13,36 @@ else
 fi
 
 mkdir -p "$confd/nvim"
-stow -t "$confd/nvim" nvim 
+stow -t "$confd/nvim" "$dotdir/nvim"
 
 mkdir -p "$confd/paru"
-stow -t "$confd/paru" paru 
+stow -t "$confd/paru" "$dotdir/paru"
 
 mkdir -p "$confd/qtile"
-stow -t "$confd/qtile" qtile 
+stow -t "$confd/qtile" "$dotdir/qtile"
 
 mkdir -p "$confd/ranger"
-stow -t "$confd/ranger" ranger 
+stow -t "$confd/ranger" "$dotdir/ranger"
 
 mkdir -p "$confd/X11"
-stow -t "$confd/X11" X11 
+stow -t "$confd/X11" "$dotdir/X11"
 
 mkdir -p "$confd/xplr"
-stow -t "$confd/xplr" xplr 
+stow -t "$confd/xplr" "$dotdir/xplr"
 
 mkdir -p "$confd/hypr"
-stow -t "$confd/hypr" hyprland
+stow -t "$confd/hypr" "$dotdir/hyprland"
 
 mkdir -p "$confd/yazi"
-stow -t "$confd/yazi" yazi
+stow -t "$confd/yazi" "$dotdir/yazi"
 
 mkdir -p "$confd/waybar"
-stow -t "$confd/waybar" waybar
+stow -t "$confd/waybar" "$dotdir/waybar"
 
 mkdir -p "$confd/walker"
-stow -t "$confd/walker" walker
+stow -t "$confd/walker" "$dotdir/walker"
 
-stow -t "$HOME" gdu
+stow -t "$HOME" "$dotdir/gdu"
 doas cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
 
 cp ./git/.gitconfig "$HOME"
@@ -60,13 +61,13 @@ sudo cp "$HOME/.dotfiles/reflector/refletor.conf" "/etc/xdg/reflector/reflector.
 sudo systemctl enable reflector.timer
 sudo systemctl start reflector.timer
 
-stow -t "$HOME" tmux
+stow -t "$HOME" "$dotdir/tmux"
 if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # stow -t "$HOME" scripts 
-stow -t "$HOME" powerlevel10k 
-stow -t "$HOME" zsh 
+stow -t "$HOME" "$dotdir/powerlevel10k"
+stow -t "$HOME" "$dotdir/zsh" 
 source ~/.zshrc && . "$SCRSDIR/zsh_plugin&script_downloader.sh"
 
