@@ -9,7 +9,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
 export ZDOTDIR="$HOME"
-export HISTFILE="$ZDOTDIR/.zsh/.zhistory"
+export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
@@ -96,12 +96,15 @@ bindkey '^[[Z' reverse-menu-complete
 # bindkey '^[[A' up-line-or-history
 # bindkey '^[[B' down-line-or-history
 
+alias %=' '
+
 alias parur="paru --review"
 
 alias nnvim="nvim --listen /tmp/nvim.pipe"
 alias gnvim="nvim --listen /tmp/godot.pipe"
 alias linvim="nvim --listen"
 
+alias squirrel="~/ProgramFiles/squirrel-disk.AppImage"
 alias notesium="~/Git/notesium//notesium"
 alias orcas="~/ProgramFiles/OrcaSlicer_Linux_V1.8.1.AppImage"
 alias godotm="~/ProgramFiles/GodotManager/GodotManager.x86_64"

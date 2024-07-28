@@ -1,7 +1,6 @@
 @import url("themes/catppuccin/macchiato.css");
 
 @define-color background @crust;
-/* @define-color text @mantle; */
 
 * {
     font-family: Hack Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -10,13 +9,8 @@
 }
 
 window#waybar {
-    /* background-color: rgba(43, 48, 59, 0.5); */
     background-color: rgba(43, 48, 59, 0);
-    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: #ffffff;
-    /* transition-property: background-color; */
-    /* transition-duration: 5.5s; */
-    /* margin-top: 0.5rem; */
 }
 
 window#waybar.hidden {
@@ -34,7 +28,6 @@ button {
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
-    border-radius: 0;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -44,37 +37,43 @@ button {
 /*     box-shadow: inset 0 -3px #ffffff; */
 /* } */
 
-#pulseaudio:hover {
-    background-color: #a37800;
+#workspaces{
+    color: @rosewater;
+    background-color: @background;
+    border-radius: 1rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
 }
 
+
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ffffff;
+    color: @rosewater;
+    padding-left: 0.2rem;
+    padding-right: 0.6rem;
 }
 
 #workspaces button:hover {
+    /* color: @flamingo; */
     background: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px @rosewater;
 }
 
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+#workspaces button.active {
+    color: @flamingo;
+    background: inherit;
+    box-shadow: inset 0 -1px @flamingo;
+    /* background-color: #64727D; */
+    /* box-shadow: inset 0 -3px #ffffff; */
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: @background;
+    background-color: @maroon;
 }
 
-#mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
 
-#window,
-#workspaces {
-    margin: 0 4px;
+#window{
+    margin-left: 0.75rem;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -108,7 +107,7 @@ button {
     color: #000000;
 }
 
-#tray{
+#tray {
     margin-right: 0.75rem;
 }
 
@@ -122,8 +121,8 @@ button {
 }
 
 #idle_inhibitor,
-#custom-updates{
-    background-color: @background; 
+#custom-updates {
+    background-color: @background;
     margin: 0;
     padding-right: 0.6rem;
     padding-left: 0.6rem;
@@ -140,14 +139,14 @@ button {
     background-color: @lavender;
 }
 
-#custom-updates{
+#custom-updates {
     color: @green;
     border-radius: 0 1rem 1rem 0;
     margin-right: 0.75rem;
     padding-right: 0.9rem;
 }
 
-#custom-updates.yes{
+#custom-updates.yes {
     color: @background;
     background-color: @green;
 }
@@ -157,18 +156,18 @@ button {
 #language,
 #bluetooth,
 #network,
-#battery{
+#battery {
     background-color: @background;
     margin: 0;
     padding-right: 0.6rem;
     padding-left: 0.6rem;
 }
 
-#backlight{
+#backlight {
     color: @rosewater;
     border-radius: 1rem 0 0 1rem;
     min-width: 3.55rem;
-    padding-left:0.8rem;
+    padding-left: 0.8rem;
 }
 
 #wireplumber {
@@ -176,7 +175,7 @@ button {
     min-width: 4.15rem;
 }
 
-#wireplumber.muted{
+#wireplumber.muted {
     color: @background;
     background-color: @peach;
 }
@@ -186,38 +185,38 @@ button {
     /* background-color: @green; */
 }
 
-#bluetooth{
+#bluetooth {
     color: @blue;
 }
 
 /* + off & on*/
-#bluetooth.disabled{
+#bluetooth.disabled {
     color: @background;
     background-color: @blue;
 }
 
-#network{
+#network {
     color: @flamingo;
 }
 
-#network.disabled{
+#network.disabled {
     color: @background;
     background-color: @flamingo;
 }
 
-#battery{
+#battery {
     color: @sky;
     border-radius: 0 1rem 1rem 0;
     margin-right: 0.75rem;
     padding-right: 0.8rem;
 }
 
-#battery.plugged{
-    color:@green;
+#battery.charging {
+    color: @green;
 }
 
-#battery.meh:not(.plugged) {
-    color: @backgrond;
+#battery.meh:not(.charging) {
+    color: @background;
     background-color: @yellow;
 }
 
@@ -226,7 +225,7 @@ button {
     background-color: @peach;
 }
 
-#battery.critical:not(.plugged) {
+#battery.critical:not(.charging) {
     color: @backgrond;
     background-color: @red;
 }
@@ -239,5 +238,3 @@ button {
     padding-right: 0.9rem;
     padding-left: 0.6rem;
 }
-
-

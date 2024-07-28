@@ -6,8 +6,9 @@
     // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/workspaces"
+        // "wlr/taskbar",
+        // "hyprland/window"
     ],
     "modules-center": [
         "clock"
@@ -176,7 +177,7 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-plugged": "󰂄 {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
         "tooltip-format": "{timeTo}",
         // "format-icons": [
         //     "",
