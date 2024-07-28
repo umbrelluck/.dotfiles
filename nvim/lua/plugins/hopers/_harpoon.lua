@@ -1,14 +1,15 @@
 return { {
     "ThePrimeagen/harpoon",
     keys = {
-        "<leader>v", "<a-e>", "<leader>1", "<leader>2", "<leader>3", "<leader>4", "<leader>5", "<leader>6", "<leader>7"
+        "<leader>ha", "<leader>hf", "<leader>1", "<leader>2", "<leader>3", "<leader>4", "<leader>5", "<leader>6",
+        "<leader>7"
     },
     config = function()
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
 
-        _G.nmap("<leader>a", mark.add_file, { desc = "Add buffer to harpoon ([V]isit)" })
-        _G.nmap("<a-e>", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
+        _G.nmap("<leader>ha", mark.add_file, { desc = "Add buffer to harpoon ([V]isit)" })
+        _G.nmap("<leader>hf", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
         _G.nmap("<leader>1", function()
             ui.nav_file(1)
         end, { desc = "Open first file in harpoon" })

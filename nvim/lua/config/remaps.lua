@@ -5,6 +5,7 @@ vim.g.maplocalleader = " "
 -- Do remeber S (substitute character is cc)
 
 _G.imap("<m-c>", "<Esc>", { noremap = false, desc = "Esc in insert mode" })
+_G.imap("<m-i>", "<Esc>", { noremap = false, desc = "Esc in insert mode" })
 
 -- Nice utility fucntions
 _G.nmap("<F1>", ":setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
@@ -26,6 +27,7 @@ _G.nmap("-", ":set cursorline!<cr>", { desc = "Toggle cursor line" })
 _G.map({ "n", "v" }, "<m-c-\\>", ":terminal<cr>", { silent = false, desc = "Open built-in terminal" })
 _G.imap("<m-c-\\>", ":terminal<cr>", { silent = false, desc = "Open built-in terminal" })
 _G.map("t", "<Esc>", "<c-\\><c-n>", { desc = "Go to normal mode from built-in terminal" })
+_G.map("t", "<m-i>", "<c-\\><c-n>", { desc = "Go to normal mode from built-in terminal" })
 
 -- -------------------------------------------------------------------------------------------------------
 

@@ -82,7 +82,7 @@ return {
                 experimental = { ghost_text = true },
                 mapping = cmp.mapping.preset.insert({
                     ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<A-e>"] = cmp.mapping.abort(),
+                    ["<A-r>"] = cmp.mapping.abort(),
                     ["<c-e>"] = cmp.mapping.abort(),
                     ["<c-c>"] = cmp.mapping.abort(),
                     ["<CR>"] = cmp.mapping({
@@ -96,6 +96,29 @@ return {
                         s = cmp.mapping.confirm({ select = true }),
                         -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
                     }),
+                    ["<m-o>"] = cmp.mapping({
+                        i = function(fallback)
+                            if cmp.visible() and cmp.get_active_entry() then
+                                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                            else
+                                fallback()
+                            end
+                        end,
+                        s = cmp.mapping.confirm({ select = true }),
+                        -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                    }),
+                    ["<m-e>"] = cmp.mapping({
+                        i = function(fallback)
+                            if cmp.visible() and cmp.get_active_entry() then
+                                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                            else
+                                fallback()
+                            end
+                        end,
+                        s = cmp.mapping.confirm({ select = true }),
+                        -- c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                    }),
+
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()

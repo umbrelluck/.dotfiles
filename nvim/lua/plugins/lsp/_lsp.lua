@@ -47,6 +47,20 @@ return {
                     })
                 end,
 
+                -- ["rust_analyzer"] = function()
+                --     lspconfig["rust_analyzer"].setup({
+                --         capabilities = capabilities,
+                --         root_dir = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
+                --         settings = {
+                --             ['rust-analyzer'] = {
+                --                 diagnostics = {
+                --                     enable = true,
+                --                 }
+                --             }
+                --         }
+                --     })
+                -- end
+
                 -- ["clangd"]=function ()
                 --     lspconfig["clangd"].setup({
                 --         capabilities=capabilities,
@@ -129,11 +143,12 @@ return {
                     _G.nmap("gd", vim.lsp.buf.definition, opts)
                     _G.nmap("gr", require('telescope.builtin').lsp_references, opts)
                     _G.nmap("K", vim.lsp.buf.hover, opts)
+                    _G.nmap("<leader>k", vim.lsp.buf.hover, opts)
                     _G.nmap("<leader>ds", require('telescope.builtin').lsp_document_symbols, opts)
                     _G.nmap("<leader>ws", require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
                     _G.nmap("gi", vim.lsp.buf.implementation, opts)
-                    _G.nmap("<leader>k", vim.lsp.buf.signature_help, opts)
                     _G.nmap("<Leader>ss", vim.lsp.buf.signature_help, opts)
+                    _G.nmap("gk", vim.lsp.buf.signature_help, opts)
                     _G.map({ "n", "i" }, "<a-u>", vim.lsp.buf.signature_help, opts)
                     _G.nmap("<space>wa", vim.lsp.buf.add_workspace_folder, opts)
                     _G.nmap("<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
