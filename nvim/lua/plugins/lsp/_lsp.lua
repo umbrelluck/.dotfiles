@@ -47,6 +47,14 @@ return {
                     })
                 end,
 
+                ["bashls"] = function()
+                    lspconfig["bashls"].setup({
+                        capabilities = capabilities,
+                        filetypes = { "sh", "zsh" }
+                    })
+                end
+
+
                 -- ["rust_analyzer"] = function()
                 --     lspconfig["rust_analyzer"].setup({
                 --         capabilities = capabilities,
