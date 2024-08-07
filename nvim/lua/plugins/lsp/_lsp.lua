@@ -55,22 +55,32 @@ return {
                 end,
 
 
-                -- ["rust_analyzer"] = function()
-                --     lspconfig["rust_analyzer"].setup({
-                --         capabilities = capabilities,
-                --         -- root_dir = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
-                --         -- settings = {
-                --         --     ['rust-analyzer'] = {
-                --         --         diagnostics = {
-                --         --             enable = true,
-                --         --         },
-                --         --         check = {
-                --         --             ignore = { "dead_code" },
-                --         --         }
-                --         --     }
-                --         -- }
-                --     })
-                -- end
+                ["rust_analyzer"] = function()
+                    lspconfig["rust_analyzer"].setup({
+                        capabilities = capabilities,
+                        settings = {
+                            ["rust-analyzer"] = {
+                                checkOnSave = {
+                                    command = "clippy",
+                                },
+                                imports = {
+                                    granularity = {
+                                        group = "module",
+                                    },
+                                    prefix = "self",
+                                },
+                                cargo = {
+                                    buildScripts = {
+                                        enable = true,
+                                    },
+                                },
+                                procMacro = {
+                                    enable = true
+                                },
+                            }
+                        }
+                    })
+                end
 
                 -- ["clangd"]=function ()
                 --     lspconfig["clangd"].setup({
@@ -101,30 +111,32 @@ return {
                 capabilities = capabilities,
             })
 
-            lspconfig.rust_analyzer.setup({
-                capabilities = capabilities,
-                settings = {
-                    ["rust-analyzer"] = {
-                        checkOnSave = {
-                            command = "clippy",
-                        },
-                        imports = {
-                            granularity = {
-                                group = "module",
-                            },
-                            prefix = "self",
-                        },
-                        cargo = {
-                            buildScripts = {
-                                enable = true,
-                            },
-                        },
-                        procMacro = {
-                            enable = true
-                        },
-                    }
-                }
-            })
+            -- NOTE: config for when using rustup rust-analyzer
+            --
+            -- lspconfig.rust_analyzer.setup({
+            --     capabilities = capabilities,
+            --     settings = {
+            --         ["rust-analyzer"] = {
+            --             checkOnSave = {
+            --                 command = "clippy",
+            --             },
+            --             imports = {
+            --                 granularity = {
+            --                     group = "module",
+            --                 },
+            --                 prefix = "self",
+            --             },
+            --             cargo = {
+            --                 buildScripts = {
+            --                     enable = true,
+            --                 },
+            --             },
+            --             procMacro = {
+            --                 enable = true
+            --             },
+            --         }
+            --     }
+            -- })
 
             for type, icon in pairs(_G.LSPDsigns) do
                 local hlv_name = "DiagnosticVirtualText" .. type
