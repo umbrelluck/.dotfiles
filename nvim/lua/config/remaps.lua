@@ -6,6 +6,7 @@ vim.g.maplocalleader = " "
 
 _G.imap("<m-c>", "<Esc>", { noremap = false, desc = "Esc in insert mode" })
 _G.imap("<m-i>", "<Esc>", { noremap = false, desc = "Esc in insert mode" })
+_G.vmap("<m-i>", "<Esc>", { noremap = false, desc = "Esc in visual mode" })
 
 -- Nice utility fucntions
 _G.nmap("<F1>", ":setlocal relativenumber!<cr>", { silent = false, desc = "Toggle realtive nubers" })
@@ -21,6 +22,8 @@ _G.nmap("<F4>", ":setlocal list!<cr>", { silent = false, desc = "Toggle whitespa
 _G.imap("<F4>", "<c-o>:setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
 
 _G.nmap("-", ":set cursorline!<cr>", { desc = "Toggle cursor line" })
+_G.nmap("=", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", { desc = "Toggle inlay hints" })
+_G.nmap("+", ":lua _G.diagnostic_toggle_view()<cr>", { desc = "Toggle diagnostic" })
 -- -------------------------------------------------------------------------------------------------------
 
 -- Built-in terminal
@@ -102,7 +105,12 @@ _G.map("t", "<c-l>", "<C-\\><C-N><C-w>l", { desc = "Window navigation in termina
 -- _G.imap("<c-j>", "<C-\\><C-N><C-w>j", { desc = "Window navigation in insert" })
 -- _G.imap("<c-k>", "<C-\\><C-N><C-w>k", { desc = "Window navigation in insert" })
 -- _G.imap("<c-l>", "<C-\\><C-N><C-w>ls", { desc = "Window navigation in insert" })
---
+
+_G.nmap("<c-s-h>", "<c-w>H", { noremap = false, desc = "Move window left" })
+_G.nmap("<c-s-j>", "<c-w>J", { noremap = false, desc = "Move window down" })
+_G.nmap("<c-s-k>", "<c-w>K", { noremap = false, desc = "Move window up" })
+_G.nmap("<c-s-l>", "<c-w>L", { noremap = false, desc = "Move window right" })
+
 -- _G.nmap("<C-h>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-left>", "<C-w>h", { noremap = false, desc = "Move to left window" })
 -- _G.nmap("<C-j>", "<C-w>j", { noremap = false, desc = "Move to bottom window" })

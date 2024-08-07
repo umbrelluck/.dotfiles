@@ -56,7 +56,7 @@ function _G.get_filename(path)
 end
 
 function _G.lsp_clients()
-    local lsp = vim.lsp.util.get_progress_messages()[1]
+    local lsp = vim.lsp.status()
     if lsp then
         local name = lsp.name or ""
         local msg = lsp.message or ""
@@ -74,7 +74,7 @@ function _G.lsp_clients()
 
     local c = {}
     for _, client in pairs(clients) do
-        table.insert(c, client.ngme)
+        table.insert(c, client.name)
     end
     return " " .. table.concat(c, "|")
 end
@@ -154,4 +154,23 @@ function _G.get_current_colors()
 
 
     return colors
+end
+
+function _G.diagnostic_toggle()
+    if vim.g.diagnostics_active then
+        vim.g.diagnostics_active = false
+        vim.diagnostic.enable(true)
+    else
+        vim.g.diagnostics_active = true
+        vim.diagnostic.enable(false)
+    end
+end
+
+local isLspDiagnosticsVisible = true
+function _G.diagnostic_toggle_view()
+    isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+    vim.diagnostic.config({
+        -- virtual_text = isLspDiagnosticsVisible,
+        underline = isLspDiagnosticsVisible
+    })
 end

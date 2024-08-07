@@ -52,20 +52,23 @@ return {
                         capabilities = capabilities,
                         filetypes = { "sh", "zsh" }
                     })
-                end
+                end,
 
 
                 -- ["rust_analyzer"] = function()
                 --     lspconfig["rust_analyzer"].setup({
                 --         capabilities = capabilities,
-                --         root_dir = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
-                --         settings = {
-                --             ['rust-analyzer'] = {
-                --                 diagnostics = {
-                --                     enable = true,
-                --                 }
-                --             }
-                --         }
+                --         -- root_dir = lspconfig.util.root_pattern("Cargo.toml", "rust-project.json"),
+                --         -- settings = {
+                --         --     ['rust-analyzer'] = {
+                --         --         diagnostics = {
+                --         --             enable = true,
+                --         --         },
+                --         --         check = {
+                --         --             ignore = { "dead_code" },
+                --         --         }
+                --         --     }
+                --         -- }
                 --     })
                 -- end
 
@@ -96,6 +99,31 @@ return {
 
             lspconfig.gdscript.setup({
                 capabilities = capabilities,
+            })
+
+            lspconfig.rust_analyzer.setup({
+                capabilities = capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        cargo = {
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                    }
+                }
             })
 
             for type, icon in pairs(_G.LSPDsigns) do
@@ -168,9 +196,9 @@ return {
                     _G.nmap("<space>rr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 
-                    if (client.server_capabilities.inlayHintProvider) then
+                    --[[ if (client.server_capabilities.inlayHintProvider) then
                         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-                    end
+                    end ]]
 
                     if (client.supports_method("textDocument/formatting")) then
                         _G.map({ "n", "i" }, "<a-F>", function()
