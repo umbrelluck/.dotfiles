@@ -14,16 +14,16 @@ return { {
 
         -- current_line_only = true
         _G.emap("f", function()
-            hop.hint_char1({ direction = directions.AFTER_CURSOR })
+            hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, })
         end, { remap = true, desc = "Remap for f" })
         _G.emap("F", function()
-            hop.hint_char1({ direction = directions.BEFORE_CURSOR, })
+            hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, })
         end, { remap = true, desc = "Remap for F" })
         _G.emap("t", function()
-            hop.hint_char1({ direction = directions.AFTER_CURSOR, hint_offset = -1 })
+            hop.hint_char1({ direction = directions.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })
         end, { remap = true, desc = 'Remap for t' })
         _G.emap("T", function()
-            hop.hint_char1({ direction = directions.BEFORE_CURSOR, hint_offset = 1 })
+            hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
         end, { remap = true, desc = "Remap for T" })
 
         _G.nmap("gl", function()
