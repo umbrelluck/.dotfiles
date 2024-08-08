@@ -38,9 +38,13 @@ return {
             })
 
             _G.nmap("<F5>", function() dap.continue() end, { desc = "Dap contiue" })
+            _G.nmap("<F8>", ":DapDisconnect<cr>", { desc = "Dap disconnect" })
+            _G.nmap("<F9>", ":DapTerminate<cr>", { desc = "Dap terminate" })
             _G.nmap("<F10>", function() dap.step_over() end, { desc = "Dap step over" })
             _G.nmap("<F11>", function() dap.step_into() end, { desc = "Dap step into" })
             _G.nmap("<F12>", function() dap.step_out() end, { desc = "Dap step out" })
+
+
 
             _G.nmap("<Leader>b", function() dap.toggle_breakpoint() end, { desc = "Dap toggle breakpoint" })
             _G.nmap("<Leader>lp",
@@ -58,11 +62,11 @@ return {
             _G.nmap("<Leader>def", function()
                 local widgets = require("dap.ui.widgets")
                 widgets.centered_float(widgets.frames)
-            end, { desc = "Dap float" })
+            end, { desc = "Dap float frames" })
             _G.nmap("<Leader>des", function()
                 local widgets = require("dap.ui.widgets")
                 widgets.centered_float(widgets.scopes)
-            end, { desc = "Dap centered float" })
+            end, { desc = "Dap float scopes" })
 
             -- require("dapui") -- to open awaken dapui
 
@@ -97,6 +101,8 @@ return {
                     end,
                 },
             }
+
+            dap.configurations.rust = dap.configurations.cpp
 
             dap.adapters.godot = {
                 type = "server",
@@ -139,15 +145,21 @@ return {
             require("dapui").setup(opts)
 
             local dap, dapui = require("dap"), require("dapui")
-            dap.listeners.after.event_initialized["dapui_config"] = function()
+            dap.listeners.before.attach.dapui_config = function()
                 dapui.open()
             end
-            dap.listeners.before.event_terminated["dapui_config"] = function()
+            dap.listeners.before.launch.dapui_config = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated.dapui_config = function()
                 dapui.close()
             end
-            dap.listeners.before.event_exited["dapui_config"] = function()
+            dap.listeners.before.event_exited.dapui_config = function()
                 dapui.close()
             end
+
+            _G.nmap("<leader>dao", function() dapui.open() end, { desc = "Dapui open" })
+            _G.nmap("<leader>dac", function() dapui.close() end, { desc = "Dapui close" })
 
             _G.nmap("<leader>deu", ":lua require('dapui').float_element(<element ID>, <optional settings>)<CR>",
                 { desc = "Dap floating elements" })
