@@ -40,6 +40,7 @@ return {
         -- Constrain the cursor to the editable parts of the oil buffer
         -- Set to `false` to disable, or "name" to keep it on the file names
         constrain_cursor = "editable",
+        watch_for_changes = true,
         -- Keymaps in oil buffer. Can be any value that `vim.keymap.set` accepts OR a table of keymap
         -- options with a `callback` (e.g. { callback = function() ... end, desc = "", mode = "n" })
         -- Additionally, if it is a string that matches "actions.<name>",
@@ -57,6 +58,9 @@ return {
             ["<C-p>"] = "actions.preview",
             ["<C-c>"] = "actions.close",
             ["<m-c>"] = "actions.close",
+            ["<m-i>"] = "actions.close",
+            ["<m-o>"] = "actions.close",
+            ["<m-e>"] = "actions.close",
             ["<C-l>"] = "actions.refresh",
             ["="] = "actions.parent",
             ["_"] = "actions.open_cwd",

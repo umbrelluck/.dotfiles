@@ -6,7 +6,7 @@ return {
             char = {
                 multi_line = false,
                 jump_labels = true,
-                search = { wrap = true, },
+                search = { wrap = false, },
                 jump = {
                     register = false,
                     -- when using jump labels, set to 'true' to automatically jump
