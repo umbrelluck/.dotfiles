@@ -4,9 +4,24 @@ return {
     opts = {
         modes = {
             char = {
-                jump_labels = true
+                multi_line = false,
+                jump_labels = true,
+                search = { wrap = true, },
+                jump = {
+                    register = false,
+                    -- when using jump labels, set to 'true' to automatically jump
+                    -- or execute a motion when there is only one match
+                    autojump = true,
+                },
             }
-        }
+        },
+        label = {
+            uppercase = true,
+            rainbow = {
+                enabled = false,
+                shade = 5,
+            }
+        },
     },
     keys = {
         { "<leader>he", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
