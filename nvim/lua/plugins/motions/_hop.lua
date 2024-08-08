@@ -1,10 +1,12 @@
 return { {
-    "phaazon/hop.nvim",
+    "smoka7/hop.nvim",
     -- branch = "v2",
+    tag = '*',
     opts = {
         keys = "etovxqpdygfblzhckisuran",
-        current_line_only = false,
+        -- current_line_only = false,
     },
+    enabled = false,
     cmd = { "HopPatternCurrentLine" },
     keys = { "f", "F", "t", "T", "<Leader>hw", "<Leader>he", "<m-/>", "gl", "gL" },
     config = function(_, opts)
