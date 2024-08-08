@@ -2,7 +2,7 @@
 
 # Added by Toolbox App
 export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
-export QT_STYLE_OVERRIDE=kvantum
+# export QT_STYLE_OVERRIDE=kvantum --BUG: not woking
 
 # Ignore for now
 # export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
