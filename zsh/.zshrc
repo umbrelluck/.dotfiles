@@ -113,7 +113,7 @@ alias drmemory='~/TarGZ/DrMemory-Linux-2.6.0/bin64/drmemory'
 alias drmemory32='~/TarGZ/DrMemory-Linux-2.6.0/bin/drmemory'
 alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes'
 
-alias trone='ssh sshtron.zachlatta.com'
+# alias trone='ssh sshtron.zachlatta.com'
 
 alias ea='eza -laxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
 alias eas='ea -s type'

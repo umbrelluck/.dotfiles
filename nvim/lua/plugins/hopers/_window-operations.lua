@@ -37,9 +37,9 @@ return {
     -- },
     {
         'declancm/maximize.nvim',
-        keys = { { "mm", ":lua require('maximize').toggle()<cr>", desc = "Toggle current window maximization" } },
-        opts = {
-            default_keymaps = false
-        },
+        keys = { { "mm", ":Maximize<cr>", desc = "Toggle current window maximization" } },
+        -- opts = {
+        --     default_keymaps = false
+        -- },
     }
 }
