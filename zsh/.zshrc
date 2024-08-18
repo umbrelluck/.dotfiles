@@ -33,9 +33,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-setopt autocd
-setopt interactive_comments
-setopt MENU_COMPLETE
+setopt autocd interactive_comments menu_complete extendedglob notify
 
 autoload -Uz promptinit compinit
 compinit
@@ -44,8 +42,10 @@ promptinit
 eval "$(zoxide init zsh)"
 
 zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
+zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 
 source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
