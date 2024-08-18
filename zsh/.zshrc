@@ -13,7 +13,9 @@ export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
-export MANPAGER='nvim +Man!'
+# export MANPAGER='nvim +Man!'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# MANROFFOPT="-c" --NOTE: may be neede fpr bat formatting purposes
 export EDITOR="nvim"
 # export VISUAL="nvim"
 
@@ -96,6 +98,14 @@ bindkey '^[[Z' reverse-menu-complete
 # bindkey '^[[A' up-line-or-history
 # bindkey '^[[B' down-line-or-history
 
+
+alias bathelp='bat --plain --language=help'
+help() {
+    "$@" --help 2>&1 | bathelp
+}
+# alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
 alias %=' '
 
 alias parur="paru --review"
@@ -114,6 +124,9 @@ alias drmemory32='~/TarGZ/DrMemory-Linux-2.6.0/bin/drmemory'
 alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes'
 
 # alias trone='ssh sshtron.zachlatta.com'
+
+alias ip='ip --color=auto'
+alias diff='diff --color=auto'
 
 alias ea='eza -laxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
 alias eas='ea -s type'
