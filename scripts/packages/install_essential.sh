@@ -1,8 +1,22 @@
 #! /usr/bin/zsh
 
-sudo pacman -S \
+if [[ ! command -v <the_command> &> /dev/null]];  then
+    cwd=$(pwd)
+
+    mkdir -p ~/Git
+    git clone https://aur.archlinux.org/paru.git ~/Git/
+    cd ~/Git/paru
+    makepkg -si
+    
+    cd "$cwd"
+
+    paru --gendb
+fi
+
+paru -S \
     alacritty \
     bat \
+    bluetuith-bin \
     brightnessctl \
     delta \
     duf \
@@ -21,15 +35,5 @@ sudo pacman -S \
     xplr \
     yazi \
     zsh \
-    zsh 
-
-# TODO: install paru?
-
-paru \
-    bluetuith-bin \
+    zsh \
     zsh-theme-powerlevel10k-git
-    
-
- 
-
-

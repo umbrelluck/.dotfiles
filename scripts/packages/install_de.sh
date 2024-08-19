@@ -3,22 +3,20 @@
 enabled=false
 
 install_gnome(){
-    sudo pacman -S gnome
+    paru -S gnome
 }
 install_hypr(){
-    sudo pacman -S \
+     paru -S \
         hyprcursor \
         hypridle \
         hyprland \
         hyprlock \
+        hyprpicker
         hyprutils \
         lemurs \
         rofi-wayland \
         waybar \
         xdg-desktop-portal-hyprland
-
-    paru \
-        hyprpicker
 }
 
 enable_gnome(){

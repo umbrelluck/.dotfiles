@@ -42,6 +42,9 @@ stow -t "$confd/waybar" "$dotdir/waybar"
 mkdir -p "$confd/walker"
 stow -t "$confd/walker" "$dotdir/walker"
 
+mkdir -p "$confd/wlogout"
+stow -t "$confd/wlogout" "$dotdir/wlogout"
+
 stow -t "$HOME" "$dotdir/gdu"
 doas cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
 
