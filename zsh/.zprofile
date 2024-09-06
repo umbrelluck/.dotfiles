@@ -2,7 +2,9 @@
 
 # Added by Toolbox App
 export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
-# export QT_STYLE_OVERRIDE=kvantum --BUG: not woking
+export QT_QPA_PLATFORMTHEME=qt6ct
+# export QT_STYLE_OVERRIDE=kvantum #NOTE: taken care of by QT6 Settings
+# export QT_WAYLAND_DECORATION=whitesur-gtk
 
 # Ignore for now
 # export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"

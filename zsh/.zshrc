@@ -15,7 +15,7 @@ export SAVEHIST=10000
 
 # export MANPAGER='nvim +Man!'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# MANROFFOPT="-c" --NOTE: may be neede fpr bat formatting purposes
+export MANROFFOPT="-c" #NOTE: may be neede fpr bat formatting purposes
 export EDITOR="nvim"
 # export VISUAL="nvim"
 
@@ -41,13 +41,12 @@ autoload -Uz promptinit compinit
 compinit
 promptinit
 
-eval "$(zoxide init zsh)"
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
-zstyle ':completion::complete:*' gain-privileges 1
+# zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
-zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+# zstyle :compinstall filename "$ZDOTDIR/.zshrc"
 
 source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -107,6 +106,8 @@ help() {
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 alias %=' '
+
+alias viewhyprlog='bat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log'
 
 alias parur="paru --review"
 
@@ -178,6 +179,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 
+eval "$(zoxide init zsh)"
 
 # FNM - Fast Node Manager
 # NOTE: do not forget to run fnm default system after this 
