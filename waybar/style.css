@@ -37,7 +37,7 @@ button {
 /*     box-shadow: inset 0 -3px #ffffff; */
 /* } */
 
-#workspaces{
+#workspaces {
     color: @rosewater;
     background-color: @background;
     border-radius: 1rem;
@@ -72,7 +72,7 @@ button {
 }
 
 
-#window{
+#window {
     margin-left: 0.75rem;
 }
 
@@ -205,14 +205,15 @@ button {
 }
 
 #battery {
-    color: @sky;
+    color: @green;
     border-radius: 0 1rem 1rem 0;
     margin-right: 0.75rem;
     padding-right: 0.8rem;
 }
 
 #battery.charging {
-    color: @green;
+    color: @background;
+    background-color: @green;
 }
 
 #battery.meh:not(.charging) {
@@ -220,13 +221,13 @@ button {
     background-color: @yellow;
 }
 
-#battery.warning:not(.plugged) {
-    color: @backgrond;
+#battery.warning:not(.charging) {
+    color: @background;
     background-color: @peach;
 }
 
 #battery.critical:not(.charging) {
-    color: @backgrond;
+    color: @background;
     background-color: @red;
 }
 
