@@ -31,7 +31,8 @@ mkdir -p "$confd/xplr"
 stow -t "$confd/xplr" "$dotdir/xplr"
 
 mkdir -p "$confd/hypr"
-stow -t "$confd/hypr" "$dotdir/hyprland"
+# stow -t "$confd/hypr" "$dotdir/hyprland"
+stow -t "$confd/hypr" "$dotdir/hypr"
 
 mkdir -p "$confd/yazi"
 stow -t "$confd/yazi" "$dotdir/yazi"
