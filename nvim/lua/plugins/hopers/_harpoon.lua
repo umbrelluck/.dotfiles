@@ -1,7 +1,8 @@
 return { {
     "ThePrimeagen/harpoon",
     keys = {
-        "<leader>ha", "<leader>hf", "<leader>hl", "<leader>1", "<leader>2", "<leader>3", "<leader>4", "<leader>5",
+        "<leader>ha", "<leader>hf", "<leader>hl", "<leader>sl", "<leader>1", "<leader>2", "<leader>3", "<leader>4",
+        "<leader>5",
         "<leader>6",
         "<leader>7"
     },
@@ -12,6 +13,8 @@ return { {
         _G.nmap("<leader>ha", mark.add_file, { desc = "Add buffer to harpoon ([V]isit)" })
         _G.nmap("<leader>hl", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
         _G.nmap("<leader>hf", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
+        _G.nmap("<leader>hl", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
+        _G.nmap("<leader>sl", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
         _G.nmap("<leader>1", function()
             ui.nav_file(1)
         end, { desc = "Open first file in harpoon" })

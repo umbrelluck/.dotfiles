@@ -105,6 +105,7 @@ return {
                 cmd = { "/home/umbrelluck/Git/zls/zig-out/bin/zls" },
                 filetypes = { "zig" },
                 root_dir = lspconfig.util.root_pattern("build.zig", ".git"),
+                -- root_dir = vim.fs.root(0, { "build.zig", ".git" }),
                 capabilities = capabilities,
             })
 
@@ -191,7 +192,7 @@ return {
                     local opts = { buffer = ev.buf }
                     _G.nmap("gD", vim.lsp.buf.declaration, opts)
                     _G.nmap("gd", vim.lsp.buf.definition, opts)
-                    _G.nmap("gr", require('telescope.builtin').lsp_references, opts)
+                    _G.nmap("gre", require('telescope.builtin').lsp_references, opts)
                     _G.nmap("K", vim.lsp.buf.hover, opts)
                     _G.nmap("<leader>k", vim.lsp.buf.hover, opts)
                     _G.nmap("<leader>ds", require('telescope.builtin').lsp_document_symbols, opts)
@@ -207,8 +208,10 @@ return {
                     end, opts)
                     _G.nmap("<space>D", vim.lsp.buf.type_definition, opts)
                     _G.nmap("<space>rn", vim.lsp.buf.rename, opts)
-                    _G.nmap("<space>rr", vim.lsp.buf.references, opts)
+                    _G.nmap("grn", vim.lsp.buf.rename, opts)
+                    _G.nmap("<space>gr", vim.lsp.buf.references, opts)
                     _G.map({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+                    _G.map({ "n", "v" }, "gea", vim.lsp.buf.code_action, opts)
 
                     --[[ if (client.server_capabilities.inlayHintProvider) then
                         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
