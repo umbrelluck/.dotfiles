@@ -1,5 +1,3 @@
 #! /usr/bin/zsh
 
-killall waybar
-
-waybar
+[[ -z $(pidof waybar) ]] && waybar || killall -SIGUSR2 waybar
