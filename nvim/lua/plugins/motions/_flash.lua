@@ -3,6 +3,11 @@ return {
     event = "VeryLazy",
     opts = {
         modes = {
+            search = {
+                enabled = false,
+                highlight = { backdrop = true },
+                jump = { history = true, register = true, nohlsearch = true },
+            },
             char = {
                 multi_line = false,
                 jump_labels = true,
@@ -29,5 +34,15 @@ return {
         { "r",          mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
         { "R",          mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
         { "<c-s>",      mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+        {
+            "gl",
+            mode = "n",
+            function()
+                require("flash").jump({ pattern = "http" })
+                vim.cmd("normal gx")
+                vim.cmd("normal ``")
+            end,
+            desc = "Follow link"
+        }
     },
 }
