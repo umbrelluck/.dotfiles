@@ -130,6 +130,10 @@ alias ip='ip --color=auto'
 alias diff='diff --color=auto'
 
 alias ea='eza -laxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
+ewa(){
+    eza -laax -F=always --icons=always --git --color=always --time-style="+%Y-%m-%d %H:%M" $1 | head -n 2
+}
+# alias ewa='eza -laaxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
 alias eas='ea -s type'
 alias ead='ea --group-directories-first -s type'
 # alias ead='ea -D -s type --show-symlinks && ea -f -s type --show-symlinks'
