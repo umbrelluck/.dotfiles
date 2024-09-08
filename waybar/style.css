@@ -55,13 +55,15 @@ button {
 #workspaces button:hover {
     /* color: @flamingo; */
     background: rgba(0, 0, 0, 0.2);
+    /* NOTE: hover uperline */
     box-shadow: inset 0 1px @rosewater;
 }
 
 #workspaces button.active {
     color: @flamingo;
     background: inherit;
-    box-shadow: inset 0 -1px @flamingo;
+    /* NOTE: active underline */
+    /* box-shadow: inset 0 -1px @flamingo; */
     /* background-color: #64727D; */
     /* box-shadow: inset 0 -3px #ffffff; */
 }
@@ -102,13 +104,12 @@ button {
     }
 }
 
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
 #tray {
-    margin-right: 0.75rem;
+    background-color: @background;
+    border-radius: 1rem;
+    margin-left: 0.75rem;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
 }
 
 #tray>.passive {
@@ -142,7 +143,8 @@ button {
 #custom-updates {
     color: @green;
     border-radius: 0 1rem 1rem 0;
-    margin-right: 0.75rem;
+    /* NOTE: this goes to backlight for better visuals */
+    /* margin-right: 0.75rem; */
     padding-right: 0.9rem;
 }
 
@@ -167,6 +169,7 @@ button {
     color: @rosewater;
     border-radius: 1rem 0 0 1rem;
     min-width: 3.55rem;
+    margin-left: 0.75rem;
     padding-left: 0.8rem;
 }
 
@@ -236,6 +239,8 @@ button {
     background-color: @background;
     border-radius: 1rem;
     margin-right: 0.5rem;
-    padding-right: 0.9rem;
-    padding-left: 0.6rem;
+    /*0.9*/
+    padding-right: 1.1rem;
+    /*0.6*/
+    padding-left: 0.75rem;
 }

@@ -60,6 +60,10 @@ sudo cp -r "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
 sudo cp -r "$HOME/.dotfiles/lemurs/wayland" "/etc/lemurs/wayland"
 # fi
 
+echo "Greetd need permission to write files"
+sudo mkdir -p /etc/greetd/
+sudo cp "$HOME/.dotfiles/greetd/config.toml" "/etc/greetd/"
+
 echo "Reflector needs password to write files"
 sudo cp "$HOME/.dotfiles/reflector/refletor.conf" "/etc/xdg/reflector/reflector.conf"
 sudo systemctl enable reflector.timer
