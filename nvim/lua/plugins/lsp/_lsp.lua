@@ -177,11 +177,27 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                 callback = function(ev)
+                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
                     -- Enable completion triggered by <c-x><c-o>
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-                    vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format() ]])
 
-                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                    -- BUG: forces undo to behave like a bitch
+                    -- vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format() ]])
+
+                    if client.supports_method('textDocument/formatting') then
+                        _G.map({ "n", "i" }, "<a-F>", function()
+                            vim.lsp.buf.format({ async = true })
+                        end, { buffer = ev.buf })
+
+                        -- Format the current buffer on save
+                        vim.api.nvim_create_autocmd('BufWritePre', {
+                            buffer = ev.buf,
+                            callback = function()
+                                vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
+                            end,
+                        })
+                    end
+
 
                     -- INFO: breadcrumbs attachment is handled by breadcrumbs themselves
                     -- if client.server_capabilities.documentSymbolProvider then
@@ -217,11 +233,11 @@ return {
                         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
                     end ]]
 
-                    if (client.supports_method("textDocument/formatting")) then
-                        _G.map({ "n", "i" }, "<a-F>", function()
-                            vim.lsp.buf.format({ async = true })
-                        end, opts)
-                    end
+                    -- if (client.supports_method("textDocument/formatting")) then
+                    --     _G.map({ "n", "i" }, "<a-F>", function()
+                    --         vim.lsp.buf.format({ async = true })
+                    --     end, opts)
+                    -- end
 
                     if (client.name == "gdscript") then
                         -- local pipe = "/tmp/godot.pipe"
