@@ -67,7 +67,7 @@ function _G.lsp_clients()
     end
 
     local bufnr = vim.api.nvim_get_current_buf()
-    local clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+    local clients = vim.lsp.get_clients({ bufnr = bufnr })
     if next(clients) == nil then
         return ""
     end
