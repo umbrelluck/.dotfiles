@@ -152,8 +152,8 @@ alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 # alias gupd=$SCRSDIR/git_rep_updater.sh
 #
 alias ncdu='ncdu -e'
-alias duf='duf -all -warnings'
-alias dufi='sudo duf -warnings -hide loops'
+# alias duf='duf -all -warnings'
+alias dufi='duf -only local'
 
 alias echo='echo -e'
 
