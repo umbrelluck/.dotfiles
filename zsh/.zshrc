@@ -97,17 +97,28 @@ bindkey '^[[Z' reverse-menu-complete
 # bindkey '^[[A' up-line-or-history
 # bindkey '^[[B' down-line-or-history
 
+function vmc() {
+  local player="$1"
+  local volume="$2"
+  firstPlayerSinkIndex="$(pactl list sink-inputs | awk '/index:|application.name |application.process.binary / {print $0};' | grep -iB 1 "$player" | awk '/index:/ {print $2; exit}')"  # get specific app sink
+  [[ $firstPlayerSinkIndex ]] && pactl set-sink-input-volume "$firstPlayerSinkIndex" "$((volume*65536/100))" # 100% → 65536
+}
+
 
 alias bathelp='bat --plain --language=help'
-help() {
+function help() {
     "$@" --help 2>&1 | bathelp
 }
 # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 alias %=' '
+alias cd='z'
 
+alias avenv='source .venv/bin/activate'
 alias viewhyprlog='bat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log'
+alias whitesur='~/.dotfiles/scripts/whitesur.sh'
+alias gdmh='~/.dotfiles/scripts/greetd_gdm.sh'
 
 alias parur="paru --review"
 
