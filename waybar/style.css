@@ -135,12 +135,13 @@ button {
 #idle_inhibitor {
     color: @lavender;
     border-radius: 1rem 0 0 1rem;
-    padding-left: 0.9rem;
+    padding-left: 0.8rem;
 }
 
 #idle_inhibitor.activated {
     color: @background;
     background-color: @lavender;
+    padding-left: 0.7rem;
     border: 0.15rem solid @background;
 }
 
@@ -149,12 +150,14 @@ button {
     border-radius: 0 1rem 1rem 0;
     /* NOTE: this goes to backlight for better visuals */
     /* margin-right: 0.75rem; */
-    padding-right: 0.9rem;
+    padding-right: 0.8rem;
+    /* padding-left: 0.6rem; */
 }
 
 #custom-updates.yes {
     color: @background;
     background-color: @green;
+    padding-right: 0.7rem;
     border: 0.15rem solid @background;
     border-left: none;
 }
@@ -187,7 +190,10 @@ button {
 #wireplumber.muted {
     color: @background;
     background-color: @peach;
-    border: 0.15rem solid @background;
+    /* NOTE: not border because it is outside*/
+    border-top: 0.15rem solid @background;
+    border-bottom: 0.15rem solid @background;
+    /* border-right: 0.15rem solid @background; */
 }
 
 #language {

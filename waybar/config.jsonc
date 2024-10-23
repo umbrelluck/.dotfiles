@@ -109,14 +109,14 @@
         "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-.sh"
     },
     "clock": {
-        "format": "  <b>{:%a %b %d %r}</b>",
+        "format": "  <b>{:L%a %b %d %r}</b>",
         // "format": "  {:%H:%M}",
         // "format-alt": " {:%A, %B %d, %Y (%R)}",
         // "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "timezones": [
-            "EEST",
-            "UTC"
+            "Europe/Kyiv"
         ],
+        "interval": 1,
         "tooltip": false,
         "calendar": {
             "mode": "year",
@@ -159,6 +159,7 @@
             "warning": 30,
             "critical": 15
         },
+        "tooltip": false,
         "format": "{icon} {capacity}%",
         "format-charging": "󰂄 {capacity}%",
         "tooltip-format": "{timeTo}",
