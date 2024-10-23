@@ -1,3 +1,5 @@
+[general]
+live_config_reload = true
 import = [
     # "~/.dotfiles/alacritty/themes/bamboo.toml",
     # "~/.config/alacritty/themes/catppuccin-latte.toml",
@@ -5,8 +7,6 @@ import = [
     "~/.config/alacritty/themes/catppuccin-macchiato.toml",
     # "~/.config/alacritty/theme/catppuccin-mocha.toml"
 ]
-
-live_config_reload = true
 
 [env]
 # TERM = "xterm-256color"
