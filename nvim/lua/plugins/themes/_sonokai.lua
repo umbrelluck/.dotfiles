@@ -1,8 +1,9 @@
 return {
     "sainnhe/sonokai",
     enabled = false,
-    piority = 1000,
-    lazy = false,
+    event = "VeryLazy",
+    -- piority = 1000,
+    -- lazy = false,
     config = function()
         vim.g.sonokai_style = 'default' -- 'default'`, `'atlantis'`, `'andromeda'`, `'shusia'`, `'maia'`, `'espresso'`
         vim.g.sonokai_better_performance = 1

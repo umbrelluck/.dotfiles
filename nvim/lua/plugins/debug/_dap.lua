@@ -1,6 +1,7 @@
 return {
     {
         "mfussenegger/nvim-dap",
+        event = "VeryLazy",
         keys = { "<leader>b" },
         config = function()
             local dap = require("dap")
@@ -139,6 +140,7 @@ return {
             "mfussenegger/nvim-dap",
             { "folke/neodev.nvim", opts = { library = { plugins = { "nvim-dap-ui" }, types = true }, }, },
         },
+        event = "VeryLazy",
         opts = {},
         keys = { "<leader>b" },
         config = function(_, opts)

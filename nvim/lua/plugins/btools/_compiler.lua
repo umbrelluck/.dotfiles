@@ -1,6 +1,7 @@
 return {
     "Zeioth/compiler.nvim",
     cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    event = "VeryLazy",
     dependencies = { "stevearc/overseer.nvim" },
     keys = {
         { '<F6>', "<cmd>CompilerOpen<cr>",          desc = "Open Compiler" },

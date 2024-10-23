@@ -2,6 +2,7 @@ return {
     {
         'akinsho/toggleterm.nvim',
         version = "*",
+        event = "VeryLazy",
         keys = "<m-\\>",
         opts = {
             size = function(term)

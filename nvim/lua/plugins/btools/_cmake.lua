@@ -6,6 +6,7 @@ return {
         "BufReadPre *.c",
         "BufReadPre *.h",
         "BufReadPre CMakeLists.txt",
+        "VeryLazy",
     },
     keys = {
         { "<leader>cg", ":CMakeGenerate<cr>", desc = "[C]Make[G]enerate" },

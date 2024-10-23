@@ -3,7 +3,9 @@ return {
         "catppuccin/nvim",
         -- enabled = false,
         name = "catppuccin",
+        lazy = false,
         priority = 1000,
+        -- event = "VeryLazy",
         opts = {
             compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
             flavour = "macchiato", -- latte, frappe, macchiato, mocha

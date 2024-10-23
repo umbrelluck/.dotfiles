@@ -2,6 +2,7 @@ return {
     "jiaoshijie/undotree",
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = { "<leader>u" },
+    event = "VeryLazy",
     opts = {
         float_diff = false,     -- using float window previews diff, set this `true` will disable layout option
         layout = "left_bottom", -- "left_bottom", "left_left_bottom"

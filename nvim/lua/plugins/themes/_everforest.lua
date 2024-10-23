@@ -2,8 +2,9 @@ return {
     {
         "sainnhe/everforest",
         enabled = false,
-        lazy = false,
-        priority = 1000,
+        event = "VeryLazy",
+        -- lazy = false,
+        -- priority = 1000,
         config = function()
             vim.o.background = "dark"
             vim.g.everforest_background = "hard"

@@ -1,8 +1,9 @@
 return {
     "rebelot/kanagawa.nvim",
     enabled = false,
-    prioirty = 1000,
-    lazy = false,
+    -- prioirty = 1000,
+    -- lazy = false,
+    event = "VeryLazy",
     opts = {
         compile = false,  -- enable compiling the colorscheme
         undercurl = true, -- enable undercurls

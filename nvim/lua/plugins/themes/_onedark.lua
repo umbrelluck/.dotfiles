@@ -3,6 +3,7 @@ return { {
     enabled = false,
     priority = 1000,
     lazy = false,
+    event = "VeryLazy",
     opts = {
         style = "warm",
         transparent = false,          -- Show/hide background

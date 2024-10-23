@@ -5,6 +5,7 @@ return {}
 --         enabled = false,
 --         name = "catppuccin",
 --         priority = 1000,
+-- event = "VeryLazy",
 --         opts = {
 --             -- term_colors = true,
 --             compile_path = vim.fn.stdpath("cache") .. "/catppuccin",

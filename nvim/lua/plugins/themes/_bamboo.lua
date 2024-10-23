@@ -3,6 +3,7 @@ return {
     -- lazy = false,
     enabled = false,
     priority = 1000,
+    event = "VeryLazy",
     opts = {
         -- NOTE: to use the light theme, set `vim.o.background = 'light'`
         style = 'vulgaris',                                       -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'

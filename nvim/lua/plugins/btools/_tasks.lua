@@ -3,6 +3,7 @@ return
     "stevearc/overseer.nvim",
     -- commit = "400e762648b70397d0d315e5acaf0ff3597f2d8b",
     cmd = { "OverseerRun", "OverseerToggle" },
+    event = "VeryLazy",
     opts = {
         task_list = {
             direction = "bottom",

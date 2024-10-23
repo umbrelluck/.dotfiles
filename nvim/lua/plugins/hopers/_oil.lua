@@ -1,5 +1,6 @@
 return {
     'stevearc/oil.nvim',
+    lazy = false,
     opts = {
         default_file_explorer = true,
         -- Id is automatically added at the beginning, and name at the end
