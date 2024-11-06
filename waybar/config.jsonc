@@ -15,6 +15,7 @@
         // "hyprland/window"
     ],
     "modules-center": [
+        // "custom/notifications",
         "clock"
     ],
     "modules-right": [
@@ -76,7 +77,7 @@
         "escape": true,
         "return-type": "json",
         "exec": "~/.dotfiles/scripts/packages/updates#.sh",
-        "restart-interval": 60,
+        "restart-interval": 3600,
         "tooltip": false,
         "on-click": "~/.dotfiles/scripts/packages/install_updates.sh"
     },
@@ -107,6 +108,17 @@
         ],
         "on-scroll-up": "~/.dotfiles/scripts/backlight/bright+.sh",
         "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-.sh"
+    },
+    "custom/notifications": {
+        "format": " {}",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.dotfiles/scripts/notifications/notifications#.sh",
+        "restart-interval": 60,
+        "tooltip": false,
+        // "on-click": "~/.dotfiles/scripts/notifications/clear_history.sh",
+        "on-click-right": "~/.dotfiles/scripts/notifications/clear_history.sh",
+        "on-click-middle": "~/.dotfiles/scripts/notifications/toggle_pause.sh"
     },
     "clock": {
         "format": "  <b>{:L%a %b %d %r}</b>",
@@ -148,6 +160,7 @@
             " "
         ],
         "on-click-right": "~/.dotfiles/scripts/sound/wpctl~.sh",
+        "on-click-middle": "~/.dotfiles/scripts/sound/playerctl~.sh",
         "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl+.sh",
         "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-.sh"
     },
