@@ -43,6 +43,9 @@ stow -t "$confd/waybar" "$dotdir/waybar"
 mkdir -p "$confd/walker"
 stow -t "$confd/walker" "$dotdir/walker"
 
+mkdir -p "$confd/dunst"
+stow -t "$confd/dunst" "$dotdir/dunst"
+
 mkdir -p "$confd/wlogout"
 stow -t "$confd/wlogout" "$dotdir/wlogout"
 

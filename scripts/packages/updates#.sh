@@ -1,5 +1,7 @@
 #! /usr/bin/zsh
 
+# printf '{"text": "0", "class": "loading"}'
+
 if ! pacman_upd=$(checkupdates 2>/dev/null | wc -l); then
     pacman_upd=0
 fi

@@ -1,5 +1,14 @@
 #! /usr/bin/bash
 
-~/Git/WhiteSur-gtk-theme/install.sh
-~/Git/WhiteSur-gtk-theme/install.sh -l
-~/Git/WhiteSur-kde/install.sh
+CURD=$(pwd)
+
+z ~/Git/WhiteSur-gtk-theme/
+git pull
+install.sh
+install.sh -l
+
+z ~/Git/WhiteSur-kde/
+git pull
+install.sh
+
+z "$CURD"
