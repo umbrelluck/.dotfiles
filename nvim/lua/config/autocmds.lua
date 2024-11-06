@@ -69,3 +69,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- 	group = godot_autogroup,
 -- 	pattern = "*.gd"
 -- })
+
+vim.filetype.add({
+    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
