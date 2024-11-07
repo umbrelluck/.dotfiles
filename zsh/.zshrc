@@ -168,7 +168,7 @@ alias dufi='duf -only local'
 
 alias echo='echo -e'
 
-alias rip='rg -ie'
+alias rip='rg -i'
 alias grep='grep --color=auto'
 
 alias lg='lazygit'
