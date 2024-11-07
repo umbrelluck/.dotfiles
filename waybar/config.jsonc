@@ -10,19 +10,16 @@
     "margin-top": 3,
     "modules-left": [
         "hyprland/workspaces",
-        "tray"
-        // "wlr/taskbar",
-        // "hyprland/window"
+        "tray",
+        "privacy",
+        "custom/fullscreen"
     ],
     "modules-center": [
-        // "custom/notifications",
         "clock"
     ],
     "modules-right": [
-        // "group/tray",
         "idle_inhibitor",
         "custom/updates",
-        // "pulseaudio", 
         "backlight",
         "wireplumber",
         "hyprland/language",
@@ -56,20 +53,35 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
-    //FIXME: not working
-    "group/tray": {
-        // "orientation": "inherit",
-        "modules": [
-            "custom/tray-icon",
-            "tray"
-        ]
-    },
-    "custom/tray-icon": {
-        "format": "󰎟",
-        "tooltip": false
-    },
     "tray": {
         "spacing": 8
+    },
+    "custom/fullscreen": {
+        "format": "{}",
+        "tooltip": false,
+        "exec": "~/.dotfiles/scripts/hyprland/find_maximized.sh"
+    },
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 150,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            }
+        ]
     },
     "custom/updates": {
         "format": "󱧘 {}",
@@ -121,7 +133,7 @@
         "on-click-middle": "~/.dotfiles/scripts/notifications/toggle_pause.sh"
     },
     "clock": {
-        "format": "  <b>{:L%a %b %d %r}</b>",
+        "format": "  <b>{:L%a %b %d %r}</b>", // %T for 24h
         // "format": "  {:%H:%M}",
         // "format-alt": " {:%A, %B %d, %Y (%R)}",
         // "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -143,7 +155,7 @@
                 "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
             }
         },
-        "on-click": "~/.dotfiles/scripts/calendar/launcher.sh",
+        "on-click": "~/.dotfiles/scripts/calendar/calcurse.sh",
         "actions": {
             "on-scroll-up": "tz_up",
             "on-scroll-down": "tz_down"
@@ -152,13 +164,14 @@
     "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": " {volume}%", // 󰖁   
-        "on-click": "~/.dotfiles/scripts/sound/pwvucontrol.sh", //pulseaudio , helvum
+        "tooltip": false,
         "max-volume": 100,
         "format-icons": [
             // "",
             // "",
             " "
         ],
+        "on-click": "~/.dotfiles/scripts/sound/pwvucontrol.sh", //pulseaudio , helvum
         "on-click-right": "~/.dotfiles/scripts/sound/wpctl~.sh",
         "on-click-middle": "~/.dotfiles/scripts/sound/playerctl~.sh",
         "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl+.sh",

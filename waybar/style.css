@@ -41,8 +41,8 @@ button {
     color: @rosewater;
     background-color: @background;
     border-radius: 1rem;
-    padding-left: 0.6rem;
-    padding-right: 0.6rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
 }
 
 
@@ -60,6 +60,8 @@ button {
     /* background: rgba(0, 0, 0, 0.2); */
     /* NOTE: hover upperline */
     /* box-shadow: inset 0 1px @rosewater; */
+    /* border-style: inset; */
+    /* border: 0.15rem solid @background; */
 }
 
 #workspaces button.active {
@@ -73,7 +75,9 @@ button {
 
 #workspaces button.urgent {
     color: @background;
-    background-color: @maroon;
+    background-color: @rosewater;
+    /* box-shadow: inset 0 -3px transparent; */
+    /* background-color: @maroon; */
 }
 
 
@@ -91,23 +95,8 @@ button {
     margin-right: 0.5rem;
 }
 
-#clock {
-    color: @rosewater;
-    background-color: @background;
-    border-radius: 1rem;
-    padding-left: 0.8rem;
-    padding-right: 0.8rem;
-}
-
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-#tray {
+#tray,
+#custom-fullscreen {
     background-color: @background;
     border-radius: 1rem;
     margin-left: 0.75rem;
@@ -122,6 +111,38 @@ button {
 #tray>.needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
+}
+
+#privacy {
+    color: @background;
+    background-color: @lavender;
+    margin-left: 0.75rem;
+    padding-left: 0.6rem;
+    padding-right: 0.5rem;
+    border-radius: 1rem;
+    border: 0.15rem solid @background;
+}
+
+#custom-fullscreen {
+    color: @lavender;
+    padding-left: 0.6rem;
+    padding-right: 0.95rem;
+}
+
+#clock {
+    color: @rosewater;
+    background-color: @background;
+    border-radius: 1rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
 }
 
 #idle_inhibitor,
@@ -144,6 +165,7 @@ button {
     background-color: @lavender;
     padding-left: 0.7rem;
     border: 0.15rem solid @background;
+    /* border: none; */
 }
 
 #custom-updates {
