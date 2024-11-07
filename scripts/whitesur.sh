@@ -2,13 +2,13 @@
 
 CURD=$(pwd)
 
-z ~/Git/WhiteSur-gtk-theme/
+cd ~/Git/WhiteSur-gtk-theme/
 git pull
 install.sh
 install.sh -l
 
-z ~/Git/WhiteSur-kde/
+cd ~/Git/WhiteSur-kde/
 git pull
 install.sh
 
-z "$CURD"
+cd "$CURD"
