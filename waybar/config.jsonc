@@ -31,14 +31,16 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "active": "",
-            "default": ""
-            // "default": ""
+            // "1": "",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "active": "", //     󰪥
+            // "default": ""
+            "default": "",
+            "urgent": ""
         },
         "persistent-workspaces": {
             "*": [
@@ -89,7 +91,7 @@
         "escape": true,
         "return-type": "json",
         "exec": "~/.dotfiles/scripts/packages/updates#.sh",
-        "restart-interval": 3600,
+        "restart-interval": 300,
         "tooltip": false,
         "on-click": "~/.dotfiles/scripts/packages/install_updates.sh"
     },
