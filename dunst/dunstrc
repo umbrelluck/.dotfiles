@@ -132,6 +132,7 @@
 [urgency_critical]
 
     # High urgency notifications
-    background = "#ffffff"
-    foreground = "#db0101"
+    background = "#1b1d21"
+    foreground = "#f50a0a"
+    frame_color = "#f50a0a"
     timeout = 0

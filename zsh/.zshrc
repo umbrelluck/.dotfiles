@@ -189,10 +189,11 @@ export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/ma
 export INFOPATH="$INFOPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/info"
 export PATH="$PATH:$HOME/ProgramFiles/LaTeX/texlive/2024/bin/x86_64-linux"
 
+export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
+export PATH="$PATH:$HOME/.cargo/bin/"
 
 eval "$(zoxide init zsh)"
 
