@@ -1,6 +1,7 @@
 return {
     {
         "norcalli/nvim-colorizer.lua",
+        lazy = "VeryLazy",
         enabled = false,
         opts = {
             RGB      = true,         -- #RGB hex codes
