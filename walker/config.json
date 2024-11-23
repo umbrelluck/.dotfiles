@@ -1,117 +1,66 @@
-type Config struct {
-	Terminal       string            `mapstructure: "terminal"`
-	IgnoreMouse    bool              `mapstructure: "ignore_mouse"`
-	SpecialLabels  map[string
-    ]string `mapstructure: "special_labels"`
-	UI             UI                `mapstructure: "ui"`
-	List           List              `mapstructure: "list"`
-	Search         Search            `mapstructure: "search"`
-	ActivationMode ActivationMode    `mapstructure: "activation_mode"`
-	Disabled       []string          `mapstructure: "disabled"`
-	Plugins        []Plugin          `mapstructure: "plugins"`
-	Builtins       Builtins          `mapstructure: "builtins"`
-
-	// internal
-	IsService bool     `mapstructure: "-"`
-	Enabled   []string `mapstructure: "-"`
-}
-
-type Builtins struct {
-	Applications   Applications   `mapstructure: "applications"`
-	Clipboard      Clipboard      `mapstructure: "clipboard"`
-	Commands       Commands       `mapstructure: "commands"`
-	CustomCommands CustomCommands `mapstructure: "custom_commands"`
-	Emojis         Emojis         `mapstructure: "emojis"`
-	Finder         Finder         `mapstructure: "finder"`
-	Hyprland       Hyprland       `mapstructure: "hyprland"`
-	Runner         Runner         `mapstructure: "runner"`
-	SSH            SSH            `mapstructure: "ssh"`
-	Switcher       Switcher       `mapstructure: "switcher"`
-	Websearch      Websearch      `mapstructure: "websearch"`
-}
-
-type GeneralModule struct {
-	IsSetup      bool   `mapstructure: "-"`
-	History      bool   `mapstructure: "history"`
-	Placeholder  string `mapstructure: "placeholder"`
-	Prefix       string `mapstructure: "prefix"`
-	SpecialLabel string `mapstructure: "special_label"`
-	SwitcherOnly bool   `mapstructure: "switcher_only"`
-	Typeahead    bool   `mapstructure: "typeahead"`
-}
-
-type ActivationMode struct {
-	UseAlt   bool `mapstructure: "use_alt"`
-	Disabled bool `mapstructure: "disabled"`
-	UseFKeys bool `mapstructure: "use_f_keys"`
-}
-
-type Plugin struct {
-	GeneralModule  `mapstructure: ",squash"`
-	Name           string            `mapstructure: "name"`
-	SrcOnce        string            `mapstructure: "src_once"`
-	SrcOnceRefresh bool              `mapstructure: "src_once_refresh"`
-	Src            string            `mapstructure: "src"`
-	Cmd            string            `mapstructure: "cmd"`
-	CmdAlt         string            `mapstructure: "cmd_alt"`
-	Terminal       bool              `mapstructure: "terminal"`
-	KeepSort       bool              `mapstructure: "keep_sort"`
-	Matching       util.MatchingType `mapstructure: "matching"` // 0 = fuzzy, 1 = always top, 2 = always bottom
-}
-
-type Search struct {
-	Delay              int    `mapstructure: "delay"`
-	Typeahead          bool   `mapstructure: "typeahead"`
-	ForceKeyboardFocus bool   `mapstructure: "force_keyboard_focus"`
-	Icons              bool   `mapstructure: "icons"`
-	Spinner            bool   `mapstructure: "spinner"`
-	History            bool   `mapstructure: "history"`
-	MarginSpinner      int    `mapstructure: "margin_spinner"`
-	Placeholder        string `mapstructure: "placeholder"`
-}
-
-type Icons struct {
-	Hide      bool   `mapstructure: "hide"`
-	Size      int    `mapstructure: "size"`
-	ImageSize int    `mapstructure: "image_size"`
-	Theme     string `mapstructure: "theme"`
-}
-
-type UI struct {
-	Icons           Icons   `mapstructure: "icons"`
-	Orientation     string  `mapstructure: "orientation"`
-	Fullscreen      bool    `mapstructure: "fullscreen"`
-	IgnoreExclusive bool    `mapstructure: "ignore_exclusive"`
-	Horizontal      string  `mapstructure: "horizontal"`
-	Vertical        string  `mapstructure: "vertical"`
-	Width           int     `mapstructure: "width"`
-	Height          int     `mapstructure: "height"`
-	Margins         Margins `mapstructure: "margins"`
-	Anchors         Anchors `mapstructure: "anchors"`
-}
-
-type Anchors struct {
-	Top    bool `mapstructure: "top"`
-	Left   bool `mapstructure: "left"`
-	Right  bool `mapstructure: "right"`
-	Bottom bool `mapstructure: "bottom"`
-}
-
-type Margins struct {
-	Top    int `mapstructure: "top"`
-	Bottom int `mapstructure: "bottom"`
-	End    int `mapstructure: "end"`
-	Start  int `mapstructure: "start"`
-}
-
-type List struct {
-	AlwaysShow         bool   `mapstructure: "always_show"`
-	FixedHeight        bool   `mapstructure: "fixed_height"`
-	Height             int    `mapstructure: "height"`
-	HideSub            bool   `mapstructure: "hide_sub"`
-	MarginTop          int    `mapstructure: "margin_top"`
-	MaxEntries         int    `mapstructure: "max_entries"`
-	ScrollbarPolicy    string `mapstructure: "scrollbar_policy"`
-	ShowInitialEntries bool   `mapstructure: "show_initial_entries"`
-	Width              int    `mapstructure: "width"`
+{
+  "builtins": {
+    "applications": {
+      "actions": true
+    },
+    "clipboard": {
+      "image_height": 300,
+      "max_entries": 10,
+      "switcher_only": true
+    },
+    "commands": {
+      "switcher_only": true
+    },
+    "emojis": {
+      "switcher_only": true
+    },
+    "finder": {
+      "switcher_only": true
+    },
+    "hyprland": {
+      "context_aware_history": true
+    },
+    "ssh": {
+      "switcher_only": true
+    },
+    "switcher": {
+      "prefix": "/"
+    }
+  },
+  "list": {
+    "always_show": true,
+    "fixed_height": false,
+    "height": 300,
+    "margin_top": 10,
+    "max_entries": 50,
+    "scrollbar_policy": "automatic",
+    "show_initial_entries": true,
+    "width": 400
+  },
+  "search": {
+    "delay": 0,
+    "force_keyboard_focus": true,
+    "history": true,
+    "icons": true,
+    "placeholder": "Search...",
+    "typeahead": true
+  },
+  "ui": {
+    "anchors": {
+      "top": true
+    },
+    "fullscreen": false,
+    "horizontal": "center",
+    "icons": {
+      "image_size": 150,
+      "size": 38
+    },
+    "ignore_exclusive": true,
+    "margins": {
+      "top": 100
+    },
+    "orientation": "vertical",
+    "vertical": "start",
+    "width": 400
+  }
 }
