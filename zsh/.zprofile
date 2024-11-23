@@ -10,3 +10,7 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 # export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
+#
+#
+#
+# gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
