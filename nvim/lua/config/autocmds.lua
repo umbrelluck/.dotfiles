@@ -27,14 +27,14 @@ end, {})
 
 --  filetype: 'ft' | syntax: 'syntax'
 local file_group = vim.api.nvim_create_augroup("FileTypes", { clear = true })
-vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
-    group = file_group,
-    pattern = "hyprland.conf",
-    callback = function() --  filetype: 'ft' | syntax: 'syntax'
-        vim.cmd("set ft=config")
-        vim.cmd("set syntax=config")
-    end
-})
+-- vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
+--     group = file_group,
+--     pattern = "hyprland.conf",
+--     callback = function() --  filetype: 'ft' | syntax: 'syntax'
+--         vim.cmd("set ft=config")
+--         vim.cmd("set syntax=config")
+--     end
+-- })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufRead" }, {
     group = file_group,
@@ -71,5 +71,8 @@ vim.api.nvim_create_autocmd("FileType", {
 -- })
 
 vim.filetype.add({
-    pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+    pattern = {
+        [".*/hypr/.*%.conf"] = "hyprlang",
+        [".*/dunst/dunstrc.*"] = "config",
+    },
 })

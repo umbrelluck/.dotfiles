@@ -30,6 +30,7 @@ local opts = {
     -- defaults = { lazy = true },
     -- install = { "bamboo" },
     ui = { border = "rounded" },
+    checker = { enabled = true },
 }
 
 require("lazy").setup(specs, opts)

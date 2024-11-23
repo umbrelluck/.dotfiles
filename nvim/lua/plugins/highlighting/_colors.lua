@@ -1,19 +1,19 @@
 return {
-    {
-        "norcalli/nvim-colorizer.lua",
-        lazy = "VeryLazy",
-        enabled = false,
-        opts = {
-            RGB      = true,         -- #RGB hex codes
-            RRGGBB   = true,         -- #RRGGBB hex codes
-            names    = true,         -- "Name" codes like Blue
-            RRGGBBAA = false,        -- #RRGGBBAA hex codes
-            rgb_fn   = false,        -- CSS rgb() and rgba() functions
-            hsl_fn   = false,        -- CSS hsl() and hsla() functions
-            css      = false,        -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-            css_fn   = false,        -- Enable all CSS *functions*: rgb_fn, hsl_fn
-            -- Available modes: foreground, background
-            mode     = 'background', -- Set the display mode.
-        }
+    "uga-rosa/ccc.nvim",
+    -- lazy = "VeryLazy",
+    -- enabled = false,
+    opts = {
+        highlighter = {
+            auto_enable = true,
+            lsp = true,
+        },
+        highlight_mode = "virtual",
+        virtual_pos = "inline-right"
     }
 }
+
+-- local ccc = require("ccc")
+-- local mapping = ccc.mapping
+--
+-- d Default mapping: h / s / m (1 / 5 / 10)
+-- i Default mapping: l / d / , (1 / 5 / 10)

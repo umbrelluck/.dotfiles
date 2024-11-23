@@ -33,7 +33,7 @@ return {
 
             -- _G.nmap('<leader>gf', builtin.git_files, { desc = 'Search [G]it [F]iles' })
             _G.nmap('<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-            -- _G.nmap('<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
+            _G.nmap('<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             -- _G.nmap('<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
             _G.nmap('<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
             _G.nmap('<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
