@@ -19,13 +19,11 @@ export MANROFFOPT="-c" #NOTE: may be neede fpr bat formatting purposes
 export EDITOR="nvim"
 # export VISUAL="nvim"
 
-# export SCRSDIR="$HOME/.scripts"
 export SCRSDIR="$HOME/.dotfiles/scripts/"
 export GITDIR="$HOME/Git"
 
 export DIFFPROG="nvim -d $1"
 
-# wal -R
 [[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -50,7 +48,6 @@ zstyle ':completion:*' rehash true
 
 source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $ZDOTDIR/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 for script ($ZDOTDIR/.zsh/scripts/*.zsh) source $script

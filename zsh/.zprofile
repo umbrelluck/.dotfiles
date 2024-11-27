@@ -14,3 +14,7 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 #
 #
 # gsettings set org.gnome.desktop.interface cursor-theme 'breeze_cursors'
+
+# if uwsm check may-start && uwsm select; then
+# 	exec systemd-cat -t uwsm_start uwsm start default
+# fi
