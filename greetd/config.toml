@@ -2,5 +2,6 @@
 vt = 1
 
 [default_session]
-command = "tuigreet --remember --cmd Hyprland"
+# command = "tuigreet --remember --cmd Hyprland"
+command = "cage -s -- regreet"
 user = "greeter"

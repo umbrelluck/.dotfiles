@@ -1,0 +1,16 @@
+[background]
+path = "/etc/greetd/themes/wallhaven-1p526w.png"
+
+[GTK]
+application_prefer_dark_theme = true
+cursor_theme_name = "breeze"
+icon_theme_name = "breeze"
+theme_name = "Adwaita"
+# font_name = "Cantarell 16"
+
+# [env]
+# ENV_VARIABLE = "value"
+
+[commands]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]
