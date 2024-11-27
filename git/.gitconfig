@@ -18,10 +18,10 @@
     colorMoved = default
 
 [credential]
-    helper = /usr/bin/git-credential-manager
     ; helper = store
-    credentialStore = gpg
-    ; credentialStore = secretservice
+    helper = /usr/bin/git-credential-manager
+    ; credentialStore = gpg
+    credentialStore = secretservice
 
 [delta]
     navigate = true

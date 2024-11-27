@@ -52,7 +52,7 @@ stow -t "$confd/wlogout" "wlogout"
 stow -t "$HOME" "gdu"
 sudo cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
 
-if [[ ! -f "$HOME/.gitconfig"]]; then
+if [[ ! -f "$HOME/.gitconfig" ]]; then
     cp ./git/.gitconfig "$HOME"
     echo "Do not forget to add user section in .gitconfig"
 fi
