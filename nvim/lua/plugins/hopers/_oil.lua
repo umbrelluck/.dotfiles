@@ -26,6 +26,7 @@ return {
             list = false,
             conceallevel = 3,
             concealcursor = "nvic",
+            -- winbar = "%!v:lua.get_oil_winbar()",
         },
         delete_to_trash = false,
         skip_confirm_for_simple_edits = true,
@@ -90,6 +91,9 @@ return {
                 { "type", "asc" },
                 { "name", "asc" },
             },
+            highlight_filename = function(entry, is_hidden, is_link_target, is_link_orphan)
+                return nil
+            end,
         },
         float = {
             padding = 2,

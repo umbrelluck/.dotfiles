@@ -14,7 +14,6 @@ return { {
         _G.nmap("<leader>ha", mark.add_file, { desc = "Add buffer to harpoon ([V]isit)" })
         _G.nmap("<leader>hl", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
         _G.nmap("<leader>hf", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
-        _G.nmap("<leader>hl", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
         _G.nmap("<leader>sl", ui.toggle_quick_menu, { desc = "View added buffers in harpoon" })
         _G.nmap("<leader>1", function()
             ui.nav_file(1)

@@ -1,10 +1,18 @@
 return {
     "uga-rosa/ccc.nvim",
-    -- lazy = "VeryLazy",
-    -- enabled = false,
+    -- event = "VeryLazy",
+    cmd = { "CccPick",
+        "CccHighlighterEnable",
+        "CccHighlighterDisable",
+        "CccHighlighterToggle"
+    },
+    keys = {
+        { "<leader>ci", "<cmd>CccPick<cr>",              desc = "[C]olor P[i]cker" },
+        { "<leader>co", "<cmd>CccHighlighterToggle<cr>", desc = "[C]olor Picker T[o]ggle" }
+    },
     opts = {
         highlighter = {
-            auto_enable = true,
+            auto_enable = false,
             lsp = true,
         },
         highlight_mode = "virtual",
