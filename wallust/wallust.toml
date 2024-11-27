@@ -1,0 +1,23 @@
+# Docs here: https://explosion-mental.codeberg.page/wallust/intro.html
+
+backend = "full"
+color_space = "lch"
+# threshold = 3
+palette = "softdark16"
+#check_contrast = true
+#saturation = 35
+#alpha = 100
+
+[templates]
+
+hyprland.template = "colors-hypr.conf"
+hyprland.target = "~/.dotfiles/hypr//hall/hypr-colors.conf"
+
+waybar.template = "colors-waybar.css"
+waybar.target = "~/.dotfiles/waybar/waybar-colors.css"
+
+alacritty.template = "colors-alacritty.toml"
+alacritty.target = "~/.dotfiles/alacritty/alacritty-colors.toml"
+
+gdu.template = "colors-gdu.yaml"
+gdu.target = "~/.dotfiles/gdu/.gdu.yaml"

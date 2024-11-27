@@ -1,0 +1,5 @@
+style:
+    selected-row:
+        text-color: '{{background}}'
+        background-color: '{{cursor}}'
+

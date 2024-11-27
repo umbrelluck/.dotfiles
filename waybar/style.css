@@ -1,6 +1,5 @@
 @import url("themes/catppuccin/macchiato.css");
-
-@define-color background @crust;
+@import url("waybar-colors.css");
 
 * {
     font-family: Hack Nerd Font, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -40,7 +39,7 @@ button {
 
 #workspaces {
     color: @rosewater;
-    background-color: @background;
+    background-color: @crust;
     border-radius: 1rem;
     padding-left: 0.3rem;
     padding-right: 0.5rem;
@@ -55,7 +54,7 @@ button {
 
 #workspaces button:hover {
     color: @overlay0;
-    background: @background;
+    background: @crust;
     border-radius: 1rem;
     /* background: @rosewater; */
     /* background: color-mix(in srgb, @rosewater , transparent 50%); */
@@ -63,7 +62,7 @@ button {
     /* NOTE: hover upperline */
     /* box-shadow: inset 0 1px @rosewater; */
     /* border-style: inset; */
-    /* border: 0.15rem solid @background; */
+    /* border: 0.15rem solid @crust; */
 }
 
 #workspaces button.active {
@@ -82,7 +81,7 @@ button {
 
 #workspaces button.urgent {
     color: @red;
-    background-color: @background;
+    background-color: @crust;
     border-radius: 1rem;
     /* box-shadow: inset 0 -3px transparent; */
     /* background-color: @maroon; */
@@ -105,7 +104,7 @@ button {
 
 #tray,
 #custom-fullscreen {
-    background-color: @background;
+    background-color: @crust;
     border-radius: 1rem;
     margin-left: 0.75rem;
     padding-left: 0.6rem;
@@ -122,13 +121,13 @@ button {
 }
 
 #privacy {
-    color: @background;
+    color: @crust;
     background-color: @lavender;
     margin-left: 0.75rem;
     padding-left: 0.6rem;
     padding-right: 0.5rem;
     border-radius: 1rem;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
 }
 
 #custom-fullscreen {
@@ -139,7 +138,7 @@ button {
 
 #clock {
     color: @rosewater;
-    background-color: @background;
+    background-color: @crust;
     border-radius: 1rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
@@ -155,7 +154,7 @@ button {
 
 #idle_inhibitor,
 #custom-updates {
-    background-color: @background;
+    background-color: @crust;
     /* margin: 0; */
     padding-right: 0.6rem;
     padding-left: 0.6rem;
@@ -169,10 +168,10 @@ button {
 }
 
 #idle_inhibitor.activated {
-    color: @background;
+    color: @crust;
     background-color: @lavender;
     padding-left: 0.7rem;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
     /* border: none; */
 }
 
@@ -187,18 +186,18 @@ button {
 }
 
 #custom-updates.yes {
-    color: @background;
+    color: @crust;
     background-color: @green;
     padding-right: 0.7rem;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
     border-left: none;
 }
 
 /* #custom-updates.loading { */
-/*     color: @background; */
+/*     color: @crust; */
 /*     background-color: @yellow; */
 /*     padding-right: 0.7rem; */
-/*     border: 0.15rem solid @background; */
+/*     border: 0.15rem solid @crust; */
 /*     border-left: none; */
 /* } */
 
@@ -208,7 +207,7 @@ button {
 #bluetooth,
 #network,
 #battery {
-    background-color: @background;
+    background-color: @crust;
     margin: 0;
     padding-right: 0.6rem;
     padding-left: 0.6rem;
@@ -228,21 +227,21 @@ button {
 }
 
 #wireplumber.muted {
-    color: @background;
+    color: @crust;
     background-color: @peach;
     /* note: not border because it is outside*/
-    border-top: 0.15rem solid @background;
-    border-bottom: 0.15rem solid @background;
-    /* border-right: 0.15rem solid @background; */
+    border-top: 0.15rem solid @crust;
+    border-bottom: 0.15rem solid @crust;
+    /* border-right: 0.15rem solid @crust; */
 }
 
 #wireplumber.paused {
-    color: @background;
+    color: @crust;
     background-color: @lavender;
     /* note: not border because it is outside*/
-    border-top: 0.15rem solid @background;
-    border-bottom: 0.15rem solid @background;
-    /* border-right: 0.15rem solid @background; */
+    border-top: 0.15rem solid @crust;
+    border-bottom: 0.15rem solid @crust;
+    /* border-right: 0.15rem solid @crust; */
 }
 
 #language {
@@ -256,7 +255,7 @@ button {
 
 /* + off & on*/
 #bluetooth.disabled {
-    color: @background;
+    color: @crust;
     background-color: @blue;
 }
 
@@ -265,7 +264,7 @@ button {
 }
 
 #network.disabled {
-    color: @background;
+    color: @crust;
     background-color: @flamingo;
 }
 
@@ -277,32 +276,32 @@ button {
 }
 
 #battery.charging {
-    color: @background;
+    color: @crust;
     background-color: @green;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
 }
 
 #battery.meh:not(.charging) {
-    color: @background;
+    color: @crust;
     background-color: @yellow;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
 }
 
 #battery.warning:not(.charging) {
-    color: @background;
+    color: @crust;
     background-color: @peach;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
 }
 
 #battery.critical:not(.charging) {
-    color: @background;
+    color: @crust;
     background-color: @red;
-    border: 0.15rem solid @background;
+    border: 0.15rem solid @crust;
 }
 
 #custom-power {
     color: @maroon;
-    background-color: @background;
+    background-color: @crust;
     border-radius: 1rem;
     margin-right: 0.5rem;
     /*0.9*/
