@@ -30,7 +30,7 @@ local opts = {
     -- defaults = { lazy = true },
     -- install = { "bamboo" },
     ui = { border = "rounded" },
-    checker = { enabled = true },
+    checker = { enabled = false }, -- otherwise very slow and laggy at startup
 }
 
 require("lazy").setup(specs, opts)

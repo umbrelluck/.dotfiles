@@ -20,7 +20,7 @@ return {
             local mason_lspconfig = require("mason-lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            mason_lspconfig.setup({ ensure_installed = { "lua_ls", "clangd", "pyright", "bashls" } })
+            mason_lspconfig.setup({ ensure_installed = { "lua_ls", "clangd", "ruff", "bashls" } })
             mason_lspconfig.setup_handlers({
                 function(server_name)
                     lspconfig[server_name].setup({
