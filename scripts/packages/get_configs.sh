@@ -1,86 +1,125 @@
 #! /usr/bin/zsh
 
 confd="$XDG_CONFIG_HOME"
-dotdir="$HOME/.dotfiles"
 
-mkdir -p "$confd/alacritty/a_themes" 
-stow -t "$confd/alacritty" alacritty 
-if [ ! -d "$confd/alacritty/a_themes" ]; then 
-    git clone https://github.com/alacritty/alacritty-theme "$confd/alacritty/a_themes"
-else
-    echo "Updating existing alacritty themes"
-    git --git-dir="$HOME/.dotfiles/.git/" --work-tree="$HOME/.dotfiles/" pull
+if command -v alacritty 2>&1 > /dev/null; then
+    mkdir -p "$confd/alacritty/a_themes" 
+    stow -t "$confd/alacritty" alacritty 
+    if [[ ! -d "$confd/alacritty/a_themes" ]]; then 
+        git clone https://github.com/alacritty/alacritty-theme "$confd/alacritty/a_themes"
+    else
+        echo "Updating existing alacritty themes"
+        git --git-dir="$HOME/.dotfiles/.git/" --work-tree="$HOME/.dotfiles/" pull
+    fi
 fi
 
-mkdir -p "$confd/nvim"
-stow -t "$confd/nvim" "nvim"
+if command -v nvim 2>&1 > /dev/null; then
+    mkdir -p "$confd/nvim"
+    stow -t "$confd/nvim" "nvim"
+fi
 
-mkdir -p "$confd/paru"
-stow -t "$confd/paru" "paru"
+if command -v paru 2>&1 > /dev/null; then
+    mkdir -p "$confd/paru"
+    stow -t "$confd/paru" "paru"
+fi
 
-mkdir -p "$confd/qtile"
-stow -t "$confd/qtile" "qtile"
+if command -v qtile 2>&1 > /dev/null; then
+    mkdir -p "$confd/qtile"
+    stow -t "$confd/qtile" "qtile"
+fi
 
-mkdir -p "$confd/ranger"
-stow -t "$confd/ranger" "ranger"
+if command -v ranger 2>&1 > /dev/null; then
+    mkdir -p "$confd/ranger"
+    stow -t "$confd/ranger" "ranger"
+fi
 
-mkdir -p "$confd/X11"
-stow -t "$confd/X11" "X11"
+if [[ -d /etc/X11/ ]]; then
+    mkdir -p "$confd/X11"
+    stow -t "$confd/X11" "X11"
+fi
 
-mkdir -p "$confd/xplr"
-stow -t "$confd/xplr" "xplr"
+if command -v xplr 2>&1 > /dev/null; then
+    mkdir -p "$confd/xplr"
+    stow -t "$confd/xplr" "xplr"
+fi
 
-mkdir -p "$confd/hypr"
-# stow -t "$confd/hypr" "hyprland"
-stow -t "$confd/hypr" "hypr"
+if command -v Hyprland 2>&1 > /dev/null; then
+    mkdir -p "$confd/hypr"
+    stow -t "$confd/hypr" "hypr"
+    rm "$confd/hypr/hyprland.conf"
+    if command -v uwsm 2>&1 > /dev/null; then
+        mkdir -p "$confd/uwsm"
+        stow -t "$confd/uwsm" "uwsm"
+        ln -s "$HOME/.dotfiles/hypr/hyprland_uwsm.conf" "$confd/hypr/hyprland.conf"
+    else
+        ln -s "$HOME/.dotfiles/hypr/hyprland_standalone.conf" "$confd/hypr/hyprland.conf"
+    fi
 
-mkdir -p "$confd/yazi"
-stow -t "$confd/yazi" "yazi"
+fi
 
-mkdir -p "$confd/waybar"
-stow -t "$confd/waybar" "waybar"
+if command -v yazi 2>&1 > /dev/null; then
+    mkdir -p "$confd/yazi"
+    stow -t "$confd/yazi" "yazi"
+fi
 
-mkdir -p "$confd/walker"
-stow -t "$confd/walker" "walker"
+if command -v waybar 2>&1 > /dev/null; then
+    mkdir -p "$confd/waybar"
+    stow -t "$confd/waybar" "waybar"
+fi
 
-mkdir -p "$confd/dunst"
-stow -t "$confd/dunst" "dunst"
+if command -v walker 2>&1 > /dev/null; then
+    mkdir -p "$confd/walker"
+    stow -t "$confd/walker" "walker"
+fi
 
-mkdir -p "$confd/wlogout"
-stow -t "$confd/wlogout" "wlogout"
+if command -v dust 2>&1 > /dev/null; then
+    mkdir -p "$confd/dunst"
+    stow -t "$confd/dunst" "dunst"
+fi
 
-stow -t "$HOME" "gdu"
-sudo cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
+if command -v wlogout 2>&1 > /dev/null; then
+    mkdir -p "$confd/wlogout"
+    stow -t "$confd/wlogout" "wlogout"
+fi
+
+if command -v gdu 2>&1 > /dev/null; then
+    stow -t "$HOME" "gdu"
+    sudo cp "$HOME/.dotfiles/gdu/.gdu.yaml" /root
+fi
 
 if [[ ! -f "$HOME/.gitconfig" ]]; then
     cp ./git/.gitconfig "$HOME"
     echo "Do not forget to add user section in .gitconfig"
 fi
 
-# if [ ! -d "/etc/lemurs/wms" ] || [ ! -d "/etc/lemurs/wayland" ]; then
-echo "Lemurs setup needs password to write files"
-sudo cp "$HOME/.dotfiles/lemurs/xsetup.sh" "/etc/lemurs/xsetup.sh"
-sudo cp "$HOME/.dotfiles/lemurs/config.toml" "/etc/lemurs/config.toml"
-sudo cp -r "$HOME/.dotfiles/lemurs/wms" "/etc/lemurs/wms"
-sudo cp -r "$HOME/.dotfiles/lemurs/wayland" "/etc/lemurs/wayland"
-# fi
-
-echo "Greetd need permission to write files"
-sudo mkdir -p /etc/greetd/
-sudo cp -r "$HOME/.dotfiles/greetd"/* "/etc/greetd/"
-
-echo "Reflector needs password to write files"
-sudo cp "$HOME/.dotfiles/reflector/refletor.conf" "/etc/xdg/reflector/reflector.conf"
-sudo systemctl enable reflector.timer
-sudo systemctl start reflector.timer
-
-stow -t "$HOME" "tmux"
-if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if command -v lemurs 2>&1 > /dev/null; then
+    echo "Lemurs setup needs password to write files"
+    sudo cp -r "$HOME/.dotfiles/lemurs"/* "/etc/lemurs/"
 fi
 
-# stow -t "$HOME" scripts 
-stow -t "$HOME" "powerlevel10k"
-stow -t "$HOME" "zsh" 
-source ~/.zshrc && . "$SCRSDIR/zsh_plugin&script_downloader.sh"
+if command -v greetd 2>&1 > /dev/null; then
+    echo "Greetd need permission to write files"
+    sudo mkdir -p /etc/greetd/
+    sudo cp -r "$HOME/.dotfiles/greetd"/* "/etc/greetd/"
+fi
+
+if command -v reflector 2>&1 > /dev/null; then
+    echo "Reflector needs password to write files"
+    sudo cp "$HOME/.dotfiles/reflector/refletor.conf" "/etc/xdg/reflector/reflector.conf"
+    sudo systemctl enable --now reflector.timer
+fi
+
+if command -v tmux 2>&1 > /dev/null; then
+    stow -t "$HOME" "tmux"
+    if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    fi
+fi
+
+if command -v zsh 2>&1 > /dev/null; then
+    # stow -t "$HOME" scripts 
+    stow -t "$HOME" "powerlevel10k"
+    stow -t "$HOME" "zsh" 
+    source ~/.zshrc && . "$HOME/.dotfiles/scripts/zsh_plugin&script_downloader.sh"
+fi
 

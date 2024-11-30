@@ -73,6 +73,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.filetype.add({
     pattern = {
         [".*/hypr/.*%.conf"] = "hyprlang",
+        [".*/hypr_uwsm/.*%.conf"] = "hyprlang",
         [".*/dunst/dunstrc.*"] = "config",
     },
 })
