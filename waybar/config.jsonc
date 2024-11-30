@@ -1,6 +1,6 @@
 // -*- mode: jsonc -*-
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "bottom", // Waybar at top layer
     "mode": "dock",
     "position": "top", // Waybar position (top|bottom|left|right)
     "font-family": "Hack Nerd Font",
