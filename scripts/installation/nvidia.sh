@@ -1,5 +1,7 @@
 #! /usr/bin/zsh
 
+# FIX: redo the whole thing
+
 dkms=0
 cuda=0
 

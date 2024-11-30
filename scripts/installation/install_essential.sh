@@ -1,5 +1,7 @@
 #! /usr/bin/zsh
 
+# FIX: redo the whole thing
+
 if [[ ! command -v <the_command> &> /dev/null]];  then
     cwd=$(pwd)
 

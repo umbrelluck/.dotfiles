@@ -1,5 +1,7 @@
 #! /usr/bin/zsh
 
+# FIX: redo the whole thing
+
 enabled=false
 
 install_gnome(){

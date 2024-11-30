@@ -92,10 +92,10 @@
         // "format": "   {} ",
         "escape": true,
         "return-type": "json",
-        "exec": "~/.dotfiles/scripts/packages/updates#.sh",
+        "exec": "~/.dotfiles/scripts/installation/updates#.sh",
         "restart-interval": 300,
         "tooltip": false,
-        "on-click": "~/.dotfiles/scripts/packages/install_updates.sh"
+        "on-click": "~/.dotfiles/scripts/installation/updates.sh"
     },
     "backlight": {
         "device": "intel_backlight",

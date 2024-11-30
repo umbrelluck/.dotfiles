@@ -8,8 +8,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 
-export ZDOTDIR="$HOME"
-export HISTFILE="$ZDOTDIR/.zhistory"
+export HISTFILE="$HOME/.zhistory"
 export HISTSIZE=10000
 export SAVEHIST=10000
 
@@ -44,13 +43,13 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 # zstyle ':completion::complete:*' gain-privileges 1
 zstyle ':completion:*' rehash true
-# zstyle :compinstall filename "$ZDOTDIR/.zshrc"
+# zstyle :compinstall filename "$HOME/.zshrc"
 
-source $ZDOTDIR/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZDOTDIR/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-for script ($ZDOTDIR/.zsh/scripts/*.zsh) source $script
+for script ($HOME/.zsh/scripts/*.zsh) source $script
 
 fpath=($HOME/Git/zsh-completions/src $fpath)
 
