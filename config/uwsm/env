@@ -13,3 +13,4 @@ export NVD_BACKEND=direct
 export QT_QPA_PLATFORMTHEME=qt6ct
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
+export IS_UWSM=1
