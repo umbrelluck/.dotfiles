@@ -23,7 +23,8 @@ export GITDIR="$HOME/Git"
 
 export DIFFPROG="nvim -d $1"
 
-[[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
+# [[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
+# fastfetch 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -50,9 +51,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 for script ($HOME/.zsh/scripts/*.zsh) source $script
-
-fpath=($HOME/Git/zsh-completions/src $fpath)
-
 
 # fzf bindings and completions
 #export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
