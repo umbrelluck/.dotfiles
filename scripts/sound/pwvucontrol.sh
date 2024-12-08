@@ -1,11 +1,14 @@
 #! /usr/bin/zsh 
 
-proc=$(ps aux | rg 'pwvucontrol' | rg -v 'rg|--|zsh')
+# NOTE: for when it is flatpak run
+# proc=$(ps aux | rg 'pwvucontrol' | rg -v 'rg|--|zsh')
+
+proc=$( ps aux | rg 'pwvucontrol' | rg -v 'nvim|rg|defunct|zsh')
 if [[ -z "$proc"  ]]; then
     if [[ $IS_UWSM -eq 1 ]]; then
-        uwsm app -- flatpak run com.saivert.pwvucontrol
+        uwsm app -- pwvucontrol
     else
-        flatpak run com.saivert.pwvucontrol
+        pwvucontrol
     fi
 else
     kill $(echo $proc | awk '{print $2}')
