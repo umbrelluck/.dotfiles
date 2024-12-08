@@ -148,6 +148,7 @@ alias lsa='lso -la | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 alias lst='lso -lat'
 alias lsat='lso -lat | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 
+alias freehlock=~/.dotfiles/scripts/hyprland/death_screen.sh
 alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 # alias sudo='doas'
 # alias las='xplr'
@@ -172,11 +173,6 @@ alias rpc='[[ -n $(pacman -Qdt) ]] && sudo pacman -Rns $(pacman -Qdtq) || echo "
 
 alias rpcb='lsof +L1'
 alias wttr='curl wttr.in'
-
-alias pwvucontrol='flatpak run com.saivert.pwvucontrol'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # LaTex
 export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/man"
@@ -205,7 +201,6 @@ eval "$(fnm env --use-on-cd)"
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
-# To customize prompt, run `p10k configure` or edit ~/.dotfiles/powerlevel10k/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # zprof
