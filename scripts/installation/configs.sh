@@ -63,6 +63,8 @@ if [[ $IS_ETC -eq 1 ]]; then
     echo "\t\tGreetd .. Done"
     sudo cp "$HOME/.dotfiles/etc/reflector/reflector.conf" "/etc/xdg/reflector/reflector.conf"
     echo "\t\tReflector .. Done"
+    sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/"
+    echo "\t\tUdev rules .. Done"
 fi
 
 # Alacritty themes here: https://github.com/alacritty/alacritty-theme
