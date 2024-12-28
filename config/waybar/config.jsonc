@@ -39,9 +39,9 @@
             "3": "",
             "4": "",
             "5": "",
-            "active": "", //     󰪥
+            "active": "", //     󰪥  
             // "default": ""
-            "default": "",
+            "default": "",
             "urgent": ""
         },
         "persistent-workspaces": {
@@ -177,7 +177,7 @@
             " "
         ],
         "on-click": "~/.dotfiles/scripts/sound/pwvucontrol.sh", //pulseaudio , helvum
-        "on-click-right": "~/.dotfiles/scripts/sound/wpctl~.sh",
+        "on-click-right": "~/.dotfiles/scripts/sound/pwvucontrol_right_click.sh",
         "on-click-middle": "~/.dotfiles/scripts/sound/playerctl~.sh",
         "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl+.sh",
         "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-.sh"
