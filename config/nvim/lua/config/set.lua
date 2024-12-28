@@ -18,7 +18,7 @@ vim.opt.smartindent = true
 
 vim.opt.textwidth = 0 -- for gq, default 0=79
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.wrapmargin = 3
 vim.opt.breakindent = true
 

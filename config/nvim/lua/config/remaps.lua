@@ -21,7 +21,8 @@ _G.imap("<F3>", "<c-o>:setlocal expandtab!<cr>", { silent = false, desc = "Toggl
 _G.nmap("<F4>", ":setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
 _G.imap("<F4>", "<c-o>:setlocal list!<cr>", { silent = false, desc = "Toggle whitespace characters" })
 
-_G.nmap("-", ":set cursorline!<cr>", { desc = "Toggle cursor line" })
+_G.nmap("-", ":set cursorline!<cr>", { desc = "Toggle cursor line", silent = false })
+_G.nmap("_", ":set wrap!<cr>", { desc = "Toggle wrapping", silent = false })
 _G.nmap("=", ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>", { desc = "Toggle inlay hints" })
 _G.nmap("+", ":lua _G.diagnostic_toggle_view()<cr>", { desc = "Toggle diagnostic" })
 -- -------------------------------------------------------------------------------------------------------
