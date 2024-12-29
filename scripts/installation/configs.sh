@@ -7,14 +7,14 @@ IS_UWSM=0
 
 # TODO: default all i except UWSM
 
-while getopts "acheu" flag; do
+while getopts "acoeu" flag; do
     case $flag in
         a) 
             IS_HOME=1
             IS_CONF=1
             IS_ETC=1
             ;;
-        h) 
+        o) 
             IS_HOME=1
             ;;
         c) 
@@ -27,7 +27,7 @@ while getopts "acheu" flag; do
             IS_UWSM=1
             ;;
         *)
-            echo "No such flag: only -a -c -h -e -u"
+            echo "No such flag: only -a -c -o -e -u"
             exit 1
     esac
 done

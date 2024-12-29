@@ -122,8 +122,8 @@
             "",
             ""
         ],
-        "on-scroll-up": "~/.dotfiles/scripts/backlight/bright+.sh",
-        "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-.sh"
+        "on-scroll-up": "~/.dotfiles/scripts/backlight/bright-control.sh -u",
+        "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-control.sh -d"
     },
     "custom/notifications": {
         "format": " {}",
@@ -176,11 +176,11 @@
             // "",
             " "
         ],
-        "on-click": "~/.dotfiles/scripts/sound/pwvucontrol.sh", //pulseaudio , helvum
-        "on-click-right": "~/.dotfiles/scripts/sound/pwvucontrol_right_click.sh",
+        "on-click": "~/.dotfiles/scripts/sound/pwvucontrol-control.sh -l",
+        "on-click-right": "~/.dotfiles/scripts/sound/pwvucontrol-control.sh -r",
         "on-click-middle": "~/.dotfiles/scripts/sound/playerctl~.sh",
-        "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl+.sh",
-        "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-.sh"
+        "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl-control.sh -u",
+        "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-control.sh -d"
     },
     "battery": {
         "bat": "BAT0",

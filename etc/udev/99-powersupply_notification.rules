@@ -1,6 +1,6 @@
 # Rule for when switching to battery
-ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{type}=="Mains", ATTRS{online}=="0", RUN+="/usr/bin/systemd-run --machine=umbrelluck@.host --user /home/umbrelluck/.dotfiles/scripts/battery/plugged_notify.sh 0"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{type}=="Mains", ATTRS{online}=="0", RUN+="/usr/bin/systemd-run --machine=umbrelluck@.host --user /home/umbrelluck/.dotfiles/scripts/battery/udev_powersupply.sh 0"
 # Rule for when switching to AC
-ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{type}=="Mains", ATTRS{online}=="1", RUN+="/usr/bin/systemd-run --machine=umbrelluck@.host --user /home/umbrelluck/.dotfiles/scripts/battery/plugged_notify.sh 1"
+ACTION=="change", SUBSYSTEM=="power_supply", ATTRS{type}=="Mains", ATTRS{online}=="1", RUN+="/usr/bin/systemd-run --machine=umbrelluck@.host --user /home/umbrelluck/.dotfiles/scripts/battery/udev_powersupply.sh 1"
 
 
