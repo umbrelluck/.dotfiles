@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ -z "$1" ]] then
-    DIRS=($ZDOTDIR/.zsh/plugins $GITDIR $SCRSDIR)
+    DIRS=($GITDIR)
 else
     DIRS=("$1")
 fi
