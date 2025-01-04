@@ -54,8 +54,9 @@ for script ($HOME/.zsh/scripts/*.zsh) source $script
 
 # fzf bindings and completions
 #export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree"
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+source <(fzf --zsh)
+# source /usr/share/fzf/key-bindings.zsh
+# source /usr/share/fzf/completion.zsh
 
 # export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden --no-ignore'
 export FZF_DEFAULT_COMMAND='fd --color=never --hidden --no-ignore'
