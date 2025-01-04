@@ -257,6 +257,7 @@ button {
 #bluetooth.disabled {
     color: @crust;
     background-color: @blue;
+    border: 0.15rem solid @crust;
 }
 
 #network {

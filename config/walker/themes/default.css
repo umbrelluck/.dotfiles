@@ -1,3 +1,25 @@
+@define-color foreground #ccdee1;
+@define-color background #101112;
+@define-color cursor #ccdee1;
+
+@define-color color0 #101112;
+@define-color color1 #CABB70;
+@define-color color2 #6C91A8;
+@define-color color3 #70ACC9;
+@define-color color4 #9DA9A4;
+@define-color color5 #AEBBB1;
+@define-color color6 #D3CFB0;
+@define-color color7 #ccdee1;
+@define-color color8 #8e9b9d;
+@define-color color9 #CABB70;
+@define-color color10 #6C91A8;
+@define-color color11 #70ACC9;
+@define-color color12 #9DA9A4;
+@define-color color13 #AEBBB1;
+@define-color color14 #D3CFB0;
+@define-color color15 #ccdee1;
+/* AUTO GENERATED. DO NOT EDIT. CHANGES WILL BE OVERWRITTEN. */
+
 #window,
 #box,
 #aiScroll,
@@ -5,6 +27,8 @@
 #search,
 #password,
 #input,
+#prompt,
+#clear,
 #typeahead,
 #list,
 child,
@@ -16,132 +40,131 @@ slider,
 #bar,
 #sub,
 #activationlabel {
-    all: unset;
+  all: unset;
 }
 
 #window {
-    color: rgb(255, 255, 255);
+  color: @foreground;
 }
 
 #box {
-    border-radius: 2px;
-    background: linear-gradient(to bottom,
-            hsl(240, 12.7%, 13.9%),
-            hsl(219, 28.6%, 19.2%));
-    padding: 32px;
-    border: 1px solid #232d3f;
-    box-shadow:
-        0 19px 38px rgba(0, 0, 0, 0.3),
-        0 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: 2px;
+  background: @background;
+  padding: 32px;
+  border: 1px solid lighter(@background);
+  box-shadow:
+    0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 #search {
-    box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.1),
-        0 1px 2px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px 2px rgba(0, 0, 0, 0.22);
+  background: lighter(@background);
+  padding: 8px;
 }
 
-#prompt {}
+#prompt {
+  margin-left: 4px;
+  margin-right: 12px;
+  color: @foreground;
+  opacity: 0.2;
+}
+
+#clear {
+  color: @foreground;
+  opacity: 0.8;
+}
 
 #password,
 #input,
 #typeahead {
-    background: hsla(219, 28.6%, 19.2%);
-    padding: 8px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    border-radius: 2px;
+  border-radius: 2px;
 }
 
 #input {
-    background: none;
+  background: none;
 }
 
-#password {}
+#password {
+}
 
-#spinner {}
+#spinner {
+  padding: 8px;
+}
 
 #typeahead {
-    color: hsl(174, 89.7%, 32.7%);
+  color: @foreground;
+  opacity: 0.8;
 }
 
-#input placeholder {}
-
-#input>*:first-child,
-#typeahead>*:first-child {
-    margin-right: 16px;
-    margin-left: 4px;
-    color: rgba(255, 255, 255, 0.8);
-    opacity: 0.2;
+#input placeholder {
+  opacity: 0.5;
 }
 
-#input>*:last-child,
-#typeahead>*:last-child {
-    color: rgba(255, 255, 255, 0.8);
-    opacity: 0.8;
+#list {
 }
-
-#list {}
 
 child {
-    padding: 9px;
-    border-radius: 2px;
+  padding: 8px;
+  border-radius: 2px;
 }
 
 child:selected,
 child:hover {
-    /*color: #232d3f;*/
-    background: hsla(172, 100%, 25.3%, 0.6);
+  background: alpha(@color1, 0.4);
 }
 
-#item {}
+#item {
+}
 
 #icon {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
-#text {}
+#text {
+}
 
 #label {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 #sub {
-    opacity: 0.5;
-    font-size: 0.8em;
+  opacity: 0.5;
+  font-size: 0.8em;
 }
 
-#activationlabel {}
+#activationlabel {
+}
 
-#bar {}
+#bar {
+}
 
-.barentry {}
+.barentry {
+}
 
-.activation #activationlabel {}
+.activation #activationlabel {
+}
 
 .activation #text,
 .activation #icon,
 .activation #search {
-    opacity: 0.5;
-}
-
-#aiScroll,
-#aiList {
-    background: none;
-    color: inherit;
+  opacity: 0.5;
 }
 
 .aiItem {
-    padding: 10px;
-    border-radius: 2px;
+  padding: 10px;
+  border-radius: 2px;
+  color: @foreground;
+  background: @background;
 }
 
 .aiItem.user {
-    background: none;
-    padding-left: 0;
-    padding-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .aiItem.assistant {
-    background: hsla(219, 28.6%, 19.2%, 0.8);
+  background: lighter(@background);
 }
