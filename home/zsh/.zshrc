@@ -149,8 +149,6 @@ alias lsa='lso -la | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 alias lst='lso -lat'
 alias lsat='lso -lat | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 
-alias freehlock=~/.dotfiles/scripts/hyprland/death_screen.sh
-alias freepacmanlock='sudo rm -rf /var/lib/pacman/db.lck'
 # alias sudo='doas'
 # alias las='xplr'
 # alias ckupd="checkupdates"
@@ -184,7 +182,8 @@ export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
-export PATH="$PATH:$HOME/.cargo/bin/"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.dotfiles/scripts/bin"
 
 eval "$(zoxide init zsh)"
 
