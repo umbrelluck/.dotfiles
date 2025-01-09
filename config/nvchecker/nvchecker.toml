@@ -1,0 +1,7 @@
+[nvchecker]
+source = "github"
+github = "lilydjwg/nvchecker"
+
+[python-toml]
+source = "pypi"
+pypi = "toml"
