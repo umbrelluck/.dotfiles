@@ -2,6 +2,7 @@
     "activation_mode": {
         "labels": "jkl;asdf"
     },
+    "app_launch_prefix": "uwla ",
     "as_window": false,
     "builtins": {
         "ai": {

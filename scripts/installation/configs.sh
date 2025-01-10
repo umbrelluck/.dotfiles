@@ -4,15 +4,17 @@ IS_HOME=0
 IS_CONF=0
 IS_ETC=0
 IS_UWSM=0
+IS_DESKTOP=0
 
 # TODO: default all i except UWSM
 
-while getopts "acoeu" flag; do
+while getopts "acoeud" flag; do
     case $flag in
         a) 
             IS_HOME=1
             IS_CONF=1
             IS_ETC=1
+            IS_DESKTOP=1
             ;;
         o) 
             IS_HOME=1
@@ -26,8 +28,11 @@ while getopts "acoeu" flag; do
         u)
             IS_UWSM=1
             ;;
+        d) 
+            IS_DESKTOP=1
+            ;;
         *)
-            echo "No such flag: only -a -c -o -e -u"
+            echo "No such flag: only -a -c -o -e -u -d"
             exit 1
     esac
 done
@@ -52,6 +57,12 @@ cd ..
 if [[ $IS_CONF -eq 1 ]]; then
     echo "Linking configs to $HOME/.config ..."
     stow "config" -t "$HOME/.config/"
+fi
+
+if [[ $IS_DESKTOP -eq 1 ]]; then
+    echo "Linking desktop files to $XDG_DATA_HOME/applications/"
+    stow "desktop" -t "$XDG_DATA_HOME/applications/"
+    update-desktop-database "$XDG_DATA_HOME/applications/"
 fi
 
 if [[ $IS_ETC -eq 1 ]]; then

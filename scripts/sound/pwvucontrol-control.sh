@@ -7,11 +7,7 @@ left-click() {
     
     proc=$(ps aux | rg 'pwvucontrol' | rg -v 'nvim|rg|defunct|.*sh')
     if [[ -z "$proc" ]]; then
-        if [[ $IS_UWSM -eq 1 ]]; then
-            hyprctl dispatch exec "[workspace special:pwvu] uwsm app -- pwvucontrol"
-        else
-            hyprctl dispatch exec [workspace special:pwvu] pwvucontrol
-        fi
+        hyprctl dispatch exec "[workspace special:pwvu] uwla pwvucontrol"
     else
         hyprctl dispatch togglespecialworkspace pwvu
     fi

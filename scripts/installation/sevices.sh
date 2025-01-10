@@ -15,5 +15,7 @@ for service in $services; do
     fi
 done
 
+services=("hyprpolkitagent.service")
+
 echo "Done"
 echo "-------------------------"
