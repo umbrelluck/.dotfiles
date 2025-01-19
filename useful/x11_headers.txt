@@ -1,0 +1,4 @@
+https://github.com/xkbcommon/libxkbcommon/blob/master/include/xkbcommon/xkbcommon-keysyms.h
+
+xev -- to find key name on X11
+wev -- to find key name on Wayland
