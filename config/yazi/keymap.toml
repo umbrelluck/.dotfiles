@@ -27,6 +27,10 @@ on = ["i", "e"]
 run = "plugin jump-to-char"
 desc = "Jump to char"
 
+# [[manager.prepend_keymap]]
+# on = "M"
+# run = "plugin mount"
+
 [manager]
 
 keymap = [
