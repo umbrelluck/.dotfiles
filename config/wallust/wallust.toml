@@ -11,13 +11,13 @@ palette = "softdark16"
 [templates]
 
 hyprland.template = "colors-hypr.conf"
-hyprland.target = "~/.dotfiles/hypr//hall/hypr-colors.conf"
+hyprland.target = "~/.dotfiles/config/hypr//hall/hypr-colors.conf"
 
 waybar.template = "colors-waybar.css"
-waybar.target = "~/.dotfiles/waybar/waybar-colors.css"
+waybar.target = "~/.dotfiles/config/waybar/waybar-colors.css"
 
 alacritty.template = "colors-alacritty.toml"
-alacritty.target = "~/.dotfiles/alacritty/alacritty-colors.toml"
+alacritty.target = "~/.dotfiles/config/alacritty/alacritty-colors.toml"
 
 gdu.template = "colors-gdu.yaml"
-gdu.target = "~/.dotfiles/gdu/.gdu.yaml"
+gdu.target = "~/.dotfiles/home/gdu/.gdu.yaml"
