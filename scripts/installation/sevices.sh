@@ -9,13 +9,21 @@ services=("cronie.service" "NetworkManager.service" "reflector.timer" \
 
 for service in $services; do
     echo "Enabling $service unit file..."
-    is_present = $(systemctl list-unit-files $service -quiet)
+    is_present = $(systemctl list-unit-files $service -q)
     if [[ -n $is_present && $(echo $is_present | awk '{ print $2 }') == "disabled" ]]; then
         doas systemctl enable --now $service
     fi
 done
 
-services=("hyprpolkitagent.service")
+services=("fumon.service")
+for service in $services; do
+    echo "Enabling user $service unit file..."
+    is_present = $(systemctl --user list-unit-files $service -q)
+    if [[ -n $is_present && $(echo $is_present | awk '{ print $2 }') == "disabled" ]]; then
+        systemctl --user enable --now $service
+    fi
+done
+
 
 echo "Done"
 echo "-------------------------"

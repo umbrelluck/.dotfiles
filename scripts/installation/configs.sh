@@ -5,16 +5,18 @@ IS_CONF=0
 IS_ETC=0
 IS_UWSM=0
 IS_DESKTOP=0
+IS_SCRIPTS=0
 
 # TODO: default all i except UWSM
 
-while getopts "acoeud" flag; do
+while getopts "acoeuds" flag; do
     case $flag in
         a) 
             IS_HOME=1
             IS_CONF=1
             IS_ETC=1
             IS_DESKTOP=1
+            IS_SCRIPTS=1
             ;;
         o) 
             IS_HOME=1
@@ -31,8 +33,11 @@ while getopts "acoeud" flag; do
         d) 
             IS_DESKTOP=1
             ;;
+        s) 
+            IS_SCRIPTS=1
+            ;;
         *)
-            echo "No such flag: only -a -c -o -e -u -d"
+            echo "No such flag: only -a -c -o -e -u -d -s"
             exit 1
     esac
 done
@@ -77,6 +82,16 @@ if [[ $IS_ETC -eq 1 ]]; then
     sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/"
     echo "\t\tUdev rules .. Done"
 fi
+
+[[ $IS_SCRIPTS -eq 1 ]] && {
+    echo "Copying scripts to /usr/local/bin/"
+    sudo cp "scripts/bin/uuctl-c" "/usr/local/bin"
+    echo "\t\tuuctl-c .. Done"
+    sudo cp "scripts/bin/uwla" "/usr/local/bin"
+    echo "\t\tuwla .. Done"
+    sudo cp "scripts/bin/uwstop" "/usr/local/bin"
+    echo "\t\tuwstop .. Done"
+}
 
 # Alacritty themes here: https://github.com/alacritty/alacritty-theme
 

@@ -1,7 +1,10 @@
 #! /usr/bin/bash
 
-if [[ $IS_UWSM -eq 1 ]]; then
-    uwsm app -- alacritty --class 'file-manager' -e 'spf'
-else
-    alacritty --class 'file-manager' -e 'spf'
-fi
+CMD=("alacritty")
+[[ $IS_UWSM -eq 1 ]] && {
+    [[ -n $(command -v uwsm-app 2>/dev/null) ]] \
+    && CMD=("uwsm-app" "--" "alacritty") \
+    || CMD=("uwsm app" "--" "alacritty")
+}
+
+"${CMD[@]}" --class 'file-manager' -e 'spf'

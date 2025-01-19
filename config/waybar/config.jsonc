@@ -63,7 +63,7 @@
     "custom/fullscreen": {
         "format": "{}",
         "tooltip": false,
-        "exec": "~/.dotfiles/scripts/hyprland/find_maximized.sh"
+        "exec": "~/.dotfiles/scripts/hyprland/find-maximized.sh"
     },
     "privacy": {
         "icon-spacing": 4,
@@ -251,6 +251,7 @@
     "custom/power": {
         "format": "",
         "on-click": "wlogout",
+        "on-click-right": "~/.dotfiles/scripts/notifications/history-pop.sh",
         "tooltip": false
     },
     "hyprland/window": {

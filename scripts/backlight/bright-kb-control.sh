@@ -8,20 +8,21 @@ CRIT=2400 #10%
 INC=10
 MIN=2 
 DEVICE_MIN=240 #1%
-while getopts "udn" opt; do
+while getopts "udr" opt; do
     case $opt in
         u)
-            [[ $(brightnessctl g) -lt $CRIT ]] && brightnessctl set $CRIT || brightnessctl set +$INC%
+            brightnessctl -d asus::kbd_backlight s +1
             ;;
         d)
-            [[ $(brightnessctl g) -gt $CRIT ]] && brightnessctl set $INC%- || brightnessctl set $MIN%
+            brightnessctl -d asus::kbd_backlight s 1- 
             ;;
-        n)
-            brightnessctl -n $DEVICE_MIN
+        r)
+            brightnessctl -d asus::kbd_backlight s 1 -s
             ;;
         *) 
             echo "Allowed flags: u, d, n"
             ;;
     esac
 done
+
 
