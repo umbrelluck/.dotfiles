@@ -106,6 +106,7 @@ function help() {
 }
 # alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+alias bac='bat -pp'
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -152,6 +153,7 @@ ewa(){
 }
 # alias ewa='eza -laaxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
 alias eas='ea -s type'
+alias eat='ea -s date'
 alias ead='ea --group-directories-first -s type'
 # alias ead='ea -D -s type --show-symlinks && ea -f -s type --show-symlinks'
 
