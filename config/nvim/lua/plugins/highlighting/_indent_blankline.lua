@@ -12,6 +12,8 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     dependencies = "HiPhish/rainbow-delimiters.nvim",
+    -- lazy = true,
+    -- priority = 1001,
     opts = {
         debounce = 100,
         indent = {
@@ -35,21 +37,13 @@ return {
         -- create the highlight groups in the highlight setup hook, so they are reset
         -- every time the colorscheme changes
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-            -- vim.api.nvim_set_hl(0, highlight[1], { fg = "#FDC9C9" })
-            -- vim.api.nvim_set_hl(0, highlight[2], { fg = "#FFFAC9" })
-            -- -- vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-            -- vim.api.nvim_set_hl(0, highlight[3], { fg = "#FFE7C9" })
-            -- vim.api.nvim_set_hl(0, highlight[4], { fg = "#C9EFCB" })
-            -- vim.api.nvim_set_hl(0, highlight[5], { fg = "#DBC9E9" })
-            -- vim.api.nvim_set_hl(0, highlight[6], { fg = "#C9F4FB" })
-
-            local c = _G.get_current_colors()
+            local c = _G.get_current_colors("kanagawa")
             vim.api.nvim_set_hl(0, highlight[1], { fg = c.red })
-            vim.api.nvim_set_hl(0, highlight[2], { fg = c.orange })
+            vim.api.nvim_set_hl(0, highlight[2], { fg = c.green })
             vim.api.nvim_set_hl(0, highlight[3], { fg = c.yellow })
             vim.api.nvim_set_hl(0, highlight[4], { fg = c.blue })
             vim.api.nvim_set_hl(0, highlight[5], { fg = c.green })
-            vim.api.nvim_set_hl(0, highlight[6], { fg = c.violet })
+            vim.api.nvim_set_hl(0, highlight[6], { fg = c.yellow })
             vim.api.nvim_set_hl(0, highlight[7], { fg = c.cyan })
         end)
 

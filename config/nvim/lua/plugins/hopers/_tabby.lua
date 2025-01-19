@@ -59,6 +59,8 @@ local theme = {
 return {
     "nanozuki/tabby.nvim",
     event = "VimEnter",
+    -- lazy = true,
+    -- priority = 1001,
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
         require('tabby.tabline').set(function(line)

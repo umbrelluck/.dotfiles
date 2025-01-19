@@ -4,7 +4,9 @@ import = [
     # "~/.dotfiles/alacritty/themes/bamboo.toml",
     # "~/.config/alacritty/themes/catppuccin-latte.toml",
     # "~/.config/alacritty/themes/catppuccin-frappe.toml",
-    "~/.config/alacritty/themes/catppuccin-macchiato.toml",
+    # "~/.config/alacritty/themes/catppuccin-macchiato.toml",
+    # "~/.config/alacritty/alacritty-colors.toml",
+    "~/.config/alacritty/themes/kanagawa-wave.toml",
     # "~/.config/alacritty/theme/catppuccin-mocha.toml"
 ]
 
@@ -39,6 +41,6 @@ offset = { x = 0, y = 0 }
 # glypth_offset = { x = 0, y = 0 }
 builtin_box_drawing = true
 
-[colors.cursor]
-text = "CellBackground"
-cursor = "CellForeground"
+# [colors.cursor]
+# text = "CellBackground"
+# cursor = "CellForeground"

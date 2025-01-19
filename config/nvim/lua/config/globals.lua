@@ -94,7 +94,7 @@ function _G.mod_hl_copy_existing(hl_name, existing_hl_name)
     vim.api.nvim_set_hl(0, hl_name, new_def)
 end
 
-function _G.get_current_colors()
+function _G.get_current_colors(theme_name)
     local colors = {
         red = "",
         orange = "",
@@ -105,7 +105,7 @@ function _G.get_current_colors()
         cyan = "",
         text = ""
     }
-    local theme_name = vim.g.colors_name
+    theme_name = theme_name or vim.g.colors_name
 
     if (theme_name == "bamboo") then
         local c = require('bamboo.colors')
@@ -150,6 +150,26 @@ function _G.get_current_colors()
         colors.violet = c.lavender
         colors.cyan = c.teal
         colors.text = c.text
+    elseif (theme_name == "kanagawa") then
+        --     local c = require("kanagawa.colors").setup().palette
+        --
+        --     colors.red = c.autumnRed
+        --     colors.orange = c.samuraiRed
+        --     colors.yellow = c.boatYellow2
+        --     colors.blue = c.crystalBlue
+        --     colors.green = c.autumnGreen
+        --     colors.violet = c.springViolet1
+        --     colors.cyan = c.waveAqua1
+        --     colors.text = c.dragonWhite
+
+        colors.red = "#C34043"
+        colors.orange = "#E82424"
+        colors.yellow = "#C0A36E"
+        colors.blue = "#7E9CD8"
+        colors.green = "#76946A"
+        colors.violet = "#938AA9"
+        colors.cyan = "#6A9589"
+        colors.text = "#c5c9c5"
     end
 
 

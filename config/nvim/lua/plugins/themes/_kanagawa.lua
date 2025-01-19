@@ -1,12 +1,12 @@
 return {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    -- enabled = false,
     -- prioirty = 1000,
     -- lazy = false,
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     opts = {
-        compile = false,  -- enable compiling the colorscheme
-        undercurl = true, -- enable undercurls
+        compile = false,   -- enable compiling the colorscheme
+        undercurl = false, -- enable undercurls
         commentStyle = { italic = true },
         functionStyle = {},
         keywordStyle = { italic = true },
