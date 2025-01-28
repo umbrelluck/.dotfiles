@@ -138,8 +138,8 @@ alias notesium="~/Git/notesium//notesium"
 alias orcas="~/ProgramFiles/OrcaSlicer_Linux_V1.8.1.AppImage"
 alias godotm="~/ProgramFiles/GodotManager/GodotManager.x86_64"
 
-alias drmemory='~/TarGZ/DrMemory-Linux-2.6.0/bin64/drmemory'
-alias drmemory32='~/TarGZ/DrMemory-Linux-2.6.0/bin/drmemory'
+alias drmemory='~/ProgramFiles/DrMemory-Linux-2.6.0/bin64/drmemory'
+alias drmemory32='~/ProgramFiles/DrMemory-Linux-2.6.0/bin/drmemory'
 alias valgrinde='valgrind -s --leak-check=full --show-leak-kinds=all --track-origins=yes'
 
 # alias trone='ssh sshtron.zachlatta.com'
@@ -148,11 +148,13 @@ alias ip='ip --color=auto'
 alias diff='diff --color=auto'
 
 alias ea='eza -laxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
+alias gea='eza -laxF --icons --time-style="+%Y-%m-%d %H:%M"'
 ewa(){
     eza -laax -F=always --icons=always --git --color=always --time-style="+%Y-%m-%d %H:%M" $1 | head -n 2
 }
 # alias ewa='eza -laaxF --icons --git --time-style="+%Y-%m-%d %H:%M"'
 alias eas='ea -s type'
+alias geas='gea -s type'
 alias eat='ea -s date'
 alias ead='ea --group-directories-first -s type'
 # alias ead='ea -D -s type --show-symlinks && ea -f -s type --show-symlinks'

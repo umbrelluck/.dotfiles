@@ -1,0 +1,4 @@
+# ACTION=="add", DRIVERS=="usb", SUBSYSTEM=="block", ATTRS{vendor}=="ST316081", ATTRS{idProduct}=="2338", ATTRS{idVendor}=="152d", RUN+="/usr/bin/udiskie-mount >> /home/umbrelluck/.dotfiles/logs/mount"
+#
+# ACTION=="add", DRIVERS=="usb", ATTRS{idProduct}=="2338", ATTRS{idVendor}=="152d", RUN+="/usr/bin/notify-send 'ablavema' 'yeeeeeee'"
+#

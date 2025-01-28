@@ -45,19 +45,31 @@ done
 confd="$XDG_CONFIG_HOME"
 CWD=$(pwd)
 
-echo "-----< CONFIGS >-----"
+[[ ! -d "$HOME/.dotfiles/logs" ]] && mkdir "$HOME/.dotfiles/logs"
 
+echo "-----< CONFIGS >-----"
 cd "$HOME/.dotfiles/home"
 
 if [[ $IS_HOME -eq 1 ]]; then
     echo "Linking configs to $HOME ..."
     for direct in *(/); do
-        [[ $direct != "git" ]] && stow "$direct" -t "$HOME/"
+        [[ $direct != "git" ]] && {
+            stow "$direct" -t "$HOME/"
+            echo "\t\t$direct .. Done"
+        }
     done
-    [[ ! -f "$HOME/.gitconfig" ]] && cp "git/.gitconfig" "$HOME"
+    [[ ! -f "$HOME/.gitconfig" ]] && {
+        cp "git/.gitconfig" "$HOME"
+        echo "\t\t.gitconfig .. Done"
+        echo "\t\tDo not forget to add user.name and user.email"
+    }
+    echo "Linking scripts to $HOME ..."
+    cd "$HOME/.dotfiles/"
+    mkdir -p "$HOME/.scripts"
+    stow "scripts" -t "$HOME/.scripts"
 fi
 
-cd ..
+cd "$HOME/.dotfiles/"
 
 if [[ $IS_CONF -eq 1 ]]; then
     echo "Linking configs to $HOME/.config ..."
@@ -79,7 +91,7 @@ if [[ $IS_ETC -eq 1 ]]; then
     echo "\t\tGreetd .. Done"
     sudo cp "$HOME/.dotfiles/etc/reflector/reflector.conf" "/etc/xdg/reflector/reflector.conf"
     echo "\t\tReflector .. Done"
-    sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/"
+    sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/" && sudo udevadm control --reload
     echo "\t\tUdev rules .. Done"
 fi
 
