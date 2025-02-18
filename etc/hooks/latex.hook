@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = linux 
+
+[Action]
+Description = Updating texlive installation...
+When = PostTransaction
+Exec = /home/umbrelluck/ProgramFiles/LaTeX/texlive/2024/bin/x86_64-linux/tlmgr update --all

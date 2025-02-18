@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = zen-browser-bin 
+Target = uget
+
+[Action]
+Description = Updating uget-integrator...
+When = PostTransaction
+Exec = /home/umbrelluck/ProgramFiles/uget_integrator/install_uget_integrator.sh

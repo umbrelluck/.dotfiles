@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = linux 
+Target = rustup 
+
+[Action]
+Description = Updating rustup toolchains and components...
+When = PostTransaction
+Exec = /usr/bin/rustup update

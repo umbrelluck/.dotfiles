@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Upgrade
+Type = Package
+Target = linux 
+Target = yazi 
+
+[Action]
+Description = Updating yazi plugins ...
+When = PostTransaction
+Exec = /usr/bin/ya pack -u

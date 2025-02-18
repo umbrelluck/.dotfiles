@@ -93,6 +93,8 @@ if [[ $IS_ETC -eq 1 ]]; then
     echo "\t\tReflector .. Done"
     sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/" && sudo udevadm control --reload
     echo "\t\tUdev rules .. Done"
+    sudo cp "$HOME/.dotfiles/etc/hooks"/* "/etc/pacman.d/hooks/"
+    echo "\t\tPacman hooks .. Done"
 fi
 
 [[ $IS_SCRIPTS -eq 1 ]] && {
