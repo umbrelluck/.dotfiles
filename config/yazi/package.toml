@@ -1,15 +1,54 @@
-[plugin]
-deps = [
-    { use = "yazi-rs/plugins:full-border", rev = "600614a" },
-    { use = "yazi-rs/plugins:chmod", rev = "600614a" },
-    { use = "yazi-rs/plugins:git", rev = "600614a" },
-    { use = "yazi-rs/plugins:hide-preview", rev = "600614a" },
-    { use = "yazi-rs/plugins:smart-filter", rev = "600614a" },
-    { use = "yazi-rs/plugins:mime-ext", rev = "600614a" },
-    { use = "yazi-rs/plugins:max-preview", rev = "600614a" },
-    { use = "yazi-rs/plugins:lsar", rev = "600614a" },
-    { use = "yazi-rs/plugins:jump-to-char", rev = "600614a" },
-]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "beb586a"
+hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
 
-[flavor]
-deps = [{ use = "dangooddd/kanagawa", rev = "d98f0c3" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:chmod"
+rev = "beb586a"
+hash = "f28138c2e11e87962b66d583fef724c3"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "beb586a"
+hash = "771f18427fb75fb19990ce602bb322f4"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:hide-preview"
+rev = "beb586a"
+hash = "55904f17e1053cfb91dacd9015a99f9d"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "beb586a"
+hash = "b482f4f2d3c4e0aa3f8db89a95699439"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "beb586a"
+hash = "b03f3d80d26b6d7bb490b1380e9cb754"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:max-preview"
+rev = "beb586a"
+hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:lsar"
+rev = "beb586a"
+hash = "fc2c9438d402f7c4ac230aebf5a746d1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:jump-to-char"
+rev = "beb586a"
+hash = "af11685de39c366ec1137fcbccacdbff"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mount"
+rev = "beb586a"
+hash = "5c4d8080367dd2561a18c1cf5a1dd295"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "d98f0c3"
+hash = "cada780385f75abbcfbf5343256b441"
