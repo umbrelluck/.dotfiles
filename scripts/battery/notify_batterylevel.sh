@@ -3,8 +3,8 @@
 export DISPLAY=:0
 export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
 
-WARNING_LEVEL=20
-CRITICAL_LEVEL=9
+WARNING_LEVEL=30
+CRITICAL_LEVEL=12
 
 BATTERY_DISCHARGING=$(acpi -b | grep "Battery 0" | grep -c "Discharging")
 BATTERY_LEVEL=$(acpi -b | grep "Battery 0" | grep -Po '[0-9]+(?=%)')
