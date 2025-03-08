@@ -9,18 +9,23 @@ desc = "Chmod on selected files"
 
 [[manager.prepend_keymap]]
 on = ["i", "i"]
-run = "plugin hide-preview"
-desc = "Hide or show preview"
+run = "plugin toggle-pane min-preview"
+desc = "Show or hide the preview pane"
+
+[[manager.prepend_keymap]]
+on = ["i", "o"]
+run = "plugin toggle-pane max-preview"
+desc = "Maximize or restore the preview pane"
+
+[[manager.prepend_keymap]]
+on = ["i", "c"]
+run = "plugin toggle-pane min-parent"
+desc = "Show or hide the parent pane"
 
 [[manager.prepend_keymap]]
 on = ["i", "f"]
 run = "plugin smart-filter"
 desc = "Smart filter"
-
-[[manager.prepend_keymap]]
-on = ["i", "a"]
-run = "plugin max-preview"
-desc = "Maximize or restore preview"
 
 [[manager.prepend_keymap]]
 on = ["i", "e"]

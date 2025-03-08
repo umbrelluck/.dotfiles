@@ -1,54 +1,54 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "beb586a"
+rev = "5186af7"
 hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "beb586a"
+rev = "5186af7"
 hash = "f28138c2e11e87962b66d583fef724c3"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "beb586a"
+rev = "5186af7"
 hash = "771f18427fb75fb19990ce602bb322f4"
 
 [[plugin.deps]]
-use = "yazi-rs/plugins:hide-preview"
-rev = "beb586a"
-hash = "55904f17e1053cfb91dacd9015a99f9d"
-
-[[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "beb586a"
+rev = "5186af7"
 hash = "b482f4f2d3c4e0aa3f8db89a95699439"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "beb586a"
+rev = "5186af7"
 hash = "b03f3d80d26b6d7bb490b1380e9cb754"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "beb586a"
-hash = "15b2ff7f6563c14d5b2e93b3e9da35de"
+rev = "5186af7"
+hash = "a8025f2bb311e869069364fba01abffc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:lsar"
-rev = "beb586a"
+rev = "5186af7"
 hash = "fc2c9438d402f7c4ac230aebf5a746d1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "beb586a"
+rev = "5186af7"
 hash = "af11685de39c366ec1137fcbccacdbff"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "beb586a"
+rev = "5186af7"
 hash = "5c4d8080367dd2561a18c1cf5a1dd295"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:toggle-pane"
+rev = "2bf70d8"
+hash = "812fd49667ab6823250f0411f8cf793a"
 
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
-rev = "d98f0c3"
-hash = "cada780385f75abbcfbf5343256b441"
+rev = "31167ed"
+hash = "a04e157148549bacbb2831aab0e6e8cb"
