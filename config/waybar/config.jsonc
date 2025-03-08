@@ -226,7 +226,8 @@
         "tooltip-format-connected": "{num_connections} connected\n\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%",
-        "on-click": "~/.dotfiles/scripts/bluetooth/bluetuith.sh"
+        "on-click": "~/.dotfiles/scripts/bluetooth/bluetuith.sh",
+        "on-click-right": "~/.dotfiles/scripts/bluetooth/overskride.sh",
     },
     "network": {
         // "interface": "wlp2s0",
