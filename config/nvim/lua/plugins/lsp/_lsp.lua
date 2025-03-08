@@ -21,7 +21,8 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             mason_lspconfig.setup({
-                ensure_installed = { "lua_ls", "clangd", "pyright", "bashls" },
+                -- ensure_installed = { "lua_ls", "clangd", "pyright", "bashls" },
+                ensure_installed = { "lua_ls", "clangd", "ruff", "pyright", "bashls" },
                 automatic_installation = false -- if configured by lspconfig but not installed, then install
             })
             mason_lspconfig.setup_handlers({
@@ -45,6 +46,25 @@ return {
                                     callSnippet = "Replace"
                                 },
                                 hint = { enable = true },
+                            },
+                        },
+                    })
+                end,
+
+                ["pyright"] = function()
+                    lspconfig["pyright"].setup({
+                        capabilities = capabilities,
+                        disableOrganizeImports = true,
+                        settings = {
+                            pyright = {
+                                -- Using Ruff's import organizer
+                                disableOrganizeImports = true,
+                            },
+                            python = {
+                                analysis = {
+                                    -- Ignore all files for analysis to exclusively use Ruff for linting
+                                    ignore = { '*' },
+                                },
                             },
                         },
                     })

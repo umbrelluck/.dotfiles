@@ -1,14 +1,14 @@
 return {
     "epwalsh/obsidian.nvim",
-    -- enabled = false,
+    enabled = false,
     lazy = true,
     ft = "markdown",
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
     event = {
-        "BufReadPre " .. vim.fn.expand("~") .. "/Documents/Vault/**.md",
-        "BufNewFile " .. vim.fn.expand("~") .. "/Documents/Vault/**.md",
+        "BufReadPre " .. vim.fn.expand("~") .. "/Documents/Obsidian/**.md",
+        "BufNewFile " .. vim.fn.expand("~") .. "/Documents/Obsidian/**.md",
     },
     opts = {
         workspaces = {
@@ -17,7 +17,7 @@ return {
                 path = "~/Vault/Courses",
             },
         },
-        new_notes_location = "current_dir",     -- current_dir | notes_subdir
+        new_notes_location = "current_dir", -- current_dir | notes_subdir
         completion = {
             nvim_cmp = true,
             min_chars = 2,
