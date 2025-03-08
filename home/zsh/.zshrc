@@ -119,10 +119,12 @@ function y() {
 alias yi='yazi'
 alias ye='yazi'
 
+alias av='source .venv/bin/activate'
+alias dv='deactivate'
+
 alias %=' '
 alias cd='z'
 
-alias avenv='source .venv/bin/activate'
 alias viewhyprlog='bat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log'
 alias whitesur='~/.dotfiles/scripts/whitesur.sh'
 alias gdmh='~/.dotfiles/scripts/greetd_gdm.sh'
@@ -181,6 +183,7 @@ alias rip='rg -i'
 alias grep='grep --color=auto'
 
 alias lg='lazygit'
+alias lr='lazydocker'
 
 alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE:STRING=Release -H./ -B./build -G 'Unix Makefiles' && cmake --build ./build --config Release --target all'
 

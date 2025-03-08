@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 if [[ -z "$1" ]] then
-    DIRS=($GITDIR)
+    DIRS=($GITDIR "$GITDIR/_themes")
 else
     DIRS=("$1")
 fi
