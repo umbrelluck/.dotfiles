@@ -13,7 +13,7 @@ run = "plugin toggle-pane min-preview"
 desc = "Show or hide the preview pane"
 
 [[manager.prepend_keymap]]
-on = ["i", "o"]
+on = ["i", "a"]
 run = "plugin toggle-pane max-preview"
 desc = "Maximize or restore the preview pane"
 
@@ -263,8 +263,16 @@ keymap = [
     ], run = "cd ~/.config", desc = "Goto ~/.config" },
     { on = [
         "g",
-        "d",
+        "o",
     ], run = "cd ~/Downloads", desc = "Goto ~/Downloads" },
+    { on = [
+        "g",
+        "d",
+    ], run = "cd ~/Documents", desc = "goto ~/Documents" },
+    { on = [
+        "g",
+        "i",
+    ], run = "cd ~/.dotfiles", desc = "Goto ~/.dotfiles" },
     { on = [
         "g",
         "<Space>",
