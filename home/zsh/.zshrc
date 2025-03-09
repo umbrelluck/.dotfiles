@@ -78,7 +78,8 @@ export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :50 {}'
     --header 'Get file path'"
 
 export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden --no-ignore'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'
+# export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -50'
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always --icons {} | head -50'
     $FZF_DEFAULT_BINDS
     --color header:italic
     --header 'CD into directory'"
@@ -174,7 +175,6 @@ alias lsat='lso -lat | rg "^d" && lso -la | rg "^-" && lso -la | rg "^l"'
 # alias gupd=$SCRSDIR/git_rep_updater.sh
 #
 alias ncdu='ncdu -e'
-# alias duf='duf -all -warnings'
 alias dufi='duf -only local'
 
 alias echo='echo -e'
@@ -189,6 +189,8 @@ alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE
 
 alias rpcb='lsof +L1'
 alias wttr='curl wttr.in'
+
+alias vbox='modprobe vboxdrv'
 
 # LaTex
 export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/man"
