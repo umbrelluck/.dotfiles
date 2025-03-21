@@ -126,6 +126,16 @@ alias dv='deactivate'
 alias %=' '
 alias cd='z'
 
+alias eli='zellij'
+alias elia='zellij a'
+alias elis='zellij ls'
+alias elida='zellij delete-all-sessions'
+function elid(){
+    if [[ -n $(elis) ]]; then
+        zellij delete-session $(cat <<< $d | fzf)
+    fi
+}
+
 alias viewhyprlog='bat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log'
 alias whitesur='~/.dotfiles/scripts/whitesur.sh'
 alias gdmh='~/.dotfiles/scripts/greetd_gdm.sh'

@@ -109,12 +109,15 @@ fi
 
 # Alacritty themes here: https://github.com/alacritty/alacritty-theme
 
-[[ $IS_CONF -eq 1 ]] && rm "$confd/hypr/hyprland.conf"
-if [[ $IS_CONF -eq 1 && $IS_UWSM -eq 1 ]]; then
-    ln -s "$HOME/.dotfiles/config/hypr/hyprland_uwsm.conf" "$confd/hypr/hyprland.conf"
-elif [[ $IS_CONF -eq 1 ]]; then
-    ln -s "$HOME/.dotfiles/config/hypr/hyprland_standalone.conf" "$confd/hypr/hyprland.conf"
-fi
+# if [[ $IS_CONF -eq 1 && $IS_UWSM -eq 1 ]]; then
+#     rm "$confd/hypr/hyprland.conf"
+#     ln -s "$HOME/.dotfiles/config/hypr/hyprland_uwsm.conf" "$confd/hypr/hyprland.conf"
+#     hyprctl reload
+# elif [[ $IS_CONF -eq 1 ]]; then
+#     rm "$confd/hypr/hyprland.conf"
+#     ln -s "$HOME/.dotfiles/config/hypr/hyprland_standalone.conf" "$confd/hypr/hyprland.conf"
+#     hyprctl reload
+# fi
 
 cd "$CWD"
 
