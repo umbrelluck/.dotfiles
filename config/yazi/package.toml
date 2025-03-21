@@ -48,6 +48,11 @@ use = "yazi-rs/plugins:toggle-pane"
 rev = "2bf70d8"
 hash = "812fd49667ab6823250f0411f8cf793a"
 
+[[plugin.deps]]
+use = "Ape/smart-enter"
+rev = "7b84c89"
+hash = "43eb1a1f2291795fb5b0b2ce1206ebee"
+
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
 rev = "31167ed"
