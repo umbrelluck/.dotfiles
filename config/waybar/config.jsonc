@@ -39,19 +39,14 @@
             "3": "",
             "4": "",
             "5": "",
+            "6": "󰊴",
             "active": "", //     󰪥  
             // "default": ""
             "default": "",
             "urgent": ""
         },
         "persistent-workspaces": {
-            "*": [
-                1,
-                2,
-                3,
-                4,
-                5
-            ]
+            "*": 5
         },
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e-1",

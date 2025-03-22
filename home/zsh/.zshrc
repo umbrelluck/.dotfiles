@@ -128,6 +128,7 @@ alias cd='z'
 
 alias eli='zellij'
 alias elia='zellij a'
+alias eliad='elia -c default'
 alias elis='zellij ls'
 alias elida='zellij delete-all-sessions'
 function elid(){
