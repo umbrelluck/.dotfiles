@@ -1,52 +1,52 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "5186af7"
-hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
+rev = "7112e91"
+hash = "1f3dad061209081a6b04dd6ff2cb06c7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "5186af7"
-hash = "f28138c2e11e87962b66d583fef724c3"
+rev = "7112e91"
+hash = "2f1053f89d1a301a648ab181d0948e38"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "5186af7"
-hash = "771f18427fb75fb19990ce602bb322f4"
+rev = "7112e91"
+hash = "e0ada736ea676c2bbb3ec705a49526ef"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "5186af7"
-hash = "b482f4f2d3c4e0aa3f8db89a95699439"
+rev = "7112e91"
+hash = "f0c4b41b5d19a3144958383333eff6e7"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mime-ext"
-rev = "5186af7"
-hash = "b03f3d80d26b6d7bb490b1380e9cb754"
+rev = "7112e91"
+hash = "5e24c167e9ae9a203a48f2a438b8c705"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:max-preview"
-rev = "5186af7"
+rev = "7112e91"
 hash = "a8025f2bb311e869069364fba01abffc"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:lsar"
-rev = "5186af7"
-hash = "fc2c9438d402f7c4ac230aebf5a746d1"
+rev = "7112e91"
+hash = "d0950c172ce352d31554ad6db8226494"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "5186af7"
-hash = "af11685de39c366ec1137fcbccacdbff"
+rev = "7112e91"
+hash = "a670c03eb3760812e044a24f94cedc55"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "5186af7"
-hash = "5c4d8080367dd2561a18c1cf5a1dd295"
+rev = "7112e91"
+hash = "dd97eede8e20e59cd2604e8006e470e2"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "2bf70d8"
-hash = "812fd49667ab6823250f0411f8cf793a"
+rev = "7112e91"
+hash = "5c9dda1a587b8f5b6f63e3d5375bda88"
 
 [[plugin.deps]]
 use = "Ape/smart-enter"
