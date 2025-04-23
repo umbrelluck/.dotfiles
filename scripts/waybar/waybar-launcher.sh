@@ -18,11 +18,12 @@ while getopts 'tf' flag; do
 done
 
 CMD="waybar"
-[[ $IS_UWSM -eq 1 ]] && {
-    [[ -n $(command -v uwsm-app) && $TO_FORCE -eq 0 ]] \
-    && CMD="uwsm-app -- waybar" \
-    || CMD="uwsm app -- waybar"
-}
+# FIXME: bad with uwsm
+# [[ $IS_UWSM -eq 1 ]] && {
+#     [[ -n $(command -v uwsm-app) && $TO_FORCE -eq 0 ]] \
+#     && CMD="uwsm-app -- waybar" \
+#     || CMD="uwsm app -- waybar"
+# }
 
 [[ "$IS_RELOADED" -eq 1 ]] && exit
 [[ -z $(pidof waybar) ]] && ${CMD} || killall -SIGUSR2 waybar

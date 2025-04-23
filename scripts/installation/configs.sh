@@ -92,6 +92,7 @@ if [[ $IS_ETC -eq 1 ]]; then
     sudo cp "$HOME/.dotfiles/etc/reflector/reflector.conf" "/etc/xdg/reflector/reflector.conf"
     echo "\t\tReflector .. Done"
     sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/" && sudo udevadm control --reload
+    sudo udevadm control --reload-rules
     echo "\t\tUdev rules .. Done"
     sudo cp "$HOME/.dotfiles/etc/hooks"/* "/etc/pacman.d/hooks/"
     echo "\t\tPacman hooks .. Done"
