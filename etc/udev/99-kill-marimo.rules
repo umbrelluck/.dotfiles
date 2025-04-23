@@ -1,0 +1,3 @@
+ACTION=="poweroff", RUN+="/usr/bin/pkill -f marimo"
+ACTION=="reboot", RUN+="/usr/bin/pkill -f marimo"
+
