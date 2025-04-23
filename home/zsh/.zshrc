@@ -126,6 +126,9 @@ alias dv='deactivate'
 alias %=' '
 alias cd='z'
 
+alias vi='nvim'
+alias vim='nvim'
+
 alias eli='zellij'
 alias elia='zellij a'
 alias eliad='elia -c default'
@@ -204,9 +207,9 @@ alias wttr='curl wttr.in'
 alias vbox='modprobe vboxdrv'
 
 # LaTex
-export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:$HOME/ProgramFiles/LaTeX/texlive/2024/texmf-dist/doc/info"
-export PATH="$PATH:$HOME/ProgramFiles/LaTeX/texlive/2024/bin/x86_64-linux"
+export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2025/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:$HOME/ProgramFiles/LaTeX/texlive/2025/texmf-dist/doc/info"
+export PATH="$PATH:$HOME/ProgramFiles/LaTeX/texlive/2025/bin/x86_64-linux"
 
 export JAVA_HOME=/usr/lib/jvm/default/
 export PATH="$PATH:$HOME/Git/zig/build/stage3/bin"
