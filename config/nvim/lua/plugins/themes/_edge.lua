@@ -1,5 +1,6 @@
 return {
     "sainnhe/edge",
+    enabled = false,
     event = "VeryLazy",
     config = function()
         vim.g.edge_style = 'aura'

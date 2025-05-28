@@ -29,11 +29,11 @@
     light = false
     line-numbers = true
 
-[filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+; [filter "lfs"]
+; 	smudge = git-lfs smudge -- %f
+; 	process = git-lfs filter-process
+; 	required = true
+; 	clean = git-lfs clean -- %f
 
 [credential "https://dev.azure.com"]
     useHttpPath = true

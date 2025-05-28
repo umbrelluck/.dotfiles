@@ -2,7 +2,7 @@ return {
     {
         "rose-pine/neovim",
         name = "rose-pine",
-        -- enabled = false,
+        enabled = false,
         event = "VeryLazy",
         piority = 1000,
         lazy = false,
