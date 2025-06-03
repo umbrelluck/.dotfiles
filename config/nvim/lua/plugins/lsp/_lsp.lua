@@ -23,94 +23,6 @@ return {
             mason_lspconfig.setup({
                 -- ensure_installed = { "lua_ls", "clangd", "pyright", "bashls" },
                 ensure_installed = { "lua_ls", "clangd", "ruff", "pyright", "bashls" },
-                automatic_installation = false -- if configured by lspconfig but not installed, then install
-            })
-            mason_lspconfig.setup_handlers({
-                function(server_name)
-                    lspconfig[server_name].setup({
-                        capabilities = capabilities,
-                    })
-                end,
-
-                ["lua_ls"] = function()
-                    lspconfig["lua_ls"].setup({
-                        capabilities = capabilities,
-                        settings = {
-                            Lua = {
-                                diagnostics = {
-                                    -- Get the language server to recognize the `vim` global
-                                    globals = { "vim" },
-                                    missing_parameters = true, -- missing fields like in treesitter
-                                },
-                                completion = {
-                                    callSnippet = "Replace"
-                                },
-                                hint = { enable = true },
-                            },
-                        },
-                    })
-                end,
-
-                ["pyright"] = function()
-                    lspconfig["pyright"].setup({
-                        capabilities = capabilities,
-                        disableOrganizeImports = true,
-                        settings = {
-                            pyright = {
-                                -- Using Ruff's import organizer
-                                disableOrganizeImports = true,
-                            },
-                            python = {
-                                analysis = {
-                                    -- Ignore all files for analysis to exclusively use Ruff for linting
-                                    ignore = { '*' },
-                                },
-                            },
-                        },
-                    })
-                end,
-
-                ["bashls"] = function()
-                    lspconfig["bashls"].setup({
-                        capabilities = capabilities,
-                        filetypes = { "sh", "zsh" }
-                    })
-                end,
-
-
-                ["rust_analyzer"] = function()
-                    lspconfig["rust_analyzer"].setup({
-                        capabilities = capabilities,
-                        settings = {
-                            ["rust-analyzer"] = {
-                                checkOnSave = {
-                                    command = "clippy",
-                                },
-                                imports = {
-                                    granularity = {
-                                        group = "module",
-                                    },
-                                    prefix = "self",
-                                },
-                                cargo = {
-                                    allFeatures = true,
-                                    buildScripts = {
-                                        enable = true,
-                                    },
-                                },
-                                procMacro = {
-                                    enable = true
-                                },
-                            }
-                        }
-                    })
-                end
-
-                -- ["clangd"]=function ()
-                --     lspconfig["clangd"].setup({
-                --         capabilities=capabilities,
-                --     })
-                -- end
             })
         end,
     },
@@ -123,8 +35,75 @@ return {
             -- })
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            -- because mason has older zls
-            lspconfig.zls.setup({
+            vim.lsp.config('clangd', {
+                capabilities = capabilities,
+            })
+
+            vim.lsp.config("bashls", {
+                capabilities = capabilities,
+                filetypes = { "sh", "zsh" }
+            })
+
+            vim.lsp.config("lua_ls", {
+                capabilities = capabilities,
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                            missing_parameters = true,
+                        },
+                        completion = {
+                            callSnippet = "Replace"
+                        },
+                        hint = { enable = true },
+                    },
+                }
+            })
+
+            vim.lsp.config('pyright', {
+                capabilities = capabilities,
+                disableOrganizeImports = true,
+                settings = {
+                    pyright = {
+                        -- Using Ruff's import organizer
+                        disableOrganizeImports = true,
+                    },
+                    python = {
+                        analysis = {
+                            -- Ignore all files for analysis to exclusively use Ruff for linting
+                            ignore = { '*' },
+                        },
+                    },
+                }
+            })
+
+            vim.lsp.config('rust_analyzer', {
+                capabilities = capabilities,
+                settings = {
+                    ["rust-analyzer"] = {
+                        checkOnSave = {
+                            command = "clippy",
+                        },
+                        imports = {
+                            granularity = {
+                                group = "module",
+                            },
+                            prefix = "self",
+                        },
+                        cargo = {
+                            allFeatures = true,
+                            buildScripts = {
+                                enable = true,
+                            },
+                        },
+                        procMacro = {
+                            enable = true
+                        },
+                    }
+                }
+            })
+
+            vim.lsp.config('zls', {
                 cmd = { "/home/umbrelluck/Git/zls/zig-out/bin/zls" },
                 filetypes = { "zig" },
                 root_dir = lspconfig.util.root_pattern("build.zig", ".git"),
@@ -132,37 +111,9 @@ return {
                 capabilities = capabilities,
             })
 
-            lspconfig.gdscript.setup({
+            vim.lsp.config('gdscript', {
                 capabilities = capabilities,
             })
-
-            -- NOTE: config for when using rustup rust-analyzer
-            --
-            -- lspconfig.rust_analyzer.setup({
-            --     capabilities = capabilities,
-            --     settings = {
-            --         ["rust-analyzer"] = {
-            --             checkOnSave = {
-            --                 command = "clippy",
-            --             },
-            --             imports = {
-            --                 granularity = {
-            --                     group = "module",
-            --                 },
-            --                 prefix = "self",
-            --             },
-            --             cargo = {
-            --                 allFeatures = true,
-            --                 buildScripts = {
-            --                     enable = true,
-            --                 },
-            --             },
-            --             procMacro = {
-            --                 enable = true
-            --             },
-            --         }
-            --     }
-            -- })
 
             for type, icon in pairs(_G.LSPDsigns) do
                 local hlv_name = "DiagnosticVirtualText" .. type
@@ -190,8 +141,8 @@ return {
             })
 
             _G.nmap("<Leader>e", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-            _G.nmap("[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-            _G.nmap("]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+            -- _G.nmap("[d", vim.diagnostic.jump({ count = -1 }), { desc = "Go to previous diagnostic message" })
+            -- _G.nmap("]d", vim.diagnostic.jump({ count = 1 }), { desc = "Go to next diagnostic message" })
             _G.nmap("<a-F>", "gg=G<c-o>", { noremap = false, desc = "Format current buffer" })
             _G.nmap("<Leader>dq", vim.diagnostic.setqflist, { desc = "Open diagnostics list in quickfix" })
             _G.nmap("<Leader>dl", vim.diagnostic.setloclist, { desc = "Open diagnostics list in loclist" })
@@ -207,19 +158,20 @@ return {
                     -- BUG: forces undo to behave like a bitch
                     -- vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format() ]])
 
-                    if client.supports_method('textDocument/formatting') then
-                        _G.map({ "n", "i" }, "<a-F>", function()
-                            vim.lsp.buf.format({ async = true })
-                        end, { buffer = ev.buf })
-
-                        -- Format the current buffer on save
-                        vim.api.nvim_create_autocmd('BufWritePre', {
-                            buffer = ev.buf,
-                            callback = function()
-                                vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
-                            end,
-                        })
-                    end
+                    -- FIXME: Redo formatting
+                    -- if client.supports_method('textDocument/formatting') then
+                    --     _G.map({ "n", "i" }, "<a-F>", function()
+                    --         vim.lsp.buf.format({ async = true })
+                    --     end, { buffer = ev.buf })
+                    --
+                    --     -- Format the current buffer on save
+                    --     vim.api.nvim_create_autocmd('BufWritePre', {
+                    --         buffer = ev.buf,
+                    --         callback = function()
+                    --             vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
+                    --         end,
+                    --     })
+                    -- end
 
 
                     -- INFO: breadcrumbs attachment is handled by breadcrumbs themselves
