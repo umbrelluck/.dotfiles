@@ -140,8 +140,8 @@ function elid(){
     fi
 }
 
+alias latexpd='tlmgr update --self && tlmgr update --all'
 alias viewhyprlog='bat $XDG_RUNTIME_DIR/hypr/$(ls -t $XDG_RUNTIME_DIR/hypr/ | head -n 1)/hyprland.log'
-alias whitesur='~/.dotfiles/scripts/whitesur.sh'
 alias gdmh='~/.dotfiles/scripts/greetd_gdm.sh'
 
 alias parur="paru --review"

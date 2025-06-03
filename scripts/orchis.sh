@@ -7,8 +7,8 @@ git pull
 
 cd $GITDIR/_themes/Orchis-theme/
 git pull
-./install.sh --tweaks solid macos
-./install.sh -l -s compact -c dark --tweaks solid macos
+./install.sh --tweaks compact solid macos
+./install.sh --tweaks compact solid macos -c dark -l
 
 cd $CWD
 
