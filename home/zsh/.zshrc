@@ -21,7 +21,7 @@ export EDITOR="nvim"
 export SCRSDIR="$HOME/.dotfiles/scripts/"
 export GITDIR="$HOME/Git"
 
-export DIFFPROG="nvim -d $1"
+export DIFFPROG="diffprog-wrapper"
 
 # [[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
 # fastfetch 
@@ -126,8 +126,8 @@ alias dv='deactivate'
 alias %=' '
 alias cd='z'
 
-alias vi='nvim'
-alias vim='nvim'
+# alias vi='nvim'
+# alias vim='nvim'
 
 alias eli='zellij'
 alias elia='zellij a'

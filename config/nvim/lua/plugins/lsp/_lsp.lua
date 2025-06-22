@@ -16,12 +16,11 @@ return {
     {
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            local lspconfig = require("lspconfig")
+            -- local lspconfig = require("lspconfig")
             local mason_lspconfig = require("mason-lspconfig")
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             mason_lspconfig.setup({
-                -- ensure_installed = { "lua_ls", "clangd", "pyright", "bashls" },
                 ensure_installed = { "lua_ls", "clangd", "ruff", "pyright", "bashls" },
             })
         end,
@@ -151,27 +150,29 @@ return {
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", {}),
                 callback = function(ev)
-                    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
                     -- Enable completion triggered by <c-x><c-o>
                     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
                     -- BUG: forces undo to behave like a bitch
                     -- vim.cmd([[autocmd BufWritePre <buffer> lua vim.lsp.buf.format() ]])
 
-                    -- FIXME: Redo formatting
-                    -- if client.supports_method('textDocument/formatting') then
-                    --     _G.map({ "n", "i" }, "<a-F>", function()
-                    --         vim.lsp.buf.format({ async = true })
-                    --     end, { buffer = ev.buf })
-                    --
-                    --     -- Format the current buffer on save
-                    --     vim.api.nvim_create_autocmd('BufWritePre', {
-                    --         buffer = ev.buf,
-                    --         callback = function()
-                    --             vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
-                    --         end,
-                    --     })
-                    -- end
+                    if client:supports_method('textDocument/formatting') then
+                        _G.map({ "n", "i" }, "<a-F>", function()
+                            vim.lsp.buf.format({ async = true })
+                        end, { buffer = ev.buf })
+
+                        -- Format the current buffer on save
+                        if not client:supports_method('textDocument/willSaveWaitUntil') then
+                            vim.api.nvim_create_autocmd('BufWritePre', {
+                                group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+                                buffer = ev.buf,
+                                callback = function()
+                                    vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+                                end,
+                            })
+                        end
+                    end
 
 
                     -- INFO: breadcrumbs attachment is handled by breadcrumbs themselves
@@ -241,14 +242,43 @@ return {
             --     { "│", _hgroup },
             -- }
 
+            local lsp_handler = function(err, result, context)
+                if err then
+                    vim.notify("Hover error: " .. err.message, vim.log.levels.ERROR)
+                    return
+                end
+                if not (result and result.contents) then
+                    return
+                end
+
+                local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
+                markdown_lines = vim.split(table.concat(markdown_lines, "\n"), "\n", { trimempty = true })
+                if vim.tbl_isempty(markdown_lines) then
+                    return
+                end
+
+                local bufnr, winid = vim.lsp.util.open_floating_preview(
+                    markdown_lines,
+                    "markdown",
+                    {
+                        border = _border,
+                        -- max_width = 80,
+                        focusable = true,
+                    }
+                )
+                -- vim.lsp.util.stylize_markdown(bufnr, markdown_lines, {
+                --     max_width = 80,
+                -- })
+                return bufnr, winid
+            end
+
             require('lspconfig.ui.windows').default_options = {
                 border = _border }
-            vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = _border })
-            vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = _border })
+            vim.lsp.handlers["textDocument/hover"] = lsp_handler
+            vim.lsp.handlers["textDocument/signatureHelp"] = lsp_handler
             vim.diagnostic.config {
-                float = { border = _border } }
+                float = { border = _border }
+            }
 
             vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
         end,
