@@ -1,4 +1,4 @@
-#! /usr/bin/zsh
+#! /bin/zsh
 
 # printf '{"text": "0", "class": "loading"}'
 

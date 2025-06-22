@@ -100,6 +100,8 @@ fi
 
 [[ $IS_SCRIPTS -eq 1 ]] && {
     echo "Copying scripts to /usr/local/bin/"
+    sudo cp "scripts/bin/diffprog-wrapper" "/usr/local/bin"
+    echo "\t\tdiffprog-wrapper .. Done"
     sudo cp "scripts/bin/uuctl-c" "/usr/local/bin"
     echo "\t\tuuctl-c .. Done"
     sudo cp "scripts/bin/uwla" "/usr/local/bin"
