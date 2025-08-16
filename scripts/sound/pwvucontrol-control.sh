@@ -1,9 +1,31 @@
 #! /bin/bash
 
+FF=0
+L=0
+R=0
+
+while getopts "lrF" opt; do
+    case $opt in 
+        F)
+            FF=1
+            ;;
+        l)
+            L=1 # left-click
+            ;;
+        r)
+            R=1 # right-click
+            ;;
+        *) 
+            echo "Allowed flags: lrF"
+            ;;
+    esac
+done
+
 [[ $# -lt 1 ]] && echo "Requires flags to work" >&2
+[[ $L -eq 0 && $R -eq 0 ]] && echo "Requires flags lr to work" >&2
 
 CMD="pwvucontrol"
-[[ $IS_UWSM -eq 1 ]] && {
+[[ $IS_UWSM -eq 1 || $FF -eq 1 ]] && {
     [[ -n $(command -v uwsm-app 2>/dev/null) ]] \
     && CMD="uwsm-app -- pwvucontrol" \
     || CMD="uwsm app -- pwvucontrol"
@@ -29,16 +51,4 @@ right-click(){
     fi
 }
 
-while getopts "lr" opt; do
-    case $opt in 
-        l)
-            left-click
-            ;;
-        r)
-            right-click
-            ;;
-        *) 
-            echo "Allowed flags: lr"
-            ;;
-    esac
-done
+[[ $L -eq 1 ]] && left-click || right-click
