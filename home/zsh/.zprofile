@@ -2,7 +2,10 @@
 
 # Added by Toolbox App
 # export PATH="$PATH:/home/umbrelluck/.local/share/JetBrains/Toolbox/scripts"
+#
 export QT_QPA_PLATFORMTHEME=qt6ct
+# export DIFFPROG="diffprog-wrapper"
+
 # export QT_STYLE_OVERRIDE=kvantum #NOTE: taken care of by QT6 Settings
 # export QT_WAYLAND_DECORATION=whitesur-gtk
 

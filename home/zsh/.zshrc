@@ -21,6 +21,7 @@ export EDITOR="nvim"
 export SCRSDIR="$HOME/.dotfiles/scripts/"
 export GITDIR="$HOME/Git"
 
+# BUG: Not working for sudo checkservices
 export DIFFPROG="diffprog-wrapper"
 
 # [[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
@@ -204,7 +205,19 @@ alias cbuild='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -DCMAKE_BUILD_TYPE
 alias rpcb='lsof +L1'
 alias wttr='curl wttr.in'
 
-alias vbox='modprobe vboxdrv'
+vbox(){
+    if [[ "$#" -eq 0 ]]; then
+        doas modprobe vboxdrv
+        echo "Loaded main BVox module"
+    elif [[ "$1" == "a" || "$1" == "adv" ]]; then
+        doas modprobe vboxnetadp
+        doas modprobe vboxnetflt
+        echo "Loaded advanced BVox modules for network adapters"
+    fi
+}
+
+# alias vbox='doas modprobe vboxdrv'
+# alias vboxadv='doas modprobe vboxnetadp; doas modprobe vboxnetflt'
 
 # LaTex
 export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2025/texmf-dist/doc/man"
