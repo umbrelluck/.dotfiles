@@ -1,11 +1,14 @@
 #! /usr/bin/zsh
 
 # TODO: later add clamav databasse
+#
+# TODO: later add cups socket
 
 echo "-----< SERVICES >-----"
 
 services=("cronie.service" "NetworkManager.service" "reflector.timer" \
-    "nvidia-hibernate.service" "nvidia-persistenced.service" "nvidia-resume.service" "nvidia-suspend.service")
+    "nvidia-hibernate.service" "nvidia-persistenced.service" "nvidia-resume.service" "nvidia-suspend.service" \
+    "clamav-freshclam-once.timer" )
 
 for service in $services; do
     echo "Enabling $service unit file..."
