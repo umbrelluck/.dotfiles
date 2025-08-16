@@ -32,7 +32,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 3x3
+    offset = (3, 3)
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -60,7 +60,7 @@
     progress_bar_max_width = 300
 
     # Corner radius for the progress bar. 0 disables rounded corners.
-    progress_bar_corner_radius = 9
+    progress_bar_corner_radius = 5 #9
 
     # Define which corners to round when drawing the progress bar. If progress_bar_corner_radius
     # is set to 0 this option will be ignored.
@@ -175,7 +175,8 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b> <i>:%a</i>\n%b"
+    # format = "<b>%s</b>\n<i>%a</i>\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
