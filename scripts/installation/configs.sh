@@ -82,31 +82,84 @@ if [[ $IS_DESKTOP -eq 1 ]]; then
     update-desktop-database "$XDG_DATA_HOME/applications/"
 fi
 
+copy_if_newer() {
+    src="$1"
+    dst="$2"
+    mode="${3:-user}"
+
+    for file in "$src"/*; do
+        base=$(basename "$file")
+        target="$dst/$base"
+
+        # TODO:think about making if mode 1 command
+        if [[ ! -e "$target" || "$file" -nt "$target" ]]; then
+            if [[ $mode == "sudo" ]]; then
+                sudo cp -r "$file" "$target"
+            else
+                cp -r "$file" "$target"
+            fi
+        fi
+    done
+}
+
 if [[ $IS_ETC -eq 1 ]]; then
     echo "Copying configs to /etc ..."
-    sudo cp -r "$HOME/.dotfiles/etc/lemurs"/* "/etc/lemurs/"
+
+    copy_if_newer "$HOME/.dotfiles/etc/lemurs" "/etc/lemurs/" "sudo"
     echo "\t\tLemurs .. Done"
+
     sudo mkdir -p /etc/greetd/
-    sudo cp -r "$HOME/.dotfiles/etc/greetd"/* "/etc/greetd/"
+    copy_if_newer "$HOME/.dotfiles/etc/greetd" "/etc/greetd/" "sudo"
     echo "\t\tGreetd .. Done"
-    sudo cp "$HOME/.dotfiles/etc/reflector/reflector.conf" "/etc/xdg/reflector/reflector.conf"
+
+    sf="$HOME/.dotfiles/etc/reflector/reflector.conf"
+    tf="/etc/xdg/reflector/reflector.conf"
+    if [[ ! -f "$tf" || "$sf" -nt "$tf" ]]; then
+        sudo cp "$sf" "$tf"
+    fi
     echo "\t\tReflector .. Done"
-    sudo cp "$HOME/.dotfiles/etc/udev"/* "/etc/udev/rules.d/" && sudo udevadm control --reload
+
+    copy_if_newer "$HOME/.dotfiles/etc/udev" "/etc/udev/rules.d/" "sudo"
+    sudo udevadm control --reload
     sudo udevadm control --reload-rules
     echo "\t\tUdev rules .. Done"
-    sudo cp "$HOME/.dotfiles/etc/hooks"/* "/etc/pacman.d/hooks/"
+
+    copy_if_newer "$HOME/.dotfiles/etc/hooks" "/etc/pacman.d/hooks/"
     echo "\t\tPacman hooks .. Done"
+    
+    copy_if_newer "$HOME/.dotfiles/etc/systemd" "$confd/systemd/user/"
+    echo "\t\tUser systemd .. Done"
 fi
 
 [[ $IS_SCRIPTS -eq 1 ]] && {
     echo "Copying scripts to /usr/local/bin/"
-    sudo cp "scripts/bin/diffprog-wrapper" "/usr/local/bin"
+
+    sf="$HOME/.dotfiles/scripts/bin/diffprog-wrapper"
+    tf="/usr/local/bin/diffprog-wrapper"
+    if [[ ! -f "$tf" || "$sf" -nt "$tf" ]]; then
+        sudo cp "$sf" "$tf"
+    fi
     echo "\t\tdiffprog-wrapper .. Done"
-    sudo cp "scripts/bin/uuctl-c" "/usr/local/bin"
-    echo "\t\tuuctl-c .. Done"
-    sudo cp "scripts/bin/uwla" "/usr/local/bin"
+
+    # sf="$HOME/.dotfiles/scripts/bin/uuctl-c"
+    # tf="/usr/local/bin/uuctl-c"
+    # if [[ ! -f "$tf" || "$sf" -nt "$tf" ]]; then
+    #     sudo cp "$sf" "$tf"
+    # fi
+    # echo "\t\tuuctl-c .. Done"
+
+    sf="$HOME/.dotfiles/scripts/bin/uwla"
+    tf="/usr/local/bin/uwla"
+    if [[ ! -f "$tf" || "$sf" -nt "$tf" ]]; then
+        sudo cp "$sf" "$tf"
+    fi
     echo "\t\tuwla .. Done"
-    sudo cp "scripts/bin/uwstop" "/usr/local/bin"
+
+    sf="$HOME/.dotfiles/scripts/bin/uwstop"
+    tf="/usr/local/bin/uwstop"
+    if [[ ! -f "$tf" || "$sf" -nt "$tf" ]]; then
+        sudo cp "$sf" "$tf"
+    fi
     echo "\t\tuwstop .. Done"
 }
 

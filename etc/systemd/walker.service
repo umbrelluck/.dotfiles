@@ -1,0 +1,9 @@
+[Unit]
+Description=Start Walker GApplication user service
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/walker --gapplication-service
+Restart=on-failure

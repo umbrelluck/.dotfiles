@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Udiskie user service
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie --no-automount --tray
+Restart=on-failure
+

@@ -1,0 +1,194 @@
+{
+    "clock": {
+        "format": "  <b>{:%a %b %d %r}</b>", // %T for 24h   L after : for some reason
+        // "format": "  <b>{:%a %b %d %r}</b>", // %T for 24h   L after : for some reason
+        "interval": 1,
+        "tooltip": false,
+        "timezones": [
+            "Europe/Kyiv"
+        ],
+        "actions": {
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down"
+        }
+    },
+
+    "bluetooth" :{
+        "format-on": "",
+        "format-off": "󰂲",
+        "format-connected": "",
+        "format-disabled": "󰽅", //  󰳵  
+        "format-no-controller": "󱄶",
+        "align": 0.5,
+        "tooltip": false,
+        // "min-length": 3,
+        // "max-length": 3
+    },
+
+    "bluetooth#battery" :{
+        "format": "",
+        "format-connected-battery": " {device_battery_percentage}%",
+        "align": 0.5,
+        "tooltip": false
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "",
+        "format-linked": "󰈁", // 󰌷
+        "format-disconnected": "󰌙", //󰌸
+        "format-disabled": "󰽅",
+        "tooltip": false,
+        "format-icons": [
+            "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+        ]
+    },
+
+    "network#speed": {
+        "interval": 1,
+        "format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-ethernet": "  {bandwidthUpBytes}  {bandwidthDownBytes}",  // 󰌘 
+        "format-linked": "󰈁 {ifname} (No IP)",
+        "tooltip": false,
+        "min-length": 24,
+        "max-length": 24,
+        "format-icons": [
+            "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+        ]
+    },
+
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 150,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 18
+            }
+        ]
+    },
+
+    "backlight": {
+        // "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "tooltip": false,
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "min-length": 7,
+        "max-length": 7,
+        "on-scroll-up": "~/.dotfiles/scripts/backlight/bright-control.sh -u",
+        "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-control.sh -d" 
+    },
+
+    "wireplumber": {
+        "format": "{icon} {volume}%",
+        "format-muted": "  {volume}%", // 󰖁   
+        "node-type": "Audio/Sink",
+        "tooltip": false,
+        "max-volume": 100,
+        "format-icons": [
+            "",
+            "",
+            " "
+
+        ],
+        "min-length": 7,
+        "max-length": 7,
+        "on-click": "~/.dotfiles/scripts/sound/pwvucontrol-control.sh -l",
+        "on-click-right": "~/.dotfiles/scripts/sound/pwvucontrol-control.sh -r",
+        "on-click-middle": "~/.dotfiles/scripts/sound/playerctl~.sh",
+        "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl-control.sh -u",
+        "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-control.sh -d"
+    },
+
+    "wireplumber#source": {
+        "format": " {volume}%",
+        "format-muted": " {volume}%",
+        "node-type": "Audio/Source",
+        "min-length": 7,
+        "max-length": 7,
+        "on-click-right": "~/.dotfiles/scripts/sound/wpctl-control.sh -s",
+        "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl-control.sh -i",
+        "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-control.sh -e"
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "meh": 60,
+            "warning": 30,
+            "critical": 15
+        },
+        "tooltip": false,
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "tooltip-format": "{timeTo}",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "max-length": 25
+    },
+
+    "tray": {
+        "spacing": 8
+    },
+
+    "niri/language": {
+        "format": "{short}"
+    },
+
+    "systemd-failed-units": {
+        "hide-on-ok": false, // Do not hide if there is zero failed units.
+        "format": "✗ {nr_failed}",
+        "format-ok": "✓",
+        "system": true, // Monitor failed systemwide units.
+        "user": true
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        },
+        "tooltip": false
+    }
+}
