@@ -22,7 +22,7 @@ export SCRSDIR="$HOME/.dotfiles/scripts/"
 export GITDIR="$HOME/Git"
 
 # BUG: Not working for sudo checkservices
-export DIFFPROG="diffprog-wrapper"
+# export DIFFPROG="diffprog-wrapper"
 
 # [[ "$(cat /proc/$PPID/comm)" =~ "(kitty|urxvt|xterm|alacritty)" ]] && macchina
 # fastfetch 
@@ -121,7 +121,21 @@ function y() {
 alias yi='yazi'
 alias ye='yazi'
 
-alias av='source .venv/bin/activate'
+# alias av='source .venv/bin/activate'
+function av() {
+    paths=("." ".." "../..")
+    active=false
+    for pth in "${paths[@]}"; do
+        [[ -n $(fd ".venv" "$pth" -HI -d 1) ]] && {
+            active=true
+            source "$pth/.venv/bin/activate"
+            [[ "$pth" != "." ]] && echo "Environment activated from \033[0;35m'$pth/.venv'\033[0m!"
+            break
+        }
+    done
+    if ! $active; then echo "Python environment not found"
+    fi
+}
 alias dv='deactivate'
 
 alias %=' '
@@ -153,7 +167,7 @@ alias linvim="nvim --listen"
 
 alias squirrel="~/ProgramFiles/squirrel-disk.AppImage"
 alias notesium="~/Git/notesium//notesium"
-alias orcas="~/ProgramFiles/OrcaSlicer_Linux_V1.8.1.AppImage"
+alias orcas="~/ProgramFiles/OrcaSlicer.AppImage"
 alias godotm="~/ProgramFiles/GodotManager/GodotManager.x86_64"
 
 alias drmemory='~/ProgramFiles/DrMemory-Linux-2.6.0/bin64/drmemory'
@@ -230,6 +244,7 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.local/share/coursier/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.dotfiles/scripts/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 eval "$(zoxide init zsh)"
 
