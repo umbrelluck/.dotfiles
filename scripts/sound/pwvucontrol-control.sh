@@ -51,4 +51,8 @@ right-click(){
     fi
 }
 
-[[ $L -eq 1 ]] && left-click || right-click
+if [[ $L -eq 1 ]]; then
+    left-click || notify-send "Failed to spawn/hide pwvucontrol"
+else
+    right-click || notify-send "Failed to close pwvucontrol"
+fi

@@ -9,6 +9,7 @@ fi
 
 for file in "$HOME/.config/waybar/$WM/"*; do
     filename=$(basename "$file")
+    echo "$filename"
     if [[ "$filename" =~ config || "$filename" =~ style ]]; then  
         target="$HOME/.config/waybar/$filename"
 
