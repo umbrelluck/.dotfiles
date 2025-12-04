@@ -1,0 +1,24 @@
+; ~/.config/systemd/user/hyprlock.service
+; [Unit]
+; Description=Lock screen with Hyprlock before sleep
+; Before=sleep.target
+;
+; [Service]
+; ExecStart=/usr/bin/hyprlock
+; Type=forking
+;
+; [Install]
+; WantedBy=sleep.target
+
+
+[Unit]
+Description=Start Hyprlock user service (lock before sleep)
+Before=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c '[ -z "$(pgrep -u $USER hyprlock)" ] && exec hyprlock || exit 0'
+
+; [Install]
+; WantedBy=sleep.target
+
