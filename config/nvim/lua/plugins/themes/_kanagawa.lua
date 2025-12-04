@@ -32,5 +32,6 @@ return {
         require('kanagawa').setup(opts)
 
         vim.cmd("colorscheme kanagawa")
+        vim.api.nvim_set_hl(0, "WinSeparator", { fg = _G.get_current_colors().violet, bold = true })
     end
 }

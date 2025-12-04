@@ -1,6 +1,7 @@
 return {
     {
         "lervag/vimtex",
+        enabled=false,
         -- dependecies = {
         --     'sirver/ultisnips',
         --     'ckunte/latex-snippets-vim',
