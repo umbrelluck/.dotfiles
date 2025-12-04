@@ -262,7 +262,27 @@ spawn-at-startup "xwayland-satellite"
 environment {
     DISPLAY ":0"
     IS_UWSM "1"
+
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+    QT_QPA_PLATFORM "wayland"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+
+    // WLR_DRM_DEVICES "/dev/dri/card0:/dev/dri/card1"
+    // LIBVA_DRIVER_NAME "nvidia"
+    // GBM_BACKEND "nvidia-drm"
+    // __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    // NVD_BACKEND "direct"
 }
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+// debug {
+//     render-drm-device "/dev/dri/renderD129"
+// }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -289,6 +309,8 @@ animations {
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
 }
+
+workspace "web"
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
@@ -318,7 +340,64 @@ window-rule {
     open-floating true
 }
 
-// Example: block out two password managers from screen capture.
+window-rule {
+    match app-id=r#"^(zen|zen-alpha|app\.zen_browser\.zen)$"#
+    default-column-width { proportion 1.0; }
+    // open-maximized true
+    open-on-workspace "web" 
+    // open-focused false
+}
+
+window-rule {
+    match app-id="com.network.manager"
+    open-floating true
+    open-focused false
+    default-floating-position x=4 y=4 relative-to="top-right"
+    default-window-height { fixed 730; }
+    default-column-width { fixed 690; }
+}
+
+window-rule {
+    match app-id="blueman-manager"
+    open-floating true
+    open-focused false
+    default-floating-position x=4 y=4 relative-to="top-left"
+    default-window-height { fixed 730; }
+    default-column-width { fixed 690; }
+}
+
+window-rule {
+    match app-id="copyq"
+    open-floating true
+    default-floating-position x=4 y=4 relative-to="top-left"
+    default-window-height { fixed 730; }
+    default-column-width { fixed 690; }
+}
+
+
+window-rule {
+    match app-id="telegram"
+    default-column-width { proportion 1.0; }
+}
+
+window-rule {
+    match app-id="io.missioncenter.MissionCenter"
+    default-column-width { proportion 1.0; }
+}
+
+window-rule {
+    match app-id="steam" title=r#"Steam"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+    open-focused false
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
+
+// Exmple: block out two pwssword managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
@@ -357,13 +436,14 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+W hotkey-overlay-title="Open a Terminal: ghostty" { spawn "uwsm-app" "--" "ghostty"; }
+    Mod+W hotkey-overlay-title="Open a Terminal: ghostty" { spawn "uwla" "ghostty"; }
     Mod+D hotkey-overlay-title="Run an Application: walker" { spawn "walker" "-m" "applications"; }
-    Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "uwsm-app" "--" "nautilus"; }
-    Mod+B hotkey-overlay-title="Run an Application: zen-browser" { spawn "uwsm-app" "--" "zen-browser"; }
-    // Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "uwsm-app" "--" "hyprlock"; }
-    Mod+Shift+B hotkey-overlay-title="Reload waybar" { spawn "~/.scripts/waybar/waybar-launcher.sh" "-F"; }
+    Mod+Shift+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+Shift+C hotkey-overlay-title="Run an Application: fuzzel" { spawn "copyq" "show"; }
+    Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "uwla" "nautilus"; }
+    Mod+B hotkey-overlay-title="Run an Application: zen-browser" { spawn "uwla" "zen-browser"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "uwal" "hyprlock"; }
+    // Mod+Shift+B hotkey-overlay-title="Reload waybar" { spawn "~/.scripts/waybar/waybar-launcher.sh" "-F"; }
 
 
     Mod+Shift+N { spawn "~/.dotfiles/scripts/backlight/bright-control.sh" "-d"; }
@@ -384,7 +464,7 @@ binds {
     XF86AudioLowerVolume  allow-when-locked=true { spawn "~/.dotfiles/scripts/sound/wpctl-control.sh" "-d"; }
     XF86AudioMute         allow-when-locked=true { spawn "~/.dotfiles/scripts/sound/wpctl-control.sh" "-t"; }
     XF86AudioMicMute      allow-when-locked=true { spawn "~/.dotfiles/scripts/sound/wpctl-control.sh" "-s"; }
-                          
+
     XF86AudioPlay         allow-when-locked=true { spawn "~/.dotfiles/scripts/sound/playerctl-control.sh" "-p"; }
     XF86AudioPause        allow-when-locked=true { spawn "~/.dotfiles/scripts/sound/playerctl-control.sh" "-p"; }
     XF86AudioStop         allow-when-locked=true { spawn "~/.dotfiles/scripts/sound/playerctl-control.sh" "-s"; }
@@ -398,6 +478,8 @@ binds {
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
+    Mod+A repeat=false { toggle-overview; }
+    Mod+grave repeat=false { toggle-overview; }
 
     Mod+Q { close-window; }
 
