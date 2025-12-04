@@ -1,46 +1,53 @@
-[
-    {
-        "layer": "bottom",
-        "position": "top",
-        "font-family": "Hack Nerd Font",
-        "height": 30,
-        "margin-top": 3,
-        "include": [
-            "~/.config/waybar/niri/_topbar.jsonc"
-        ],
-        "modules-left": [
-            "backlight",
-            "wireplumber",
-            "wireplumber#source",
-            "tray",
-            "privacy"
-        ],
-        "modules-center": [
-            "systemd-failed-units",
-            "clock"
-        ],
-        "modules-right": [
-            "bluetooth#battery",
-            "network#speed",
-            "idle_inhibitor",
-            "network",
-            "bluetooth",
-            "niri/language",
-            "battery"
-        ]
-    },
-    {
-        "layer": "top",
-        "position": "left",
-        "name": "left",
-        "modules-center": [
-            "niri/workspaces"
-        ],
-        // "modules-right": [
-        //     "niri/language",
-        // ]
-        // "modules-right": [
-        //     "niri/language"
-        // ],
-    }
-]
+// [
+{
+    "layer": "bottom",
+    // "mode": "overlay",
+    "position": "top",
+    "font-family": "Hack Nerd Font",
+    "height": 30,
+    "margin-top": 3,
+    // "margin-left": 2,
+    // "margin-right": 2,
+    "include": [
+        "~/.config/waybar/niri/_topbar.jsonc"
+    ],
+    "modules-left": [
+        // "niri/workspaces",
+        "backlight",
+        "wireplumber",
+        // "wireplumber#source",
+        "tray",
+        "privacy"
+    ],
+    "modules-center": [
+        // "systemd-failed-units",
+        // "clock"
+        "niri/workspaces",
+    ],
+    "modules-right": [
+        "bluetooth#battery",
+        "network#speed",
+        "idle_inhibitor",
+        "network",
+        "bluetooth",
+        "niri/language",
+        "clock",
+        "battery",
+        "custom/power"
+    ]
+}
+// {
+//     "layer": "top",
+//     "position": "left",
+//     "name": "left",
+//     "modules-center": [
+//         "niri/workspaces"
+//     ],
+//     // "modules-right": [
+//     //     "niri/language",
+//     // ]
+//     // "modules-right": [
+//     //     "niri/language"
+//     // ],
+// }
+// ]

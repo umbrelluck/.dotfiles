@@ -1,19 +1,44 @@
 {
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "web": "󰖟",
+            "active": "",
+            "default": ""
+        }
+    },
     "clock": {
-        "format": "  <b>{:%a %b %d %r}</b>", // %T for 24h   L after : for some reason
+        "format": "  {:%R}",
         // "format": "  <b>{:%a %b %d %r}</b>", // %T for 24h   L after : for some reason
+        // "format": "  <b>{:L%a %b %d %r}</b>", // %T for 24h   L after : for some reason
         "interval": 1,
-        "tooltip": false,
+        // "tooltip": false,
         "timezones": [
             "Europe/Kyiv"
         ],
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
         "actions": {
+            "on-click-right": "mode",
             "on-scroll-up": "tz_up",
-            "on-scroll-down": "tz_down"
-        }
+            "on-scroll-down": "tz_down",
+            "on-scroll-down": "shift_up",
+            "on-scroll-up": "shift_down"
+        },
     },
-
-    "bluetooth" :{
+    "bluetooth": {
         "format-on": "",
         "format-off": "󰂲",
         "format-connected": "",
@@ -24,14 +49,12 @@
         // "min-length": 3,
         // "max-length": 3
     },
-
-    "bluetooth#battery" :{
+    "bluetooth#battery": {
         "format": "",
         "format-connected-battery": " {device_battery_percentage}%",
         "align": 0.5,
         "tooltip": false
     },
-
     "network": {
         "format": "{ifname}",
         "format-wifi": "{icon}",
@@ -41,23 +64,30 @@
         "format-disabled": "󰽅",
         "tooltip": false,
         "format-icons": [
-            "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
-        ]
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "on-click": "nmgui"
     },
-
     "network#speed": {
         "interval": 1,
         "format-wifi": "{icon}  {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-ethernet": "  {bandwidthUpBytes}  {bandwidthDownBytes}",  // 󰌘 
+        "format-ethernet": "  {bandwidthUpBytes}  {bandwidthDownBytes}", // 󰌘 
         "format-linked": "󰈁 {ifname} (No IP)",
         "tooltip": false,
         "min-length": 24,
         "max-length": 24,
         "format-icons": [
-            "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
         ]
     },
-
     "privacy": {
         "icon-spacing": 4,
         "icon-size": 18,
@@ -80,7 +110,6 @@
             }
         ]
     },
-
     "backlight": {
         // "device": "intel_backlight",
         "format": "{icon} {percent}%",
@@ -104,9 +133,8 @@
         "min-length": 7,
         "max-length": 7,
         "on-scroll-up": "~/.dotfiles/scripts/backlight/bright-control.sh -u",
-        "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-control.sh -d" 
+        "on-scroll-down": "~/.dotfiles/scripts/backlight/bright-control.sh -d"
     },
-
     "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "  {volume}%", // 󰖁   
@@ -114,20 +142,18 @@
         "tooltip": false,
         "max-volume": 100,
         "format-icons": [
-            "",
-            "",
+            // "",
+            // "",
             " "
-
         ],
         "min-length": 7,
         "max-length": 7,
         "on-click": "~/.dotfiles/scripts/sound/pwvucontrol-control.sh -l",
         "on-click-right": "~/.dotfiles/scripts/sound/pwvucontrol-control.sh -r",
-        "on-click-middle": "~/.dotfiles/scripts/sound/playerctl~.sh",
+        "on-click-middle": "~/.dotfiles/scripts/sound/playerctl-control.sh -p",
         "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl-control.sh -u",
         "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-control.sh -d"
     },
-
     "wireplumber#source": {
         "format": " {volume}%",
         "format-muted": " {volume}%",
@@ -138,7 +164,6 @@
         "on-scroll-up": "~/.dotfiles/scripts/sound/wpctl-control.sh -i",
         "on-scroll-down": "~/.dotfiles/scripts/sound/wpctl-control.sh -e"
     },
-
     "battery": {
         "bat": "BAT0",
         "interval": 60,
@@ -166,15 +191,19 @@
         ],
         "max-length": 25
     },
-
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "on-click-right": "~/.dotfiles/scripts/notifications/history-pop.sh",
+        "tooltip": false
+    },
     "tray": {
+        "tooltip": false,
         "spacing": 8
     },
-
     "niri/language": {
         "format": "{short}"
     },
-
     "systemd-failed-units": {
         "hide-on-ok": false, // Do not hide if there is zero failed units.
         "format": "✗ {nr_failed}",
@@ -182,7 +211,6 @@
         "system": true, // Monitor failed systemwide units.
         "user": true
     },
-
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {

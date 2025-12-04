@@ -239,6 +239,8 @@
             "󰤥",
             "󰤨"
         ],
+        "tooltip": false,
+        "on-click": "nmgui",
         "format-ethernet": "{ipaddr}/{cidr} 󰊗 ",
         "format-disconnected": "󰤭 ", //An empty format will hide the module.
         "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
