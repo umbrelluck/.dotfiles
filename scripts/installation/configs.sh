@@ -105,11 +105,11 @@ copy_if_newer() {
 if [[ $IS_ETC -eq 1 ]]; then
     echo "Copying configs to /etc ..."
 
-    copy_if_newer "$HOME/.dotfiles/etc/lemurs" "/etc/lemurs/" "sudo"
+    copy_if_newer "$HOME/.dotfiles/etc/lemurs" "/etc/lemurs" "sudo"
     echo "\t\tLemurs .. Done"
 
     sudo mkdir -p /etc/greetd/
-    copy_if_newer "$HOME/.dotfiles/etc/greetd" "/etc/greetd/" "sudo"
+    copy_if_newer "$HOME/.dotfiles/etc/greetd" "/etc/greetd" "sudo"
     echo "\t\tGreetd .. Done"
 
     sf="$HOME/.dotfiles/etc/reflector/reflector.conf"
@@ -119,15 +119,18 @@ if [[ $IS_ETC -eq 1 ]]; then
     fi
     echo "\t\tReflector .. Done"
 
-    copy_if_newer "$HOME/.dotfiles/etc/udev" "/etc/udev/rules.d/" "sudo"
+    copy_if_newer "$HOME/.dotfiles/etc/udev" "/etc/udev/rules.d" "sudo"
     sudo udevadm control --reload
     sudo udevadm control --reload-rules
     echo "\t\tUdev rules .. Done"
 
-    copy_if_newer "$HOME/.dotfiles/etc/hooks" "/etc/pacman.d/hooks/"
+    copy_if_newer "$HOME/.dotfiles/etc/tlp" "/etc" "sudo"
+    echo "\t\tTLP .. Done"
+
+    copy_if_newer "$HOME/.dotfiles/etc/hooks" "/etc/pacman.d/hooks"
     echo "\t\tPacman hooks .. Done"
     
-    copy_if_newer "$HOME/.dotfiles/etc/systemd" "$confd/systemd/user/"
+    copy_if_newer "$HOME/.dotfiles/etc/systemd" "$confd/systemd/user"
     echo "\t\tUser systemd .. Done"
 fi
 
