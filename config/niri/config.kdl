@@ -41,8 +41,8 @@ input {
     mouse {
         // off
         // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
+        accel-profile "flat"
+        accel-speed 0
         // scroll-method "no-scroll"
     }
 
@@ -80,10 +80,10 @@ input {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@120.030"
+    mode "1920x1080@60.052"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 2
+    scale 1
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -98,7 +98,7 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    // position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -248,6 +248,8 @@ layout {
         // top 64
         // bottom 64
     }
+
+    // background-color "transparent"
 }
 
 // Add lines like this to spawn processes at startup.
@@ -258,6 +260,7 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "waypaper" "--restore"
 
 environment {
     DISPLAY ":0"
@@ -278,6 +281,19 @@ gestures {
     hot-corners {
         off
     }
+}
+
+overview {
+    // backdrop-color ""
+    workspace-shadow {
+        on
+    }
+}
+
+layer-rule {
+    match namespace="^wpaperd"
+
+    place-within-backdrop true
 }
 
 // debug {
@@ -396,10 +412,37 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
+// window-rule {
+//     match app-id="^Zotero$" title=""
+//     open-floating true
+//     open-focused false
+// }
+
+window-rule {
+    match app-id="^Zotero$" title="^Citation Dialog"
+    open-floating true
+    open-focused true
+    default-window-height { fixed 780; }
+    default-column-width { fixed 1240; }
+}
+
+window-rule {
+    match app-id="^Zotero$" title="^New Collection$"
+    open-floating true
+    open-focused true
+    default-window-height { fixed 190; }
+    default-column-width { fixed 348; }
+}
+
+window-rule {
+    match app-id="^Zotero$" title="Zotero - Document Preferences"
+    open-floating true
+    open-focused true
+}
 
 // Exmple: block out two pwssword managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
