@@ -78,9 +78,9 @@ if [[ $IS_CONF -eq 1 ]]; then
 fi
 
 if [[ $IS_DESKTOP -eq 1 ]]; then
-    echo "Linking desktop files to $DATA_DIR/applications/"
-    stow "desktop" -t "$DATA_DIR/applications/"
-    update-desktop-database "$DATA_DIR/applications/"
+    echo "Linking desktop files to $DATA_DIR/applications"
+    stow "desktop" -t "$DATA_DIR/applications"
+    update-desktop-database "$DATA_DIR/applications"
 fi
 
 copy_if_newer() {
