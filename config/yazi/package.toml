@@ -1,54 +1,54 @@
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "8f1d971"
+rev = "230b9c6"
 hash = "3996fc74044bc44144b323686f887e1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:chmod"
-rev = "8f1d971"
-hash = "8ad3e90b079190b4905f24a44f4ca06b"
+rev = "230b9c6"
+hash = "8da0b15a97b5dfd13941d1ecc617ac7c"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:git"
-rev = "8f1d971"
-hash = "63b6c222bf2103b3023389dde5e2ecfe"
+rev = "230b9c6"
+hash = "270915fa8282a19908449530ff66f7e2"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "8f1d971"
-hash = "bcda8eeb3f4013bae156aecabfc745e8"
-
-[[plugin.deps]]
-use = "yazi-rs/plugins:mime-ext"
-rev = "8f1d971"
-hash = "4c49c446328c4553a4ccab7facc10b21"
+rev = "230b9c6"
+hash = "407d19bc4fb46eff5fa8ff8337644847"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:lsar"
-rev = "8f1d971"
-hash = "f9cdfb0e78ecdf6ce5ed5d3b3d1beaa8"
+rev = "230b9c6"
+hash = "c1c66e28145e28e581e74e2d6da4fdf1"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:jump-to-char"
-rev = "8f1d971"
+rev = "230b9c6"
 hash = "ce67445ebb1bf3d97b8e44f50904b2c5"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:mount"
-rev = "8f1d971"
-hash = "4fccaaf10c36dc2466e2438a386ff017"
+rev = "230b9c6"
+hash = "9ad20d763df07ce40fd09de549d914b0"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:toggle-pane"
-rev = "8f1d971"
+rev = "230b9c6"
 hash = "8a7c58225816a163a6e8730c0adafbc8"
 
 [[plugin.deps]]
 use = "Ape/smart-enter"
-rev = "7b84c89"
-hash = "43eb1a1f2291795fb5b0b2ce1206ebee"
+rev = "eff8665"
+hash = "dfe8be84be3a3d5d42c38d0a6d74f206"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:mime-ext"
+rev = "230b9c6"
+hash = "7b7dc677b58371da6fc63e4fcd134651"
 
 [[flavor.deps]]
 use = "dangooddd/kanagawa"
-rev = "a0b1d9d"
-hash = "abfb0b2371259b2c8adfc7b617c3d7e5"
+rev = "04985d1"
+hash = "c69a63981e254a3a06a11c2bf0e6af1d"
