@@ -42,7 +42,8 @@ while getopts "acoeuds" flag; do
     esac
 done
 
-confd="$XDG_CONFIG_HOME"
+CONFIG_DIR="$XDG_CONFIG_HOME"
+DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"
 CWD=$(pwd)
 
 [[ ! -d "$HOME/.dotfiles/logs" ]] && mkdir "$HOME/.dotfiles/logs"
@@ -77,9 +78,9 @@ if [[ $IS_CONF -eq 1 ]]; then
 fi
 
 if [[ $IS_DESKTOP -eq 1 ]]; then
-    echo "Linking desktop files to $XDG_DATA_HOME/applications/"
-    stow "desktop" -t "$XDG_DATA_HOME/applications/"
-    update-desktop-database "$XDG_DATA_HOME/applications/"
+    echo "Linking desktop files to $DATA_DIR/applications/"
+    stow "desktop" -t "$DATA_DIR/applications/"
+    update-desktop-database "$DATA_DIR/applications/"
 fi
 
 copy_if_newer() {
@@ -130,7 +131,7 @@ if [[ $IS_ETC -eq 1 ]]; then
     copy_if_newer "$HOME/.dotfiles/etc/hooks" "/etc/pacman.d/hooks"
     echo "\t\tPacman hooks .. Done"
     
-    copy_if_newer "$HOME/.dotfiles/etc/systemd" "$confd/systemd/user"
+    copy_if_newer "$HOME/.dotfiles/etc/systemd" "$CONFIG_DIR/systemd/user"
     echo "\t\tUser systemd .. Done"
 fi
 
@@ -169,12 +170,12 @@ fi
 # Alacritty themes here: https://github.com/alacritty/alacritty-theme
 
 # if [[ $IS_CONF -eq 1 && $IS_UWSM -eq 1 ]]; then
-#     rm "$confd/hypr/hyprland.conf"
-#     ln -s "$HOME/.dotfiles/config/hypr/hyprland_uwsm.conf" "$confd/hypr/hyprland.conf"
+#     rm "$CONFIG_DIR/hypr/hyprland.conf"
+#     ln -s "$HOME/.dotfiles/config/hypr/hyprland_uwsm.conf" "$CONFIG_DIR/hypr/hyprland.conf"
 #     hyprctl reload
 # elif [[ $IS_CONF -eq 1 ]]; then
-#     rm "$confd/hypr/hyprland.conf"
-#     ln -s "$HOME/.dotfiles/config/hypr/hyprland_standalone.conf" "$confd/hypr/hyprland.conf"
+#     rm "$CONFIG_DIR/hypr/hyprland.conf"
+#     ln -s "$HOME/.dotfiles/config/hypr/hyprland_standalone.conf" "$CONFIG_DIR/hypr/hyprland.conf"
 #     hyprctl reload
 # fi
 
