@@ -139,7 +139,7 @@ function av() {
 alias dv='deactivate'
 
 alias %=' '
-alias cd='z'
+# alias cd='z'
 
 # alias vi='nvim'
 # alias vim='nvim'
@@ -230,8 +230,21 @@ vbox(){
     fi
 }
 
-# alias vbox='doas modprobe vboxdrv'
-# alias vboxadv='doas modprobe vboxnetadp; doas modprobe vboxnetflt'
+unfuck(){
+    if [[ "$#" -eq 0 ]]; then
+        echo "Requires arguments to work!"
+    elif [[ "$1" == "b" || "$1" == "blue" ]]; then
+
+        printf "\033[0;35m\nDisconnect any bluetooth devices and turn off bluetooth before continuing\e[0m\n"
+        echo "Press Enter to continue..."
+        read -s -n 1
+
+        systemctl --user stop pipewire wireplumber
+        rm -rf ~/.local/state/wireplumber/*
+        systemctl --user start pipewire wireplumber
+    fi
+}
+
 
 # LaTex
 export MANPATH="$MANPATH:$HOME/ProgramFiles/LaTeX/texlive/2025/texmf-dist/doc/man"

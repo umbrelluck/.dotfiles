@@ -19,9 +19,10 @@
 
 [credential]
     ; helper = store
-    helper = /usr/bin/git-credential-manager
+    helper = /usr/lib/git-core/git-credential-libsecret
+    ; helper = /usr/bin/git-credential-manager
     ; credentialStore = gpg
-    credentialStore = secretservice
+    ; credentialStore = secretservice
 
 [delta]
     navigate = true
