@@ -3,7 +3,9 @@ require("full-border"):setup({
     type = ui.Border.ROUNDED,
 })
 
-require("git"):setup()
+require("git"):setup({
+    order = 1500,
+})
 
 require("mime-ext.local"):setup({
     -- Expand the existing filename database (lowercase), for example:
@@ -18,5 +20,5 @@ require("mime-ext.local"):setup({
 
     -- If the MIME type is not in both filename and extension databases,
     -- then fallback to Yazi's preset `mime.local` plugin, which uses `file(1)`
-    fallback_file1 = false,
+    fallback_file1 = true,
 })
