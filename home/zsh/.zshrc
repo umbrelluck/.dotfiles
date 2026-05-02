@@ -144,6 +144,8 @@ alias %=' '
 # alias vi='nvim'
 # alias vim='nvim'
 
+alias teamviewer="QT_QPA_PLATFORM=xcb teamviewer"
+
 alias eli='zellij'
 alias elia='zellij a'
 alias eliad='elia -c default'

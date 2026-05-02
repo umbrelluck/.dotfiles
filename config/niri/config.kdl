@@ -61,7 +61,8 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    focus-follows-mouse max-scroll-amount="95%"
+    focus-follows-mouse max-scroll-amount="40%"
+    // focus-follows-mouse max-scroll-amount="95%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -70,7 +71,7 @@ input {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
 // Remember to uncomment the node by removing "/-"!
-/-output "eDP-1" {
+output "eDP-1" {
     // Uncomment this line to disable this output.
     // off
 
@@ -98,7 +99,14 @@ input {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    // position x=0 y=0
+    position x=0 y=0
+}
+
+
+output "HDMI-A-2" {
+    position x=1920 y=0
+    mode "1280x1024@60.020"
+    scale 1
 }
 
 // Settings that influence how windows are positioned and sized.
