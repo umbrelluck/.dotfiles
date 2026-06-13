@@ -2,7 +2,11 @@
 vt = 1
 
 [default_session]
-# command = "tuigreet --remember --cmd Hyprland"
-command = "cage -s -- regreet"
-# command = "Hyprland -c /etc/nwg-hello/hyprland.conf"
+command = "dbus-run-session cage -s -mlast -d -- regreet"
 user = "greeter"
+
+# [default_session]
+# # command = "tuigreet --remember --cmd Hyprland"
+# command = "cage -s -- regreet"
+# # command = "Hyprland -c /etc/nwg-hello/hyprland.conf"
+# user = "greeter"

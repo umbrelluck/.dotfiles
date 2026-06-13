@@ -1,27 +1,25 @@
 #! /bin/bash
 
-FORCE=0 # force uwsm-app instead of uwsm app
-FF=0    # force uwsm app -- as if is_uwsm is set
+FORCE=0
+FF=0
 
 while getopts 'fF' flag; do
-    case $flag in
-        f)
-            FORCE=1
-            shift
-            ;;
-        F)
-            FF=1
-            shift
-            ;;
-        *)
-            echo "Wrong flag, only -f and -r"
-            ;;
+    case "${flag}" in
+        f) FORCE=1 ;;
+        F) FF=1 ;;
+        *) echo "Usage: $0 [-f] [-F] command args..."; exit 1 ;;
     esac
 done
 
+shift $((OPTIND - 1))
 
-if [[ $IS_UWSM -eq 1 || $FF -eq 1 ]]; then
-    if [[ -n $(command -v uwsm-app 2>/dev/null) && $FORCE -eq 0 ]]; then
+if [ $# -eq 0 ]; then
+    echo "No command provided"
+    exit 1
+fi
+
+if [[ "${IS_UWSM}" == "1" || $FF -eq 1 ]]; then
+    if command -v uwsm-app >/dev/null 2>&1 && [[ $FORCE -eq 1 ]]; then
         uwsm-app -- "$@" &
     else
         uwsm app -- "$@" &

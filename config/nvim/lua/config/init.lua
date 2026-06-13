@@ -1,8 +1,10 @@
 local configs = {
     "preloaders",
+    "globals",
     "options",
     "remaps",
     "lazy",
+    "afterloaders"
 }
 
 root = "config."

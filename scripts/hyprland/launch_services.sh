@@ -8,8 +8,10 @@ systemctl --user start waybar.service
 systemctl --user start udiskie.service
 systemctl --user start copyq.service
 
+# wpaperd
+
 systemctl --user start hypridle.service
-# systemctl --user start hyprlock.service
+systemctl --user start hyprlock.service
 systemctl --user start hyprpaper.service
 systemctl --user start hyprsunset.service
 systemctl --user start hyprpolkitagent.service

@@ -42,7 +42,7 @@ input {
         // off
         // natural-scroll
         accel-profile "flat"
-        accel-speed 0
+        accel-speed 0.3
         // scroll-method "no-scroll"
     }
 
@@ -267,8 +267,9 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 // spawn-at-startup "waybar"
-spawn-at-startup "xwayland-satellite"
+// spawn-at-startup "xwayland-satellite"
 spawn-at-startup "waypaper" "--restore"
+spawn-at-startup "searxng"
 
 environment {
     DISPLAY ":0"
